@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Opiniones de Clientes</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13b6ec",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-200">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<div class="container mx-auto max-w-6xl px-4">
+<div class="flex items-center justify-between whitespace-nowrap border-b border-gray-200/80 dark:border-gray-700/80 py-3">
+<div class="flex items-center gap-4 text-gray-900 dark:text-white">
+<span class="material-symbols-outlined text-primary text-3xl">explore</span>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Wanderlust Travels</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end items-center gap-8">
+<div class="flex items-center gap-9">
+<a class="text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#">Inicio</a>
+<a class="text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#">Destinos</a>
+<a class="text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#">Sobre Nosotros</a>
+<a class="text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#">Contacto</a>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
+<span class="truncate">Reserva Ahora</span>
+</button>
+</div>
+<button class="md:hidden text-gray-900 dark:text-white">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- HeroSection -->
+<section class="container mx-auto max-w-6xl px-4 py-16 sm:py-24">
+<div class="@container">
+<div class="flex flex-col gap-8 items-center @[864px]:flex-row @[864px]:gap-12">
+<div class="flex flex-col gap-6 text-center @[864px]:text-left @[864px]:flex-1">
+<div class="flex flex-col gap-4">
+<h1 class="text-gray-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[864px]:text-6xl">Lo que dicen nuestros viajeros</h1>
+<p class="text-gray-600 dark:text-gray-300 text-base @[480px]:text-lg">Historias reales de personas que exploraron el mundo con nosotros. Descubre por qué tenemos una calificación de 4.8 de 5 estrellas de más de 1,000 reseñas.</p>
+</div>
+<div class="flex justify-center @[864px]:justify-start">
+<button class="flex w-full @[480px]:w-auto cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors">
+<span class="truncate">Comparte tu experiencia</span>
+</button>
+</div>
+</div>
+<div class="w-full @[864px]:w-1/2 @[864px]:flex-1">
+<div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl" data-alt="A collage of happy travelers in various scenic locations around the world." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC5TKBq2YnEdXZzwTR8mvj-1VbbCCH7YrwQ2V6qNdITXWz3EjfvWV74J8rX2GCHxEEuaRbO7139DcDeF_Mlg1gcBrqL4TZVv9gquRDSxpOQN9Nl7I_hEtrV8YwmVRaMiyO_GxhJOCfO_Vy0bcStsOrDalIFLmHDmiYE8C-6Jy79zLH9zDUrfT1jkw7GclqsdeCUFEJLc--jp5wjTyWVQ93fTORns2nfxCL4Lt3nhGLXZKP78tr7JvVC1CjssivO5F79UFvLnWYLd0M");'></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Reviews Section -->
+<section class="bg-background-light dark:bg-background-dark py-16 sm:py-24">
+<div class="container mx-auto max-w-6xl px-4">
+<!-- SectionHeader -->
+<div class="mb-8">
+<h2 class="text-gray-900 dark:text-white text-3xl font-bold leading-tight tracking-[-0.015em] text-center">Escucha a nuestros viajeros felices</h2>
+</div>
+<!-- Chips/Filters -->
+<div class="flex flex-wrap items-center justify-center gap-3 mb-10">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/10 dark:bg-primary/20 px-4">
+<p class="text-primary dark:text-white text-sm font-medium leading-normal">Más Reciente</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-200/60 dark:bg-gray-700/60 px-4 hover:bg-gray-300/60 dark:hover:bg-gray-600/60 transition-colors">
+<p class="text-gray-800 dark:text-gray-200 text-sm font-medium leading-normal">Mejor Valorados</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-200/60 dark:bg-gray-700/60 px-4 hover:bg-gray-300/60 dark:hover:bg-gray-600/60 transition-colors">
+<p class="text-gray-800 dark:text-gray-200 text-sm font-medium leading-normal">Europa</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-200/60 dark:bg-gray-700/60 px-4 hover:bg-gray-300/60 dark:hover:bg-gray-600/60 transition-colors">
+<p class="text-gray-800 dark:text-gray-200 text-sm font-medium leading-normal">Asia</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-200/60 dark:bg-gray-700/60 px-4 hover:bg-gray-300/60 dark:hover:bg-gray-600/60 transition-colors">
+<p class="text-gray-800 dark:text-gray-200 text-sm font-medium leading-normal">América</p>
+</button>
+</div>
+<!-- Reviews Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Review Card 1 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-700/80 p-6 bg-white dark:bg-gray-800/50 shadow-sm">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Avatar of Maria G." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAQ7GeWpJ_fFI0J4kUJ6yjfSorJTHMFiBziqeL4uOCGV_wL1i8pf6KNpUwiFkUZ-O9jYH5wfH8y38BWgQ6sSukZcyNnZV7v-dIUbI200Y7_c63otH7xqh89NiPXpQLe86lPohZEHb_zJo9q7nEbHyffh6rcbKpQRPRZmQHcltRC0_cxmftyxf-FTaySUI2n7q-PzBt4rXjtDzGl5U5R8-BwqgR4G4ZJJevL4QZbXYn-NNhoirluvhQfvNJTBkUTCFCCkg9bVHgcKmI");'></div>
+<div class="flex-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Maria G.</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Marzo 15, 2024</p>
+</div>
+</div>
+<div class="flex gap-0.5 text-primary">
+<span class="material-symbols-outlined text-xl">star</span>
+<span class="material-symbols-outlined text-xl">star</span>
+<span class="material-symbols-outlined text-xl">star</span>
+<span class="material-symbols-outlined text-xl">star</span>
+<span class="material-symbols-outlined text-xl">star</span>
+</div>
+<p class="text-gray-700 dark:text-gray-300 text-base font-normal leading-normal">"¡El viaje a Kioto fue un sueño hecho realidad! Cada detalle fue perfecto, desde los hoteles hasta las visitas guiadas. Altamente recomendado para cualquiera que desee una experiencia de viaje sin problemas."</p>
+</div>
+<!-- Review Card 2 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-700/80 p-6 bg-white dark:bg-gray-800/50 shadow-sm">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Avatar of John K." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBtdugI8L7rE_mEI36ETWSXBEDD0aOhcAyRvAqEEp1D8nC7_1keIpzz7_WQBH0wnh0CfIR5UoMg87KoLDdabe-iccbig92Oo5-yWwRB9q394tz7ry7JRSAqiq6qroOSBNa09b5fMUzF6K09FL4w4keOP5hcbd__EnQDPde-X7YyuNTCtuUazyjqAl6rvR5eNsjCnErDpbRXYNjGLcpts1dVdOk4R3-GTUXxbsimKehxu8duI2bjx5LfEZI-M6bWmHhqfFqJ4XcAuNo");'></div>
+<div class="flex-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">John K.</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Febrero 28, 2024</p>
+</div>
+</div>
+<div class="flex gap-0.5 text-primary">
+<span class="material-symbols-outlined text-xl">star</span>
+<span class="material-symbols-outlined text-xl">star</span>
+<span class="material-symbols-outlined text-xl">star</span>
+<span class="material-symbols-outlined text-xl">star</span>
+<span class="material-symbols-outlined text-xl">star</span>
+</div>
+<p class="text-gray-700 dark:text-gray-300 text-base font-normal leading-normal">"Nuestra aventura familiar en Costa Rica fue inolvidable. Los guías turísticos eran conocedores y amables, y nos sentimos seguros y bien atendidos durante todo el viaje. ¡Volveremos a reservar!"</p>
+</div>
+<!-- Review Card 3 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200/80 dark:border-gray-700/80 p-6 bg-white dark:bg-gray-800/50 shadow-sm">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Avatar of Aisha B." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAMUYT2JQMjdwJ9I5f5J3OWI2zvIIY751OJeMsRoY_JmWwd2c3G92Ngd2lZM6pgYdOLmGckDNz2ArNTVAiCKaEwMnm1F3ywjY3r4JZlwWNZK3pV2QaS7doE5AsVnGKyShdHUxidL7QLOCMDKgCnqkgReV91oYpWaK4U-b5eW9yqPFJzjLE6iCmsND-9Inh-kWYP28dfiJ15N7gvaGHRLkfwOKXQTRfGaMaMtjdcmIZpclsxa-4L6-3fqHGPTBJpRYWisx5SNrfi6do");'></div>
+<div class="flex-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Aisha B.</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Enero 19, 2024</p>
+</div>
+</div>
+<div class="flex gap-0.5 text-primary">
+<span class="material-symbols-outlined text-xl">star</span>
+<span class="material-symbols-outlined text-xl">star</span>
+<span class="material-symbols-outlined text-xl">star</span>
+<span class="material-symbols-outlined text-xl">star</span>
+<span class="material-symbols-outlined text-xl text-gray-300 dark:text-gray-600" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+<p class="text-gray-700 dark:text-gray-300 text-base font-normal leading-normal">"Un fantástico recorrido por la costa italiana. El paisaje era impresionante. Mi única pequeña crítica es que desearía que hubiéramos tenido más tiempo libre en Positano, pero en general fue un viaje maravilloso."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Leave a Review Form Section -->
+<section class="container mx-auto max-w-6xl px-4 py-16 sm:py-24">
+<div class="max-w-3xl mx-auto">
+<div class="text-center mb-10">
+<h2 class="text-gray-900 dark:text-white text-3xl font-bold leading-tight tracking-[-0.015em]">¿Tienes una historia para compartir?</h2>
+<p class="mt-4 text-gray-600 dark:text-gray-300 text-lg">Nos encantaría saber sobre tu aventura. Tus comentarios ayudan a otros viajeros.</p>
+</div>
+<div class="bg-white dark:bg-gray-800/50 rounded-xl border border-gray-200/80 dark:border-gray-700/80 p-8 shadow-sm">
+<form action="#" class="space-y-6" method="POST">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="name">Nombre</label>
+<input autocomplete="name" class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm" id="name" name="name" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="email">Email</label>
+<input autocomplete="email" class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm" id="email" name="email" type="email"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Tu calificación</label>
+<div class="mt-2 flex items-center gap-1 text-gray-300 dark:text-gray-500">
+<button type="button"><span class="material-symbols-outlined text-3xl hover:text-primary transition-colors">star</span></button>
+<button type="button"><span class="material-symbols-outlined text-3xl hover:text-primary transition-colors">star</span></button>
+<button type="button"><span class="material-symbols-outlined text-3xl hover:text-primary transition-colors">star</span></button>
+<button type="button"><span class="material-symbols-outlined text-3xl hover:text-primary transition-colors">star</span></button>
+<button type="button"><span class="material-symbols-outlined text-3xl hover:text-primary transition-colors">star</span></button>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="review">Tu opinión</label>
+<textarea class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm" id="review" name="review" rows="4"></textarea>
+</div>
+<div class="flex justify-end">
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-colors" type="submit">
+<span class="truncate">Enviar Opinión</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-gray-100 dark:bg-background-dark border-t border-gray-200/80 dark:border-gray-700/80">
+<div class="container mx-auto max-w-6xl px-4 py-8">
+<div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+<p class="text-sm text-gray-500 dark:text-gray-400">© 2024 Wanderlust Travels. Todos los derechos reservados.</p>
+<div class="flex gap-4 mt-4 md:mt-0">
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary" href="#">Términos</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary" href="#">Privacidad</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

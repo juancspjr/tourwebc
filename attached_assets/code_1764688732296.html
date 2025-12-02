@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact Us - Wanderlust Travel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script defer="" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#13b6ec",
+            "background-light": "#f6f8f8",
+            "background-dark": "#101d22",
+          },
+          fontFamily: {
+            "display": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d181b] dark:text-gray-200">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="sticky top-0 z-50 w-full border-b border-solid border-gray-200/80 bg-background-light/80 backdrop-blur-lg dark:border-gray-800/80 dark:bg-background-dark/80">
+<div class="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+<div class="flex items-center gap-4 py-4 text-[#0d181b] dark:text-white">
+<div class="text-primary size-6">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Wanderlust Travel</h2>
+</div>
+<nav class="hidden items-center gap-9 md:flex">
+<a class="text-sm font-medium leading-normal text-[#0d181b] hover:text-primary dark:text-gray-300 dark:hover:text-primary" href="#">Home</a>
+<a class="text-sm font-medium leading-normal text-[#0d181b] hover:text-primary dark:text-gray-300 dark:hover:text-primary" href="#">Destinations</a>
+<a class="text-sm font-medium leading-normal text-[#0d181b] hover:text-primary dark:text-gray-300 dark:hover:text-primary" href="#">About Us</a>
+<a class="text-sm font-medium leading-normal text-primary dark:text-primary" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-[#0d181b] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+<span class="truncate">Book Now</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:py-20 lg:px-8">
+<div class="mb-12 text-center">
+<p class="text-4xl font-black leading-tight tracking-[-0.033em] text-[#0d181b] dark:text-white sm:text-5xl">Contacta con Nosotros</p>
+<p class="mt-4 max-w-2xl mx-auto text-lg leading-relaxed text-gray-500 dark:text-gray-400">
+                Estamos aquí para ayudarte a planificar tu aventura. Rellena el formulario o utiliza nuestros datos de contacto directo.
+            </p>
+</div>
+<div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+<div class="flex flex-col gap-10">
+<div>
+<h2 class="text-2xl font-bold leading-tight tracking-[-0.015em] text-[#0d181b] dark:text-white">Otras Formas de Contacto</h2>
+<div class="mt-6 flex flex-col gap-4">
+<div class="flex items-center gap-4 rounded-lg bg-white p-4 dark:bg-background-dark/50">
+<div class="text-[#0d181b] dark:text-white flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/20">
+<span class="material-symbols-outlined">phone</span>
+</div>
+<div class="flex-1">
+<p class="text-base font-medium leading-normal text-[#0d181b] dark:text-white">Teléfono</p>
+<p class="truncate text-gray-500 dark:text-gray-400">+1 (555) 123-4567</p>
+</div>
+<a class="text-sm font-bold text-primary hover:underline" href="tel:+15551234567">Llamar</a>
+</div>
+<div class="flex items-center gap-4 rounded-lg bg-white p-4 dark:bg-background-dark/50">
+<div class="text-[#0d181b] dark:text-white flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/20">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div class="flex-1">
+<p class="text-base font-medium leading-normal text-[#0d181b] dark:text-white">Email</p>
+<p class="truncate text-gray-500 dark:text-gray-400">hola@wanderlust.com</p>
+</div>
+<a class="text-sm font-bold text-primary hover:underline" href="mailto:hola@wanderlust.com">Enviar</a>
+</div>
+<a class="flex items-center gap-4 rounded-lg bg-white p-4 dark:bg-background-dark/50 hover:bg-gray-50 dark:hover:bg-background-dark" href="https://wa.me/15551234567" target="_blank">
+<div class="text-[#0d181b] dark:text-white flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#25D366]/20">
+<svg class="h-6 w-6 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.04 2.01C6.58 2.01 2.13 6.46 2.13 12c0 1.76.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.77 3.06 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zm0 18.13c-1.63 0-3.2-.4-4.59-1.18L3.62 20.3l1.39-3.79c-.88-1.5-1.36-3.23-1.36-5.02 0-4.52 3.68-8.2 8.2-8.2 4.52 0 8.2 3.68 8.2 8.2 0 4.52-3.68 8.2-8.2 8.2zm4.52-6.59c-.25-.13-1.47-.72-1.7-.81-.23-.09-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.38.11-.51.12-.11.25-.29.38-.43.13-.14.17-.25.25-.41.09-.17.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.42-.55-.42h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.76 2.68 4.27 3.77 2.51 1.08 2.51.72 2.96.69.45-.03 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.05-.1-.2-.16-.44-.29z"></path>
+</svg>
+</div>
+<div class="flex-1">
+<p class="text-base font-medium leading-normal text-[#0d181b] dark:text-white">WhatsApp</p>
+<p class="truncate text-gray-500 dark:text-gray-400">Consultas rápidas</p>
+</div>
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500">open_in_new</span>
+</a>
+<div class="flex items-center gap-4 rounded-lg bg-white p-4 dark:bg-background-dark/50">
+<div class="text-[#0d181b] dark:text-white flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/20">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div class="flex-1">
+<p class="text-base font-medium leading-normal text-[#0d181b] dark:text-white">Dirección</p>
+<p class="text-gray-500 dark:text-gray-400">123 Travel Lane, Adventure City, World</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-2xl font-bold leading-tight tracking-[-0.015em] text-[#0d181b] dark:text-white">Horario de Atención</h2>
+<div class="mt-6 rounded-lg bg-white p-6 dark:bg-background-dark/50">
+<ul class="space-y-3 text-gray-600 dark:text-gray-300">
+<li class="flex justify-between"><span>Lunes - Viernes</span><span class="font-medium text-[#0d181b] dark:text-white">9:00 AM - 6:00 PM</span></li>
+<li class="flex justify-between"><span>Sábado</span><span class="font-medium text-[#0d181b] dark:text-white">10:00 AM - 4:00 PM</span></li>
+<li class="flex justify-between"><span>Domingo</span><span class="font-medium text-gray-400 dark:text-gray-500">Cerrado</span></li>
+</ul>
+</div>
+</div>
+<div>
+<h2 class="text-2xl font-bold leading-tight tracking-[-0.015em] text-[#0d181b] dark:text-white">Encuéntranos</h2>
+<div class="mt-6 h-80 overflow-hidden rounded-xl">
+<iframe class="h-full w-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12613.084898124238!2d-122.4194156!3d37.7749295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808580649b5d7d3d%3A0x4f179d6f8f537021!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1628867540954!5m2!1sen!2s" title="Mapa de ubicación">
+</iframe>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-12">
+<div class="rounded-xl bg-white p-8 shadow-sm dark:bg-background-dark/50">
+<h2 class="text-2xl font-bold leading-tight tracking-[-0.015em] text-[#0d181b] dark:text-white">Envíanos un Mensaje</h2>
+<form action="#" class="mt-8 space-y-6" method="POST">
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="name">Nombre</label>
+<div class="mt-1">
+<input autocomplete="name" class="block w-full rounded-lg border-gray-300 bg-gray-50 shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:border-gray-600 dark:text-white dark:placeholder-gray-400" id="name" name="name" placeholder="Tu nombre completo" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="email">Email</label>
+<div class="mt-1">
+<input autocomplete="email" class="block w-full rounded-lg border-gray-300 bg-gray-50 shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:border-gray-600 dark:text-white dark:placeholder-gray-400" id="email" name="email" placeholder="tu@email.com" type="email"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="message">Mensaje</label>
+<div class="mt-1">
+<textarea class="block w-full rounded-lg border-gray-300 bg-gray-50 shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:border-gray-600 dark:text-white dark:placeholder-gray-400" id="message" name="message" placeholder="¿Cómo podemos ayudarte a planificar tu próximo viaje?" rows="4"></textarea>
+</div>
+</div>
+<div>
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-[#0d181b] text-base font-bold tracking-[0.015em] hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark" type="submit">
+                  Enviar Mensaje
+                </button>
+</div>
+</form>
+</div>
+<div class="rounded-xl bg-white p-8 shadow-sm dark:bg-background-dark/50" x-data="{ activeAccordion: null }">
+<h2 class="text-2xl font-bold leading-tight tracking-[-0.015em] text-[#0d181b] dark:text-white">Preguntas Frecuentes</h2>
+<div class="mt-6 space-y-4">
+<div class="border-b border-gray-200 dark:border-gray-700 pb-4">
+<button @click="activeAccordion = activeAccordion === 1 ? null : 1" class="flex w-full items-center justify-between text-left text-lg font-medium text-[#0d181b] dark:text-white">
+<span>¿Qué incluyen sus paquetes de viaje?</span>
+<span :class="{'rotate-180': activeAccordion === 1, 'rotate-0': activeAccordion !== 1}" class="material-symbols-outlined transform transition-transform duration-300">expand_more</span>
+</button>
+<div x-cloak="" x-collapse="" x-show="activeAccordion === 1">
+<p class="mt-2 text-gray-600 dark:text-gray-300">Nuestros paquetes generalmente incluyen vuelos, alojamiento, traslados y tours guiados. Los detalles específicos varían según el destino, así que consulta la página del paquete para obtener información completa.</p>
+</div>
+</div>
+<div class="border-b border-gray-200 dark:border-gray-700 pb-4">
+<button @click="activeAccordion = activeAccordion === 2 ? null : 2" class="flex w-full items-center justify-between text-left text-lg font-medium text-[#0d181b] dark:text-white">
+<span>¿Puedo personalizar un itinerario?</span>
+<span :class="{'rotate-180': activeAccordion === 2, 'rotate-0': activeAccordion !== 2}" class="material-symbols-outlined transform transition-transform duration-300">expand_more</span>
+</button>
+<div x-cloak="" x-collapse="" x-show="activeAccordion === 2">
+<p class="mt-2 text-gray-600 dark:text-gray-300">¡Absolutamente! Nos especializamos en crear experiencias de viaje personalizadas. Contáctanos con tus ideas y nuestros expertos en viajes te ayudarán a diseñar el viaje de tus sueños.</p>
+</div>
+</div>
+<div class="pb-4">
+<button @click="activeAccordion = activeAccordion === 3 ? null : 3" class="flex w-full items-center justify-between text-left text-lg font-medium text-[#0d181b] dark:text-white">
+<span>¿Cuál es su política de cancelación?</span>
+<span :class="{'rotate-180': activeAccordion === 3, 'rotate-0': activeAccordion !== 3}" class="material-symbols-outlined transform transition-transform duration-300">expand_more</span>
+</button>
+<div x-cloak="" x-collapse="" x-show="activeAccordion === 3">
+<p class="mt-2 text-gray-600 dark:text-gray-300">Nuestra política de cancelación varía según el paquete de viaje y el momento de la cancelación. Te recomendamos revisar nuestros Términos y Condiciones o contactarnos directamente para obtener información detallada.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-white dark:bg-background-dark/50 border-t border-gray-200/80 dark:border-gray-800/80">
+<div class="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col items-center justify-between gap-6 sm:flex-row">
+<div class="flex items-center gap-4 text-[#0d181b] dark:text-white">
+<div class="text-primary size-6">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill="currentColor" fill-rule="evenodd"></path></svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Wanderlust Travel</h2>
+</div>
+<div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-500 dark:text-gray-400">
+<a class="hover:text-primary" href="#">About</a>
+<a class="hover:text-primary" href="#">Destinations</a>
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+</div>
+</div>
+<p class="mt-8 text-center text-sm text-gray-400 dark:text-gray-500">© 2024 Wanderlust Travel. Todos los derechos reservados.</p>
+</div>
+</footer>
+<div class="fixed bottom-6 right-6 z-50">
+<button class="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-[#0d181b] shadow-lg transition-transform hover:scale-110">
+<span class="material-symbols-outlined text-3xl">chat</span>
+</button>
+</div>
+</div>
+</body></html>

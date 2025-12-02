@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TravelWorld - Tu Próxima Aventura Comienza Aquí</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#40E0D0", // Turquesa
+                        "primary-dark": "#003366", // Azul Profundo
+                        accent: "#FF6F61", // Naranja Coral
+                        "background-light": "#F8F9FA",
+                        "background-dark": "#101d22",
+                        "text-light": "#0d181b",
+                        "text-dark": "#f8f9fa",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1a2a31",
+                        "border-light": "#e7f0f3",
+                        "border-dark": "#2c3e47",
+                    },
+                    fontFamily: {
+                        display: ["Plus Jakarta Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                        lg: "1rem",
+                        xl: "1.5rem",
+                        full: "9999px",
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="relative flex min-h-screen w-full flex-col">
+<header class="w-full px-4 sm:px-10 lg:px-20 py-3 sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-border-light dark:border-border-dark">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="size-6 text-primary-dark dark:text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_330)">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+<defs>
+<clipPath id="clip0_6_330">
+<rect fill="white" height="48" width="48"></rect>
+</clipPath>
+</defs>
+</svg>
+</div>
+<h2 class="text-lg font-bold text-primary-dark dark:text-white">TravelWorld</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-accent dark:hover:text-primary" href="#">Home</a>
+<a class="text-sm font-medium hover:text-accent dark:hover:text-primary" href="#">About Us</a>
+<a class="text-sm font-medium hover:text-accent dark:hover:text-primary" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-3">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-accent text-white text-sm font-bold leading-normal tracking-[0.015em] transition-transform duration-200 hover:scale-105">
+<span class="truncate">Sign Up</span>
+</button>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-border-light dark:bg-border-dark text-primary-dark dark:text-white text-sm font-bold leading-normal tracking-[0.015em] transition-colors hover:bg-gray-200 dark:hover:bg-gray-700">
+<span class="truncate">Log In</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<section class="relative min-h-[60vh] flex items-center justify-center text-center p-4">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Exotic beach with turquoise water and cliffs" style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBxSlrXPE2Fc4R8ywYxdOpyd8PXDtauIzZtisFR8Aop9BFsTTrE7HQT7z8Hm-2r-W_qU7BlKAceV8RewY7Eg-37RbBLar87i40kUQ1roUu9FmUEfVfRBzK6DGS44Qumeheg8e4-AmbFzBoXhnMEORj0oVd151LoG7WOEY5axG9e7JUd5MklBHOerdPGpxIB94ou4aJP0-VFg3MjEbYySQPUMYMCPj7mEldx3JEYlTOxRjjcpXgcJKfu3iIKEv63SCoa-x16lwhcUN4");'></div>
+<div class="relative z-10 flex flex-col items-center gap-6 max-w-3xl">
+<h1 class="text-white text-4xl sm:text-5xl md:text-6xl font-black leading-tight tracking-[-0.033em]">Tu Próxima Aventura Comienza Aquí</h1>
+<h2 class="text-white text-base sm:text-lg font-normal leading-normal max-w-xl">Descubre paquetes de viaje exclusivos a los mejores destinos del mundo.</h2>
+<label class="flex flex-col h-14 w-full max-w-lg mt-4">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-lg">
+<div class="text-gray-500 flex bg-white items-center justify-center pl-4 rounded-l-xl border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden text-gray-800 focus:outline-0 focus:ring-0 border-0 bg-white h-full placeholder:text-gray-500 px-2 text-base font-normal leading-normal" placeholder="Busca tu próximo destino..." value=""/>
+<div class="flex items-center justify-center rounded-r-xl bg-white pr-2">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-accent text-white text-sm font-bold leading-normal tracking-[0.015em] transition-transform duration-200 hover:scale-105">
+<span class="truncate">Buscar</span>
+</button>
+</div>
+</div>
+</label>
+</div>
+</section>
+<section class="py-12 md:py-20">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="mb-5 px-4 text-center">
+<h2 class="text-3xl sm:text-4xl font-bold leading-tight tracking-[-0.015em] text-primary-dark dark:text-white">Paquetes Turísticos</h2>
+<p class="mt-2 text-gray-600 dark:text-gray-300">Encuentra la aventura perfecta para ti.</p>
+</div>
+<div class="my-8 md:my-10 max-w-2xl mx-auto">
+<div class="relative flex items-center w-full bg-card-light dark:bg-card-dark rounded-xl shadow-md border border-border-light dark:border-border-dark p-2">
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500 ml-3">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 pl-2 text-text-light dark:text-text-dark placeholder:text-gray-400 dark:placeholder:text-gray-500" placeholder="Escribe un destino o selecciona de la lista" type="text"/>
+<div class="relative">
+<select class="appearance-none bg-primary-dark dark:bg-primary text-white text-sm font-bold rounded-lg pl-4 pr-10 py-2.5 h-10 cursor-pointer focus:ring-2 focus:ring-offset-2 focus:ring-accent dark:focus:ring-offset-card-dark transition-colors duration-200 hover:bg-opacity-90 dark:hover:bg-opacity-90">
+<option>Destino</option>
+<option>Tailandia</option>
+<option>Italia</option>
+<option>Perú</option>
+<option>Japón</option>
+<option>Egipto</option>
+</select>
+<span class="material-symbols-outlined text-white pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">expand_more</span>
+</div>
+</div>
+</div>
+<div class="flex justify-center gap-2 sm:gap-3 p-3 overflow-x-auto whitespace-nowrap">
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full px-5 bg-primary-dark text-white text-sm font-medium">Todos</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full px-5 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark hover:bg-primary/20 dark:hover:bg-primary/30">Aventura</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full px-5 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark hover:bg-primary/20 dark:hover:bg-primary/30">Playa</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full px-5 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark hover:bg-primary/20 dark:hover:bg-primary/30">Cultural</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full px-5 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark hover:bg-primary/20 dark:hover:bg-primary/30">Europa</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full px-5 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark hover:bg-primary/20 dark:hover:bg-primary/30">Asia</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-full px-5 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark hover:bg-primary/20 dark:hover:bg-primary/30">Sudamérica</button>
+</div>
+<div class="mt-10 px-4">
+<h2 class="text-2xl sm:text-3xl font-bold leading-tight tracking-[-0.015em] text-primary-dark dark:text-white mb-8 text-center">Nuestros Paquetes Destacados</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="flex flex-col bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+<div class="relative">
+<div class="aspect-w-4 aspect-h-3 bg-cover bg-center" data-alt="Iconic temples in Bangkok, Thailand" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAxbcceb_AM1DIhdvBKOfVqadYceMoFadHSgZvHjpdI8o1bOy5zGUQiyIC0r4JLFkxlJwkZqYLTvgmCGaVEV1odzPp78soA7ed9EfUwdDbgB-jj0sm1hbf_yWCKONAezJVjfkShbWtUZWiZVBVd3mh6GR6iOZCGkHhYc2wKcwqwLHTRxAR_ZPF7bH3OOMQ74rJt2TXRf4mSxLHmU_J5HSxgmVNsk5m3Dyf0y-vNvrXTEXX3pwsSeKHPCMZWuwkoVdjAO8BpuEjfjaA");'></div>
+<div class="absolute top-3 right-3 bg-accent text-white text-xs font-bold py-1 px-3 rounded-full">Más Popular</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="text-xl font-bold text-primary-dark dark:text-white mb-2">Maravillas de Tailandia</h3>
+<div class="flex-grow space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-4">
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-base text-primary">calendar_month</span> 10 días</p>
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-base text-primary">location_on</span> Bangkok, Chiang Mai, Phuket</p>
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-base text-primary">check_circle</span> Vuelos, hoteles y tours guiados</p>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<p class="text-lg font-bold text-primary-dark dark:text-white"><span class="text-sm font-normal text-gray-500 dark:text-gray-400">Desde</span> $1,500</p>
+<button class="flex items-center justify-center rounded-lg h-10 px-5 bg-primary-dark dark:bg-primary text-white text-sm font-bold transition-transform duration-200 hover:scale-105">Ver Detalles</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+<div class="relative">
+<div class="aspect-w-4 aspect-h-3 bg-cover bg-center" data-alt="Colosseum in Rome, Italy" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBmPsR2ZVBZq5RkvWkASrlpWxVZvPPvSzrTzSeDwx2e5sq_jg6GrXONtg-mGY4KAoOhQwaSNi1A1wiAKj-2cIjawk-qvd1RQCYhs-9LhGTJGHvu5Ml85uEpUfZlnurnZ61VlW0mODJK5uxsr26smj3j1xhhkXbPC6Y2FUutt3CCQ90qGOUI3qAP9iV5rGecKi5i3UZmWbdHACLTcHbM6t-uH56how8DoqpJ5eKCydOviekFOQWBXqHcxJfA7xdpE-87UkuWh0FhRvQ");'></div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="text-xl font-bold text-primary-dark dark:text-white mb-2">Tesoros de Italia</h3>
+<div class="flex-grow space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-4">
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-base text-primary">calendar_month</span> 7 días</p>
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-base text-primary">location_on</span> Roma, Florencia, Venecia</p>
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-base text-primary">check_circle</span> Trenes de alta velocidad, hoteles boutique</p>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<p class="text-lg font-bold text-primary-dark dark:text-white"><span class="text-sm font-normal text-gray-500 dark:text-gray-400">Desde</span> $1,800</p>
+<button class="flex items-center justify-center rounded-lg h-10 px-5 bg-primary-dark dark:bg-primary text-white text-sm font-bold transition-transform duration-200 hover:scale-105">Ver Detalles</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+<div class="relative">
+<div class="aspect-w-4 aspect-h-3 bg-cover bg-center" data-alt="Machu Picchu ancient ruins in Peru" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDsvPy5_WFJVswW2S4Y1Ax4qIwvCEuBYttgQAPSczCoWQe1v1-m6nhuTGYte0yBTYHk9yMSqBZBgtZGx0at5lEf6HDHdc3YyKVkY1IH5IK5FIF0sbm-gwEpU-lMeAGHwbOOvv0ycr_XjrXP0CCga8CPENCBV3W7AiupoNLcICXN7-u_W9hDbaWfRtxQDw9ywhfpqXJkmzYtFyrkjgdWR3rlinonLrig_MLK8HTybjadMMxZGNOK3ay1c3LNBvmAMZulrsSUxMC5SiI");'></div>
+<div class="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold py-1 px-3 rounded-full">Todo Incluido</div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="text-xl font-bold text-primary-dark dark:text-white mb-2">Aventura Inca en Perú</h3>
+<div class="flex-grow space-y-2 text-sm text-gray-600 dark:text-gray-300 mb-4">
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-base text-primary">calendar_month</span> 8 días</p>
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-base text-primary">location_on</span> Lima, Cusco, Machu Picchu</p>
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-base text-primary">check_circle</span> Excursión Camino Inca, guías expertos</p>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<p class="text-lg font-bold text-primary-dark dark:text-white"><span class="text-sm font-normal text-gray-500 dark:text-gray-400">Desde</span> $2,200</p>
+<button class="flex items-center justify-center rounded-lg h-10 px-5 bg-primary-dark dark:bg-primary text-white text-sm font-bold transition-transform duration-200 hover:scale-105">Ver Detalles</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-card-light dark:bg-card-dark border-t border-border-light dark:border-border-dark mt-16">
+<div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="col-span-2 md:col-span-1">
+<div class="flex items-center gap-2">
+<div class="size-6 text-primary-dark dark:text-primary">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_330_footer)">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+<defs>
+<clipPath id="clip0_6_330_footer">
+<rect fill="white" height="48" width="48"></rect>
+</clipPath>
+</defs>
+</svg>
+</div>
+<h2 class="text-lg font-bold text-primary-dark dark:text-white">TravelWorld</h2>
+</div>
+<p class="mt-4 text-sm text-gray-600 dark:text-gray-400">Tu agencia de viajes de confianza.</p>
+</div>
+<div>
+<h3 class="text-sm font-semibold uppercase tracking-wider text-primary-dark dark:text-white">Enlaces</h3>
+<ul class="mt-4 space-y-2">
+<li><a class="text-sm text-gray-600 dark:text-gray-400 hover:text-accent dark:hover:text-primary" href="#">Sobre Nosotros</a></li>
+<li><a class="text-sm text-gray-600 dark:text-gray-400 hover:text-accent dark:hover:text-primary" href="#">Destinos</a></li>
+<li><a class="text-sm text-gray-600 dark:text-gray-400 hover:text-accent dark:hover:text-primary" href="#">Blog</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-sm font-semibold uppercase tracking-wider text-primary-dark dark:text-white">Soporte</h3>
+<ul class="mt-4 space-y-2">
+<li><a class="text-sm text-gray-600 dark:text-gray-400 hover:text-accent dark:hover:text-primary" href="#">Contacto</a></li>
+<li><a class="text-sm text-gray-600 dark:text-gray-400 hover:text-accent dark:hover:text-primary" href="#">FAQ</a></li>
+<li><a class="text-sm text-gray-600 dark:text-gray-400 hover:text-accent dark:hover:text-primary" href="#">Términos de Servicio</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-sm font-semibold uppercase tracking-wider text-primary-dark dark:text-white">Síguenos</h3>
+<div class="flex mt-4 space-x-4">
+</div>
+</div>
+</div>
+<div class="mt-8 border-t border-border-light dark:border-border-dark pt-8 text-center">
+<p class="text-sm text-gray-500 dark:text-gray-400">© 2024 TravelWorld. Todos los derechos reservados.</p>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>

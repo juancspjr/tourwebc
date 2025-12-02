@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wanderlust Travels - Descubre Tu Próxima Aventura</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&amp;family=Merriweather:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+          --retro-brown: #8B4513;--retro-green: #6B8E23;--retro-beige: #F5DEB3;--retro-blue: #5F9EA0;--retro-red: #A52A2A;--retro-light-grey: #D3D3D3;--retro-dark-grey: #4A4A4A;--retro-text-dark: #333333;
+          --retro-text-light: #FDFBF8;
+        }
+        .text-shadow-retro {
+            text-shadow: 2px 2px var(--retro-dark-grey);
+        }
+    </style>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "var(--retro-blue)",
+                        "background-light": "var(--retro-beige)",
+                        "background-dark": "var(--retro-dark-grey)",
+                        "heading-dark": "var(--retro-brown)",
+                        "heading-light": "var(--retro-beige)",
+                        "body-dark": "var(--retro-text-dark)",
+                        "body-light": "var(--retro-text-light)",
+                    },
+                    fontFamily: {
+                        "headline": ["Oswald", "sans-serif"],
+                        "body": ["Merriweather", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }.card-retro {
+            position: relative;
+            box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.2);
+            border: 2px solid var(--retro-brown);
+            transform: rotate(-1deg);}
+        .card-retro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.1"><filter id="n" x="0" y="0"><feTurbulence baseFrequency="0.9" numOctaves="1" seed="20" type="fractalNoise"/><feColorMatrix values="0 0 0 0 0,0 0 0 0 0,0 0 0 0 0,0 0 0 -1.5 1.5" type="matrix"/><feComposite in2="SourceGraphic" operator="in"/></filter><rect x="0" y="0" width="100" height="100" fill="transparent" filter="url(%23n)"/></svg>') repeat;
+            pointer-events: none;
+            mix-blend-mode: multiply;
+        }
+        .text-outline-dark {
+            -webkit-text-stroke: 1px var(--retro-dark-grey);
+            text-stroke: 1px var(--retro-dark-grey);
+        }
+        .text-outline-light {
+            -webkit-text-stroke: 1px var(--retro-light-grey);
+            text-stroke: 1px var(--retro-light-grey);
+        }
+        .icon-airplane {
+            fill: var(--retro-blue);
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-body text-body-dark dark:text-body-light">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="sticky top-0 z-50 w-full bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm shadow-md border-b-2 border-retro-brown">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between whitespace-nowrap py-4">
+<div class="flex items-center gap-3 text-heading-dark dark:text-heading-light">
+<div class="size-8 icon-airplane">
+<svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S11 2.67 11 3.5V9L3 14v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1V20.5L13 19v-2.5L22 16z"></path>
+</svg>
+</div>
+<h2 class="text-2xl font-headline tracking-wide uppercase">Wanderlust Travels</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8">
+<nav class="flex items-center gap-9">
+<a class="text-base font-body hover:text-primary transition-colors uppercase" href="#">Destinos</a>
+<a class="text-base font-body hover:text-primary transition-colors uppercase" href="#">Ofertas</a>
+<a class="text-base font-body hover:text-primary transition-colors uppercase" href="#">Sobre Nosotros</a>
+<a class="text-base font-body hover:text-primary transition-colors uppercase" href="#">Contacto</a>
+</nav>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-10 px-6 bg-primary text-body-light text-base font-headline leading-normal tracking-wide shadow-lg hover:shadow-primary/50 transition-shadow border-2 border-retro-brown uppercase">
+<span class="truncate">Reservar Ahora</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<div class="px-4 py-10 sm:px-6 lg:px-8">
+<div class="max-w-7xl mx-auto">
+<div class="flex min-h-[520px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-center justify-center p-4 text-center border-4 border-retro-red shadow-xl" data-alt="Stunning aerial view of a tropical beach with turquoise water and white sand." style='background-image: linear-gradient(rgba(139, 69, 19, 0.4) 0%, rgba(139, 69, 19, 0.7) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAziWhE8SoBTX3cm7-DpS7y2D-MTX6raNr2d-J5TuaViYLlleiQKShqEDT-sSU0FzSyaOAeAKnJBjbDsdhfUS5D4ih7ET3HsfWH8V-OZf8obBkbfNzlk2UQidu8mspHhClRR7A5NxDd05Qgkf40IJ8PjVbHEE7W0fjLewGx5mT6ZBLACrPDwH2FHY0NbTgVKC8kAWEh-szfMtr_t6RrGbR3CScIWg_RfA2BlbBXhVUSo2uNx9MSwXu9aTYMKDtRB4AUx2zuT5gomnk");'>
+<div class="flex flex-col gap-4 max-w-2xl">
+<h1 class="text-body-light text-4xl font-headline leading-tight tracking-tighter sm:text-5xl lg:text-7xl text-shadow-retro uppercase">Descubre Tu Próxima Aventura</h1>
+<h2 class="text-body-light/90 text-lg font-body leading-normal sm:text-xl text-shadow-retro">Explora los destinos más increíbles del mundo y crea recuerdos inolvidables con nosotros.</h2>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-12 px-8 bg-primary text-body-light text-base font-headline leading-normal tracking-wide shadow-lg hover:shadow-primary/50 transition-shadow border-2 border-retro-brown uppercase">
+<span class="truncate">Explorar Destinos</span>
+</button>
+</div>
+</div>
+</div>
+<div class="px-4 py-16 sm:px-6 lg:px-8">
+<div class="max-w-7xl mx-auto">
+<h2 class="text-4xl font-headline leading-tight tracking-tight text-center text-heading-dark dark:text-heading-light uppercase">Destinos Destacados</h2>
+<p class="mt-4 text-lg font-body text-body-dark dark:text-body-light text-center max-w-3xl mx-auto">Embárcate en un viaje a través de continentes, desde las playas vibrantes de Sudamérica hasta las antiguas maravillas de Egipto y el encanto histórico de Europa.</p>
+<div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="relative flex flex-col justify-end bg-cover bg-center rounded-lg overflow-hidden min-h-[400px] p-6 text-white group card-retro" data-alt="Iconic view of Rio de Janeiro with Sugarloaf Mountain at sunset." style='background-image: linear-gradient(to top, rgba(139, 69, 19, 0.7) 0%, rgba(139, 69, 19, 0.2) 50%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCZXuyKeYqvj1_VkNQcTvxoOCHRz8SvtUIwTnTpqXwFOplORGxTghOm-FXN5uW16mmsT6o5DH1Pu8mXLKbSBOlTleL8x_rN_SyDfmGc8NzTXGqS7-wn8bMncFpw6qR86VSHg6FwxwPMkcOv3Jj-yDLntkBhDrLAfAkZp6jJDkwvJJ-9DgCq8AS1IWTlJhHhWvzmbqFwueWVNTq_XQq43TxDvyYfrn8TATS-i0NXEfA7bloxtyQh0pDq_Scclcsd8Jd7qP3iDLzQntE");'>
+<div class="relative z-10">
+<h3 class="text-3xl font-headline text-body-light text-outline-dark uppercase">Brasil: Ritmo y Naturaleza</h3>
+<p class="mt-2 text-base font-body max-w-md text-body-light opacity-0 group-hover:opacity-100 transition-opacity duration-300">Sumérgete en la selva amazónica, baila al son del carnaval de Río y relájate en playas paradisíacas.</p>
+<button class="mt-4 flex items-center gap-2 text-sm font-headline bg-primary/80 hover:bg-primary text-body-light py-2 px-4 rounded-md transition-colors border-2 border-retro-brown uppercase">Ver Más <span class="material-symbols-outlined text-base">arrow_forward</span></button>
+</div>
+</div>
+<div class="relative flex flex-col justify-end bg-cover bg-center rounded-lg overflow-hidden min-h-[400px] p-6 text-white group card-retro" data-alt="Pristine white sand beach and turquoise waters of Los Roques, Venezuela." style='background-image: linear-gradient(to top, rgba(139, 69, 19, 0.7) 0%, rgba(139, 69, 19, 0.2) 50%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuD6NqhOwfmap4V8I8PK41YvlROG_SYxmrKVXRSzeEh6kPe1GGPsnOnOCqt24xdK2tVfnUX_Yokv_pKHXPgSKzI8AUT6OT_MQ7qyb1boM2H2X0hwMX0f68ryLd26qHrYJUagH-2E4aaiDz3ihZWeo4-J1FLqrG8z5NqAJGNZWB2kjXo-5LCzwp8WMRpJFaWm0Px5Gy6eYMKFPRZV_0acOJ1uD4EGRgfgZ7gQAm3blDaoAJAPaEwRuOdP0BajGVepogarDkYHayRjY_M");'>
+<div class="relative z-10">
+<h3 class="text-3xl font-headline text-body-light text-outline-dark uppercase">Venezuela: Paraíso Caribeño</h3>
+<p class="mt-2 text-base font-body max-w-md text-body-light opacity-0 group-hover:opacity-100 transition-opacity duration-300">Descubre la belleza única de Los Roques, el Salto Ángel y las costas caribeñas de aguas cristalinas.</p>
+<button class="mt-4 flex items-center gap-2 text-sm font-headline bg-primary/80 hover:bg-primary text-body-light py-2 px-4 rounded-md transition-colors border-2 border-retro-brown uppercase">Ver Más <span class="material-symbols-outlined text-base">arrow_forward</span></button>
+</div>
+</div>
+<div class="relative flex flex-col justify-end bg-cover bg-center rounded-lg overflow-hidden min-h-[400px] p-6 text-white group card-retro" data-alt="The Great Sphinx of Giza with the pyramids in the background." style='background-image: linear-gradient(to top, rgba(139, 69, 19, 0.7) 0%, rgba(139, 69, 19, 0.2) 50%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAm4x34CTnZDCJVjNRY3WrFsokk4LQ6aCD_E97UoUH8ZjNdWGZJzBeIrL_5juqmKxg-AI8cCFzO5y_WiH96Z1fA0d1xdQdxiUhgcziBf3spCR8C-WRF5WXE5wW25cD4elzvQ1NsRpnaRgdUSluP3CO84tFRv5RGvSszl-YaePfGBFS00UHBKER2GXQPkUU6T7QbFGfhONFwVHlztXSY5pb8d8mahoWZjIJc4q0731LvQN3ybmRV-OQfdCiDxG9FKB-7bzP-agzW1Sc");'>
+<div class="relative z-10">
+<h3 class="text-3xl font-headline text-body-light text-outline-dark uppercase">Egipto: Cuna de la Civilización</h3>
+<p class="mt-2 text-base font-body max-w-md text-body-light opacity-0 group-hover:opacity-100 transition-opacity duration-300">Viaja en el tiempo explorando las majestuosas pirámides, los templos antiguos y navegando por el Nilo.</p>
+<button class="mt-4 flex items-center gap-2 text-sm font-headline bg-primary/80 hover:bg-primary text-body-light py-2 px-4 rounded-md transition-colors border-2 border-retro-brown uppercase">Ver Más <span class="material-symbols-outlined text-base">arrow_forward</span></button>
+</div>
+</div>
+<div class="relative flex flex-col justify-end bg-cover bg-center rounded-lg overflow-hidden min-h-[400px] p-6 text-white group card-retro" data-alt="The Eiffel Tower in Paris at sunset, a symbol of European travel." style='background-image: linear-gradient(to top, rgba(139, 69, 19, 0.7) 0%, rgba(139, 69, 19, 0.2) 50%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCX7CkrSwx0TtDysfghWHSdQ3vfwevTLp1WFlVY7OjgFVydkznUarCWajo1hm7s7N3hGpGJSDibndw3NlIMKZ5LKqM9-3rK4Q2-VLH41eowMFuGCQNyKk_qpJOuskWVJ2OGUlNCLJXX-9LRO7NxaZjqhpr2nhoo1qeEujQ293XMSq9-L0ndCSVSLbx1WZnZTjALHJicuk-OAa_L1P7KqQu-MlCFanLjMyTudaDtOHDmsH4P0ZbXVJoEIh_twmuh6GwAcxmmwQ1iLLU");'>
+<div class="relative z-10">
+<h3 class="text-3xl font-headline text-body-light text-outline-dark uppercase">Europa: Continente de Contrastes</h3>
+<p class="mt-2 text-base font-body max-w-md text-body-light opacity-0 group-hover:opacity-100 transition-opacity duration-300">Desde las luces de París y la historia de Roma hasta los paisajes de Londres, Europa te espera.</p>
+<button class="mt-4 flex items-center gap-2 text-sm font-headline bg-primary/80 hover:bg-primary text-body-light py-2 px-4 rounded-md transition-colors border-2 border-retro-brown uppercase">Ver Más <span class="material-symbols-outlined text-base">arrow_forward</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 py-16 sm:px-6 lg:px-8 bg-retro-light-grey dark:bg-background-dark border-t-2 border-retro-brown">
+<div class="max-w-7xl mx-auto">
+<h2 class="text-4xl font-headline leading-tight tracking-tight text-center text-heading-dark dark:text-heading-light uppercase">Lo que dicen nuestros viajeros</h2>
+<div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-body-light dark:bg-gray-800 p-6 rounded-lg shadow-md border-2 border-retro-brown">
+<div class="flex items-center gap-4">
+<img alt="Profile picture of Maria G." class="w-12 h-12 rounded-full object-cover border-2 border-retro-brown" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD77yrMbQQGJUGh0ob3nzKmQlnrTfmh1m2DOBdkxdfO9R0IYl7tyt_Sv8Hj2CINxBIbMZhECdWRbBdSniw2XDpZiiEnwNBJHBJBE_PBWVgi78pxa0qc6OjBWB02J0GVREAH2J6Ab84HvX2A77AyQKPoQFdyaKOdGgYLLhaWXqPnjVKO1qm2vFYZbFgfluqJ3CMKFF2SbeBIW8CSS7N5IlmW3FjYfw_SfDBrMQ1xUpu4bSThpxgfeZQIuKMS2x4lu868Nbhv0isNl_s"/>
+<div>
+<p class="font-headline text-lg text-heading-dark dark:text-body-light uppercase">Maria G.</p>
+<p class="text-sm font-body text-gray-500 dark:text-gray-400">Viaje a Brasil</p>
+</div>
+</div>
+<blockquote class="mt-4 text-body-dark dark:text-gray-300 italic font-body">"¡Una experiencia inolvidable! Wanderlust Travels se encargó de todo. El viaje a Río fue perfectamente organizado y superó todas mis expectativas."</blockquote>
+</div>
+<div class="bg-body-light dark:bg-gray-800 p-6 rounded-lg shadow-md border-2 border-retro-brown">
+<div class="flex items-center gap-4">
+<img alt="Profile picture of Carlos S." class="w-12 h-12 rounded-full object-cover border-2 border-retro-brown" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjmmVhLs8rRd6Ol8Stap8WwIiLQjDS8v4NBiMS2z-4PoKGy-Hqssj4GdVUJe7asf6ehHgSUVsIEQcroL5uPWjmPK7BYWMiz25iCDMV23ptyLgkZ76-yE9bJnhsDDxqFiwMm9buS4kdcRos8BM_TTVSR6FiB6eBRYg6c64udDWsDqz3HwM1vuBiHUCk96v6Ot133PzJBoBpNT5I1FU0jiPvVIuoURKjRJj0Wvx9vEpzfNQBDg4jZRy2DsfKR6SOTn26cvtcYoomzkc"/>
+<div>
+<p class="font-headline text-lg text-heading-dark dark:text-body-light uppercase">Carlos S.</p>
+<p class="text-sm font-body text-gray-500 dark:text-gray-400">Tour por Europa</p>
+</div>
+</div>
+<blockquote class="mt-4 text-body-dark dark:text-gray-300 italic font-body">"El tour por Europa fue increíble. Visitamos tantos lugares icónicos y todo estuvo planeado a la perfección. ¡Altamente recomendado!"</blockquote>
+</div>
+<div class="bg-body-light dark:bg-gray-800 p-6 rounded-lg shadow-md border-2 border-retro-brown">
+<div class="flex items-center gap-4">
+<img alt="Profile picture of Ana P." class="w-12 h-12 rounded-full object-cover border-2 border-retro-brown" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvviXCbQ1BfhczgtQkXVIrJWd2vLdxmoiaXLJzP558g6afIRl1DHrwAds0L9JzOPYD4i1SSEPIDzdHDZHK2AUWP39Nv7YrBGbZRKJI0cDS0U53usmikUXj8fghuF3EsAIVsMFoDrvHnnp5eK0tuVyfm1x6R8p_kIHqfCa3_IVJ1YTSCsaOfZ2meNZ-TXgLdzmNDsIeo7UWLj0Bp9NAHf07Im4oYU0Yg87pRPfB58aAU6SYFdkBlXMiYu3y4QrWO6WG9oGcUEFffFo"/>
+<div>
+<p class="font-headline text-lg text-heading-dark dark:text-body-light uppercase">Ana P.</p>
+<p class="text-sm font-body text-gray-500 dark:text-gray-400">Aventura en Egipto</p>
+</div>
+</div>
+<blockquote class="mt-4 text-body-dark dark:text-gray-300 italic font-body">"Ver las pirámides siempre fue mi sueño y esta agencia lo hizo realidad de la mejor manera. El guía fue excelente y aprendí muchísimo."</blockquote>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-retro-brown text-body-light border-t-4 border-retro-red">
+<div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="col-span-2 md:col-span-1">
+<div class="flex items-center gap-3">
+<div class="size-7 icon-airplane">
+<svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S11 2.67 11 3.5V9L3 14v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1V20.5L13 19v-2.5L22 16z"></path></svg>
+</div>
+<h2 class="text-xl font-headline uppercase">Wanderlust Travels</h2>
+</div>
+<p class="mt-4 text-sm font-body text-body-light/80">Creando experiencias de viaje inolvidables alrededor del mundo.</p>
+</div>
+<div>
+<h3 class="text-sm font-headline tracking-wider uppercase">Enlaces</h3>
+<ul class="mt-4 space-y-2">
+<li><a class="text-base font-body text-body-light/80 hover:text-primary transition-colors" href="#">Destinos</a></li>
+<li><a class="text-base font-body text-body-light/80 hover:text-primary transition-colors" href="#">Ofertas</a></li>
+<li><a class="text-base font-body text-body-light/80 hover:text-primary transition-colors" href="#">Sobre Nosotros</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-sm font-headline tracking-wider uppercase">Legal</h3>
+<ul class="mt-4 space-y-2">
+<li><a class="text-base font-body text-body-light/80 hover:text-primary transition-colors" href="#">Privacidad</a></li>
+<li><a class="text-base font-body text-body-light/80 hover:text-primary transition-colors" href="#">Términos</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-sm font-headline tracking-wider uppercase">Contacto</h3>
+<ul class="mt-4 space-y-2 text-base font-body text-body-light/80">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">email</span> info@wanderlust.com</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">call</span> +1 (234) 567-890</li>
+</ul>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-retro-green flex flex-col sm:flex-row justify-between items-center">
+<p class="text-sm font-body text-body-light/80">© 2024 Wanderlust Travels. Todos los derechos reservados.</p>
+<div class="flex space-x-6 mt-4 sm:mt-0">
+<a class="text-body-light/80 hover:text-primary" href="#"><svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path></svg></a>
+<a class="text-body-light/80 hover:text-primary" href="#"><svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg></a>
+<a class="text-body-light/80 hover:text-primary" href="#"><svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.94 6.953a.58.58 0 01.328.513v5.068a.58.58 0 01-.328.513l-4.33 2.5a.58.58 0 01-.58 0l-4.33-2.5A.58.58 0 017.06 14.534V9.466a.58.58 0 01.328-.513l4.33-2.5a.58.58 0 01.58 0l4.33 2.5z" fill-rule="evenodd"></path></svg></a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

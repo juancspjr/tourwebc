@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Diseña tu Viaje Soñado</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13b6ec",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col w-full max-w-[960px] flex-1">
+<!-- Hero Section -->
+<div class="@container">
+<div class="@[480px]:p-4">
+<div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-4 text-center" data-alt="Tropical beach with palm trees and clear blue water" style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAntFqp8R8gO6Y6ZKDW9uJDXsKfz3lVHJS8D-zfoBG7LSvSEuKJ1Ie5-_IVKkm5vrYNm86ttrnSqbW7NigaLeGMYYZVcG1plBPX0kXNab4nPZtEDjut63qbgQmXNKgzjYIHzSw0NPbvUKfVkauy6hF1pckKBP8-WOkXaVJfHgFNv6Va0DU434JbRQD9p1JVxGMsXTdez3XZyygKF6XFVdvd6SZOAs5G7-0L1NWLSZOV0HLVRIItdMmygg6dj3k9RiOqecm9d-HUsEM");'>
+<div class="flex flex-col gap-2">
+<h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                                        Diseña tu Viaje Soñado
+                                    </h1>
+<h2 class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal max-w-2xl">
+                                        Completa el formulario a continuación para recibir una cotización de viaje totalmente personalizada y sin compromiso.
+                                    </h2>
+</div>
+</div>
+</div>
+</div>
+<!-- Form Container -->
+<div class="bg-white dark:bg-gray-900/50 -mt-32 md:-mt-48 mx-auto w-full max-w-4xl p-6 sm:p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+<form class="flex flex-col gap-8">
+<!-- Section 1: Destination and Dates -->
+<div class="flex flex-col gap-4">
+<h2 class="text-[#111618] dark:text-gray-100 text-[22px] font-bold leading-tight tracking-[-0.015em] pb-2 pt-2">Cuéntanos a dónde y cuándo</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#111618] dark:text-gray-200 text-base font-medium leading-normal pb-2">Destino(s) deseado(s)</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111618] dark:text-gray-200 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbe3e6] dark:border-gray-600 bg-white dark:bg-gray-800 focus:border-primary h-14 placeholder:text-[#617f89] p-[15px] text-base font-normal leading-normal" placeholder="Ej: París, Francia" value=""/>
+</label>
+<div class="flex gap-2 p-3 flex-wrap">
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/20 text-primary-800 pl-4 pr-3">
+<p class="text-sm font-medium leading-normal text-sky-800 dark:text-sky-200">París, Francia</p>
+<button class="material-symbols-outlined text-sm" type="button">close</button>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary/20 text-primary-800 pl-4 pr-3">
+<p class="text-sm font-medium leading-normal text-sky-800 dark:text-sky-200">Roma, Italia</p>
+<button class="material-symbols-outlined text-sm" type="button">close</button>
+</div>
+</div>
+</div>
+<div class="flex flex-col">
+<p class="text-[#111618] dark:text-gray-200 text-base font-medium leading-normal pb-2">Fechas de Viaje</p>
+<div class="grid grid-cols-2 gap-4">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111618] dark:text-gray-200 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbe3e6] dark:border-gray-600 bg-white dark:bg-gray-800 focus:border-primary h-14 placeholder:text-[#617f89] p-[15px] text-base font-normal leading-normal" placeholder="Fecha de Ida" type="text" value="05/09/2024"/>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111618] dark:text-gray-200 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbe3e6] dark:border-gray-600 bg-white dark:bg-gray-800 focus:border-primary h-14 placeholder:text-[#617f89] p-[15px] text-base font-normal leading-normal" placeholder="Fecha de Vuelta" type="text" value="07/10/2024"/>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-6 p-4 border-t border-gray-200 dark:border-gray-700 mt-4">
+<div class="flex min-w-72 max-w-[336px] flex-1 flex-col gap-0.5">
+<div class="flex items-center p-1 justify-between">
+<button type="button">
+<div class="text-[#111618] dark:text-gray-200 flex size-10 items-center justify-center material-symbols-outlined" data-icon="CaretLeft">arrow_back_ios</div>
+</button>
+<p class="text-[#111618] dark:text-gray-200 text-base font-bold leading-tight flex-1 text-center">Septiembre 2024</p>
+</div>
+<div class="grid grid-cols-7">
+<p class="text-[#617f89] dark:text-gray-400 text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">D</p>
+<p class="text-[#617f89] dark:text-gray-400 text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">L</p>
+<p class="text-[#617f89] dark:text-gray-400 text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">M</p>
+<p class="text-[#617f89] dark:text-gray-400 text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">M</p>
+<p class="text-[#617f89] dark:text-gray-400 text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">J</p>
+<p class="text-[#617f89] dark:text-gray-400 text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">V</p>
+<p class="text-[#617f89] dark:text-gray-400 text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">S</p>
+<button class="h-12 w-full text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center rounded-full">1</div></button>
+<button class="h-12 w-full text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center rounded-full">2</div></button>
+<button class="h-12 w-full text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center rounded-full">3</div></button>
+<button class="h-12 w-full text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center rounded-full">4</div></button>
+<button class="h-12 w-full rounded-l-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center rounded-full bg-primary text-white">5</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">6</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">7</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">8</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">9</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">10</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">11</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">12</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">13</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">14</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">15</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">16</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">17</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">18</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">19</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">20</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">21</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">22</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">23</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">24</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">25</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">26</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">27</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">28</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">29</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">30</div></button>
+</div>
+</div>
+<div class="flex min-w-72 max-w-[336px] flex-1 flex-col gap-0.5">
+<div class="flex items-center p-1 justify-between">
+<p class="text-[#111618] dark:text-gray-200 text-base font-bold leading-tight flex-1 text-center">Octubre 2024</p>
+<button type="button">
+<div class="text-[#111618] dark:text-gray-200 flex size-10 items-center justify-center material-symbols-outlined" data-icon="CaretRight">arrow_forward_ios</div>
+</button>
+</div>
+<div class="grid grid-cols-7">
+<p class="text-[#617f89] dark:text-gray-400 text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">D</p>
+<p class="text-[#617f89] dark:text-gray-400 text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">L</p>
+<p class="text-[#617f89] dark:text-gray-400 text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">M</p>
+<p class="text-[#617f89] dark:text-gray-400 text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">M</p>
+<p class="text-[#617f89] dark:text-gray-400 text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">J</p>
+<p class="text-[#617f89] dark:text-gray-400 text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">V</p>
+<p class="text-[#617f89] dark:text-gray-400 text-[13px] font-bold leading-normal tracking-[0.015em] flex h-12 w-full items-center justify-center pb-0.5">S</p>
+<button class="h-12 w-full col-start-3 bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">1</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">2</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">3</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">4</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">5</div></button>
+<button class="h-12 w-full bg-primary/20 text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">6</div></button>
+<button class="h-12 w-full text-[#111618] dark:text-gray-200 rounded-r-full bg-primary/20 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center rounded-full bg-primary text-white">7</div></button>
+<button class="h-12 w-full text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">8</div></button>
+<button class="h-12 w-full text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">9</div></button>
+<button class="h-12 w-full text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">10</div></button>
+<button class="h-12 w-full text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">11</div></button>
+<button class="h-12 w-full text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">12</div></button>
+<button class="h-12 w-full text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">13</div></button>
+<button class="h-12 w-full text-[#111618] dark:text-gray-200 text-sm font-medium leading-normal" type="button"><div class="flex size-full items-center justify-center">14</div></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Travelers -->
+<div class="flex flex-col gap-4 border-t border-gray-200 dark:border-gray-700 pt-8">
+<h2 class="text-[#111618] dark:text-gray-100 text-[22px] font-bold leading-tight tracking-[-0.015em] pb-2">¿Quiénes viajan?</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-[#111618] dark:text-gray-200 text-base font-medium" for="adults">Adultos</label>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 text-xl" type="button">-</button>
+<input class="w-16 h-14 text-center text-lg font-bold border-0 bg-gray-100 dark:bg-gray-800 rounded-lg text-gray-800 dark:text-gray-100" id="adults" type="text" value="2"/>
+<button class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 text-xl" type="button">+</button>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[#111618] dark:text-gray-200 text-base font-medium" for="children">Niños</label>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 text-xl" type="button">-</button>
+<input class="w-16 h-14 text-center text-lg font-bold border-0 bg-gray-100 dark:bg-gray-800 rounded-lg text-gray-800 dark:text-gray-100" id="children" type="text" value="0"/>
+<button class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 text-xl" type="button">+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Preferences -->
+<div class="flex flex-col gap-4 border-t border-gray-200 dark:border-gray-700 pt-8">
+<h2 class="text-[#111618] dark:text-gray-100 text-[22px] font-bold leading-tight tracking-[-0.015em] pb-2">Define tu estilo</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="flex flex-col gap-4">
+<p class="text-[#111618] dark:text-gray-200 text-base font-medium">Tipo de alojamiento preferido</p>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-lg border-2 border-primary bg-primary/10 text-primary-800 dark:text-primary-200" type="button">
+<span class="material-symbols-outlined text-3xl">hotel</span>
+<span class="font-semibold text-sm">Hotel</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-primary hover:text-primary" type="button">
+<span class="material-symbols-outlined text-3xl">apartment</span>
+<span class="font-semibold text-sm">Apartamento</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-primary hover:text-primary" type="button">
+<span class="material-symbols-outlined text-3xl">villa</span>
+<span class="font-semibold text-sm">Resort</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<label class="text-[#111618] dark:text-gray-200 text-base font-medium" for="budget">Presupuesto estimado (por persona)</label>
+<div class="flex flex-col gap-2">
+<input class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer [&amp;::-webkit-slider-thumb]:bg-primary [&amp;::-webkit-slider-thumb]:rounded-full [&amp;::-webkit-slider-thumb]:w-5 [&amp;::-webkit-slider-thumb]:h-5 [&amp;::-webkit-slider-thumb]:appearance-none" id="budget" max="10000" min="500" step="100" type="range" value="2500"/>
+<div class="flex justify-between text-sm text-gray-500 dark:text-gray-400">
+<span>$500</span>
+<span class="font-bold text-base text-primary">$2,500</span>
+<span>$10,000+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 4: Final Details -->
+<div class="flex flex-col gap-4 border-t border-gray-200 dark:border-gray-700 pt-8">
+<h2 class="text-[#111618] dark:text-gray-100 text-[22px] font-bold leading-tight tracking-[-0.015em] pb-2">Algo más que debamos saber?</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#111618] dark:text-gray-200 text-base font-medium leading-normal pb-2">Nombre Completo</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111618] dark:text-gray-200 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbe3e6] dark:border-gray-600 bg-white dark:bg-gray-800 focus:border-primary h-14 placeholder:text-[#617f89] p-[15px] text-base font-normal leading-normal" placeholder="Tu nombre y apellido" value=""/>
+</label>
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#111618] dark:text-gray-200 text-base font-medium leading-normal pb-2">Correo Electrónico</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111618] dark:text-gray-200 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbe3e6] dark:border-gray-600 bg-white dark:bg-gray-800 focus:border-primary h-14 placeholder:text-[#617f89] p-[15px] text-base font-normal leading-normal" placeholder="tu@email.com" type="email" value=""/>
+</label>
+</div>
+<div>
+<label class="flex flex-col min-w-40 flex-1">
+<p class="text-[#111618] dark:text-gray-200 text-base font-medium leading-normal pb-2">Preferencias especiales o comentarios</p>
+<textarea class="form-textarea flex w-full min-w-0 flex-1 resize-y overflow-hidden rounded-lg text-[#111618] dark:text-gray-200 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#dbe3e6] dark:border-gray-600 bg-white dark:bg-gray-800 focus:border-primary min-h-32 placeholder:text-[#617f89] p-[15px] text-base font-normal leading-normal" placeholder="Ej: Viaje de aniversario, preferencia por asientos de ventana, alergias alimentarias, etc."></textarea>
+</label>
+</div>
+</div>
+<!-- Submit Button -->
+<div class="flex justify-end pt-4">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-sky-500 transition-colors">
+<span class="truncate">Enviar Solicitud</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>
