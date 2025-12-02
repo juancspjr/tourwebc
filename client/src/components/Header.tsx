@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone } from "lucide-react";
-import logoImage from "@assets/Diseño_sin_título_(2)_1764694858372.png";
+import logoImage from "@assets/Diseño_sin_título_(2)_1764704351853.png";
 
 interface HeaderProps {
   onNavigate?: (section: string) => void;
@@ -31,7 +31,7 @@ export default function Header({ onNavigate }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           <button 
             onClick={() => handleNavClick("#home")}
             className="flex items-center gap-2 hover:opacity-90 transition-opacity"
@@ -40,7 +40,7 @@ export default function Header({ onNavigate }: HeaderProps) {
             <img 
               src={logoImage} 
               alt="Rio Trip Vibes" 
-              className="h-14 w-auto object-contain"
+              className="h-20 w-auto object-contain"
             />
           </button>
 
@@ -88,7 +88,7 @@ export default function Header({ onNavigate }: HeaderProps) {
                 <img 
                   src={logoImage} 
                   alt="Rio Trip Vibes" 
-                  className="h-12 w-auto object-contain self-start mb-4"
+                  className="h-16 w-auto object-contain self-start mb-4"
                 />
                 {navItems.map((item) => (
                   <button
