@@ -33,8 +33,7 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
           <span className="block text-primary">Río de Janeiro</span>
         </h1>
         <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-          Tours exclusivos, experiencias únicas y aventuras inolvidables. 
-          Desde el Cristo Redentor hasta las playas paradisíacas.
+          Explora los destinos más increíbles del mundo y crea recuerdos inolvidables con nosotros.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
           <Button
