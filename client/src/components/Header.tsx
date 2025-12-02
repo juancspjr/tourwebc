@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, Phone } from "lucide-react";
+import logoImage from "@assets/WhatsApp_Image_2025-12-02_at_11.49.35_1764690803214.jpeg";
 
 interface HeaderProps {
   onNavigate?: (section: string) => void;
@@ -28,15 +29,20 @@ export default function Header({ onNavigate }: HeaderProps) {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border">
+    <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">R</span>
-            </div>
-            <span className="text-xl font-bold text-foreground">Rio Adventures</span>
-          </div>
+        <div className="flex items-center justify-between h-20">
+          <button 
+            onClick={() => handleNavClick("#home")}
+            className="flex items-center gap-2 hover:opacity-90 transition-opacity"
+            data-testid="link-logo-home"
+          >
+            <img 
+              src={logoImage} 
+              alt="Rio Trip Vibes" 
+              className="h-16 w-auto object-contain"
+            />
+          </button>
 
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
@@ -79,6 +85,11 @@ export default function Header({ onNavigate }: HeaderProps) {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px]">
               <div className="flex flex-col gap-6 mt-8">
+                <img 
+                  src={logoImage} 
+                  alt="Rio Trip Vibes" 
+                  className="h-14 w-auto object-contain self-start mb-4"
+                />
                 {navItems.map((item) => (
                   <button
                     key={item.label}

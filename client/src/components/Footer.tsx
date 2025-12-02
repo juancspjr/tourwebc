@@ -1,5 +1,6 @@
 import { Facebook, Instagram, Youtube } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
+import logoImage from "@assets/WhatsApp_Image_2025-12-02_at_11.49.35_1764690803214.jpeg";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -36,10 +37,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">R</span>
-              </div>
-              <span className="text-xl font-bold">Rio Adventures</span>
+              <img 
+                src={logoImage} 
+                alt="Rio Trip Vibes" 
+                className="h-16 w-auto object-contain bg-white rounded-lg p-1"
+              />
             </div>
             <p className="text-background/70 text-sm mb-4">
               Tu agencia de tours de confianza en Río de Janeiro. 
@@ -102,10 +104,10 @@ export default function Footer() {
               </li>
               <li>
                 <a 
-                  href="mailto:info@rioadventures.com"
+                  href="mailto:info@riotripvibes.com"
                   className="hover:text-primary transition-colors"
                 >
-                  info@rioadventures.com
+                  info@riotripvibes.com
                 </a>
               </li>
               <li>Río de Janeiro, Brasil</li>
@@ -128,7 +130,7 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-background/20">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-background/60">
-              © {currentYear} Rio Adventures. Todos los derechos reservados.
+              © {currentYear} Rio Trip Vibes. Todos los derechos reservados.
             </p>
             <div className="flex gap-6">
               <button className="text-sm text-background/60 hover:text-background transition-colors">
