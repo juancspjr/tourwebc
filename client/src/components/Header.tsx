@@ -13,7 +13,7 @@ export default function Header({ onNavigate }: HeaderProps) {
 
   const navItems = [
     { label: "Inicio", href: "#home" },
-    { label: "Destinos", href: "#destinations" },
+    { label: "Destinos", href: "#packages" },
     { label: "Testimonios", href: "#testimonials" },
     { label: "Contacto", href: "#contact" },
   ];

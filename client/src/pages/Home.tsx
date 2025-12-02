@@ -7,10 +7,11 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PackageModal from "@/components/PackageModal";
-import type { PackageData } from "@/components/PackageCard";
+import type { PackageData } from "@/lib/packages";
 
 export default function Home() {
   const [selectedPackage, setSelectedPackage] = useState<PackageData | null>(null);
+  const [bookingPackage, setBookingPackage] = useState<PackageData | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleViewDetails = (pkg: PackageData) => {
@@ -20,8 +21,11 @@ export default function Home() {
 
   const handleBook = (pkg: PackageData) => {
     setIsModalOpen(false);
-    const contactSection = document.querySelector("#contact");
-    contactSection?.scrollIntoView({ behavior: "smooth" });
+    setBookingPackage(pkg);
+    setTimeout(() => {
+      const contactSection = document.querySelector("#contact");
+      contactSection?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
   };
 
   const handleNavigate = (section: string) => {
@@ -43,7 +47,10 @@ export default function Home() {
         
         <TestimonialsSection />
         
-        <ContactSection />
+        <ContactSection 
+          selectedPackage={bookingPackage}
+          onPackageChange={setBookingPackage}
+        />
       </main>
       
       <Footer />

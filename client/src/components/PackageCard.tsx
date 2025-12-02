@@ -2,21 +2,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock, MapPin, Check, Star } from "lucide-react";
+import type { PackageData } from "@/lib/packages";
 
-export interface PackageData {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  price: number;
-  priceNote?: string;
-  duration: string;
-  locations: string[];
-  highlights: string[];
-  category: string;
-  badge?: string;
-  rating?: number;
-}
+export type { PackageData };
 
 interface PackageCardProps {
   package: PackageData;

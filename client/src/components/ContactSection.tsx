@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -11,20 +11,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle, Calculator, Users, Calendar } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { packages, getPackageByTitle, type PackageData } from "@/lib/packages";
 
-const packages = [
-  "Day Tour Rio de Janeiro",
-  "Tour por las Favelas",
-  "Tour por las Playas",
-  "Trilhas & Trekking",
-  "Paseos en Barco",
-  "Paseo en Yate VIP",
-  "Paseo en Helicóptero",
-];
+interface ContactSectionProps {
+  selectedPackage?: PackageData | null;
+  onPackageChange?: (pkg: PackageData | null) => void;
+}
 
-export default function ContactSection() {
+export default function ContactSection({ selectedPackage, onPackageChange }: ContactSectionProps) {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
@@ -36,12 +32,58 @@ export default function ContactSection() {
     message: "",
   });
 
+  useEffect(() => {
+    if (selectedPackage) {
+      setFormData(prev => ({
+        ...prev,
+        package: selectedPackage.title,
+      }));
+    }
+  }, [selectedPackage]);
+
+  const currentPackage = formData.package ? getPackageByTitle(formData.package) : null;
+  const numberOfPeople = formData.people ? (formData.people === "10+" ? 10 : parseInt(formData.people)) : 0;
+  
+  const calculateQuotation = () => {
+    if (!currentPackage || numberOfPeople === 0) return null;
+    
+    const subtotal = currentPackage.price * numberOfPeople;
+    let discount = 0;
+    let discountPercent = 0;
+    
+    if (numberOfPeople >= 6) {
+      discountPercent = 15;
+      discount = subtotal * 0.15;
+    } else if (numberOfPeople >= 4) {
+      discountPercent = 10;
+      discount = subtotal * 0.10;
+    } else if (numberOfPeople >= 2) {
+      discountPercent = 5;
+      discount = subtotal * 0.05;
+    }
+    
+    const total = subtotal - discount;
+    
+    return {
+      pricePerPerson: currentPackage.price,
+      numberOfPeople,
+      subtotal,
+      discountPercent,
+      discount,
+      total,
+    };
+  };
+
+  const quotation = calculateQuotation();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    console.log("Form submitted:", formData, "Quotation:", quotation);
     toast({
       title: "Solicitud Enviada",
-      description: "Nos pondremos en contacto contigo pronto. ¡Gracias por tu interés!",
+      description: quotation 
+        ? `Tu cotización de $${quotation.total.toFixed(2)} USD ha sido enviada. Nos pondremos en contacto contigo pronto.`
+        : "Nos pondremos en contacto contigo pronto. ¡Gracias por tu interés!",
     });
     setFormData({
       name: "",
@@ -52,10 +94,16 @@ export default function ContactSection() {
       people: "",
       message: "",
     });
+    onPackageChange?.(null);
   };
 
   const handleChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
+    
+    if (field === "package") {
+      const pkg = getPackageByTitle(value);
+      onPackageChange?.(pkg || null);
+    }
   };
 
   return (
@@ -66,7 +114,7 @@ export default function ContactSection() {
             Reserva Tu Aventura
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Completa el formulario y te contactaremos para confirmar tu reserva. 
+            Completa el formulario y obtén tu cotización al instante. 
             También puedes escribirnos directamente por WhatsApp.
           </p>
         </div>
@@ -124,8 +172,8 @@ export default function ContactSection() {
                       </SelectTrigger>
                       <SelectContent>
                         {packages.map((pkg) => (
-                          <SelectItem key={pkg} value={pkg}>
-                            {pkg}
+                          <SelectItem key={pkg.id} value={pkg.title}>
+                            {pkg.title} - ${pkg.price} USD
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -169,15 +217,52 @@ export default function ContactSection() {
                   <Textarea
                     id="message"
                     placeholder="Cuéntanos sobre tus preferencias, preguntas o requerimientos especiales..."
-                    rows={4}
+                    rows={3}
                     value={formData.message}
                     onChange={(e) => handleChange("message", e.target.value)}
                     data-testid="input-message"
                   />
                 </div>
 
+                {quotation && (
+                  <Card className="bg-primary/5 border-primary/20">
+                    <CardContent className="p-4">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Calculator className="w-5 h-5 text-primary" />
+                        <h4 className="font-semibold text-foreground">Tu Cotización</h4>
+                      </div>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between">
+                          <span className="text-muted-foreground flex items-center gap-2">
+                            <Users className="w-4 h-4" />
+                            {quotation.numberOfPeople} {quotation.numberOfPeople === 1 ? "persona" : "personas"} x ${quotation.pricePerPerson} USD
+                          </span>
+                          <span className="text-foreground">${quotation.subtotal.toFixed(2)}</span>
+                        </div>
+                        {quotation.discountPercent > 0 && (
+                          <div className="flex justify-between text-green-600 dark:text-green-400">
+                            <span>Descuento grupo ({quotation.discountPercent}%)</span>
+                            <span>-${quotation.discount.toFixed(2)}</span>
+                          </div>
+                        )}
+                        <div className="border-t border-border pt-2 mt-2">
+                          <div className="flex justify-between font-bold text-lg">
+                            <span className="text-foreground">Total</span>
+                            <span className="text-primary">${quotation.total.toFixed(2)} USD</span>
+                          </div>
+                        </div>
+                        {currentPackage?.priceNote && (
+                          <p className="text-xs text-muted-foreground mt-2">
+                            Nota: {currentPackage.priceNote}
+                          </p>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+
                 <Button type="submit" className="w-full" size="lg" data-testid="button-submit-form">
-                  Enviar Solicitud
+                  {quotation ? `Solicitar Reserva - $${quotation.total.toFixed(2)} USD` : "Enviar Solicitud"}
                 </Button>
               </form>
             </CardContent>
@@ -247,7 +332,7 @@ export default function ContactSection() {
                   <div className="flex items-center gap-4">
                     <Clock className="w-5 h-5 text-primary" />
                     <div className="flex-1">
-                      <div className="flex justify-between">
+                      <div className="flex justify-between gap-2 flex-wrap">
                         <span className="text-muted-foreground">Lunes - Viernes</span>
                         <span className="font-medium text-foreground">8:00 AM - 8:00 PM</span>
                       </div>
@@ -256,11 +341,33 @@ export default function ContactSection() {
                   <div className="flex items-center gap-4">
                     <Clock className="w-5 h-5 text-primary" />
                     <div className="flex-1">
-                      <div className="flex justify-between">
+                      <div className="flex justify-between gap-2 flex-wrap">
                         <span className="text-muted-foreground">Sábado - Domingo</span>
                         <span className="font-medium text-foreground">9:00 AM - 6:00 PM</span>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-primary/5 border-primary/20">
+              <CardContent className="p-6">
+                <h3 className="text-lg font-semibold text-foreground mb-3">
+                  Descuentos por Grupo
+                </h3>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">2-3 personas</span>
+                    <span className="font-medium text-green-600 dark:text-green-400">5% descuento</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">4-5 personas</span>
+                    <span className="font-medium text-green-600 dark:text-green-400">10% descuento</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">6+ personas</span>
+                    <span className="font-medium text-green-600 dark:text-green-400">15% descuento</span>
                   </div>
                 </div>
               </CardContent>

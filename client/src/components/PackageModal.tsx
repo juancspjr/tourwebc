@@ -7,8 +7,8 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Clock, MapPin, Check, Star, X } from "lucide-react";
-import type { PackageData } from "./PackageCard";
+import { Clock, MapPin, Check, Star } from "lucide-react";
+import type { PackageData } from "@/lib/packages";
 
 interface PackageModalProps {
   package: PackageData | null;
