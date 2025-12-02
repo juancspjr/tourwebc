@@ -1,0 +1,61 @@
+import { useState } from "react";
+import Header from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
+import PackageGrid from "@/components/PackageGrid";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import PackageModal from "@/components/PackageModal";
+import type { PackageData } from "@/components/PackageCard";
+
+export default function Home() {
+  const [selectedPackage, setSelectedPackage] = useState<PackageData | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleViewDetails = (pkg: PackageData) => {
+    setSelectedPackage(pkg);
+    setIsModalOpen(true);
+  };
+
+  const handleBook = (pkg: PackageData) => {
+    setIsModalOpen(false);
+    const contactSection = document.querySelector("#contact");
+    contactSection?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleNavigate = (section: string) => {
+    const element = document.querySelector(section);
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Header onNavigate={handleNavigate} />
+      
+      <main>
+        <HeroSection onExploreClick={() => handleNavigate("#packages")} />
+        
+        <PackageGrid
+          onViewDetails={handleViewDetails}
+          onBook={handleBook}
+        />
+        
+        <TestimonialsSection />
+        
+        <ContactSection />
+      </main>
+      
+      <Footer />
+      
+      <WhatsAppButton />
+      
+      <PackageModal
+        package={selectedPackage}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onBook={handleBook}
+      />
+    </div>
+  );
+}

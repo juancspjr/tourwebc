@@ -1,0 +1,83 @@
+import TestimonialCard, { type TestimonialData } from "./TestimonialCard";
+import avatar1 from "@assets/stock_images/professional_headsho_dc765f4a.jpg";
+import avatar2 from "@assets/stock_images/professional_headsho_190f41fe.jpg";
+import avatar3 from "@assets/stock_images/professional_headsho_15c8265b.jpg";
+
+// todo: remove mock data - replace with API data
+const testimonials: TestimonialData[] = [
+  {
+    id: "1",
+    name: "María García",
+    avatar: avatar1,
+    date: "Noviembre 2024",
+    rating: 5,
+    text: "Una experiencia increíble! El guía fue muy profesional y conocedor. El tour al Cristo Redentor y Pan de Azúcar superó todas mis expectativas. Recomiendo 100%.",
+    tour: "Day Tour Rio de Janeiro",
+  },
+  {
+    id: "2",
+    name: "Carlos Rodríguez",
+    avatar: avatar2,
+    date: "Octubre 2024",
+    rating: 5,
+    text: "El trekking a Pedra da Gávea fue desafiante pero las vistas son impresionantes. El guía nos cuidó todo el tiempo y nos enseñó sobre la flora local. Volveré por más aventuras!",
+    tour: "Trilhas & Trekking",
+  },
+  {
+    id: "3",
+    name: "Ana Martínez",
+    avatar: avatar3,
+    date: "Septiembre 2024",
+    rating: 5,
+    text: "El paseo en yate fue espectacular! Vimos el atardecer desde el mar con Copacabana de fondo. Perfecto para celebrar nuestro aniversario. La tripulación fue muy atenta.",
+    tour: "Paseo en Yate VIP",
+  },
+];
+
+export default function TestimonialsSection() {
+  return (
+    <section id="testimonials" className="py-16 md:py-24 bg-card">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+            Lo Que Dicen Nuestros Viajeros
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Historias reales de personas que exploraron Río con nosotros. 
+            Más de 1,000 viajeros felices nos respaldan.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={testimonial.id}
+              className="opacity-0 animate-fade-in-up"
+              style={{ animationDelay: `${index * 0.15}s`, animationFillMode: "forwards" }}
+            >
+              <TestimonialCard testimonial={testimonial} />
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <div className="inline-flex items-center gap-2 bg-background rounded-full px-6 py-3 shadow-sm">
+            <div className="flex -space-x-2">
+              {testimonials.map((t) => (
+                <img
+                  key={t.id}
+                  src={t.avatar}
+                  alt=""
+                  className="w-8 h-8 rounded-full border-2 border-background"
+                />
+              ))}
+            </div>
+            <span className="text-sm text-muted-foreground">
+              +1,000 viajeros satisfechos
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
