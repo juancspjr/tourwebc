@@ -92,6 +92,7 @@ export default function PackageCard({ package: pkg, onViewDetails, onBook }: Pac
             </Button>
             <Button
               size="sm"
+              className="bg-cta hover:bg-cta/90 text-cta-foreground"
               onClick={() => onBook?.(pkg)}
               data-testid={`button-book-${pkg.id}`}
             >

@@ -99,7 +99,9 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
             <Button variant="outline" onClick={onClose}>
               Cerrar
             </Button>
-            <Button onClick={() => {
+            <Button 
+              className="bg-cta hover:bg-cta/90 text-cta-foreground"
+              onClick={() => {
               onBook?.(pkg);
               onClose();
             }} data-testid="button-book-modal">

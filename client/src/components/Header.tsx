@@ -70,6 +70,7 @@ export default function Header({ onNavigate }: HeaderProps) {
             </Button>
             <Button
               size="sm"
+              className="bg-cta hover:bg-cta/90 text-cta-foreground"
               onClick={() => handleNavClick("#contact")}
               data-testid="button-reservar"
             >
@@ -109,7 +110,7 @@ export default function Header({ onNavigate }: HeaderProps) {
                     <Phone className="w-4 h-4" />
                     WhatsApp
                   </Button>
-                  <Button className="w-full" onClick={() => handleNavClick("#contact")}>
+                  <Button className="w-full bg-cta hover:bg-cta/90 text-cta-foreground" onClick={() => handleNavClick("#contact")}>
                     Reservar Ahora
                   </Button>
                 </div>
