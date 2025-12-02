@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone } from "lucide-react";
-import logoImage from "@assets/WhatsApp_Image_2025-12-02_at_11.49.35_1764690803214.jpeg";
+import logoImage from "@assets/Diseño_sin_título_(2)_1764694858372.png";
 
 interface HeaderProps {
   onNavigate?: (section: string) => void;
@@ -13,7 +13,7 @@ export default function Header({ onNavigate }: HeaderProps) {
 
   const navItems = [
     { label: "Inicio", href: "#home" },
-    { label: "Paquetes", href: "#packages" },
+    { label: "Destinos", href: "#destinations" },
     { label: "Testimonios", href: "#testimonials" },
     { label: "Contacto", href: "#contact" },
   ];
@@ -40,7 +40,7 @@ export default function Header({ onNavigate }: HeaderProps) {
             <img 
               src={logoImage} 
               alt="Rio Trip Vibes" 
-              className="h-16 w-auto object-contain"
+              className="h-14 w-auto object-contain"
             />
           </button>
 
@@ -88,7 +88,7 @@ export default function Header({ onNavigate }: HeaderProps) {
                 <img 
                   src={logoImage} 
                   alt="Rio Trip Vibes" 
-                  className="h-14 w-auto object-contain self-start mb-4"
+                  className="h-12 w-auto object-contain self-start mb-4"
                 />
                 {navItems.map((item) => (
                   <button
