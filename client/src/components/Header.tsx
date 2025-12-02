@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone } from "lucide-react";
-import logoImage from "@assets/Diseño_sin_título_(2)_1764704351853.png";
+import logoImage from "@assets/fondtrans_1764705052522.png";
 
 interface HeaderProps {
   onNavigate?: (section: string) => void;
