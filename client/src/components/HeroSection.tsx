@@ -28,9 +28,9 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/70" />
       
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6 animate-fade-in-up">
-          Descubre la Magia de
-          <span className="block text-primary">Río de Janeiro</span>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight mb-6 animate-fade-in-up" style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif", letterSpacing: "-0.02em" }}>
+          Descubre tu próxima
+          <span className="block text-primary">aventura</span>
         </h1>
         <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
           Explora los destinos más increíbles del mundo y crea recuerdos inolvidables con nosotros.
