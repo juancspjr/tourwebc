@@ -114,13 +114,13 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
         <ChevronRight className="w-6 h-6" />
       </button>
 
-      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-1.5">
         {heroImages.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              index === currentSlide ? "w-6 bg-white" : "w-2 bg-white/50 hover:bg-white/70"
+            className={`h-1 rounded-full transition-all duration-300 ${
+              index === currentSlide ? "w-4 bg-white/60" : "w-1 bg-white/25 hover:bg-white/40"
             }`}
             aria-label={`Ir a slide ${index + 1}`}
             data-testid={`button-carousel-indicator-${index}`}
