@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
@@ -9,14 +9,28 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PackageModal from "@/components/PackageModal";
+import SplashScreen from "@/components/SplashScreen";
 import type { PackageData } from "@/lib/packages";
 
 export default function Home() {
   useScrollAnimation();
   
+  const [showSplash, setShowSplash] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return !sessionStorage.getItem('splashShown');
+    }
+    return true;
+  });
   const [selectedPackage, setSelectedPackage] = useState<PackageData | null>(null);
   const [bookingPackage, setBookingPackage] = useState<PackageData | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleSplashComplete = () => {
+    setShowSplash(false);
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('splashShown', 'true');
+    }
+  };
 
   const handleViewDetails = (pkg: PackageData) => {
     setSelectedPackage(pkg);
@@ -38,8 +52,12 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header onNavigate={handleNavigate} />
+    <>
+      {showSplash && (
+        <SplashScreen onComplete={handleSplashComplete} duration={1800} />
+      )}
+      <div className="min-h-screen bg-background">
+        <Header onNavigate={handleNavigate} />
       
       <main>
         <HeroSection onExploreClick={() => handleNavigate("#packages")} />
@@ -69,6 +87,7 @@ export default function Home() {
         onClose={() => setIsModalOpen(false)}
         onBook={handleBook}
       />
-    </div>
+      </div>
+    </>
   );
 }
