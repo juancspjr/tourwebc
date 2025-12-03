@@ -11,6 +11,12 @@ Preferred communication style: Simple, everyday language.
 ## Recent Changes
 
 **December 2025:**
+- Added "Info Viaje" global menu section linking to travel information
+- Renamed "Informacion Importante" to "Informacion util para tu viaje" with generic multi-destination content
+- Updated visa info to be generic with advisor contact button
+- Added currency information for multiple destinations (BRL Brazil, USD, EUR Egypt/Europe, EGP Egypt)
+- Added 8 generic travel FAQs applicable to any destination
+- Added "Contactar Asesor de Viaje" WhatsApp button in package detail modals
 - Implemented professional scroll animation system that accounts for fixed 96px navbar height
 - The useScrollAnimation hook now calculates section visibility based on the visible area below the navbar
 - Updated all WhatsApp contact points to +58 414 282 3218
