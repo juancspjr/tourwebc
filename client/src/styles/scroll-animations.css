@@ -148,11 +148,18 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 250ms ease-in-out;
+  transition: opacity 800ms ease-in-out;
 }
 
 .package-carousel-image.active {
   opacity: 1;
+}
+
+/* Desktop - transición más suave */
+@media (min-width: 768px) {
+  .package-carousel-image {
+    transition: opacity 1000ms ease-in-out;
+  }
 }
 
 /* Mobile-first: arrows visible on mobile for touch */

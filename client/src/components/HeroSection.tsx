@@ -99,19 +99,19 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
 
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 backdrop-blur-sm text-white transition-all duration-200 hover:bg-white/30 hover:scale-110"
+        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-white/10 md:bg-white/20 backdrop-blur-sm text-white transition-all duration-200 hover:bg-white/30 hover:scale-110 hidden sm:flex"
         aria-label="Slide anterior"
         data-testid="button-carousel-prev"
       >
-        <ChevronLeft className="w-6 h-6" />
+        <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 backdrop-blur-sm text-white transition-all duration-200 hover:bg-white/30 hover:scale-110"
+        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-white/10 md:bg-white/20 backdrop-blur-sm text-white transition-all duration-200 hover:bg-white/30 hover:scale-110 hidden sm:flex"
         aria-label="Siguiente slide"
         data-testid="button-carousel-next"
       >
-        <ChevronRight className="w-6 h-6" />
+        <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
       </button>
 
       <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-1.5">
