@@ -1,0 +1,99 @@
+TAREA: Convertir React app a HTML/CSS/JS puro + FormSubmit.co
+
+INSTRUCCIONES CRÍTICAS:
+- NO eliminar ninguna animación, efecto visual o funcionalidad
+- NO tocar CSS de animaciones, scroll effects, carruseles, splash screen
+- Mantener intacto: Dark mode, tooltips, hover effects, todo lo visual
+- Solo compilar y transformar a HTML/CSS/JS puro
+
+═══════════════════════════════════════════════════════════════════
+
+PASO 1: BUILD A ESTÁTICO
+
+Ejecutar en terminal:
+npm run build
+
+Esto genera carpeta "dist/" con:
+- index.html (toda la app compilada en 1 archivo)
+- css/ (Tailwind compilado)
+- js/ (JavaScript bundleado)
+- assets/ (imágenes, fonts)
+
+MANTENER INTACTO:
+✅ Todas las animaciones
+✅ Scroll effects (parallax, reveal)
+✅ Carruseles infinitos
+✅ Splash screen (1.1 segundos)
+✅ Calculadora de precios
+✅ Testimonials carousel
+✅ Dark mode
+✅ Efectos hover
+✅ WhatsApp button fijo
+
+═══════════════════════════════════════════════════════════════════
+
+PASO 2: MODIFICAR FORMULARIO EN dist/index.html
+
+Localizar: <form> o <form id="contactForm"> o similar
+
+Cambiar el atributo action de:
+- action="/api/contact" 
+- action="http://localhost:..."
+- action="fetch(...)"
+
+Por:
+- action="https://formsubmit.co/admin@riotripvibes.com"
+
+Y agregar campos ocultos DENTRO del form:
+
+<input type="hidden" name="_next" value="https://riotripvibes.com">
+<input type="hidden" name="_subject" value="Nueva Reserva - Rio Trip Vibes">
+
+ESTRUCTURA FINAL del formulario:
+
+<form action="https://formsubmit.co/admin@riotripvibes.com" method="POST">
+  
+  <!-- Campos normales (sin cambios) -->
+  <input type="text" name="name" placeholder="Nombre" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="tel" name="phone" placeholder="Teléfono">
+  <select name="package" required>
+    <option>Selecciona paquete</option>
+    <option>Day Tour Rio - $89</option>
+  </select>
+  <textarea name="message" placeholder="Mensaje" required></textarea>
+  
+  <!-- CAMPOS OCULTOS (agregar estos) -->
+  <input type="hidden" name="_next" value="https://riotripvibes.com">
+  <input type="hidden" name="_subject" value="Nueva Reserva - Rio Trip Vibes">
+  
+  <!-- Botón (sin cambios) -->
+  <button type="submit">Enviar</button>
+  
+</form>
+
+IMPORTANTE:
+❌ No eliminar ningún campo del form
+❌ No tocar ningún JavaScript del form
+✅ Solo cambiar el atributo "action"
+✅ Solo agregar 2 inputs hidden
+
+═══════════════════════════════════════════════════════════════════
+
+VERIFICACIONES FINALES:
+
+Después de hacer esto, asegurate que:
+
+✅ dist/index.html existe
+✅ Las animaciones funcionan (abre en navegador)
+✅ El formulario aparece normal
+✅ No hay errores en consola
+✅ Splash screen se muestra (1.1s)
+✅ Scroll animations funcionan
+✅ Carruseles funcionan
+✅ Calculadora funciona
+✅ Dark mode funciona
+
+═══════════════════════════════════════════════════════════════════
+
+LISTO PARA PASO 2.

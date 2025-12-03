@@ -133,10 +133,9 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
     return true;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     if (!validateDates(formData.startDate, formData.endDate)) {
+      e.preventDefault();
       toast({
         title: "Error en las fechas",
         description: "La fecha de finalización debe ser posterior a la fecha de inicio",
@@ -145,25 +144,8 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
       return;
     }
     
-    console.log("Form submitted:", formData, "Quotation:", quotation);
-    toast({
-      title: "Solicitud Enviada",
-      description: quotation 
-        ? `Tu cotización de $${quotation.total.toFixed(2)} USD para ${quotation.numberOfDays} días ha sido enviada. Nos pondremos en contacto contigo pronto.`
-        : "Nos pondremos en contacto contigo pronto. Gracias por tu interés!",
-    });
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      package: "",
-      startDate: "",
-      endDate: "",
-      people: "",
-      message: "",
-    });
-    setDateError(null);
-    onPackageChange?.(null);
+    // Allow native form submission to FormSubmit.co
+    // The form will be submitted via HTTP POST to the formsubmit.co endpoint
   };
 
   const handleChange = (field: string, value: string) => {
@@ -213,12 +195,23 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
           <div className="contact-form animate-on-scroll">
           <Card>
             <CardContent className="p-6">
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form 
+                  action="https://formsubmit.co/admin@riotripvibes.com" 
+                  method="POST"
+                  onSubmit={handleSubmit} 
+                  className="space-y-5"
+                >
+                  {/* FormSubmit.co hidden fields */}
+                  <input type="hidden" name="_next" value="https://riotripvibes.com" />
+                  <input type="hidden" name="_subject" value="Nueva Reserva - Rio Trip Vibes" />
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_template" value="table" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Nombre Completo</Label>
                     <Input
                       id="name"
+                      name="name"
                       placeholder="Tu nombre"
                       value={formData.name}
                       onChange={(e) => handleChange("name", e.target.value)}
@@ -230,6 +223,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     <Label htmlFor="email">Correo Electrónico</Label>
                     <Input
                       id="email"
+                      name="email"
                       type="email"
                       placeholder="tu@email.com"
                       value={formData.email}
@@ -245,6 +239,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     <Label htmlFor="phone">Teléfono / WhatsApp</Label>
                     <Input
                       id="phone"
+                      name="phone"
                       type="tel"
                       placeholder="+1 234 567 8900"
                       value={formData.phone}
@@ -254,6 +249,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="package">Paquete de Interés</Label>
+                    <input type="hidden" name="package" value={formData.package} />
                     <Select
                       value={formData.package}
                       onValueChange={(value) => handleChange("package", value)}
@@ -277,6 +273,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     <Label htmlFor="startDate">Fecha de Inicio</Label>
                     <Input
                       id="startDate"
+                      name="startDate"
                       type="date"
                       min={getTodayDate()}
                       value={formData.startDate}
@@ -288,6 +285,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     <Label htmlFor="endDate">Fecha de Fin</Label>
                     <Input
                       id="endDate"
+                      name="endDate"
                       type="date"
                       min={getMinEndDate() || getTodayDate()}
                       value={formData.endDate}
@@ -306,6 +304,10 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
 
                 <div className="space-y-2">
                   <Label htmlFor="people">Número de Personas</Label>
+                  <input type="hidden" name="people" value={formData.people} />
+                  {quotation && (
+                    <input type="hidden" name="quotation_total" value={`$${quotation.total.toFixed(2)} USD`} />
+                  )}
                   <Select
                     value={formData.people}
                     onValueChange={(value) => handleChange("people", value)}
@@ -327,6 +329,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                   <Label htmlFor="message">Mensaje (Opcional)</Label>
                   <Textarea
                     id="message"
+                    name="message"
                     placeholder="Cuéntanos sobre tus preferencias, preguntas o requerimientos especiales..."
                     rows={3}
                     value={formData.message}

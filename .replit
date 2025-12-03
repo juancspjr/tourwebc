@@ -6,16 +6,17 @@ hidden = [".config", ".git", "generated-icon.png", "node_modules", "dist"]
 channel = "stable-25_05"
 
 [deployment]
-deploymentTarget = "autoscale"
+deploymentTarget = "static"
 build = ["npm", "run", "build"]
 run = ["npm", "run", "start"]
+publicDir = "dist/public"
 
 [[ports]]
 localPort = 5000
 externalPort = 80
 
 [[ports]]
-localPort = 42361
+localPort = 43887
 externalPort = 3000
 
 [env]
