@@ -17,7 +17,7 @@ export default function PackageCard({ package: pkg, onViewDetails, onBook }: Pac
   const hasMultipleImages = pkg.images && pkg.images.length > 1;
 
   return (
-    <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+    <Card className="group overflow-hidden hover:shadow-2xl transition-shadow duration-300 h-full">
       <div className="relative aspect-[4/3] overflow-hidden">
         {hasMultipleImages ? (
           <PackageImageCarousel
