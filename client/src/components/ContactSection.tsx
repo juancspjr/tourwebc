@@ -11,7 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Phone, Mail, MapPin, Clock, MessageCircle, Calculator, Users, Calendar } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle, Calendar } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { packages, getPackageByTitle, type PackageData } from "@/lib/packages";
 
@@ -335,58 +335,6 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                   />
                 </div>
 
-                {quotation && (
-                  <Card className="bg-primary/5 border-primary/20">
-                    <CardContent className="p-4">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Calculator className="w-5 h-5 text-primary" />
-                        <h4 className="font-semibold text-foreground">Tu Cotización</h4>
-                      </div>
-                      
-                      <div className="flex items-center gap-2 mb-3 text-sm text-muted-foreground">
-                        <Calendar className="w-4 h-4" />
-                        <span>Viaje de {quotation.numberOfDays} {quotation.numberOfDays === 1 ? "día" : "días"} para {quotation.numberOfPeople} {quotation.numberOfPeople === 1 ? "persona" : "personas"}</span>
-                      </div>
-                      
-                      <div className="space-y-2 text-sm">
-                        <div className="flex justify-between gap-2 flex-wrap">
-                          <span className="text-muted-foreground">
-                            Precio base: ${quotation.pricePerDay} x {quotation.numberOfDays} días x {quotation.numberOfPeople} personas
-                          </span>
-                          <span className="text-foreground font-medium">${quotation.baseSubtotal.toFixed(2)}</span>
-                        </div>
-                        
-                        {quotation.groupDiscountPercent > 0 && (
-                          <div className="flex justify-between text-green-600 dark:text-green-400">
-                            <span>Descuento por grupo ({quotation.groupDiscountPercent}%)</span>
-                            <span>-${quotation.groupDiscount.toFixed(2)}</span>
-                          </div>
-                        )}
-                        
-                        {quotation.durationDiscountPercent > 0 && (
-                          <div className="flex justify-between text-green-600 dark:text-green-400">
-                            <span>Descuento por duración ({quotation.durationDiscountPercent}%)</span>
-                            <span>-${quotation.durationDiscount.toFixed(2)}</span>
-                          </div>
-                        )}
-                        
-                        <div className="border-t border-border pt-2 mt-2">
-                          <div className="flex justify-between gap-2 font-bold text-lg flex-wrap">
-                            <span className="text-foreground">Precio Total</span>
-                            <span className="text-primary">${quotation.total.toFixed(2)} USD</span>
-                          </div>
-                        </div>
-                        
-                        {currentPackage?.priceNote && (
-                          <p className="text-xs text-muted-foreground mt-2">
-                            Nota: {currentPackage.priceNote}
-                          </p>
-                        )}
-                      </div>
-                    </CardContent>
-                  </Card>
-                )}
-
                 <Button 
                   type="submit" 
                   className="w-full" 
@@ -394,7 +342,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                   data-testid="button-submit-form"
                   disabled={!!dateError}
                 >
-                  {quotation ? `Solicitar Reserva - $${quotation.total.toFixed(2)} USD` : "Enviar Solicitud"}
+                  Enviar Solicitud
                 </Button>
               </form>
             </CardContent>
@@ -484,56 +432,6 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
               </CardContent>
             </Card>
 
-            <Card className="bg-primary/5 border-primary/20">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold text-foreground mb-3">
-                  Descuentos Disponibles
-                </h3>
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="text-sm font-medium text-foreground mb-2 flex items-center gap-2">
-                      <Users className="w-4 h-4" />
-                      Por Grupo
-                    </h4>
-                    <div className="space-y-1 text-sm">
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">2-3 personas</span>
-                        <span className="font-medium text-green-600 dark:text-green-400">5% descuento</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">4-5 personas</span>
-                        <span className="font-medium text-green-600 dark:text-green-400">10% descuento</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">6+ personas</span>
-                        <span className="font-medium text-green-600 dark:text-green-400">15% descuento</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-sm font-medium text-foreground mb-2 flex items-center gap-2">
-                      <Calendar className="w-4 h-4" />
-                      Por Duración
-                    </h4>
-                    <div className="space-y-1 text-sm">
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">4-7 días</span>
-                        <span className="font-medium text-green-600 dark:text-green-400">8% descuento</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">8-14 días</span>
-                        <span className="font-medium text-green-600 dark:text-green-400">15% descuento</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">15+ días</span>
-                        <span className="font-medium text-green-600 dark:text-green-400">25% descuento</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>
