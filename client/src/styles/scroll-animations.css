@@ -1,6 +1,13 @@
-/* Animaciones Scroll - Activadas */
+/* Animaciones Scroll - ENFOQUE MEJORADO */
+/* Elementos visibles por defecto, animacion es mejora progresiva */
 
 .animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Solo aplicar estado inicial cuando JS esta listo */
+.js-ready .animate-on-scroll:not(.is-visible) {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
@@ -8,7 +15,7 @@
   will-change: opacity, transform;
 }
 
-.animate-on-scroll.is-visible {
+.js-ready .animate-on-scroll.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -16,8 +23,8 @@
 /* Hero - siempre visible con animacion de entrada */
 .hero-content.animate-on-scroll,
 .hero-cta.animate-on-scroll {
-  opacity: 1;
-  transform: none;
+  opacity: 1 !important;
+  transform: none !important;
   animation: heroFadeIn 0.8s ease-out;
 }
 
@@ -38,35 +45,39 @@
 }
 
 /* Stagger en grids */
-.package-card.animate-on-scroll,
-.testimonial-card.animate-on-scroll,
-.info-card.animate-on-scroll {
+.js-ready .package-card.animate-on-scroll,
+.js-ready .testimonial-card.animate-on-scroll,
+.js-ready .info-card.animate-on-scroll {
   transition-delay: calc(var(--index, 0) * 0.1s);
 }
 
 /* Section headers */
-.section-header.animate-on-scroll {
+.js-ready .section-header.animate-on-scroll:not(.is-visible) {
   transform: translateY(24px);
+}
+
+.js-ready .section-header.animate-on-scroll {
   transition-duration: 0.7s;
 }
 
 /* Contact form */
-.contact-form.animate-on-scroll {
+.js-ready .contact-form.animate-on-scroll:not(.is-visible) {
   transform: scale(0.97);
+}
+
+.js-ready .contact-form.animate-on-scroll {
   transition-duration: 0.7s;
 }
 
-.contact-form.is-visible {
-  transform: scale(1);
-}
-
-.contact-info.animate-on-scroll {
+.js-ready .contact-info.animate-on-scroll {
   transition-delay: 0.2s;
 }
 
 /* Accesibilidad */
 @media (prefers-reduced-motion: reduce) {
-  .animate-on-scroll {
+  .animate-on-scroll,
+  .js-ready .animate-on-scroll,
+  .js-ready .animate-on-scroll:not(.is-visible) {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
@@ -76,13 +87,13 @@
 
 /* Optimizacion movil */
 @media (max-width: 768px) {
-  .animate-on-scroll {
+  .js-ready .animate-on-scroll {
     transition-duration: 0.5s;
   }
   
-  .package-card.animate-on-scroll,
-  .testimonial-card.animate-on-scroll,
-  .info-card.animate-on-scroll {
+  .js-ready .package-card.animate-on-scroll,
+  .js-ready .testimonial-card.animate-on-scroll,
+  .js-ready .info-card.animate-on-scroll {
     transition-delay: calc(var(--index, 0) * 0.05s);
   }
 }
