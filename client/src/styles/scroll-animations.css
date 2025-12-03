@@ -1,10 +1,11 @@
-/* Animaciones Scroll - Activadas */
+/* Animaciones Scroll - Mobile First */
 
+/* Base mobile styles - optimizado para rendimiento en móvil */
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateY(16px);
+  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: opacity, transform;
 }
 
@@ -13,47 +14,23 @@
   transform: translateY(0);
 }
 
-/* Hero - siempre visible con animacion de entrada */
-.hero-content.animate-on-scroll,
-.hero-cta.animate-on-scroll {
-  opacity: 1;
-  transform: none;
-  animation: heroFadeIn 0.8s ease-out;
-}
-
-.hero-cta.animate-on-scroll {
-  animation-delay: 0.3s;
-  animation-fill-mode: backwards;
-}
-
-@keyframes heroFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Stagger en grids */
+/* Stagger en grids - mobile first (más rápido en móvil) */
 .package-card.animate-on-scroll,
 .testimonial-card.animate-on-scroll,
 .info-card.animate-on-scroll {
-  transition-delay: calc(var(--index, 0) * 0.1s);
+  transition-delay: calc(var(--index, 0) * 0.05s);
 }
 
-/* Section headers */
+/* Section headers - mobile first */
 .section-header.animate-on-scroll {
-  transform: translateY(24px);
-  transition-duration: 0.7s;
+  transform: translateY(20px);
+  transition-duration: 0.6s;
 }
 
-/* Contact form */
+/* Contact form - mobile first */
 .contact-form.animate-on-scroll {
-  transform: scale(0.97);
-  transition-duration: 0.7s;
+  transform: scale(0.98);
+  transition-duration: 0.6s;
 }
 
 .contact-form.is-visible {
@@ -61,10 +38,82 @@
 }
 
 .contact-info.animate-on-scroll {
-  transition-delay: 0.2s;
+  transition-delay: 0.15s;
 }
 
-/* Accesibilidad */
+/* Hero - siempre visible con animacion de entrada */
+.hero-content.animate-on-scroll,
+.hero-cta.animate-on-scroll {
+  opacity: 1;
+  transform: none;
+  animation: heroFadeIn 0.7s ease-out;
+}
+
+.hero-cta.animate-on-scroll {
+  animation-delay: 0.25s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Desktop enhancements - min-width para mobile-first */
+@media (min-width: 768px) {
+  .animate-on-scroll {
+    transform: translateY(20px);
+    transition-duration: 0.6s;
+  }
+  
+  .package-card.animate-on-scroll,
+  .testimonial-card.animate-on-scroll,
+  .info-card.animate-on-scroll {
+    transition-delay: calc(var(--index, 0) * 0.1s);
+  }
+  
+  .section-header.animate-on-scroll {
+    transform: translateY(24px);
+    transition-duration: 0.7s;
+  }
+  
+  .contact-form.animate-on-scroll {
+    transform: scale(0.97);
+    transition-duration: 0.7s;
+  }
+  
+  .contact-info.animate-on-scroll {
+    transition-delay: 0.2s;
+  }
+  
+  .hero-content.animate-on-scroll,
+  .hero-cta.animate-on-scroll {
+    animation-duration: 0.8s;
+  }
+  
+  .hero-cta.animate-on-scroll {
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes heroFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Accesibilidad - Respeta preferencias de movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
   .animate-on-scroll {
     opacity: 1 !important;
@@ -74,26 +123,14 @@
   }
 }
 
-/* Optimizacion movil */
-@media (max-width: 768px) {
-  .animate-on-scroll {
-    transition-duration: 0.5s;
-  }
-  
-  .package-card.animate-on-scroll,
-  .testimonial-card.animate-on-scroll,
-  .info-card.animate-on-scroll {
-    transition-delay: calc(var(--index, 0) * 0.05s);
-  }
-}
-
-/* Package Image Carousel */
+/* Package Image Carousel - Mobile First */
 .package-carousel-container {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
   border-radius: inherit;
+  touch-action: pan-y pinch-zoom;
 }
 
 .package-carousel-image-wrapper {
@@ -111,13 +148,14 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 300ms ease-in-out;
+  transition: opacity 250ms ease-in-out;
 }
 
 .package-carousel-image.active {
   opacity: 1;
 }
 
+/* Mobile-first: arrows visible on mobile for touch */
 .package-carousel-arrow {
   position: absolute;
   top: 50%;
@@ -126,38 +164,38 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
+  min-width: 44px;
+  min-height: 44px;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
   color: white;
   border: none;
   cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 200ms ease, background-color 200ms ease, visibility 200ms ease;
-}
-
-.package-carousel-container:hover .package-carousel-arrow {
-  opacity: 1;
+  opacity: 0.7;
   visibility: visible;
+  transition: opacity 200ms ease, background-color 200ms ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.package-carousel-arrow:hover {
-  background-color: rgba(0, 0, 0, 0.75);
+.package-carousel-arrow:active {
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: translateY(-50%) scale(0.95);
 }
 
 .package-carousel-arrow-left {
-  left: 8px;
+  left: 4px;
 }
 
 .package-carousel-arrow-right {
-  right: 8px;
+  right: 4px;
 }
 
+/* Mobile-first dots */
 .package-carousel-dots {
   position: absolute;
-  bottom: 12px;
+  bottom: 8px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -168,37 +206,81 @@
 .package-carousel-dot {
   width: 8px;
   height: 8px;
+  min-width: 24px;
+  min-height: 24px;
+  padding: 8px;
   border-radius: 50%;
   border: none;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: transparent;
   cursor: pointer;
+  transition: transform 200ms ease;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+}
+
+.package-carousel-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
   transition: background-color 200ms ease, transform 200ms ease;
 }
 
-.package-carousel-dot:hover {
-  background-color: rgba(255, 255, 255, 0.75);
-}
-
-.package-carousel-dot.active {
+.package-carousel-dot.active::after {
   background-color: white;
-  transform: scale(1.2);
+  transform: translate(-50%, -50%) scale(1.3);
 }
 
-/* Responsive para el carrusel */
-@media (max-width: 768px) {
+/* Desktop enhancements */
+@media (min-width: 768px) {
   .package-carousel-arrow {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
+    opacity: 0;
+    visibility: hidden;
   }
   
-  .package-carousel-dot {
-    width: 6px;
-    height: 6px;
+  .package-carousel-container:hover .package-carousel-arrow {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .package-carousel-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+  
+  .package-carousel-arrow-left {
+    left: 8px;
+  }
+  
+  .package-carousel-arrow-right {
+    right: 8px;
   }
   
   .package-carousel-dots {
-    bottom: 8px;
-    gap: 4px;
+    bottom: 12px;
+  }
+  
+  .package-carousel-dot {
+    min-width: auto;
+    min-height: auto;
+    padding: 0;
+    width: 8px;
+    height: 8px;
+  }
+  
+  .package-carousel-dot::after {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .package-carousel-dot:hover::after {
+    background-color: rgba(255, 255, 255, 0.75);
   }
 }
 
