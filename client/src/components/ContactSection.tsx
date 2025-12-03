@@ -274,7 +274,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="startDate">Fecha de Inicio (Check-in)</Label>
+                    <Label htmlFor="startDate">Fecha de Inicio</Label>
                     <Input
                       id="startDate"
                       type="date"
@@ -285,7 +285,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="endDate">Fecha de Finalización (Check-out)</Label>
+                    <Label htmlFor="endDate">Fecha de Fin</Label>
                     <Input
                       id="endDate"
                       type="date"
