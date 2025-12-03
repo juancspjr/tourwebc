@@ -36,15 +36,13 @@ Preferred communication style: Simple, everyday language.
   - Staggered fade-in on testimonial cards (0.12s stagger)
   - No animations on package cards, contact form, or fixed menu (prioritizes CTA clarity)
   - Full prefers-reduced-motion accessibility support via useReducedMotion hook
-- **Removed Framer Motion scroll animations (December 2025):**
-  - Removed all broken scroll animation code from components
-  - Converted motion.* elements back to regular HTML elements
-  - Created CSS-based animation infrastructure for future use
-  - Added `animate-on-scroll` classes to key elements (prepared for Intersection Observer)
-  - Created `client/src/styles/scroll-animations.css` with commented templates
-  - Created `client/src/hooks/useScrollAnimation.ts` hook placeholder
-  - Deleted useRevealAnimation.ts and useParallax.ts
-  - Site now loads all content immediately without animation delays
+- **Scroll Animation Cleanup (December 2025):**
+  - Removed all non-functional scroll animation code from components
+  - Deleted unused hooks: `useScrollAnimation.ts` and `use-scroll-animation.ts`
+  - Cleaned up `scroll-animations.css` to only keep working carousel styles
+  - Preserved all functional features: hero carousel, package filters, contact form, FAQ accordion, modals
+  - Site content loads immediately without animation delays
+  - Note: WhatsAppButton.tsx still uses Framer Motion for entrance animation (intentionally preserved)
 - **Infinite Testimonial Carousel (December 2025):**
   - Replaced static 3-column grid with smooth infinite horizontal carousel
   - Added 13 testimonials with varied tours, dates, and authentic reviews
