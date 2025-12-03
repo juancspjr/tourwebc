@@ -30,6 +30,24 @@ import trekking3 from "@assets/TrilhasTrekking3_1764737275383.webp";
 import trekking4 from "@assets/TrilhasTrekking4_1764737275383.webp";
 import trekking5 from "@assets/TrilhasTrekking5_1764737275383.webp";
 
+import barco1 from "@assets/PaseosBarco1_1764759429302.webp";
+import barco2 from "@assets/PaseosBarco2_1764759429302.webp";
+import barco3 from "@assets/PaseosBarco3_1764759429302.webp";
+import barco4 from "@assets/PaseosBarco4_1764759429302.webp";
+import barco5 from "@assets/PaseosBarco5_1764759429302.webp";
+
+import yate1 from "@assets/YateVIP1_1764759541668.webp";
+import yate2 from "@assets/YateVIP2_1764759541668.webp";
+import yate3 from "@assets/YateVIP3_1764759541668.webp";
+import yate4 from "@assets/YateVIP4_1764759541668.webp";
+import yate5 from "@assets/YateVIP5_1764759541668.webp";
+
+import heli1 from "@assets/Helicóptero1_1764759625353.webp";
+import heli2 from "@assets/Helicóptero2_1764759625353.webp";
+import heli3 from "@assets/Helicóptero3_1764759625353.webp";
+import heli4 from "@assets/Helicóptero4_1764759625353.webp";
+import heli5 from "@assets/Helicóptero5_1764759625353.webp";
+
 export interface FAQ {
   question: string;
   answer: string;
@@ -436,8 +454,8 @@ export const packages: PackageData[] = [
     title: "Paseos en Barco",
     description: "Disfruta un dia en el paraiso navegando por Ilha Grande o Arraial do Cabo. Playas de aguas cristalinas, snorkel y paisajes de postal. Una experiencia unica para descubrir las islas y calas mas espectaculares del litoral brasileno.",
     image: boatImage,
-    images: [boatImage],
-    gallery: [boatImage, boatImage, boatImage, boatImage, boatImage],
+    images: [boatImage, barco1, barco2, barco3, barco4, barco5],
+    gallery: [barco1, barco2, barco3, barco4, barco5],
     price: 70,
     duration: "Dia completo",
     locations: ["Ilha Grande", "Arraial do Cabo", "Angra dos Reis"],
@@ -506,8 +524,8 @@ export const packages: PackageData[] = [
     title: "Paseo en Yate VIP",
     description: "Experiencia exclusiva por las costas de Barra da Tijuca y Copacabana. Musica, bebidas, tripulacion profesional y el mejor atardecer de Rio. Ideal para celebraciones especiales, eventos corporativos o simplemente una experiencia de lujo inolvidable.",
     image: yachtImage,
-    images: [yachtImage],
-    gallery: [yachtImage, yachtImage, yachtImage, yachtImage, yachtImage],
+    images: [yachtImage, yate1, yate2, yate3, yate4, yate5],
+    gallery: [yate1, yate2, yate3, yate4, yate5],
     price: 200,
     priceNote: "Por hora",
     duration: "Personalizable",
@@ -582,8 +600,8 @@ export const packages: PackageData[] = [
     title: "Paseo en Helicoptero",
     description: "Vive Rio desde el cielo. Un vuelo panoramico sobre Cristo Redentor, Pan de Azucar, playas y montanas. Experiencia premium con vistas unicas e inigualables que te permitiran apreciar la magnitud de la ciudad maravillosa.",
     image: helicopterImage,
-    images: [helicopterImage],
-    gallery: [helicopterImage, helicopterImage, helicopterImage, helicopterImage, helicopterImage],
+    images: [helicopterImage, heli1, heli2, heli3, heli4, heli5],
+    gallery: [heli1, heli2, heli3, heli4, heli5],
     price: 180,
     priceNote: "15 min vuelo",
     duration: "15-30 min",
