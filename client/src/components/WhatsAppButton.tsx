@@ -7,7 +7,7 @@ interface WhatsAppButtonProps {
 }
 
 export default function WhatsAppButton({
-  phoneNumber = "5521999999999",
+  phoneNumber = "584142823218",
   message = "Hola! Me gustaría obtener información sobre los tours en Río de Janeiro.",
 }: WhatsAppButtonProps) {
   const handleClick = () => {

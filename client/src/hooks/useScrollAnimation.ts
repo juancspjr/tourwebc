@@ -1,5 +1,7 @@
 import { useRef, useState, useEffect, useCallback, RefObject } from "react";
 
+const NAVBAR_HEIGHT = 96;
+
 export interface ScrollAnimationState {
   progress: number;
   isInView: boolean;
@@ -12,6 +14,7 @@ export interface ScrollAnimationState {
 
 interface UseScrollAnimationOptions {
   intensity?: "full" | "soft" | "subtle";
+  navbarOffset?: number;
 }
 
 function lerp(start: number, end: number, progress: number): number {
@@ -28,9 +31,9 @@ function easeOutCubic(t: number): number {
 
 export function useScrollAnimation<T extends HTMLElement>(
   options: UseScrollAnimationOptions = {}
-): [RefObject<T | null>, ScrollAnimationState] {
-  const { intensity = "full" } = options;
-  const ref = useRef<T | null>(null);
+): [RefObject<T>, ScrollAnimationState] {
+  const { intensity = "full", navbarOffset = NAVBAR_HEIGHT } = options;
+  const ref = useRef<T>(null!) as RefObject<T>;
   const rafRef = useRef<number | null>(null);
   const lastProgressRef = useRef<number>(0.5);
 
@@ -123,28 +126,31 @@ export function useScrollAnimation<T extends HTMLElement>(
 
       const rect = element.getBoundingClientRect();
       const windowHeight = window.innerHeight;
+      const visibleAreaTop = navbarOffset;
+      const visibleAreaHeight = windowHeight - navbarOffset;
       const elementHeight = rect.height;
-      const elementCenter = rect.top + elementHeight / 2;
-      const viewportCenter = windowHeight / 2;
+      const adjustedTop = rect.top - visibleAreaTop;
+      const elementCenter = adjustedTop + elementHeight / 2;
+      const viewportCenter = visibleAreaHeight / 2;
 
       let progress = 0;
       let isInView = false;
       let isExiting = false;
       let isEntering = false;
 
-      if (rect.bottom < 0 || rect.top > windowHeight) {
-        progress = rect.bottom < 0 ? 1 : 0;
+      if (rect.bottom < visibleAreaTop || rect.top > windowHeight) {
+        progress = rect.bottom < visibleAreaTop ? 1 : 0;
         isInView = false;
       } else {
         isInView = true;
         if (elementCenter > viewportCenter) {
-          const distanceFromBottom = windowHeight - rect.top;
-          const enterRange = windowHeight * 0.8;
+          const distanceFromBottom = visibleAreaHeight - adjustedTop;
+          const enterRange = visibleAreaHeight * 0.8;
           progress = clamp(distanceFromBottom / enterRange, 0, 0.5);
           isEntering = true;
         } else {
-          const distanceFromTop = rect.bottom;
-          const exitRange = windowHeight * 0.7;
+          const distanceFromTop = rect.bottom - visibleAreaTop;
+          const exitRange = visibleAreaHeight * 0.7;
           const exitProgress = 1 - clamp(distanceFromTop / exitRange, 0, 1);
           progress = 0.5 + exitProgress * 0.5;
           isExiting = exitProgress > 0.1;
@@ -181,7 +187,7 @@ export function useScrollAnimation<T extends HTMLElement>(
       window.removeEventListener("resize", handleScroll);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
-  }, [calculateStyles, prefersReducedMotion]);
+  }, [calculateStyles, prefersReducedMotion, navbarOffset]);
 
   return [ref, state];
 }

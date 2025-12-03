@@ -62,7 +62,7 @@ export default function Header({ onNavigate }: HeaderProps) {
               variant="outline"
               size="sm"
               className="gap-2"
-              onClick={() => window.open("https://wa.me/5521999999999", "_blank")}
+              onClick={() => window.open("https://wa.me/584142823218", "_blank")}
               data-testid="button-whatsapp-header"
             >
               <Phone className="w-4 h-4" />
@@ -105,7 +105,7 @@ export default function Header({ onNavigate }: HeaderProps) {
                   <Button
                     variant="outline"
                     className="gap-2 w-full"
-                    onClick={() => window.open("https://wa.me/5521999999999", "_blank")}
+                    onClick={() => window.open("https://wa.me/584142823218", "_blank")}
                   >
                     <Phone className="w-4 h-4" />
                     WhatsApp

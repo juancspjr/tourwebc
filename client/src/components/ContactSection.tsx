@@ -307,7 +307,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                 </h3>
                 <div className="space-y-4">
                   <a
-                    href="https://wa.me/5521999999999"
+                    href="https://wa.me/584142823218"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-4 p-3 rounded-lg bg-green-500/10 hover:bg-green-500/20 transition-colors"
@@ -317,7 +317,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     </div>
                     <div>
                       <p className="font-medium text-foreground">WhatsApp</p>
-                      <p className="text-sm text-muted-foreground">+55 21 99999-9999</p>
+                      <p className="text-sm text-muted-foreground">+58 414 282 3218</p>
                     </div>
                   </a>
 
@@ -327,7 +327,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     </div>
                     <div>
                       <p className="font-medium text-foreground">Telefono</p>
-                      <p className="text-sm text-muted-foreground">+55 21 3333-4444</p>
+                      <p className="text-sm text-muted-foreground">+58 414 282 3218</p>
                     </div>
                   </div>
 
