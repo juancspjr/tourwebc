@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { Menu, Phone } from "lucide-react";
 import logoImage from "@assets/fondtrans_1764705052522.png";
 
@@ -97,6 +98,10 @@ export default function Header({ onNavigate }: HeaderProps) {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] !bg-background/90 backdrop-blur-xl border-l border-border/20 shadow-2xl">
+              <VisuallyHidden>
+                <SheetTitle>Menu de navegacion</SheetTitle>
+                <SheetDescription>Navega por las secciones del sitio</SheetDescription>
+              </VisuallyHidden>
               <div className="flex flex-col gap-6 mt-8">
                 <img 
                   src={logoImage} 
@@ -106,7 +111,27 @@ export default function Header({ onNavigate }: HeaderProps) {
                 {navItems.map((item) => (
                   <button
                     key={item.label}
-                    onClick={() => handleNavClick(item.href)}
+                    onClick={() => {
+                      const targetId = item.href;
+                      setIsOpen(false);
+                      setTimeout(() => {
+                        if (targetId === "#home") {
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                          window.dispatchEvent(new CustomEvent('resetHeroCarousel'));
+                        } else {
+                          const element = document.querySelector(targetId);
+                          if (element) {
+                            const headerOffset = 100;
+                            const elementPosition = element.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                            window.scrollTo({
+                              top: offsetPosition,
+                              behavior: "smooth"
+                            });
+                          }
+                        }
+                      }, 300);
+                    }}
                     className="text-lg font-medium text-foreground hover:text-primary transition-colors text-left"
                     data-testid={`nav-mobile-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
                   >
@@ -118,11 +143,30 @@ export default function Header({ onNavigate }: HeaderProps) {
                     variant="outline"
                     className="gap-2 w-full"
                     onClick={() => window.open("https://wa.me/584142823218", "_blank")}
+                    data-testid="button-whatsapp-mobile"
                   >
                     <Phone className="w-4 h-4" />
                     WhatsApp
                   </Button>
-                  <Button className="w-full bg-cta hover:bg-cta/90 text-cta-foreground" onClick={() => handleNavClick("#contact")}>
+                  <Button 
+                    className="w-full bg-cta hover:bg-cta/90 text-cta-foreground" 
+                    onClick={() => {
+                      setIsOpen(false);
+                      setTimeout(() => {
+                        const element = document.querySelector("#contact");
+                        if (element) {
+                          const headerOffset = 100;
+                          const elementPosition = element.getBoundingClientRect().top;
+                          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                          window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                          });
+                        }
+                      }, 300);
+                    }}
+                    data-testid="button-reservar-mobile"
+                  >
                     Reservar Ahora
                   </Button>
                 </div>
