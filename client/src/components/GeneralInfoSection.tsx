@@ -51,10 +51,10 @@ export default function GeneralInfoSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Informacion util para tu viaje
+            Información útil para tu viaje
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Todo lo que necesitas saber antes de viajar. Metodos de pago, visados, monedas y preguntas frecuentes aplicables a cualquier destino.
+            Todo lo que necesitas saber antes de viajar. Métodos de pago, visados, monedas y preguntas frecuentes aplicables a cualquier destino.
           </p>
         </motion.div>
 

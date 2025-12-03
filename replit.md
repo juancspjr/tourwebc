@@ -12,7 +12,7 @@ Preferred communication style: Simple, everyday language.
 
 **December 2025:**
 - Added "Info Viaje" global menu section linking to travel information
-- Renamed "Informacion Importante" to "Informacion util para tu viaje" with generic multi-destination content
+- Renamed "Informacion Importante" to "Información útil para tu viaje" with generic multi-destination content
 - Updated visa info to be generic with advisor contact button
 - Added currency information for multiple destinations (BRL Brazil, USD, EUR Egypt/Europe, EGP Egypt)
 - Added 8 generic travel FAQs applicable to any destination
