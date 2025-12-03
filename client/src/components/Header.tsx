@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone } from "lucide-react";
@@ -9,40 +8,24 @@ interface HeaderProps {
   onNavigate?: (section: string) => void;
 }
 
-interface NavItem {
-  label: string;
-  href: string;
-  isPage?: boolean;
-}
-
 export default function Header({ onNavigate }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [location] = useLocation();
 
-  const navItems: NavItem[] = [
-    { label: "Inicio", href: "/", isPage: true },
-    { label: "Destinos", href: "/destinos", isPage: true },
-    { label: "Paquetes", href: "#packages" },
-    { label: "Nosotros", href: "/nosotros", isPage: true },
+  const navItems = [
+    { label: "Inicio", href: "#home" },
+    { label: "Destinos", href: "#packages" },
+    { label: "Info Viaje", href: "#info" },
+    { label: "Testimonios", href: "#testimonials" },
     { label: "Contacto", href: "#contact" },
   ];
 
-  const handleNavClick = (href: string, isPage?: boolean) => {
+  const handleNavClick = (href: string) => {
     setIsOpen(false);
-    
-    if (isPage) {
-      return;
-    }
-    
-    if (href.startsWith("#")) {
-      if (location !== "/") {
-        window.location.href = "/" + href;
-      } else if (onNavigate) {
-        onNavigate(href);
-      } else {
-        const element = document.querySelector(href);
-        element?.scrollIntoView({ behavior: "smooth" });
-      }
+    if (onNavigate) {
+      onNavigate(href);
+    } else {
+      const element = document.querySelector(href);
+      element?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -50,8 +33,8 @@ export default function Header({ onNavigate }: HeaderProps) {
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-24">
-          <Link 
-            href="/"
+          <button 
+            onClick={() => handleNavClick("#home")}
             className="flex items-center gap-2 hover:opacity-90 transition-opacity"
             data-testid="link-logo-home"
           >
@@ -60,29 +43,18 @@ export default function Header({ onNavigate }: HeaderProps) {
               alt="Rio Trip Vibes" 
               className="h-20 w-auto object-contain"
             />
-          </Link>
+          </button>
 
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              item.isPage ? (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                  data-testid={`nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
-                >
-                  {item.label}
-                </Link>
-              ) : (
-                <button
-                  key={item.label}
-                  onClick={() => handleNavClick(item.href, item.isPage)}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                  data-testid={`nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
-                >
-                  {item.label}
-                </button>
-              )
+              <button
+                key={item.label}
+                onClick={() => handleNavClick(item.href)}
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                data-testid={`nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+              >
+                {item.label}
+              </button>
             ))}
           </nav>
 
@@ -121,26 +93,14 @@ export default function Header({ onNavigate }: HeaderProps) {
                   className="h-16 w-auto object-contain self-start mb-4"
                 />
                 {navItems.map((item) => (
-                  item.isPage ? (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className="text-lg font-medium text-foreground hover:text-primary transition-colors text-left"
-                      data-testid={`nav-mobile-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
-                    >
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <button
-                      key={item.label}
-                      onClick={() => handleNavClick(item.href, item.isPage)}
-                      className="text-lg font-medium text-foreground hover:text-primary transition-colors text-left"
-                      data-testid={`nav-mobile-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
-                    >
-                      {item.label}
-                    </button>
-                  )
+                  <button
+                    key={item.label}
+                    onClick={() => handleNavClick(item.href)}
+                    className="text-lg font-medium text-foreground hover:text-primary transition-colors text-left"
+                    data-testid={`nav-mobile-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
+                  >
+                    {item.label}
+                  </button>
                 ))}
                 <div className="flex flex-col gap-3 mt-4">
                   <Button

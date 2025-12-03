@@ -109,13 +109,10 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
         </h1>
 
         <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-2">
-          Agencia de viajes profesional. Paquetes personalizados.
+          Explora los destinos más increíbles del mundo
         </p>
-        <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-2">
-          Desde $89 USD por persona.
-        </p>
-        <p className="text-sm text-white/70 max-w-2xl mx-auto mb-8">
-          Expandiendo continuamente a nuevos destinos
+        <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-8">
+          y crea recuerdos inolvidables con nosotros.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

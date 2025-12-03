@@ -62,14 +62,6 @@ Preferred communication style: Simple, everyday language.
   - Falls back to static image for packages with single image
   - Full accessibility support with ARIA roles and labels
   - CSS styles in `client/src/styles/scroll-animations.css`
-- **Phase 2: Global Expansion (December 2025):**
-  - Updated Hero section with multi-destination messaging ("Agencia de viajes profesional", "Expandiendo continuamente a nuevos destinos")
-  - New page: Destinos (/destinos) - Grid of worldwide destinations with status badges (Disponible, En construcción, Próximamente)
-  - New page: Nosotros (/nosotros) - About us page with mission, vision, history, values, team, and stats
-  - Created usePageSEO hook for per-page SEO meta tags (title, description, keywords, OG tags)
-  - Navigation updated: wouter Link for page routes, anchor scrolling for sections
-  - Header mobile menu updated with new page links
-  - Destinations: Rio (8 tours, 4.9 rating), Egipto (5 tours, 4.8 rating), Europa/Asia (en construcción), Caribe (próximamente)
 
 ## System Architecture
 
@@ -92,8 +84,6 @@ Preferred communication style: Simple, everyday language.
 
 **Key Pages & Components**:
 - Home page (`client/src/pages/Home.tsx`) - Main landing page orchestrating all sections
-- Destinos page (`client/src/pages/Destinos.tsx`) - Grid of worldwide destinations with status badges
-- Nosotros page (`client/src/pages/Nosotros.tsx`) - About us with mission, vision, history, values, team, stats
 - Header - Sticky navigation with responsive mobile menu
 - HeroSection - Full-width hero with parallax background and CTA
 - PackageGrid - Filterable grid of tour packages with category filters
@@ -106,9 +96,8 @@ Preferred communication style: Simple, everyday language.
 - Footer - Site links and social media integration
 - WhatsAppButton - Floating CTA for direct WhatsApp contact
 
-**Hooks** (`client/src/hooks/`):
+**Animation Hooks** (`client/src/hooks/`):
 - `useScrollAnimation.ts` - IntersectionObserver-based reveal animations for scroll effects
-- `usePageSEO.ts` - Per-page SEO meta tags (title, description, keywords, OG tags)
 
 ### Backend Architecture
 
