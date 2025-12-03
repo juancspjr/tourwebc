@@ -5,11 +5,13 @@ import logoImage from "@assets/Diseño_sin_título_(2)_1764694858372.png";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const destinations = [
-    { label: "Brasil", href: "#destinations" },
-    { label: "El Caribe", href: "#destinations" },
-    { label: "Egipto", href: "#destinations" },
-    { label: "Europa", href: "#destinations" },
+  const tourPackages = [
+    { label: "Day Tour Rio de Janeiro", href: "#packages" },
+    { label: "Tour por las Favelas", href: "#packages" },
+    { label: "Tour por las Playas", href: "#packages" },
+    { label: "Trilhas & Trekking", href: "#packages" },
+    { label: "Paseos en Barco", href: "#packages" },
+    { label: "Paseo en Yate VIP", href: "#packages" },
   ];
 
   const socialLinks = [
@@ -64,7 +66,7 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Paquetes Turísticos</h3>
             <ul className="space-y-2">
-              {destinations.map((link) => (
+              {tourPackages.map((link) => (
                 <li key={link.label}>
                   <button
                     onClick={() => handleLinkClick(link.href)}
