@@ -3,7 +3,13 @@ import { motion, useReducedMotion } from "framer-motion";
 import PackageCard from "./PackageCard";
 import { Button } from "@/components/ui/button";
 import { packages, categories, type PackageData } from "@/lib/packages";
-import { revealVariants, revealFromLeftVariants, reducedMotionVariants } from "@/hooks/useRevealAnimation";
+import { 
+  revealVariants, 
+  revealFromLeftVariants, 
+  cardStaggerContainerVariants, 
+  cardItemVariants, 
+  reducedMotionVariants 
+} from "@/hooks/useRevealAnimation";
 
 export type { PackageData };
 
@@ -22,6 +28,8 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
 
   const variants = prefersReducedMotion ? reducedMotionVariants : revealVariants;
   const leftVariants = prefersReducedMotion ? reducedMotionVariants : revealFromLeftVariants;
+  const containerVariants = prefersReducedMotion ? reducedMotionVariants : cardStaggerContainerVariants;
+  const itemVariants = prefersReducedMotion ? reducedMotionVariants : cardItemVariants;
 
   return (
     <section id="packages" className="py-16 md:py-24 bg-background">
@@ -62,16 +70,23 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
           ))}
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.1, margin: "-30px 0px" }}
+          variants={containerVariants}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {filteredPackages.map((pkg) => (
-            <PackageCard
-              key={pkg.id}
-              package={pkg}
-              onViewDetails={onViewDetails}
-              onBook={onBook}
-            />
+            <motion.div key={pkg.id} variants={itemVariants}>
+              <PackageCard
+                package={pkg}
+                onViewDetails={onViewDetails}
+                onBook={onBook}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {filteredPackages.length === 0 && (
           <div className="text-center py-12">

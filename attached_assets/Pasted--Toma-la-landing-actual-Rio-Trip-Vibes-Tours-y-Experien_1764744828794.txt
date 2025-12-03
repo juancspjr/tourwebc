@@ -1,0 +1,71 @@
+“Toma la landing actual Rio Trip Vibes - Tours y Experiencias en Río de Janeiro y mantén intactos el layout, los textos, el estilo visual y las animaciones que ya funcionan. Solo añade animaciones con Framer Motion ligadas al scroll, bien pulidas y repetibles, que eleven la experiencia de un sitio de turismo premium.
+
+Tecnología y restricciones
+
+Proyecto en React + Vite + Tailwind + Framer Motion.
+
+No rompas el responsive ni el comportamiento actual del menú fijo ni de los botones de WhatsApp y reserva.
+
+Usa solo animaciones basadas en transform y opacity, respetando prefers-reduced-motion.
+
+1) Hero principal (‘DESCUBRE TU PRÓXIMA AVENTURA’)
+
+Convierte el contenedor del hero en motion.div y aplica un parallax vertical muy suave a la imagen de fondo (o al layer que la envuelva) usando useScroll y useTransform de Framer Motion. El fondo debe moverse lentamente en vertical en función del scroll, dando sensación cinematográfica de profundidad, mientras el texto, los botones y el navbar permanecen totalmente estáticos y legibles.
+
+Añade una animación de entrada al cargar: título y subtítulo con initial (opacity 0, y: 30) → animate (opacity 1, y: 0) en 0.6–0.8 s easeOut, con ligero stagger entre líneas, y CTA con pequeño scale 0.9 → 1.
+
+El parallax debe funcionar siempre que el usuario se desplace, no solo la primera vez que entra a la página.
+
+2) Sección ‘Nuestros Paquetes Turísticos’
+
+Cuando esta sección entre en viewport, anima el título y el párrafo introductorio con un reveal limpio: desde y: 24 y opacity 0 hasta y: 0 y opacity 1 en 0.5–0.7 s easeOut.
+
+Envuelve el grid de paquetes en un motion.div y haz que cada tarjeta use whileInView con viewport={{ amount: 0.2, once: false }} o equivalente, para que:
+
+Entre con y: 24 → 0, opacity 0 → 1 y scale 0.97 → 1 en 0.4–0.6 s.
+
+Tenga un stagger suave (0.05–0.1 s) entre tarjetas para dar ritmo sin saturar.
+
+Evita parallax fuerte dentro de las tarjetas; el foco debe ser legibilidad de precio, descripción y CTA.
+
+3) Sección de testimonios
+
+Aplica un efecto de scroll reveal modular:
+
+Título y bajada entran con slide‑up + fade, igual que en paquetes.
+
+Cada testimonio (card o bloque) se anima desde una posición ligeramente desplazada (por ejemplo, x: 20 o x: ‑20, y: 10, opacity 0) hasta su posición final, con stagger para que parezca un carrusel que se acomoda al desplazarse.
+
+Las animaciones deben repetirse cada vez que la sección vuelva al viewport, sin quedarse en “solo una vez”.
+
+4) Sección ‘Info viaje’ (información útil)
+
+Al entrar en viewport, cada bloque interno (Métodos de pago, Moneda, Visados, Actividades prohibidas, Preguntas frecuentes) debe aparecer con un patrón consistente:
+
+Título del bloque: slide‑up corto (y: 16 → 0) + fade.
+
+Lista o texto: ligero delay (0.1–0.15 s) y fade‑in con pequeña traslación (y: 10 → 0).
+
+Mantener este patrón para que el usuario sienta fluidez al leer, pero sin distracciones excesivas.
+
+5) Sección ‘Reserva tu aventura’ y CTAs de WhatsApp
+
+El bloque de reserva (formulario o llamada a la acción) debe tener una animación que transmita confianza y urgencia suave:
+
+Cuando la sección entra en vista, el contenedor principal aparece con scale 0.95 → 1 y opacity 0 → 1 en 0.45–0.6 s.
+
+El botón de WhatsApp (“Hablar con un asesor” o similar) tiene micro‑animaciones en whileHover y whileTap: increase de scale a 1.03, leve elevación con y: -2 y sombra un poco más fuerte.
+
+Asegúrate de que los CTAs siguen siendo muy rápidos de responder y nunca se bloquean por animaciones.
+
+6) Comportamiento de scroll y repetición
+
+Usa whileInView, useScroll o equivalentes de Framer Motion para que las animaciones se basen en la posición de scroll.
+
+Configura las vistas con once: false cuando corresponda, para que los efectos de entrada/reveal se repitan si el usuario hace scroll arriba y abajo.
+
+Mantén duraciones entre 0.4 y 0.8 s, con curvas suaves (easeOut, easeInOut, o cubic‑bezier equivalente) y amplitud de movimiento moderada (no más de 20–30 px y escalas entre 0.95–1.05).
+
+Respeta prefers-reduced-motion: si está activo, desactiva parallax y deja solo apariciones simples (sin desplazamientos largos).
+
+El resultado debe ser una landing de turismo muy fluida, cinematográfica y moderna, donde el usuario sienta movimiento y profundidad al hacer scroll, pero siempre con máxima legibilidad de textos, precios y botones de reserva.”

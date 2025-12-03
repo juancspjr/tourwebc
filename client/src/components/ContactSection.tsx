@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,6 +15,13 @@ import {
 import { Phone, Mail, MapPin, Clock, MessageCircle, Calculator, Users } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { packages, getPackageByTitle, type PackageData } from "@/lib/packages";
+import { 
+  revealVariants, 
+  scaleRevealVariants, 
+  staggerContainerVariants,
+  fadeInVariants,
+  reducedMotionVariants 
+} from "@/hooks/useRevealAnimation";
 
 interface ContactSectionProps {
   selectedPackage?: PackageData | null;
@@ -22,6 +30,12 @@ interface ContactSectionProps {
 
 export default function ContactSection({ selectedPackage, onPackageChange }: ContactSectionProps) {
   const { toast } = useToast();
+  const prefersReducedMotion = useReducedMotion();
+  
+  const headerVariants = prefersReducedMotion ? reducedMotionVariants : revealVariants;
+  const formVariants = prefersReducedMotion ? reducedMotionVariants : scaleRevealVariants;
+  const containerVariants = prefersReducedMotion ? reducedMotionVariants : staggerContainerVariants;
+  const itemVariants = prefersReducedMotion ? reducedMotionVariants : fadeInVariants;
 
   const [formData, setFormData] = useState({
     name: "",
@@ -110,7 +124,13 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
   return (
     <section id="contact" className="py-16 md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2, margin: "-50px 0px" }}
+          variants={headerVariants}
+          className="text-center mb-12"
+        >
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             Reserva Tu Aventura
           </h2>
@@ -118,9 +138,15 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
             Completa el formulario y obten tu cotizacion al instante. 
             Tambien puedes escribirnos directamente por WhatsApp.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.15, margin: "-30px 0px" }}
+            variants={formVariants}
+          >
           <Card>
             <CardContent className="p-6">
               <form onSubmit={handleSubmit} className="space-y-5">
@@ -268,8 +294,16 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
               </form>
             </CardContent>
           </Card>
+          </motion.div>
 
-          <div className="space-y-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.1, margin: "-30px 0px" }}
+            variants={containerVariants}
+            className="space-y-6"
+          >
+            <motion.div variants={itemVariants}>
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-4">
@@ -323,7 +357,9 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                 </div>
               </CardContent>
             </Card>
+            </motion.div>
 
+            <motion.div variants={itemVariants}>
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-4">
@@ -351,7 +387,9 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                 </div>
               </CardContent>
             </Card>
+            </motion.div>
 
+            <motion.div variants={itemVariants}>
             <Card className="bg-primary/5 border-primary/20">
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-3">
@@ -373,7 +411,8 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                 </div>
               </CardContent>
             </Card>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

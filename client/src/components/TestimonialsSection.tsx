@@ -1,6 +1,12 @@
 import { motion, useReducedMotion } from "framer-motion";
 import TestimonialCard, { type TestimonialData } from "./TestimonialCard";
-import { revealVariants, staggerContainerVariants, fadeInVariants, reducedMotionVariants } from "@/hooks/useRevealAnimation";
+import { 
+  revealVariants, 
+  staggerContainerVariants, 
+  testimonialItemVariants, 
+  scaleRevealVariants,
+  reducedMotionVariants 
+} from "@/hooks/useRevealAnimation";
 import avatar1 from "@assets/stock_images/professional_headsho_dc765f4a.jpg";
 import avatar2 from "@assets/stock_images/professional_headsho_190f41fe.jpg";
 import avatar3 from "@assets/stock_images/professional_headsho_15c8265b.jpg";
@@ -35,12 +41,27 @@ const testimonials: TestimonialData[] = [
   },
 ];
 
+const testimonialDirectionalVariants = [
+  {
+    hidden: { opacity: 0, x: -20, y: 10 },
+    visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } },
+  },
+  {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } },
+  },
+  {
+    hidden: { opacity: 0, x: 20, y: 10 },
+    visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } },
+  },
+];
+
 export default function TestimonialsSection() {
   const prefersReducedMotion = useReducedMotion();
 
   const headerVariants = prefersReducedMotion ? reducedMotionVariants : revealVariants;
   const containerVariants = prefersReducedMotion ? reducedMotionVariants : staggerContainerVariants;
-  const itemVariants = prefersReducedMotion ? reducedMotionVariants : fadeInVariants;
+  const footerVariants = prefersReducedMotion ? reducedMotionVariants : scaleRevealVariants;
 
   return (
     <section id="testimonials" className="py-16 md:py-24 bg-card">
@@ -68,8 +89,11 @@ export default function TestimonialsSection() {
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {testimonials.map((testimonial) => (
-            <motion.div key={testimonial.id} variants={itemVariants}>
+          {testimonials.map((testimonial, index) => (
+            <motion.div 
+              key={testimonial.id} 
+              variants={prefersReducedMotion ? reducedMotionVariants : testimonialDirectionalVariants[index % 3]}
+            >
               <TestimonialCard testimonial={testimonial} />
             </motion.div>
           ))}
@@ -79,7 +103,7 @@ export default function TestimonialsSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.3, margin: "-30px 0px" }}
-          variants={headerVariants}
+          variants={footerVariants}
           className="text-center mt-12"
         >
           <div className="inline-flex items-center gap-2 bg-background rounded-full px-6 py-3 shadow-sm">
