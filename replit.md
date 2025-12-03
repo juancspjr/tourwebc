@@ -29,6 +29,12 @@ Preferred communication style: Simple, everyday language.
   - Staggered fade-in on testimonial cards (0.12s stagger)
   - No animations on package cards, contact form, or fixed menu (prioritizes CTA clarity)
   - Full prefers-reduced-motion accessibility support via useReducedMotion hook
+- **Fixed Framer Motion useInView animation bug (December 2025):**
+  - Problem: Components mounted outside viewport would not animate when scrolling into view
+  - Root cause: `animate={inView ? "visible" : "hidden"}` pattern has known bug with React state detection
+  - Solution: Replaced with `useAnimation` + `useEffect` for programmatic animation control
+  - Affected components: PackageGrid, TestimonialsSection, GeneralInfoSection, ContactSection
+  - Each component now uses: refs + useAnimation controls + useInView + useEffect to trigger controls.start()
 
 ## System Architecture
 
