@@ -11,6 +11,13 @@ Preferred communication style: Simple, everyday language.
 ## Recent Changes
 
 **December 2025:**
+- **Conversión a Sitio Estático (03/12/2025):**
+  - Configurado despliegue estático usando `dist/public`
+  - Formulario de contacto ahora usa FormSubmit.co (admin@riotripvibes.com)
+  - Eliminada dependencia del backend para envío de formularios
+  - Campos ocultos agregados: _next, _subject, _captcha, _template
+  - Cotización calculada se envía automáticamente con el formulario
+  - Build: `npm run build` genera archivos estáticos en `dist/public`
 - Added "Info Viaje" global menu section linking to travel information
 - Renamed "Informacion Importante" to "Información útil para tu viaje" with generic multi-destination content
 - Updated visa info to be generic with advisor contact button
