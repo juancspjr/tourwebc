@@ -1,16 +1,27 @@
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect, useLayoutEffect, lazy, Suspense } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import PackageGrid from "@/components/PackageGrid";
-import InfiniteTestimonialCarousel from "@/components/InfiniteTestimonialCarousel";
-import GeneralInfoSection from "@/components/GeneralInfoSection";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import PackageModal from "@/components/PackageModal";
 import SplashScreen from "@/components/SplashScreen";
 import type { PackageData } from "@/lib/packages";
+
+const PackageGrid = lazy(() => import("@/components/PackageGrid"));
+const InfiniteTestimonialCarousel = lazy(() => import("@/components/InfiniteTestimonialCarousel"));
+const GeneralInfoSection = lazy(() => import("@/components/GeneralInfoSection"));
+const ContactSection = lazy(() => import("@/components/ContactSection"));
+const Footer = lazy(() => import("@/components/Footer"));
+const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
+const PackageModal = lazy(() => import("@/components/PackageModal"));
+
+function SectionSkeleton({ height = "400px" }: { height?: string }) {
+  return (
+    <div 
+      className="w-full bg-muted/30 animate-pulse" 
+      style={{ minHeight: height }}
+      aria-label="Cargando contenido..."
+    />
+  );
+}
 
 export default function Home() {
   useScrollAnimation();
@@ -83,31 +94,45 @@ export default function Home() {
       <main>
         <HeroSection onExploreClick={() => handleNavigate("#packages")} />
         
-        <PackageGrid
-          onViewDetails={handleViewDetails}
-          onBook={handleBook}
-        />
+        <Suspense fallback={<SectionSkeleton height="600px" />}>
+          <PackageGrid
+            onViewDetails={handleViewDetails}
+            onBook={handleBook}
+          />
+        </Suspense>
         
-        <GeneralInfoSection />
+        <Suspense fallback={<SectionSkeleton height="400px" />}>
+          <GeneralInfoSection />
+        </Suspense>
         
-        <InfiniteTestimonialCarousel />
+        <Suspense fallback={<SectionSkeleton height="300px" />}>
+          <InfiniteTestimonialCarousel />
+        </Suspense>
         
-        <ContactSection 
-          selectedPackage={bookingPackage}
-          onPackageChange={setBookingPackage}
-        />
+        <Suspense fallback={<SectionSkeleton height="500px" />}>
+          <ContactSection 
+            selectedPackage={bookingPackage}
+            onPackageChange={setBookingPackage}
+          />
+        </Suspense>
       </main>
       
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
       
-      <WhatsAppButton />
+      <Suspense fallback={null}>
+        <WhatsAppButton />
+      </Suspense>
       
-      <PackageModal
-        package={selectedPackage}
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onBook={handleBook}
-      />
+      <Suspense fallback={null}>
+        <PackageModal
+          package={selectedPackage}
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          onBook={handleBook}
+        />
+      </Suspense>
       </div>
     </>
   );

@@ -83,6 +83,10 @@ export default function PackageImageCarousel({
             key={index}
             src={image}
             alt={`${packageTitle} - imagen ${index + 1}`}
+            width={400}
+            height={300}
+            loading="lazy"
+            decoding="async"
             className={`package-carousel-image ${
               index === currentIndex ? "active" : ""
             }`}

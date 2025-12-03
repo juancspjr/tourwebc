@@ -29,6 +29,10 @@ export default function PackageCard({ package: pkg, onViewDetails, onBook }: Pac
           <img
             src={pkg.image}
             alt={pkg.title}
+            width={400}
+            height={300}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer"
             onClick={() => onViewDetails?.(pkg)}
           />

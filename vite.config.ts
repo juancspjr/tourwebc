@@ -34,6 +34,11 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    target: 'esnext',
+    minify: 'esbuild',
+    cssMinify: true,
+    cssCodeSplit: true,
+    sourcemap: false,
     commonjsOptions: {
       include: [/framer-motion/, /node_modules/],
       transformMixedEsModules: true
@@ -41,7 +46,10 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          'framer': ['framer-motion']
+          'vendor': ['react', 'react-dom'],
+          'framer': ['framer-motion'],
+          'ui': ['@radix-ui/react-dialog', '@radix-ui/react-accordion', '@radix-ui/react-tabs', '@radix-ui/react-select'],
+          'query': ['@tanstack/react-query']
         }
       }
     }
