@@ -21,6 +21,14 @@ Preferred communication style: Simple, everyday language.
 - The useScrollAnimation hook now calculates section visibility based on the visible area below the navbar
 - Updated all WhatsApp contact points to +58 414 282 3218
 - Fixed TypeScript type errors in scroll animation hook
+- **Cinematic scroll effects implemented:**
+  - useParallax hook: Subtle parallax (speed 0.25, max 120px) on hero background
+  - useRevealAnimation hook: IntersectionObserver-based reveal animations (0.5-0.6s duration)
+  - Section titles with fade-up reveal animations
+  - Alternating left/right reveal on info cards
+  - Staggered fade-in on testimonial cards
+  - No animations on package cards, contact form, or fixed menu (prioritizes CTA clarity)
+  - Full prefers-reduced-motion accessibility support
 
 ## System Architecture
 
@@ -44,13 +52,18 @@ Preferred communication style: Simple, everyday language.
 **Key Pages & Components**:
 - Home page (`client/src/pages/Home.tsx`) - Main landing page orchestrating all sections
 - Header - Sticky navigation with responsive mobile menu
-- HeroSection - Full-width hero with background image and CTA
+- HeroSection - Full-width hero with parallax background and CTA
 - PackageGrid - Filterable grid of tour packages with category filters
 - PackageModal - Detailed package information dialog
-- TestimonialsSection - Customer reviews with avatar cards
+- TestimonialsSection - Customer reviews with avatar cards and staggered animations
+- GeneralInfoSection - Travel info with alternating reveal animations
 - ContactSection - Lead capture form with package selection and quotation calculator
 - Footer - Site links and social media integration
 - WhatsAppButton - Floating CTA for direct WhatsApp contact
+
+**Animation Hooks** (`client/src/hooks/`):
+- `useParallax.ts` - Subtle parallax effect for hero backgrounds
+- `useRevealAnimation.ts` - IntersectionObserver-based reveal animations with multiple variants
 
 ### Backend Architecture
 
