@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -14,22 +14,19 @@ import {
 import { Phone, Mail, MapPin, Clock, MessageCircle, Calculator, Users } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { packages, getPackageByTitle, type PackageData } from "@/lib/packages";
+import { useScrollAnimation, getStaggerStyle } from "@/hooks/useScrollAnimation";
 
 interface ContactSectionProps {
   selectedPackage?: PackageData | null;
   onPackageChange?: (pkg: PackageData | null) => void;
 }
 
-type AnimState = "initial" | "enter" | "exit";
-
 export default function ContactSection({ selectedPackage, onPackageChange }: ContactSectionProps) {
   const { toast } = useToast();
-  const sectionRef = useRef<HTMLElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  
-  const [headerState, setHeaderState] = useState<AnimState>("initial");
-  const [contentState, setContentState] = useState<AnimState>("initial");
+
+  const [sectionRef, scrollState] = useScrollAnimation<HTMLElement>({
+    intensity: "soft",
+  });
 
   const [formData, setFormData] = useState({
     name: "",
@@ -41,54 +38,8 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
     message: "",
   });
 
-  const prefersReducedMotion = useCallback(() => {
-    if (typeof window === "undefined") return false;
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  }, []);
-
-  useEffect(() => {
-    if (prefersReducedMotion()) {
-      setHeaderState("enter");
-      setContentState("enter");
-      return;
-    }
-
-    const createObserver = (
-      setState: (state: AnimState) => void,
-      threshold: number,
-      rootMargin: string
-    ) => {
-      return new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setState("enter");
-            } else {
-              const boundingRect = entry.boundingClientRect;
-              const isAboveViewport = boundingRect.bottom < 0;
-              if (isAboveViewport) {
-                setState("exit");
-              } else {
-                setState("initial");
-              }
-            }
-          });
-        },
-        { threshold, rootMargin }
-      );
-    };
-
-    const headerObserver = createObserver(setHeaderState, 0.3, "0px 0px -50px 0px");
-    const contentObserver = createObserver(setContentState, 0.1, "0px 0px -80px 0px");
-
-    if (headerRef.current) headerObserver.observe(headerRef.current);
-    if (contentRef.current) contentObserver.observe(contentRef.current);
-
-    return () => {
-      headerObserver.disconnect();
-      contentObserver.disconnect();
-    };
-  }, [prefersReducedMotion]);
+  const totalStaggerItems = 6;
+  const { prefersReducedMotion, progress } = scrollState;
 
   useEffect(() => {
     if (selectedPackage) {
@@ -164,52 +115,39 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
     }
   };
 
-  const getStateClass = (state: AnimState) => {
-    if (prefersReducedMotion()) return "";
-    const baseClass = "scroll-item-soft";
-    const stateClass = state === "enter" 
-      ? "scroll-item-enter" 
-      : state === "exit" 
-        ? "scroll-item-exit" 
-        : "scroll-item-initial";
-    return `${baseClass} ${stateClass}`;
-  };
-
-  const getStaggerStyle = (index: number) => {
-    if (prefersReducedMotion()) return {};
-    return {
-      "--stagger-delay": `${index * 0.06}s`,
-      transitionDelay: `${index * 0.06}s`,
-    } as React.CSSProperties;
-  };
-
   return (
     <section 
       id="contact" 
       ref={sectionRef}
-      className="py-16 md:py-24 bg-background"
+      className="py-16 md:py-24 bg-background scroll-perspective"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={headerRef} className="text-center mb-12">
+      <div 
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        style={scrollState.containerStyle}
+      >
+        <div 
+          className="text-center mb-12"
+          style={scrollState.innerStyle}
+        >
           <h2 
-            className={`text-3xl sm:text-4xl font-bold text-foreground mb-4 ${getStateClass(headerState)}`}
-            style={getStaggerStyle(0)}
+            className="text-3xl sm:text-4xl font-bold text-foreground mb-4"
+            style={getStaggerStyle(progress, 0, totalStaggerItems, prefersReducedMotion)}
           >
             Reserva Tu Aventura
           </h2>
           <p 
-            className={`text-muted-foreground max-w-2xl mx-auto ${getStateClass(headerState)}`}
-            style={getStaggerStyle(1)}
+            className="text-muted-foreground max-w-2xl mx-auto"
+            style={getStaggerStyle(progress, 1, totalStaggerItems, prefersReducedMotion)}
           >
             Completa el formulario y obten tu cotizacion al instante. 
             Tambien puedes escribirnos directamente por WhatsApp.
           </p>
         </div>
 
-        <div ref={contentRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <Card 
-            className={getStateClass(contentState)}
-            style={getStaggerStyle(0)}
+            className="scroll-card-premium"
+            style={getStaggerStyle(progress, 2, totalStaggerItems, prefersReducedMotion)}
           >
             <CardContent className="p-6">
               <form onSubmit={handleSubmit} className="space-y-5">
@@ -360,8 +298,8 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
 
           <div className="space-y-6">
             <Card 
-              className={getStateClass(contentState)}
-              style={getStaggerStyle(1)}
+              className="scroll-card-premium"
+              style={getStaggerStyle(progress, 3, totalStaggerItems, prefersReducedMotion)}
             >
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-4">
@@ -417,8 +355,8 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
             </Card>
 
             <Card 
-              className={getStateClass(contentState)}
-              style={getStaggerStyle(2)}
+              className="scroll-card-premium"
+              style={getStaggerStyle(progress, 4, totalStaggerItems, prefersReducedMotion)}
             >
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-4">
@@ -448,8 +386,8 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
             </Card>
 
             <Card 
-              className={`bg-primary/5 border-primary/20 ${getStateClass(contentState)}`}
-              style={getStaggerStyle(3)}
+              className="bg-primary/5 border-primary/20 scroll-card-premium"
+              style={getStaggerStyle(progress, 5, totalStaggerItems, prefersReducedMotion)}
             >
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-3">

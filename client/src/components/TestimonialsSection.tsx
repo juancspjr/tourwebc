@@ -1,5 +1,5 @@
-import { useRef, useEffect, useState, useCallback } from "react";
 import TestimonialCard, { type TestimonialData } from "./TestimonialCard";
+import { useScrollAnimation, getStaggerStyle } from "@/hooks/useScrollAnimation";
 import avatar1 from "@assets/stock_images/professional_headsho_dc765f4a.jpg";
 import avatar2 from "@assets/stock_images/professional_headsho_190f41fe.jpg";
 import avatar3 from "@assets/stock_images/professional_headsho_15c8265b.jpg";
@@ -34,89 +34,13 @@ const testimonials: TestimonialData[] = [
   },
 ];
 
-type AnimState = "initial" | "enter" | "exit";
-
 export default function TestimonialsSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
-  const badgeRef = useRef<HTMLDivElement>(null);
-  
-  const [headerState, setHeaderState] = useState<AnimState>("initial");
-  const [gridState, setGridState] = useState<AnimState>("initial");
-  const [badgeState, setBadgeState] = useState<AnimState>("initial");
+  const [sectionRef, scrollState] = useScrollAnimation<HTMLElement>({
+    intensity: "full",
+  });
 
-  const prefersReducedMotion = useCallback(() => {
-    if (typeof window === "undefined") return false;
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  }, []);
-
-  useEffect(() => {
-    if (prefersReducedMotion()) {
-      setHeaderState("enter");
-      setGridState("enter");
-      setBadgeState("enter");
-      return;
-    }
-
-    const createObserver = (
-      setState: (state: AnimState) => void,
-      threshold: number,
-      rootMargin: string
-    ) => {
-      return new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setState("enter");
-            } else {
-              const boundingRect = entry.boundingClientRect;
-              const isAboveViewport = boundingRect.bottom < 0;
-              if (isAboveViewport) {
-                setState("exit");
-              } else {
-                setState("initial");
-              }
-            }
-          });
-        },
-        { threshold, rootMargin }
-      );
-    };
-
-    const headerObserver = createObserver(setHeaderState, 0.3, "0px 0px -50px 0px");
-    const gridObserver = createObserver(setGridState, 0.1, "0px 0px -80px 0px");
-    const badgeObserver = createObserver(setBadgeState, 0.5, "0px");
-
-    if (headerRef.current) headerObserver.observe(headerRef.current);
-    if (gridRef.current) gridObserver.observe(gridRef.current);
-    if (badgeRef.current) badgeObserver.observe(badgeRef.current);
-
-    return () => {
-      headerObserver.disconnect();
-      gridObserver.disconnect();
-      badgeObserver.disconnect();
-    };
-  }, [prefersReducedMotion]);
-
-  const getStateClass = (state: AnimState, variant: "full" | "soft" = "full") => {
-    if (prefersReducedMotion()) return "";
-    const baseClass = variant === "full" ? "scroll-item-full" : "scroll-item-soft";
-    const stateClass = state === "enter" 
-      ? "scroll-item-enter" 
-      : state === "exit" 
-        ? "scroll-item-exit" 
-        : "scroll-item-initial";
-    return `${baseClass} ${stateClass}`;
-  };
-
-  const getStaggerStyle = (index: number) => {
-    if (prefersReducedMotion()) return {};
-    return {
-      "--stagger-delay": `${index * 0.1}s`,
-      transitionDelay: `${index * 0.1}s`,
-    } as React.CSSProperties;
-  };
+  const totalStaggerItems = testimonials.length + 3;
+  const { prefersReducedMotion, progress } = scrollState;
 
   return (
     <section 
@@ -124,39 +48,45 @@ export default function TestimonialsSection() {
       ref={sectionRef}
       className="py-16 md:py-24 bg-card scroll-perspective"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={headerRef} className="text-center mb-12">
+      <div 
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        style={scrollState.containerStyle}
+      >
+        <div 
+          className="text-center mb-12"
+          style={scrollState.innerStyle}
+        >
           <h2 
-            className={`text-3xl sm:text-4xl font-bold text-foreground mb-4 ${getStateClass(headerState)}`}
-            style={getStaggerStyle(0)}
+            className="text-3xl sm:text-4xl font-bold text-foreground mb-4"
+            style={getStaggerStyle(progress, 0, totalStaggerItems, prefersReducedMotion)}
           >
             Lo Que Dicen Nuestros Viajeros
           </h2>
           <p 
-            className={`text-muted-foreground max-w-2xl mx-auto ${getStateClass(headerState)}`}
-            style={getStaggerStyle(1)}
+            className="text-muted-foreground max-w-2xl mx-auto"
+            style={getStaggerStyle(progress, 1, totalStaggerItems, prefersReducedMotion)}
           >
             Historias reales de personas que exploraron Rio con nosotros. 
             Mas de 1,000 viajeros felices nos respaldan.
           </p>
         </div>
 
-        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.id}
-              className={`${getStateClass(gridState)} scroll-card-lift`}
-              style={getStaggerStyle(index)}
+              className="scroll-card-premium"
+              style={getStaggerStyle(progress, index + 2, totalStaggerItems, prefersReducedMotion)}
             >
               <TestimonialCard testimonial={testimonial} />
             </div>
           ))}
         </div>
 
-        <div ref={badgeRef} className="text-center mt-12">
+        <div className="text-center mt-12">
           <div 
-            className={`inline-flex items-center gap-2 bg-background rounded-full px-6 py-3 shadow-sm ${getStateClass(badgeState)}`}
-            style={getStaggerStyle(0)}
+            className="inline-flex items-center gap-2 bg-background rounded-full px-6 py-3 shadow-sm"
+            style={getStaggerStyle(progress, testimonials.length + 2, totalStaggerItems, prefersReducedMotion)}
           >
             <div className="flex -space-x-2">
               {testimonials.map((t) => (
