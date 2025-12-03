@@ -89,7 +89,7 @@ export const categories = [
 
 export const generalInfo = {
   paymentMethods: {
-    title: "Metodos de Pago",
+    title: "Métodos de Pago",
     methods: [
       { name: "Zelle", icon: "zelle" },
       { name: "Tarjetas de credito internacionales", icon: "credit-card" },
