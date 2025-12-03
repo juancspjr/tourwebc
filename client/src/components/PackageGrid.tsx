@@ -45,11 +45,10 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
         </div>
 
         <div className="packages-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredPackages.map((pkg, index) => (
+          {filteredPackages.map((pkg) => (
             <div 
               key={pkg.id} 
-              className="package-card animate-on-scroll"
-              style={{ "--index": index } as React.CSSProperties}
+              className="package-card"
             >
               <PackageCard
                 package={pkg}
