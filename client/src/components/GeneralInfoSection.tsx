@@ -50,9 +50,7 @@ export default function GeneralInfoSection() {
             <BookOpen className="w-6 h-6 text-primary" />
             <span className="text-sm font-medium text-primary uppercase tracking-wider">Guia del Viajero</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Informacion util para tu viaje
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Información útil para tu viaje</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Todo lo que necesitas saber antes de partir. Explora cada seccion para prepararte mejor.
           </p>
