@@ -99,7 +99,7 @@ export default function Header({ onNavigate }: HeaderProps) {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] !bg-background/90 backdrop-blur-xl border-l border-border/20 shadow-2xl">
               <VisuallyHidden>
-                <SheetTitle>Menu de navegacion</SheetTitle>
+                <SheetTitle>Menú de navegación</SheetTitle>
                 <SheetDescription>Navega por las secciones del sitio</SheetDescription>
               </VisuallyHidden>
               <div className="flex flex-col gap-6 mt-8">

@@ -48,7 +48,7 @@ export default function InfiniteTestimonialCarousel() {
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Historias reales de personas que exploraron Rio con nosotros. 
-            Mas de 1,000 viajeros felices nos respaldan.
+            Más de 1,000 viajeros felices nos respaldan.
           </p>
         </div>
       </div>

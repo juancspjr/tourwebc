@@ -60,7 +60,7 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
             <div className="flex items-center gap-2 text-sm">
               <Clock className="w-5 h-5 text-primary" />
               <div>
-                <span className="font-medium">Duracion:</span>
+                <span className="font-medium">Duración:</span>
                 <span className="text-muted-foreground ml-1">{pkg.duration}</span>
               </div>
             </div>
@@ -77,7 +77,7 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
             <TabsList className="grid w-full grid-cols-3">
               <TabsTrigger value="includes" className="gap-2" data-testid="tab-includes">
                 <Package className="w-4 h-4" />
-                <span className="hidden sm:inline">Que Incluye</span>
+                <span className="hidden sm:inline">Qué Incluye</span>
                 <span className="sm:hidden">Incluye</span>
               </TabsTrigger>
               <TabsTrigger value="locations" className="gap-2" data-testid="tab-locations">
@@ -146,7 +146,7 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
             <Button 
               variant="outline"
               className="w-full gap-2"
-              onClick={() => window.open("https://wa.me/584142823218?text=" + encodeURIComponent(`Hola, me interesa el paquete "${pkg.title}" y me gustaria obtener mas informacion.`), "_blank")}
+              onClick={() => window.open("https://wa.me/584142823218?text=" + encodeURIComponent(`Hola, me interesa el paquete "${pkg.title}" y me gustaría obtener más información.`), "_blank")}
               data-testid="button-contact-advisor"
             >
               <MessageCircle className="w-4 h-4" />

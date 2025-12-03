@@ -107,7 +107,7 @@ export default function GeneralInfoSection() {
                       <div className="flex items-start gap-3">
                         <Info className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                         <p className="text-sm text-muted-foreground">
-                          Todos los pagos son seguros y verificados. Contacta a tu asesor para coordinar el método de pago mas conveniente.
+                          Todos los pagos son seguros y verificados. Contacta a tu asesor para coordinar el método de pago más conveniente.
                         </p>
                       </div>
                     </div>
@@ -122,7 +122,7 @@ export default function GeneralInfoSection() {
                       </div>
                       <div>
                         <h3 className="text-xl font-semibold">{generalInfo.visaInfo.title}</h3>
-                        <p className="text-sm text-muted-foreground">Requisitos de entrada segun tu destino</p>
+                        <p className="text-sm text-muted-foreground">Requisitos de entrada según tu destino</p>
                       </div>
                     </div>
                     
@@ -142,7 +142,7 @@ export default function GeneralInfoSection() {
                     <Button
                       variant="default"
                       className="w-full gap-2"
-                      onClick={() => window.open("https://wa.me/584142823218?text=" + encodeURIComponent("Hola, necesito informacion sobre los requisitos de visa para mi destino."), "_blank")}
+                      onClick={() => window.open("https://wa.me/584142823218?text=" + encodeURIComponent("Hola, necesito información sobre los requisitos de visa para mi destino."), "_blank")}
                       data-testid="button-visa-contact"
                     >
                       <MessageCircle className="w-4 h-4" />
@@ -159,7 +159,7 @@ export default function GeneralInfoSection() {
                       </div>
                       <div>
                         <h3 className="text-xl font-semibold">{generalInfo.currency.title}</h3>
-                        <p className="text-sm text-muted-foreground">Informacion monetaria del destino</p>
+                        <p className="text-sm text-muted-foreground">Información monetaria del destino</p>
                       </div>
                     </div>
                     
@@ -190,7 +190,7 @@ export default function GeneralInfoSection() {
                     </div>
                     
                     <p className="text-sm text-muted-foreground italic text-center pt-2">
-                      La moneda aceptada depende del destino. Consulta con tu asesor para mas detalles.
+                      La moneda aceptada depende del destino. Consulta con tu asesor para más detalles.
                     </p>
                   </div>
                 </TabsContent>
@@ -226,7 +226,7 @@ export default function GeneralInfoSection() {
                     
                     <div className="p-4 rounded-lg bg-muted/50">
                       <p className="text-sm text-muted-foreground text-center">
-                        El incumplimiento de estas normas puede resultar en la cancelacion del servicio sin reembolso.
+                        El incumplimiento de estas normas puede resultar en la cancelación del servicio sin reembolso.
                       </p>
                     </div>
                   </div>
@@ -240,7 +240,7 @@ export default function GeneralInfoSection() {
                       </div>
                       <div>
                         <h3 className="text-xl font-semibold">Preguntas Frecuentes</h3>
-                        <p className="text-sm text-muted-foreground">Respuestas a las dudas mas comunes</p>
+                        <p className="text-sm text-muted-foreground">Respuestas a las dudas más comunes</p>
                       </div>
                     </div>
                     

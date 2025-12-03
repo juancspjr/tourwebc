@@ -44,7 +44,7 @@ export default function Footer() {
             </div>
             <p className="text-background/70 text-sm mb-4">
               Tu agencia de viajes de confianza. 
-              Experiencias unicas, guias profesionales y recuerdos inolvidables alrededor del mundo.
+              Experiencias únicas, guías profesionales y recuerdos inolvidables alrededor del mundo.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
@@ -116,12 +116,12 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Nuevas Aventuras</h3>
             <p className="text-sm text-background/70 mb-4">
-              Estamos preparando destinos increibles para ti. 
-              Muy pronto podras explorar el mundo con nosotros!
+              Estamos preparando destinos increíbles para ti. 
+              Muy pronto podrás explorar el mundo con nosotros!
             </p>
             <div className="flex items-center gap-2 text-sm">
               <span className="inline-block w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-background/70">Proximos destinos en camino</span>
+              <span className="text-background/70">Próximos destinos en camino</span>
             </div>
           </div>
         </div>
@@ -133,10 +133,10 @@ export default function Footer() {
             </p>
             <div className="flex gap-6">
               <button className="text-sm text-background/60 hover:text-background transition-colors">
-                Terminos de Servicio
+                Términos de Servicio
               </button>
               <button className="text-sm text-background/60 hover:text-background transition-colors">
-                Politica de Privacidad
+                Política de Privacidad
               </button>
             </div>
           </div>

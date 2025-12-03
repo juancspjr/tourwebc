@@ -23,7 +23,7 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
         <div className="section-header text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Nuestros Paquetes Turísticos</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Encuentra la aventura perfecta para ti. Desde city tours hasta experiencias exclusivas en helicoptero.
+            Encuentra la aventura perfecta para ti. Desde city tours hasta experiencias exclusivas en helicóptero.
           </p>
         </div>
 
@@ -56,7 +56,7 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
 
         {filteredPackages.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-muted-foreground">No hay paquetes disponibles en esta categoria.</p>
+            <p className="text-muted-foreground">No hay paquetes disponibles en esta categoría.</p>
           </div>
         )}
       </div>
