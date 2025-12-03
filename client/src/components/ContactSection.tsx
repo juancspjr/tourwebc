@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -11,7 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Phone, Mail, MapPin, Clock, MessageCircle, Calculator, Users, Calendar } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle, Calculator, Users } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { packages, getPackageByTitle, type PackageData } from "@/lib/packages";
 
@@ -20,8 +20,17 @@ interface ContactSectionProps {
   onPackageChange?: (pkg: PackageData | null) => void;
 }
 
+type AnimState = "initial" | "enter" | "exit";
+
 export default function ContactSection({ selectedPackage, onPackageChange }: ContactSectionProps) {
   const { toast } = useToast();
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  
+  const [headerState, setHeaderState] = useState<AnimState>("initial");
+  const [contentState, setContentState] = useState<AnimState>("initial");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -31,6 +40,55 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
     people: "",
     message: "",
   });
+
+  const prefersReducedMotion = useCallback(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }, []);
+
+  useEffect(() => {
+    if (prefersReducedMotion()) {
+      setHeaderState("enter");
+      setContentState("enter");
+      return;
+    }
+
+    const createObserver = (
+      setState: (state: AnimState) => void,
+      threshold: number,
+      rootMargin: string
+    ) => {
+      return new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setState("enter");
+            } else {
+              const boundingRect = entry.boundingClientRect;
+              const isAboveViewport = boundingRect.bottom < 0;
+              if (isAboveViewport) {
+                setState("exit");
+              } else {
+                setState("initial");
+              }
+            }
+          });
+        },
+        { threshold, rootMargin }
+      );
+    };
+
+    const headerObserver = createObserver(setHeaderState, 0.3, "0px 0px -50px 0px");
+    const contentObserver = createObserver(setContentState, 0.1, "0px 0px -80px 0px");
+
+    if (headerRef.current) headerObserver.observe(headerRef.current);
+    if (contentRef.current) contentObserver.observe(contentRef.current);
+
+    return () => {
+      headerObserver.disconnect();
+      contentObserver.disconnect();
+    };
+  }, [prefersReducedMotion]);
 
   useEffect(() => {
     if (selectedPackage) {
@@ -82,8 +140,8 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
     toast({
       title: "Solicitud Enviada",
       description: quotation 
-        ? `Tu cotización de $${quotation.total.toFixed(2)} USD ha sido enviada. Nos pondremos en contacto contigo pronto.`
-        : "Nos pondremos en contacto contigo pronto. ¡Gracias por tu interés!",
+        ? `Tu cotizacion de $${quotation.total.toFixed(2)} USD ha sido enviada. Nos pondremos en contacto contigo pronto.`
+        : "Nos pondremos en contacto contigo pronto. Gracias por tu interes!",
     });
     setFormData({
       name: "",
@@ -106,21 +164,53 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
     }
   };
 
+  const getStateClass = (state: AnimState) => {
+    if (prefersReducedMotion()) return "";
+    const baseClass = "scroll-item-soft";
+    const stateClass = state === "enter" 
+      ? "scroll-item-enter" 
+      : state === "exit" 
+        ? "scroll-item-exit" 
+        : "scroll-item-initial";
+    return `${baseClass} ${stateClass}`;
+  };
+
+  const getStaggerStyle = (index: number) => {
+    if (prefersReducedMotion()) return {};
+    return {
+      "--stagger-delay": `${index * 0.06}s`,
+      transitionDelay: `${index * 0.06}s`,
+    } as React.CSSProperties;
+  };
+
   return (
-    <section id="contact" className="py-16 md:py-24 bg-background">
+    <section 
+      id="contact" 
+      ref={sectionRef}
+      className="py-16 md:py-24 bg-background"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+        <div ref={headerRef} className="text-center mb-12">
+          <h2 
+            className={`text-3xl sm:text-4xl font-bold text-foreground mb-4 ${getStateClass(headerState)}`}
+            style={getStaggerStyle(0)}
+          >
             Reserva Tu Aventura
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Completa el formulario y obtén tu cotización al instante. 
-            También puedes escribirnos directamente por WhatsApp.
+          <p 
+            className={`text-muted-foreground max-w-2xl mx-auto ${getStateClass(headerState)}`}
+            style={getStaggerStyle(1)}
+          >
+            Completa el formulario y obten tu cotizacion al instante. 
+            Tambien puedes escribirnos directamente por WhatsApp.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <Card>
+        <div ref={contentRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <Card 
+            className={getStateClass(contentState)}
+            style={getStaggerStyle(0)}
+          >
             <CardContent className="p-6">
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -136,7 +226,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email">Correo Electrónico</Label>
+                    <Label htmlFor="email">Correo Electronico</Label>
                     <Input
                       id="email"
                       type="email"
@@ -151,7 +241,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Teléfono / WhatsApp</Label>
+                    <Label htmlFor="phone">Telefono / WhatsApp</Label>
                     <Input
                       id="phone"
                       type="tel"
@@ -162,7 +252,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="package">Paquete de Interés</Label>
+                    <Label htmlFor="package">Paquete de Interes</Label>
                     <Select
                       value={formData.package}
                       onValueChange={(value) => handleChange("package", value)}
@@ -193,7 +283,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="people">Número de Personas</Label>
+                    <Label htmlFor="people">Numero de Personas</Label>
                     <Select
                       value={formData.people}
                       onValueChange={(value) => handleChange("people", value)}
@@ -216,7 +306,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                   <Label htmlFor="message">Mensaje (Opcional)</Label>
                   <Textarea
                     id="message"
-                    placeholder="Cuéntanos sobre tus preferencias, preguntas o requerimientos especiales..."
+                    placeholder="Cuentanos sobre tus preferencias, preguntas o requerimientos especiales..."
                     rows={3}
                     value={formData.message}
                     onChange={(e) => handleChange("message", e.target.value)}
@@ -229,7 +319,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     <CardContent className="p-4">
                       <div className="flex items-center gap-2 mb-3">
                         <Calculator className="w-5 h-5 text-primary" />
-                        <h4 className="font-semibold text-foreground">Tu Cotización</h4>
+                        <h4 className="font-semibold text-foreground">Tu Cotizacion</h4>
                       </div>
                       <div className="space-y-2 text-sm">
                         <div className="flex justify-between">
@@ -269,10 +359,13 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
           </Card>
 
           <div className="space-y-6">
-            <Card>
+            <Card 
+              className={getStateClass(contentState)}
+              style={getStaggerStyle(1)}
+            >
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-4">
-                  Información de Contacto
+                  Informacion de Contacto
                 </h3>
                 <div className="space-y-4">
                   <a
@@ -295,7 +388,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                       <Phone className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-medium text-foreground">Teléfono</p>
+                      <p className="font-medium text-foreground">Telefono</p>
                       <p className="text-sm text-muted-foreground">+55 21 3333-4444</p>
                     </div>
                   </div>
@@ -315,18 +408,21 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                       <MapPin className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-medium text-foreground">Ubicación</p>
-                      <p className="text-sm text-muted-foreground">Río de Janeiro, Brasil</p>
+                      <p className="font-medium text-foreground">Ubicacion</p>
+                      <p className="text-sm text-muted-foreground">Rio de Janeiro, Brasil</p>
                     </div>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card 
+              className={getStateClass(contentState)}
+              style={getStaggerStyle(2)}
+            >
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-4">
-                  Horario de Atención
+                  Horario de Atencion
                 </h3>
                 <div className="space-y-3">
                   <div className="flex items-center gap-4">
@@ -342,7 +438,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     <Clock className="w-5 h-5 text-primary" />
                     <div className="flex-1">
                       <div className="flex justify-between gap-2 flex-wrap">
-                        <span className="text-muted-foreground">Sábado - Domingo</span>
+                        <span className="text-muted-foreground">Sabado - Domingo</span>
                         <span className="font-medium text-foreground">9:00 AM - 6:00 PM</span>
                       </div>
                     </div>
@@ -351,7 +447,10 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
               </CardContent>
             </Card>
 
-            <Card className="bg-primary/5 border-primary/20">
+            <Card 
+              className={`bg-primary/5 border-primary/20 ${getStateClass(contentState)}`}
+              style={getStaggerStyle(3)}
+            >
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-3">
                   Descuentos por Grupo

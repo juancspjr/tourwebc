@@ -1,9 +1,51 @@
+import { useRef, useEffect, useState, useCallback } from "react";
 import { Facebook, Instagram, Youtube } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
 import logoImage from "@assets/Diseño_sin_título_(2)_1764694858372.png";
 
+type AnimState = "initial" | "enter" | "exit";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const footerRef = useRef<HTMLElement>(null);
+  const [animState, setAnimState] = useState<AnimState>("initial");
+
+  const prefersReducedMotion = useCallback(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }, []);
+
+  useEffect(() => {
+    if (prefersReducedMotion()) {
+      setAnimState("enter");
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setAnimState("enter");
+          } else {
+            const boundingRect = entry.boundingClientRect;
+            const isAboveViewport = boundingRect.bottom < 0;
+            if (isAboveViewport) {
+              setAnimState("exit");
+            } else {
+              setAnimState("initial");
+            }
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+
+    if (footerRef.current) observer.observe(footerRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [prefersReducedMotion]);
 
   const destinations = [
     { label: "Brasil", href: "#destinations" },
@@ -28,11 +70,33 @@ export default function Footer() {
     }
   };
 
+  const getStateClass = () => {
+    if (prefersReducedMotion()) return "";
+    const baseClass = "scroll-item-soft";
+    const stateClass = animState === "enter" 
+      ? "scroll-item-enter" 
+      : animState === "exit" 
+        ? "scroll-item-exit" 
+        : "scroll-item-initial";
+    return `${baseClass} ${stateClass}`;
+  };
+
+  const getStaggerStyle = (index: number) => {
+    if (prefersReducedMotion()) return {};
+    return {
+      "--stagger-delay": `${index * 0.05}s`,
+      transitionDelay: `${index * 0.05}s`,
+    } as React.CSSProperties;
+  };
+
   return (
-    <footer className="bg-foreground text-background py-12">
+    <footer ref={footerRef} className="bg-foreground text-background py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div>
+          <div 
+            className={getStateClass()}
+            style={getStaggerStyle(0)}
+          >
             <div className="flex items-center gap-3 mb-4">
               <img 
                 src={logoImage} 
@@ -42,7 +106,7 @@ export default function Footer() {
             </div>
             <p className="text-background/70 text-sm mb-4">
               Tu agencia de viajes de confianza. 
-              Experiencias únicas, guías profesionales y recuerdos inolvidables alrededor del mundo.
+              Experiencias unicas, guias profesionales y recuerdos inolvidables alrededor del mundo.
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
@@ -61,7 +125,10 @@ export default function Footer() {
             </div>
           </div>
 
-          <div>
+          <div 
+            className={getStateClass()}
+            style={getStaggerStyle(1)}
+          >
             <h3 className="font-semibold mb-4">Destinos</h3>
             <ul className="space-y-2">
               {destinations.map((link) => (
@@ -78,7 +145,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div 
+            className={getStateClass()}
+            style={getStaggerStyle(2)}
+          >
             <h3 className="font-semibold mb-4">Contacto</h3>
             <ul className="space-y-2 text-sm text-background/70">
               <li>
@@ -107,34 +177,40 @@ export default function Footer() {
                   info@riotripvibes.com
                 </a>
               </li>
-              <li>Río de Janeiro, Brasil</li>
+              <li>Rio de Janeiro, Brasil</li>
             </ul>
           </div>
 
-          <div>
+          <div 
+            className={getStateClass()}
+            style={getStaggerStyle(3)}
+          >
             <h3 className="font-semibold mb-4">Nuevas Aventuras</h3>
             <p className="text-sm text-background/70 mb-4">
-              Estamos preparando destinos increíbles para ti. 
-              ¡Muy pronto podrás explorar el mundo con nosotros!
+              Estamos preparando destinos increibles para ti. 
+              Muy pronto podras explorar el mundo con nosotros!
             </p>
             <div className="flex items-center gap-2 text-sm">
               <span className="inline-block w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-background/70">Próximos destinos en camino</span>
+              <span className="text-background/70">Proximos destinos en camino</span>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-background/20">
+        <div 
+          className={`mt-12 pt-8 border-t border-background/20 ${getStateClass()}`}
+          style={getStaggerStyle(4)}
+        >
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-background/60">
-              © {currentYear} Rio Trip Vibes. Todos los derechos reservados.
+              {currentYear} Rio Trip Vibes. Todos los derechos reservados.
             </p>
             <div className="flex gap-6">
               <button className="text-sm text-background/60 hover:text-background transition-colors">
-                Términos de Servicio
+                Terminos de Servicio
               </button>
               <button className="text-sm text-background/60 hover:text-background transition-colors">
-                Política de Privacidad
+                Politica de Privacidad
               </button>
             </div>
           </div>
