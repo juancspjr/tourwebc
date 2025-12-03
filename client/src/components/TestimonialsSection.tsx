@@ -69,7 +69,7 @@ export default function TestimonialsSection() {
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2, margin: "-50px 0px" }}
+          viewport={{ once: false, amount: 0.15 }}
           variants={headerVariants}
           className="text-center mb-12"
         >
@@ -85,7 +85,7 @@ export default function TestimonialsSection() {
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.1, margin: "-30px 0px" }}
+          viewport={{ once: false, amount: 0.08 }}
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
@@ -102,7 +102,7 @@ export default function TestimonialsSection() {
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.3, margin: "-30px 0px" }}
+          viewport={{ once: false, amount: 0.2 }}
           variants={footerVariants}
           className="text-center mt-12"
         >

@@ -127,7 +127,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2, margin: "-50px 0px" }}
+          viewport={{ once: false, amount: 0.15 }}
           variants={headerVariants}
           className="text-center mb-12"
         >
@@ -144,7 +144,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.15, margin: "-30px 0px" }}
+            viewport={{ once: false, amount: 0.1 }}
             variants={formVariants}
           >
           <Card>
@@ -299,7 +299,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.1, margin: "-30px 0px" }}
+            viewport={{ once: false, amount: 0.08 }}
             variants={containerVariants}
             className="space-y-6"
           >

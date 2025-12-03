@@ -29,14 +29,14 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
   
   const backgroundY = useTransform(
     scrollY,
-    [0, 500],
-    prefersReducedMotion ? [0, 0] : [0, 120]
+    [0, 1000],
+    prefersReducedMotion ? [0, 0] : [0, 250]
   );
   
   const backgroundScale = useTransform(
     scrollY,
-    [0, 500],
-    prefersReducedMotion ? [1.1, 1.1] : [1.1, 1.18]
+    [0, 1000],
+    prefersReducedMotion ? [1.1, 1.1] : [1.1, 1.3]
   );
 
   const handleExploreClick = () => {

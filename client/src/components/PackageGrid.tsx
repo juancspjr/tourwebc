@@ -37,7 +37,7 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2, margin: "-50px 0px" }}
+          viewport={{ once: false, amount: 0.15 }}
           variants={variants}
           className="text-center mb-12"
         >
@@ -52,7 +52,7 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.3, margin: "-30px 0px" }}
+          viewport={{ once: false, amount: 0.2 }}
           variants={leftVariants}
           className="flex flex-wrap justify-center gap-2 mb-10"
         >
@@ -73,7 +73,7 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.1, margin: "-30px 0px" }}
+          viewport={{ once: false, amount: 0.08 }}
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
