@@ -13,26 +13,35 @@
   transform: translateY(0);
 }
 
+/* Hero - siempre visible con animacion de entrada */
+.hero-content.animate-on-scroll,
+.hero-cta.animate-on-scroll {
+  opacity: 1;
+  transform: none;
+  animation: heroFadeIn 0.8s ease-out;
+}
+
+.hero-cta.animate-on-scroll {
+  animation-delay: 0.3s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Stagger en grids */
 .package-card.animate-on-scroll,
 .testimonial-card.animate-on-scroll,
 .info-card.animate-on-scroll {
   transition-delay: calc(var(--index, 0) * 0.1s);
-}
-
-/* Hero */
-.hero-content.animate-on-scroll {
-  transform: translateY(30px);
-  transition-duration: 0.8s;
-}
-
-.hero-cta.animate-on-scroll {
-  transform: scale(0.95);
-  transition-delay: 0.3s;
-}
-
-.hero-cta.is-visible {
-  transform: scale(1);
 }
 
 /* Section headers */
@@ -61,10 +70,11 @@
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+    animation: none !important;
   }
 }
 
-/* Optimización móvil */
+/* Optimizacion movil */
 @media (max-width: 768px) {
   .animate-on-scroll {
     transition-duration: 0.5s;
