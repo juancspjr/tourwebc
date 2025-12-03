@@ -1,8 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
-import { useParallax } from "@/hooks/useParallax";
 
 import rio1Image from "@assets/rio1_1764724064822.webp";
 import rio3Image from "@assets/rio3_1764724064822.webp";
@@ -24,7 +23,21 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onExploreClick }: HeroSectionProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const parallaxOffset = useParallax({ speed: 0.25, maxOffset: 120 });
+  const prefersReducedMotion = useReducedMotion();
+  
+  const { scrollY } = useScroll();
+  
+  const backgroundY = useTransform(
+    scrollY,
+    [0, 500],
+    prefersReducedMotion ? [0, 0] : [0, 120]
+  );
+  
+  const backgroundScale = useTransform(
+    scrollY,
+    [0, 500],
+    prefersReducedMotion ? [1.1, 1.1] : [1.1, 1.18]
+  );
 
   const handleExploreClick = () => {
     if (onExploreClick) {
@@ -57,10 +70,11 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
       id="home"
       className="relative min-h-[85vh] flex items-center justify-center overflow-hidden"
     >
-      <div 
+      <motion.div 
         className="absolute inset-0"
         style={{
-          transform: `translateY(${parallaxOffset}px) scale(1.1)`,
+          y: backgroundY,
+          scale: backgroundScale,
           willChange: "transform",
         }}
       >
@@ -76,7 +90,7 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
             }}
           />
         ))}
-      </div>
+      </motion.div>
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/70 z-[2]" />
 

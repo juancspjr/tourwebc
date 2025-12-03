@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -21,7 +21,7 @@ import {
 } from "lucide-react";
 import { SiBitcoin, SiPaypal } from "react-icons/si";
 import { generalInfo } from "@/lib/packages";
-import { useRevealAnimation, revealVariants, revealFromLeftVariants, revealFromRightVariants, staggerContainerVariants, fadeInVariants } from "@/hooks/useRevealAnimation";
+import { revealVariants, revealFromLeftVariants, revealFromRightVariants, staggerContainerVariants, reducedMotionVariants } from "@/hooks/useRevealAnimation";
 
 const paymentIcons: Record<string, JSX.Element> = {
   "zelle": <Banknote className="w-5 h-5" />,
@@ -33,18 +33,21 @@ const paymentIcons: Record<string, JSX.Element> = {
 };
 
 export default function GeneralInfoSection() {
-  const { ref: headerRef, isVisible: headerVisible } = useRevealAnimation({ threshold: 0.2 });
-  const { ref: cardsRef, isVisible: cardsVisible } = useRevealAnimation({ threshold: 0.1 });
-  const { ref: faqRef, isVisible: faqVisible } = useRevealAnimation({ threshold: 0.1 });
+  const prefersReducedMotion = useReducedMotion();
+
+  const headerVariants = prefersReducedMotion ? reducedMotionVariants : revealVariants;
+  const containerVariants = prefersReducedMotion ? reducedMotionVariants : staggerContainerVariants;
+  const leftVariants = prefersReducedMotion ? reducedMotionVariants : revealFromLeftVariants;
+  const rightVariants = prefersReducedMotion ? reducedMotionVariants : revealFromRightVariants;
 
   return (
     <section id="info" className="py-16 md:py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
-          ref={headerRef}
           initial="hidden"
-          animate={headerVisible ? "visible" : "hidden"}
-          variants={revealVariants}
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2, margin: "-50px 0px" }}
+          variants={headerVariants}
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
@@ -56,13 +59,13 @@ export default function GeneralInfoSection() {
         </motion.div>
 
         <motion.div 
-          ref={cardsRef}
           initial="hidden"
-          animate={cardsVisible ? "visible" : "hidden"}
-          variants={staggerContainerVariants}
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.1, margin: "-30px 0px" }}
+          variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
-          <motion.div variants={revealFromLeftVariants}>
+          <motion.div variants={leftVariants}>
             <Card>
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center gap-2 text-lg">
@@ -88,7 +91,7 @@ export default function GeneralInfoSection() {
             </Card>
           </motion.div>
 
-          <motion.div variants={revealFromRightVariants}>
+          <motion.div variants={rightVariants}>
             <Card>
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center gap-2 text-lg">
@@ -123,7 +126,7 @@ export default function GeneralInfoSection() {
             </Card>
           </motion.div>
 
-          <motion.div variants={revealFromLeftVariants}>
+          <motion.div variants={leftVariants}>
             <Card>
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center gap-2 text-lg">
@@ -160,7 +163,7 @@ export default function GeneralInfoSection() {
             </Card>
           </motion.div>
 
-          <motion.div variants={revealFromRightVariants}>
+          <motion.div variants={rightVariants}>
             <Card>
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center gap-2 text-lg">
@@ -189,10 +192,10 @@ export default function GeneralInfoSection() {
         </motion.div>
 
         <motion.div 
-          ref={faqRef}
           initial="hidden"
-          animate={faqVisible ? "visible" : "hidden"}
-          variants={revealVariants}
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.1, margin: "-30px 0px" }}
+          variants={headerVariants}
           className="mt-8"
         >
           <Card>

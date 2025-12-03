@@ -1,43 +1,38 @@
-import { useState, useEffect, useCallback } from "react";
+import { useScroll, useTransform, useReducedMotion, MotionValue } from "framer-motion";
+import { useRef } from "react";
 
 interface ParallaxOptions {
   speed?: number;
   maxOffset?: number;
+  direction?: "up" | "down";
 }
 
-export function useParallax(options: ParallaxOptions = {}) {
-  const { speed = 0.3, maxOffset = 150 } = options;
-  const [offset, setOffset] = useState(0);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+interface ParallaxReturn {
+  ref: React.RefObject<HTMLElement>;
+  y: MotionValue<number>;
+  scale: MotionValue<number>;
+}
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mediaQuery.matches);
-    
-    const handleChange = (e: MediaQueryListEvent) => {
-      setPrefersReducedMotion(e.matches);
-    };
-    
-    mediaQuery.addEventListener("change", handleChange);
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
+export function useParallax(options: ParallaxOptions = {}): ParallaxReturn {
+  const { speed = 0.25, maxOffset = 120, direction = "up" } = options;
+  const ref = useRef<HTMLElement>(null);
+  const prefersReducedMotion = useReducedMotion();
 
-  const handleScroll = useCallback(() => {
-    if (prefersReducedMotion) return;
-    const scrollY = window.scrollY;
-    const newOffset = Math.min(scrollY * speed, maxOffset);
-    setOffset(newOffset);
-  }, [speed, maxOffset, prefersReducedMotion]);
+  const { scrollY } = useScroll();
 
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      setOffset(0);
-      return;
-    }
-    
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll, prefersReducedMotion]);
+  const yRange = direction === "up" ? [0, maxOffset] : [0, -maxOffset];
+  
+  const y = useTransform(
+    scrollY,
+    [0, maxOffset / speed],
+    prefersReducedMotion ? [0, 0] : yRange
+  );
 
-  return offset;
+  const scale = useTransform(
+    scrollY,
+    [0, maxOffset / speed],
+    prefersReducedMotion ? [1, 1] : [1.1, 1.15]
+  );
+
+  return { ref, y, scale };
 }

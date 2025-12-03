@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import PackageCard from "./PackageCard";
 import { Button } from "@/components/ui/button";
 import { packages, categories, type PackageData } from "@/lib/packages";
-import { useRevealAnimation, revealVariants, revealFromLeftVariants } from "@/hooks/useRevealAnimation";
+import { revealVariants, revealFromLeftVariants, reducedMotionVariants } from "@/hooks/useRevealAnimation";
 
 export type { PackageData };
 
@@ -14,20 +14,23 @@ interface PackageGridProps {
 
 export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps) {
   const [activeCategory, setActiveCategory] = useState("Todos");
-  const { ref: headerRef, isVisible: headerVisible } = useRevealAnimation({ threshold: 0.2 });
+  const prefersReducedMotion = useReducedMotion();
 
   const filteredPackages = activeCategory === "Todos"
     ? packages
     : packages.filter((pkg) => pkg.category === activeCategory);
 
+  const variants = prefersReducedMotion ? reducedMotionVariants : revealVariants;
+  const leftVariants = prefersReducedMotion ? reducedMotionVariants : revealFromLeftVariants;
+
   return (
     <section id="packages" className="py-16 md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
-          ref={headerRef}
           initial="hidden"
-          animate={headerVisible ? "visible" : "hidden"}
-          variants={revealVariants}
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2, margin: "-50px 0px" }}
+          variants={variants}
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
@@ -40,8 +43,9 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
 
         <motion.div 
           initial="hidden"
-          animate={headerVisible ? "visible" : "hidden"}
-          variants={revealFromLeftVariants}
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3, margin: "-30px 0px" }}
+          variants={leftVariants}
           className="flex flex-wrap justify-center gap-2 mb-10"
         >
           {categories.map((category) => (

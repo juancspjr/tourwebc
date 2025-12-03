@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import TestimonialCard, { type TestimonialData } from "./TestimonialCard";
-import { useRevealAnimation, revealVariants, staggerContainerVariants, fadeInVariants } from "@/hooks/useRevealAnimation";
+import { revealVariants, staggerContainerVariants, fadeInVariants, reducedMotionVariants } from "@/hooks/useRevealAnimation";
 import avatar1 from "@assets/stock_images/professional_headsho_dc765f4a.jpg";
 import avatar2 from "@assets/stock_images/professional_headsho_190f41fe.jpg";
 import avatar3 from "@assets/stock_images/professional_headsho_15c8265b.jpg";
@@ -36,17 +36,20 @@ const testimonials: TestimonialData[] = [
 ];
 
 export default function TestimonialsSection() {
-  const { ref: headerRef, isVisible: headerVisible } = useRevealAnimation({ threshold: 0.2 });
-  const { ref: cardsRef, isVisible: cardsVisible } = useRevealAnimation({ threshold: 0.1 });
+  const prefersReducedMotion = useReducedMotion();
+
+  const headerVariants = prefersReducedMotion ? reducedMotionVariants : revealVariants;
+  const containerVariants = prefersReducedMotion ? reducedMotionVariants : staggerContainerVariants;
+  const itemVariants = prefersReducedMotion ? reducedMotionVariants : fadeInVariants;
 
   return (
     <section id="testimonials" className="py-16 md:py-24 bg-card">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
-          ref={headerRef}
           initial="hidden"
-          animate={headerVisible ? "visible" : "hidden"}
-          variants={revealVariants}
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2, margin: "-50px 0px" }}
+          variants={headerVariants}
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
@@ -59,14 +62,14 @@ export default function TestimonialsSection() {
         </motion.div>
 
         <motion.div 
-          ref={cardsRef}
           initial="hidden"
-          animate={cardsVisible ? "visible" : "hidden"}
-          variants={staggerContainerVariants}
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.1, margin: "-30px 0px" }}
+          variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {testimonials.map((testimonial) => (
-            <motion.div key={testimonial.id} variants={fadeInVariants}>
+            <motion.div key={testimonial.id} variants={itemVariants}>
               <TestimonialCard testimonial={testimonial} />
             </motion.div>
           ))}
@@ -74,8 +77,9 @@ export default function TestimonialsSection() {
 
         <motion.div 
           initial="hidden"
-          animate={cardsVisible ? "visible" : "hidden"}
-          variants={revealVariants}
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.3, margin: "-30px 0px" }}
+          variants={headerVariants}
           className="text-center mt-12"
         >
           <div className="inline-flex items-center gap-2 bg-background rounded-full px-6 py-3 shadow-sm">
