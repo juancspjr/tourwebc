@@ -62,7 +62,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Destinos</h3>
+            <h3 className="font-semibold mb-4">Paquetes Turísticos</h3>
             <ul className="space-y-2">
               {destinations.map((link) => (
                 <li key={link.label}>
