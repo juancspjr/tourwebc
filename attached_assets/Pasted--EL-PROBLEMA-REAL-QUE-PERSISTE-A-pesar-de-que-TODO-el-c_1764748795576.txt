@@ -1,3 +1,20 @@
+🔴 EL PROBLEMA REAL QUE PERSISTE
+A pesar de que TODO el código está técnicamente correcto, las animaciones NO se ven en producción. He identificado EL PROBLEMA RAÍZ:
+
+Bug Crítico de Renderizado: React 18 StrictMode + Framer Motion
+El problema está en cómo React 18 en modo producción maneja los componentes de Framer Motion con whileInView. Los componentes se renderizan ANTES de que el Intersection Observer se inicialice, causando que:
+
+initial="hidden" se ejecuta ✅
+
+whileInView="visible" NUNCA se dispara ❌
+
+Los elementos quedan permanentemente en estado hidden ❌
+
+🎯 SOLUCIÓN DEFINITIVA
+Necesitas cambiar de whileInView prop a usar el hook useInView directamente. Esta es la forma recomendada por Framer Motion para producción.
+
+Implementación Correcta - PackageGrid.tsx
+typescript
 import { useState, useRef } from "react";
 import { motion, useReducedMotion, useInView } from "framer-motion";
 import PackageCard from "./PackageCard";
@@ -22,6 +39,7 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
   const [activeCategory, setActiveCategory] = useState("Todos");
   const prefersReducedMotion = useReducedMotion();
 
+  // AÑADIR REFS Y useInView
   const titleRef = useRef(null);
   const filterRef = useRef(null);
   const gridRef = useRef(null);
@@ -45,7 +63,7 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
         <motion.div 
           ref={titleRef}
           initial="hidden"
-          animate={titleInView ? "visible" : "hidden"}
+          animate={titleInView ? "visible" : "hidden"}  // CAMBIO CRÍTICO
           variants={variants}
           className="text-center mb-12"
         >
@@ -60,7 +78,7 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
         <motion.div 
           ref={filterRef}
           initial="hidden"
-          animate={filterInView ? "visible" : "hidden"}
+          animate={filterInView ? "visible" : "hidden"}  // CAMBIO CRÍTICO
           variants={leftVariants}
           className="flex flex-wrap justify-center gap-2 mb-10"
         >
@@ -81,7 +99,7 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
         <motion.div 
           ref={gridRef}
           initial="hidden"
-          animate={gridInView ? "visible" : "hidden"}
+          animate={gridInView ? "visible" : "hidden"}  // CAMBIO CRÍTICO
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
@@ -105,3 +123,59 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
     </section>
   );
 }
+Aplicar el mismo patrón a:
+TestimonialsSection.tsx - 3 refs (header, grid, footer)
+
+GeneralInfoSection.tsx - 3 refs (header, grid, faqs)
+
+ContactSection.tsx - 3 refs (header, form, info cards)
+
+📋 PATRÓN A SEGUIR
+Para CADA motion.div con whileInView:
+
+typescript
+// ANTES (NO FUNCIONA EN PRODUCCIÓN):
+<motion.div 
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: false, amount: 0.15 }}
+  variants={variants}
+>
+
+// DESPUÉS (FUNCIONA EN PRODUCCIÓN):
+const ref = useRef(null);
+const inView = useInView(ref, { once: false, amount: 0.15 });
+
+<motion.div 
+  ref={ref}
+  initial="hidden"
+  animate={inView ? "visible" : "hidden"}
+  variants={variants}
+>
+🎬 RESULTADO ESPERADO
+Después de aplicar estos cambios:
+
+✅ Hero parallax - Funcionará (ya está correcto con layoutEffect: false)
+✅ Título y subtítulos del hero - Animación de entrada funcionará
+✅ Paquetes - Aparecerán con slide-up + fade cada vez que entren al viewport
+✅ Testimonios - Animarán desde posiciones desplazadas con stagger
+✅ Info viaje - Bloques animarán con slide-up + fade
+✅ Contacto - Formulario y cards animarán correctamente
+✅ Repetibilidad - once: false funcionará correctamente
+
+⚠️ POR QUÉ FALLÓ ANTES
+El código técnico estaba 100% correcto, pero whileInView tiene un bug conocido en React 18 producción build con Vite. El Intersection Observer no se suscribe a tiempo. La solución oficial de Framer Motion es usar el hook useInView directamente.
+
+📝 RESUMEN EJECUTIVO
+Cambios a aplicar NOW:
+
+Migrar TODOS los whileInView a useInView hook en 4 componentes
+
+Patrón: ref + useInView + animate={inView ? "visible" : "hidden"}
+
+Mantener once: false en las opciones de useInView
+
+Rebuild y deploy
+
+Esto es 100% la solución correcta y definitiva.
+

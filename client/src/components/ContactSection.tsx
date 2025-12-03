@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, useReducedMotion, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -32,6 +32,14 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
   const { toast } = useToast();
   const prefersReducedMotion = useReducedMotion();
   
+  const headerRef = useRef(null);
+  const formRef = useRef(null);
+  const infoRef = useRef(null);
+
+  const headerInView = useInView(headerRef, { once: false, amount: 0.15 });
+  const formInView = useInView(formRef, { once: false, amount: 0.1 });
+  const infoInView = useInView(infoRef, { once: false, amount: 0.08 });
+
   const headerVariants = prefersReducedMotion ? reducedMotionVariants : revealVariants;
   const formVariants = prefersReducedMotion ? reducedMotionVariants : scaleRevealVariants;
   const containerVariants = prefersReducedMotion ? reducedMotionVariants : staggerContainerVariants;
@@ -125,9 +133,9 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
     <section id="contact" className="py-16 md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
+          ref={headerRef}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.15 }}
+          animate={headerInView ? "visible" : "hidden"}
           variants={headerVariants}
           className="text-center mb-12"
         >
@@ -142,9 +150,9 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <motion.div
+            ref={formRef}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.1 }}
+            animate={formInView ? "visible" : "hidden"}
             variants={formVariants}
           >
           <Card>
@@ -297,9 +305,9 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
           </motion.div>
 
           <motion.div
+            ref={infoRef}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.08 }}
+            animate={infoInView ? "visible" : "hidden"}
             variants={containerVariants}
             className="space-y-6"
           >

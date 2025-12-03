@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useReducedMotion, useInView } from "framer-motion";
 import TestimonialCard, { type TestimonialData } from "./TestimonialCard";
 import { 
   revealVariants, 
@@ -59,6 +60,14 @@ const testimonialDirectionalVariants = [
 export default function TestimonialsSection() {
   const prefersReducedMotion = useReducedMotion();
 
+  const headerRef = useRef(null);
+  const gridRef = useRef(null);
+  const footerRef = useRef(null);
+
+  const headerInView = useInView(headerRef, { once: false, amount: 0.15 });
+  const gridInView = useInView(gridRef, { once: false, amount: 0.08 });
+  const footerInView = useInView(footerRef, { once: false, amount: 0.2 });
+
   const headerVariants = prefersReducedMotion ? reducedMotionVariants : revealVariants;
   const containerVariants = prefersReducedMotion ? reducedMotionVariants : staggerContainerVariants;
   const footerVariants = prefersReducedMotion ? reducedMotionVariants : scaleRevealVariants;
@@ -67,9 +76,9 @@ export default function TestimonialsSection() {
     <section id="testimonials" className="py-16 md:py-24 bg-card">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
+          ref={headerRef}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.15 }}
+          animate={headerInView ? "visible" : "hidden"}
           variants={headerVariants}
           className="text-center mb-12"
         >
@@ -83,9 +92,9 @@ export default function TestimonialsSection() {
         </motion.div>
 
         <motion.div 
+          ref={gridRef}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.08 }}
+          animate={gridInView ? "visible" : "hidden"}
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
@@ -100,9 +109,9 @@ export default function TestimonialsSection() {
         </motion.div>
 
         <motion.div 
+          ref={footerRef}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
+          animate={footerInView ? "visible" : "hidden"}
           variants={footerVariants}
           className="text-center mt-12"
         >

@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useReducedMotion, useInView } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -35,6 +36,14 @@ const paymentIcons: Record<string, JSX.Element> = {
 export default function GeneralInfoSection() {
   const prefersReducedMotion = useReducedMotion();
 
+  const headerRef = useRef(null);
+  const gridRef = useRef(null);
+  const faqsRef = useRef(null);
+
+  const headerInView = useInView(headerRef, { once: false, amount: 0.15 });
+  const gridInView = useInView(gridRef, { once: false, amount: 0.08 });
+  const faqsInView = useInView(faqsRef, { once: false, amount: 0.08 });
+
   const headerVariants = prefersReducedMotion ? reducedMotionVariants : revealVariants;
   const containerVariants = prefersReducedMotion ? reducedMotionVariants : staggerContainerVariants;
   const leftVariants = prefersReducedMotion ? reducedMotionVariants : revealFromLeftVariants;
@@ -44,9 +53,9 @@ export default function GeneralInfoSection() {
     <section id="info" className="py-16 md:py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
+          ref={headerRef}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.15 }}
+          animate={headerInView ? "visible" : "hidden"}
           variants={headerVariants}
           className="text-center mb-12"
         >
@@ -59,9 +68,9 @@ export default function GeneralInfoSection() {
         </motion.div>
 
         <motion.div 
+          ref={gridRef}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.08 }}
+          animate={gridInView ? "visible" : "hidden"}
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
@@ -192,9 +201,9 @@ export default function GeneralInfoSection() {
         </motion.div>
 
         <motion.div 
+          ref={faqsRef}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.08 }}
+          animate={faqsInView ? "visible" : "hidden"}
           variants={headerVariants}
           className="mt-8"
         >
