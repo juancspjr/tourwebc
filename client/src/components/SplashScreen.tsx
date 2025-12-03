@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import logoImage from "@assets/fondtrans_1764705052522.png";
+import { Plane } from "lucide-react";
 
 interface SplashScreenProps {
   onComplete: () => void;
@@ -58,6 +59,11 @@ export default function SplashScreen({ onComplete, duration = 1800 }: SplashScre
     >
       <div className="splash-content">
         <div className="splash-logo-container">
+          <div className="splash-orbit-container">
+            <div className="splash-airplane-orbit">
+              <Plane className="splash-airplane" />
+            </div>
+          </div>
           <img
             src={logoImage}
             alt="Rio Trip Vibes"
@@ -119,14 +125,57 @@ export default function SplashScreen({ onComplete, duration = 1800 }: SplashScre
         }
 
         .splash-logo-container {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 220px;
+          height: 220px;
           animation: logoFloat 400ms ease-out 200ms backwards;
         }
 
+        .splash-orbit-container {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: 10;
+        }
+
+        .splash-airplane-orbit {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          animation: orbitRotate 2.5s linear infinite;
+          transform-origin: center center;
+        }
+
+        .splash-airplane {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          margin-left: -14px;
+          margin-top: -5px;
+          width: 28px;
+          height: 28px;
+          color: white;
+          filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+          animation: airplaneAppear 400ms ease-out 300ms backwards;
+          transform: rotate(90deg);
+        }
+
         .splash-logo {
-          width: 120px;
+          width: 160px;
           height: auto;
           filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.3));
           animation: logoScale 400ms ease-out 200ms backwards;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 5;
         }
 
         .splash-tagline {
@@ -250,9 +299,41 @@ export default function SplashScreen({ onComplete, duration = 1800 }: SplashScre
           }
         }
 
+        @keyframes orbitRotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes airplaneAppear {
+          from {
+            opacity: 0;
+            transform: translateX(-50%) rotate(45deg) scale(0.5);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(-50%) rotate(45deg) scale(1);
+          }
+        }
+
         @media (max-width: 768px) {
+          .splash-logo-container {
+            width: 180px;
+            height: 180px;
+          }
+
           .splash-logo {
-            width: 80px;
+            width: 130px;
+          }
+
+          .splash-airplane {
+            width: 24px;
+            height: 24px;
+            margin-left: -12px;
+            margin-top: -4px;
           }
 
           .splash-tagline {
@@ -270,6 +351,32 @@ export default function SplashScreen({ onComplete, duration = 1800 }: SplashScre
           }
         }
 
+        @media (max-width: 480px) {
+          .splash-logo-container {
+            width: 160px;
+            height: 160px;
+          }
+
+          .splash-logo {
+            width: 110px;
+          }
+
+          .splash-airplane {
+            width: 20px;
+            height: 20px;
+            margin-left: -10px;
+            margin-top: -3px;
+          }
+
+          .splash-tagline {
+            font-size: 16px;
+          }
+
+          .splash-loader {
+            width: 120px;
+          }
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .splash-screen,
           .splash-logo-container,
@@ -277,7 +384,9 @@ export default function SplashScreen({ onComplete, duration = 1800 }: SplashScre
           .splash-tagline,
           .splash-loader,
           .splash-loader-line,
-          .splash-skip-hint {
+          .splash-skip-hint,
+          .splash-airplane-orbit,
+          .splash-airplane {
             animation: none !important;
           }
         }
