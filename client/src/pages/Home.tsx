@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import PackageGrid from "@/components/PackageGrid";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import GeneralInfoSection from "@/components/GeneralInfoSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -46,6 +47,8 @@ export default function Home() {
         />
         
         <TestimonialsSection />
+        
+        <GeneralInfoSection />
         
         <ContactSection 
           selectedPackage={bookingPackage}
