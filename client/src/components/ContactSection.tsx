@@ -11,7 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Phone, Mail, MapPin, Clock, MessageCircle, Calculator, Users } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle, Calculator, Users, Calendar } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { packages, getPackageByTitle, type PackageData } from "@/lib/packages";
 
@@ -28,10 +28,13 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
     email: "",
     phone: "",
     package: "",
-    date: "",
+    startDate: "",
+    endDate: "",
     people: "",
     message: "",
   });
+
+  const [dateError, setDateError] = useState<string | null>(null);
 
   useEffect(() => {
     if (selectedPackage) {
@@ -45,66 +48,152 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
   const currentPackage = formData.package ? getPackageByTitle(formData.package) : null;
   const numberOfPeople = formData.people ? (formData.people === "10+" ? 10 : parseInt(formData.people)) : 0;
   
+  const calculateDays = (): number => {
+    if (!formData.startDate || !formData.endDate) return 0;
+    const start = new Date(formData.startDate);
+    const end = new Date(formData.endDate);
+    const diffTime = end.getTime() - start.getTime();
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays > 0 ? diffDays : 0;
+  };
+
+  const numberOfDays = calculateDays();
+
   const calculateQuotation = () => {
-    if (!currentPackage || numberOfPeople === 0) return null;
+    if (!currentPackage || numberOfPeople === 0 || numberOfDays === 0) return null;
     
-    const subtotal = currentPackage.price * numberOfPeople;
-    let discount = 0;
-    let discountPercent = 0;
+    const pricePerDay = currentPackage.price;
+    const baseSubtotal = pricePerDay * numberOfDays * numberOfPeople;
     
+    // =====================================================
+    // DESCUENTOS POR CANTIDAD DE PERSONAS (APLICAR PRIMERO)
+    // Ajusta estos valores según tus necesidades
+    // =====================================================
+    let groupDiscountPercent = 0;
     if (numberOfPeople >= 6) {
-      discountPercent = 15;
-      discount = subtotal * 0.15;
+      groupDiscountPercent = 15;
     } else if (numberOfPeople >= 4) {
-      discountPercent = 10;
-      discount = subtotal * 0.10;
+      groupDiscountPercent = 10;
     } else if (numberOfPeople >= 2) {
-      discountPercent = 5;
-      discount = subtotal * 0.05;
+      groupDiscountPercent = 5;
     }
+    // 1 persona: 0% descuento (precio base)
     
-    const total = subtotal - discount;
+    const groupDiscount = baseSubtotal * (groupDiscountPercent / 100);
+    const afterGroupDiscount = baseSubtotal - groupDiscount;
+    
+    // =====================================================
+    // DESCUENTOS POR DURACIÓN EN DÍAS (APLICAR SEGUNDO)
+    // Ajusta estos valores según tus necesidades
+    // =====================================================
+    let durationDiscountPercent = 0;
+    if (numberOfDays >= 15) {
+      durationDiscountPercent = 25;
+    } else if (numberOfDays >= 8) {
+      durationDiscountPercent = 15;
+    } else if (numberOfDays >= 4) {
+      durationDiscountPercent = 8;
+    }
+    // 1-3 días: 0% descuento adicional
+    
+    const durationDiscount = afterGroupDiscount * (durationDiscountPercent / 100);
+    const total = afterGroupDiscount - durationDiscount;
     
     return {
-      pricePerPerson: currentPackage.price,
+      pricePerDay,
+      numberOfDays,
       numberOfPeople,
-      subtotal,
-      discountPercent,
-      discount,
+      baseSubtotal,
+      groupDiscountPercent,
+      groupDiscount,
+      afterGroupDiscount,
+      durationDiscountPercent,
+      durationDiscount,
       total,
     };
   };
 
   const quotation = calculateQuotation();
 
+  const validateDates = (startDate: string, endDate: string): boolean => {
+    if (!startDate || !endDate) {
+      setDateError(null);
+      return true;
+    }
+    
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    
+    if (end <= start) {
+      setDateError("La fecha de finalización debe ser posterior a la fecha de inicio");
+      return false;
+    }
+    
+    setDateError(null);
+    return true;
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!validateDates(formData.startDate, formData.endDate)) {
+      toast({
+        title: "Error en las fechas",
+        description: "La fecha de finalización debe ser posterior a la fecha de inicio",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     console.log("Form submitted:", formData, "Quotation:", quotation);
     toast({
       title: "Solicitud Enviada",
       description: quotation 
-        ? `Tu cotizacion de $${quotation.total.toFixed(2)} USD ha sido enviada. Nos pondremos en contacto contigo pronto.`
-        : "Nos pondremos en contacto contigo pronto. Gracias por tu interes!",
+        ? `Tu cotización de $${quotation.total.toFixed(2)} USD para ${quotation.numberOfDays} días ha sido enviada. Nos pondremos en contacto contigo pronto.`
+        : "Nos pondremos en contacto contigo pronto. Gracias por tu interés!",
     });
     setFormData({
       name: "",
       email: "",
       phone: "",
       package: "",
-      date: "",
+      startDate: "",
+      endDate: "",
       people: "",
       message: "",
     });
+    setDateError(null);
     onPackageChange?.(null);
   };
 
   const handleChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
+    setFormData((prev) => {
+      const newData = { ...prev, [field]: value };
+      
+      if (field === "startDate" || field === "endDate") {
+        const startDate = field === "startDate" ? value : prev.startDate;
+        const endDate = field === "endDate" ? value : prev.endDate;
+        validateDates(startDate, endDate);
+      }
+      
+      return newData;
+    });
     
     if (field === "package") {
       const pkg = getPackageByTitle(value);
       onPackageChange?.(pkg || null);
     }
+  };
+
+  const getMinEndDate = (): string => {
+    if (!formData.startDate) return "";
+    const start = new Date(formData.startDate);
+    start.setDate(start.getDate() + 1);
+    return start.toISOString().split("T")[0];
+  };
+
+  const getTodayDate = (): string => {
+    return new Date().toISOString().split("T")[0];
   };
 
   return (
@@ -115,8 +204,8 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
             Reserva Tu Aventura
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Completa el formulario y obten tu cotizacion al instante. 
-            Tambien puedes escribirnos directamente por WhatsApp.
+            Completa el formulario y obtén tu cotización al instante. 
+            También puedes escribirnos directamente por WhatsApp.
           </p>
         </div>
 
@@ -138,7 +227,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email">Correo Electronico</Label>
+                    <Label htmlFor="email">Correo Electrónico</Label>
                     <Input
                       id="email"
                       type="email"
@@ -153,7 +242,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Telefono / WhatsApp</Label>
+                    <Label htmlFor="phone">Teléfono / WhatsApp</Label>
                     <Input
                       id="phone"
                       type="tel"
@@ -164,7 +253,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="package">Paquete de Interes</Label>
+                    <Label htmlFor="package">Paquete de Interés</Label>
                     <Select
                       value={formData.package}
                       onValueChange={(value) => handleChange("package", value)}
@@ -175,7 +264,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                       <SelectContent>
                         {packages.map((pkg) => (
                           <SelectItem key={pkg.id} value={pkg.title}>
-                            {pkg.title} - ${pkg.price} USD
+                            {pkg.title} - ${pkg.price} USD/día
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -185,40 +274,60 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="date">Fecha Preferida</Label>
+                    <Label htmlFor="startDate">Fecha de Inicio (Check-in)</Label>
                     <Input
-                      id="date"
+                      id="startDate"
                       type="date"
-                      value={formData.date}
-                      onChange={(e) => handleChange("date", e.target.value)}
-                      data-testid="input-date"
+                      min={getTodayDate()}
+                      value={formData.startDate}
+                      onChange={(e) => handleChange("startDate", e.target.value)}
+                      data-testid="input-start-date"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="people">Numero de Personas</Label>
-                    <Select
-                      value={formData.people}
-                      onValueChange={(value) => handleChange("people", value)}
-                    >
-                      <SelectTrigger id="people" data-testid="select-people">
-                        <SelectValue placeholder="Selecciona" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, "10+"].map((num) => (
-                          <SelectItem key={num} value={String(num)}>
-                            {num} {num === 1 ? "persona" : "personas"}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                    <Label htmlFor="endDate">Fecha de Finalización (Check-out)</Label>
+                    <Input
+                      id="endDate"
+                      type="date"
+                      min={getMinEndDate() || getTodayDate()}
+                      value={formData.endDate}
+                      onChange={(e) => handleChange("endDate", e.target.value)}
+                      disabled={!formData.startDate}
+                      data-testid="input-end-date"
+                    />
                   </div>
+                </div>
+                
+                {dateError && (
+                  <p className="text-sm text-destructive" data-testid="text-date-error">
+                    {dateError}
+                  </p>
+                )}
+
+                <div className="space-y-2">
+                  <Label htmlFor="people">Número de Personas</Label>
+                  <Select
+                    value={formData.people}
+                    onValueChange={(value) => handleChange("people", value)}
+                  >
+                    <SelectTrigger id="people" data-testid="select-people">
+                      <SelectValue placeholder="Selecciona cantidad de personas" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {[1, 2, 3, 4, 5, 6, 7, 8, 9, "10+"].map((num) => (
+                        <SelectItem key={num} value={String(num)}>
+                          {num} {num === 1 ? "persona" : "personas"}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="message">Mensaje (Opcional)</Label>
                   <Textarea
                     id="message"
-                    placeholder="Cuentanos sobre tus preferencias, preguntas o requerimientos especiales..."
+                    placeholder="Cuéntanos sobre tus preferencias, preguntas o requerimientos especiales..."
                     rows={3}
                     value={formData.message}
                     onChange={(e) => handleChange("message", e.target.value)}
@@ -231,28 +340,43 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     <CardContent className="p-4">
                       <div className="flex items-center gap-2 mb-3">
                         <Calculator className="w-5 h-5 text-primary" />
-                        <h4 className="font-semibold text-foreground">Tu Cotizacion</h4>
+                        <h4 className="font-semibold text-foreground">Tu Cotización</h4>
                       </div>
+                      
+                      <div className="flex items-center gap-2 mb-3 text-sm text-muted-foreground">
+                        <Calendar className="w-4 h-4" />
+                        <span>Viaje de {quotation.numberOfDays} {quotation.numberOfDays === 1 ? "día" : "días"} para {quotation.numberOfPeople} {quotation.numberOfPeople === 1 ? "persona" : "personas"}</span>
+                      </div>
+                      
                       <div className="space-y-2 text-sm">
-                        <div className="flex justify-between">
-                          <span className="text-muted-foreground flex items-center gap-2">
-                            <Users className="w-4 h-4" />
-                            {quotation.numberOfPeople} {quotation.numberOfPeople === 1 ? "persona" : "personas"} x ${quotation.pricePerPerson} USD
+                        <div className="flex justify-between gap-2 flex-wrap">
+                          <span className="text-muted-foreground">
+                            Precio base: ${quotation.pricePerDay} x {quotation.numberOfDays} días x {quotation.numberOfPeople} personas
                           </span>
-                          <span className="text-foreground">${quotation.subtotal.toFixed(2)}</span>
+                          <span className="text-foreground font-medium">${quotation.baseSubtotal.toFixed(2)}</span>
                         </div>
-                        {quotation.discountPercent > 0 && (
+                        
+                        {quotation.groupDiscountPercent > 0 && (
                           <div className="flex justify-between text-green-600 dark:text-green-400">
-                            <span>Descuento grupo ({quotation.discountPercent}%)</span>
-                            <span>-${quotation.discount.toFixed(2)}</span>
+                            <span>Descuento por grupo ({quotation.groupDiscountPercent}%)</span>
+                            <span>-${quotation.groupDiscount.toFixed(2)}</span>
                           </div>
                         )}
+                        
+                        {quotation.durationDiscountPercent > 0 && (
+                          <div className="flex justify-between text-green-600 dark:text-green-400">
+                            <span>Descuento por duración ({quotation.durationDiscountPercent}%)</span>
+                            <span>-${quotation.durationDiscount.toFixed(2)}</span>
+                          </div>
+                        )}
+                        
                         <div className="border-t border-border pt-2 mt-2">
-                          <div className="flex justify-between font-bold text-lg">
-                            <span className="text-foreground">Total</span>
+                          <div className="flex justify-between gap-2 font-bold text-lg flex-wrap">
+                            <span className="text-foreground">Precio Total</span>
                             <span className="text-primary">${quotation.total.toFixed(2)} USD</span>
                           </div>
                         </div>
+                        
                         {currentPackage?.priceNote && (
                           <p className="text-xs text-muted-foreground mt-2">
                             Nota: {currentPackage.priceNote}
@@ -263,7 +387,13 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                   </Card>
                 )}
 
-                <Button type="submit" className="w-full" size="lg" data-testid="button-submit-form">
+                <Button 
+                  type="submit" 
+                  className="w-full" 
+                  size="lg" 
+                  data-testid="button-submit-form"
+                  disabled={!!dateError}
+                >
                   {quotation ? `Solicitar Reserva - $${quotation.total.toFixed(2)} USD` : "Enviar Solicitud"}
                 </Button>
               </form>
@@ -275,7 +405,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-4">
-                  Informacion de Contacto
+                  Información de Contacto
                 </h3>
                 <div className="space-y-4">
                   <a
@@ -298,7 +428,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                       <Phone className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-medium text-foreground">Telefono</p>
+                      <p className="font-medium text-foreground">Teléfono</p>
                       <p className="text-sm text-muted-foreground">+58 414 282 3218</p>
                     </div>
                   </div>
@@ -318,7 +448,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                       <MapPin className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-medium text-foreground">Ubicacion</p>
+                      <p className="font-medium text-foreground">Ubicación</p>
                       <p className="text-sm text-muted-foreground">Rio de Janeiro, Brasil</p>
                     </div>
                   </div>
@@ -329,7 +459,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-4">
-                  Horario de Atencion
+                  Horario de Atención
                 </h3>
                 <div className="space-y-3">
                   <div className="flex items-center gap-4">
@@ -345,7 +475,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     <Clock className="w-5 h-5 text-primary" />
                     <div className="flex-1">
                       <div className="flex justify-between gap-2 flex-wrap">
-                        <span className="text-muted-foreground">Sabado - Domingo</span>
+                        <span className="text-muted-foreground">Sábado - Domingo</span>
                         <span className="font-medium text-foreground">9:00 AM - 6:00 PM</span>
                       </div>
                     </div>
@@ -357,20 +487,49 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
             <Card className="bg-primary/5 border-primary/20">
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-3">
-                  Descuentos por Grupo
+                  Descuentos Disponibles
                 </h3>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">2-3 personas</span>
-                    <span className="font-medium text-green-600 dark:text-green-400">5% descuento</span>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="text-sm font-medium text-foreground mb-2 flex items-center gap-2">
+                      <Users className="w-4 h-4" />
+                      Por Grupo
+                    </h4>
+                    <div className="space-y-1 text-sm">
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">2-3 personas</span>
+                        <span className="font-medium text-green-600 dark:text-green-400">5% descuento</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">4-5 personas</span>
+                        <span className="font-medium text-green-600 dark:text-green-400">10% descuento</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">6+ personas</span>
+                        <span className="font-medium text-green-600 dark:text-green-400">15% descuento</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">4-5 personas</span>
-                    <span className="font-medium text-green-600 dark:text-green-400">10% descuento</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">6+ personas</span>
-                    <span className="font-medium text-green-600 dark:text-green-400">15% descuento</span>
+                  
+                  <div>
+                    <h4 className="text-sm font-medium text-foreground mb-2 flex items-center gap-2">
+                      <Calendar className="w-4 h-4" />
+                      Por Duración
+                    </h4>
+                    <div className="space-y-1 text-sm">
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">4-7 días</span>
+                        <span className="font-medium text-green-600 dark:text-green-400">8% descuento</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">8-14 días</span>
+                        <span className="font-medium text-green-600 dark:text-green-400">15% descuento</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">15+ días</span>
+                        <span className="font-medium text-green-600 dark:text-green-400">25% descuento</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </CardContent>
