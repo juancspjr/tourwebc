@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -20,6 +21,7 @@ import {
 } from "lucide-react";
 import { SiBitcoin, SiPaypal } from "react-icons/si";
 import { generalInfo } from "@/lib/packages";
+import { useRevealAnimation, revealVariants, revealFromLeftVariants, revealFromRightVariants, staggerContainerVariants, fadeInVariants } from "@/hooks/useRevealAnimation";
 
 const paymentIcons: Record<string, JSX.Element> = {
   "zelle": <Banknote className="w-5 h-5" />,
@@ -31,138 +33,168 @@ const paymentIcons: Record<string, JSX.Element> = {
 };
 
 export default function GeneralInfoSection() {
+  const { ref: headerRef, isVisible: headerVisible } = useRevealAnimation({ threshold: 0.2 });
+  const { ref: cardsRef, isVisible: cardsVisible } = useRevealAnimation({ threshold: 0.1 });
+  const { ref: faqRef, isVisible: faqVisible } = useRevealAnimation({ threshold: 0.1 });
+
   return (
     <section id="info" className="py-16 md:py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <motion.div 
+          ref={headerRef}
+          initial="hidden"
+          animate={headerVisible ? "visible" : "hidden"}
+          variants={revealVariants}
+          className="text-center mb-12"
+        >
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             Informacion util para tu viaje
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Todo lo que necesitas saber antes de viajar. Metodos de pago, visados, monedas y preguntas frecuentes aplicables a cualquier destino.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card>
-            <CardHeader className="pb-4">
-              <CardTitle className="flex items-center gap-2 text-lg">
-                <CreditCard className="w-5 h-5 text-primary" />
-                {generalInfo.paymentMethods.title}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 gap-3">
-                {generalInfo.paymentMethods.methods.map((method, index) => (
-                  <div 
-                    key={index} 
-                    className="flex items-center gap-3 p-3 rounded-lg bg-muted/50"
-                  >
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                      {paymentIcons[method.icon]}
+        <motion.div 
+          ref={cardsRef}
+          initial="hidden"
+          animate={cardsVisible ? "visible" : "hidden"}
+          variants={staggerContainerVariants}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
+          <motion.div variants={revealFromLeftVariants}>
+            <Card>
+              <CardHeader className="pb-4">
+                <CardTitle className="flex items-center gap-2 text-lg">
+                  <CreditCard className="w-5 h-5 text-primary" />
+                  {generalInfo.paymentMethods.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 gap-3">
+                  {generalInfo.paymentMethods.methods.map((method, index) => (
+                    <div 
+                      key={index} 
+                      className="flex items-center gap-3 p-3 rounded-lg bg-muted/50"
+                    >
+                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                        {paymentIcons[method.icon]}
+                      </div>
+                      <span className="font-medium text-sm">{method.name}</span>
                     </div>
-                    <span className="font-medium text-sm">{method.name}</span>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="pb-4">
-              <CardTitle className="flex items-center gap-2 text-lg">
-                <Globe className="w-5 h-5 text-primary" />
-                {generalInfo.visaInfo.title}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <p className="text-sm text-muted-foreground">
-                {generalInfo.visaInfo.description}
-              </p>
-              
-              <div className="p-3 rounded-lg bg-primary/5 border border-primary/10">
-                <div className="flex items-start gap-2">
-                  <Info className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                  <p className="text-sm text-muted-foreground">
-                    {generalInfo.visaInfo.contactNote}
-                  </p>
+                  ))}
                 </div>
-              </div>
-              
-              <Button
-                variant="outline"
-                className="w-full gap-2"
-                onClick={() => window.open("https://wa.me/584142823218?text=" + encodeURIComponent("Hola, necesito informacion sobre los requisitos de visa para mi destino."), "_blank")}
-                data-testid="button-visa-contact"
-              >
-                <MessageCircle className="w-4 h-4" />
-                Consultar con Asesor
-              </Button>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </motion.div>
 
-          <Card>
-            <CardHeader className="pb-4">
-              <CardTitle className="flex items-center gap-2 text-lg">
-                <Coins className="w-5 h-5 text-primary" />
-                {generalInfo.currency.title}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <p className="text-sm text-muted-foreground">
-                {generalInfo.currency.description}
-              </p>
-              <div className="space-y-2">
-                {generalInfo.currency.currencies.map((currency, index) => (
-                  <div 
-                    key={index} 
-                    className="flex items-center justify-between p-3 rounded-lg bg-muted/50"
-                  >
-                    <div className="flex items-center gap-2">
-                      <Badge 
-                        variant={currency.primary ? "default" : "secondary"}
-                        className="text-xs"
-                      >
-                        {currency.name}
-                      </Badge>
+          <motion.div variants={revealFromRightVariants}>
+            <Card>
+              <CardHeader className="pb-4">
+                <CardTitle className="flex items-center gap-2 text-lg">
+                  <Globe className="w-5 h-5 text-primary" />
+                  {generalInfo.visaInfo.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-sm text-muted-foreground">
+                  {generalInfo.visaInfo.description}
+                </p>
+                
+                <div className="p-3 rounded-lg bg-primary/5 border border-primary/10">
+                  <div className="flex items-start gap-2">
+                    <Info className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-muted-foreground">
+                      {generalInfo.visaInfo.contactNote}
+                    </p>
+                  </div>
+                </div>
+                
+                <Button
+                  variant="outline"
+                  className="w-full gap-2"
+                  onClick={() => window.open("https://wa.me/584142823218?text=" + encodeURIComponent("Hola, necesito informacion sobre los requisitos de visa para mi destino."), "_blank")}
+                  data-testid="button-visa-contact"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  Consultar con Asesor
+                </Button>
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          <motion.div variants={revealFromLeftVariants}>
+            <Card>
+              <CardHeader className="pb-4">
+                <CardTitle className="flex items-center gap-2 text-lg">
+                  <Coins className="w-5 h-5 text-primary" />
+                  {generalInfo.currency.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-sm text-muted-foreground">
+                  {generalInfo.currency.description}
+                </p>
+                <div className="space-y-2">
+                  {generalInfo.currency.currencies.map((currency, index) => (
+                    <div 
+                      key={index} 
+                      className="flex items-center justify-between p-3 rounded-lg bg-muted/50"
+                    >
+                      <div className="flex items-center gap-2">
+                        <Badge 
+                          variant={currency.primary ? "default" : "secondary"}
+                          className="text-xs"
+                        >
+                          {currency.name}
+                        </Badge>
+                      </div>
+                      <span className="text-xs text-muted-foreground">{currency.country}</span>
                     </div>
-                    <span className="text-xs text-muted-foreground">{currency.country}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="text-xs text-muted-foreground italic">
-                La moneda aceptada depende del destino. Consulta con tu asesor para mas detalles.
-              </p>
-            </CardContent>
-          </Card>
+                  ))}
+                </div>
+                <p className="text-xs text-muted-foreground italic">
+                  La moneda aceptada depende del destino. Consulta con tu asesor para mas detalles.
+                </p>
+              </CardContent>
+            </Card>
+          </motion.div>
 
-          <Card>
-            <CardHeader className="pb-4">
-              <CardTitle className="flex items-center gap-2 text-lg">
-                <ShieldAlert className="w-5 h-5 text-destructive" />
-                {generalInfo.prohibitedActivities.title}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <p className="text-sm text-muted-foreground">
-                {generalInfo.prohibitedActivities.description}
-              </p>
-              <div className="space-y-2">
-                {generalInfo.prohibitedActivities.items.map((item, index) => (
-                  <div 
-                    key={index} 
-                    className="flex items-center gap-3 p-3 rounded-lg bg-destructive/5 border border-destructive/10"
-                  >
-                    <Ban className="w-5 h-5 text-destructive flex-shrink-0" />
-                    <span className="text-sm">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+          <motion.div variants={revealFromRightVariants}>
+            <Card>
+              <CardHeader className="pb-4">
+                <CardTitle className="flex items-center gap-2 text-lg">
+                  <ShieldAlert className="w-5 h-5 text-destructive" />
+                  {generalInfo.prohibitedActivities.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-sm text-muted-foreground">
+                  {generalInfo.prohibitedActivities.description}
+                </p>
+                <div className="space-y-2">
+                  {generalInfo.prohibitedActivities.items.map((item, index) => (
+                    <div 
+                      key={index} 
+                      className="flex items-center gap-3 p-3 rounded-lg bg-destructive/5 border border-destructive/10"
+                    >
+                      <Ban className="w-5 h-5 text-destructive flex-shrink-0" />
+                      <span className="text-sm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </motion.div>
 
-        <div className="mt-8">
+        <motion.div 
+          ref={faqRef}
+          initial="hidden"
+          animate={faqVisible ? "visible" : "hidden"}
+          variants={revealVariants}
+          className="mt-8"
+        >
           <Card>
             <CardHeader className="pb-4">
               <CardTitle className="text-lg">Preguntas Frecuentes Generales</CardTitle>
@@ -185,7 +217,7 @@ export default function GeneralInfoSection() {
               </Accordion>
             </CardContent>
           </Card>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

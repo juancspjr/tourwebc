@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { useParallax } from "@/hooks/useParallax";
 
 import rio1Image from "@assets/rio1_1764724064822.webp";
 import rio3Image from "@assets/rio3_1764724064822.webp";
@@ -23,6 +24,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onExploreClick }: HeroSectionProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const parallaxOffset = useParallax({ speed: 0.25, maxOffset: 120 });
 
   const handleExploreClick = () => {
     if (onExploreClick) {
@@ -55,8 +57,13 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
       id="home"
       className="relative min-h-[85vh] flex items-center justify-center overflow-hidden"
     >
-      {/* All images stacked - only current one visible */}
-      <div className="absolute inset-0">
+      <div 
+        className="absolute inset-0"
+        style={{
+          transform: `translateY(${parallaxOffset}px) scale(1.1)`,
+          willChange: "transform",
+        }}
+      >
         {heroImages.map((image, index) => (
           <img
             key={index}
