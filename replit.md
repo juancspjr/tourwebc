@@ -69,6 +69,13 @@ Preferred communication style: Simple, everyday language.
   - Falls back to static image for packages with single image
   - Full accessibility support with ARIA roles and labels
   - CSS styles in `client/src/styles/scroll-animations.css`
+- **Core Web Vitals Optimization (December 2025):**
+  - Added font preloading in index.html with dns-prefetch and preconnect for Google Fonts
+  - Hero images: First image uses `loading="eager"` and `decoding="sync"`, others use `loading="lazy"` and `decoding="async"`
+  - All images include explicit `width` and `height` attributes to prevent CLS
+  - Package card images use lazy loading for below-the-fold content
+  - Package carousel images use lazy loading and async decoding
+  - Vite build optimized with chunk splitting for vendor libraries (react, radix-ui, tanstack)
 
 ## System Architecture
 

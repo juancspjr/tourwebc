@@ -86,7 +86,6 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
             height={1080}
             loading={index === 0 ? "eager" : "lazy"}
             decoding={index === 0 ? "sync" : "async"}
-            fetchPriority={index === 0 ? "high" : "low"}
             className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
             style={{
               opacity: index === currentSlide ? 1 : 0,
