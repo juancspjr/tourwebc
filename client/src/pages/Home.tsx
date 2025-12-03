@@ -49,9 +49,9 @@ export default function Home() {
           onBook={handleBook}
         />
         
-        <InfiniteTestimonialCarousel />
-        
         <GeneralInfoSection />
+        
+        <InfiniteTestimonialCarousel />
         
         <ContactSection 
           selectedPackage={bookingPackage}
