@@ -21,14 +21,14 @@ Preferred communication style: Simple, everyday language.
 - The useScrollAnimation hook now calculates section visibility based on the visible area below the navbar
 - Updated all WhatsApp contact points to +58 414 282 3218
 - Fixed TypeScript type errors in scroll animation hook
-- **Cinematic scroll effects implemented:**
-  - useParallax hook: Subtle parallax (speed 0.25, max 120px) on hero background
-  - useRevealAnimation hook: IntersectionObserver-based reveal animations (0.5-0.6s duration)
-  - Section titles with fade-up reveal animations
-  - Alternating left/right reveal on info cards
-  - Staggered fade-in on testimonial cards
+- **Cinematic scroll effects implemented (Framer Motion):**
+  - useParallax hook: Uses Framer Motion useScroll/useTransform for smooth hero background parallax (y: 0-120px, scale: 1.1-1.18)
+  - useRevealAnimation hook: Provides animation variants with whileInView and repeatable triggers (once: false)
+  - Section titles with fade-up reveal animations (0.7-0.8s duration, easeOut curves)
+  - Alternating left/right reveal on info cards with slide+opacity transitions
+  - Staggered fade-in on testimonial cards (0.12s stagger)
   - No animations on package cards, contact form, or fixed menu (prioritizes CTA clarity)
-  - Full prefers-reduced-motion accessibility support
+  - Full prefers-reduced-motion accessibility support via useReducedMotion hook
 
 ## System Architecture
 
