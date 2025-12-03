@@ -2,14 +2,10 @@ import { useEffect } from 'react';
 
 export function useScrollAnimation() {
   useEffect(() => {
-    // Marcar que JS esta listo
-    document.documentElement.classList.add('js-ready');
-    
     const elements = document.querySelectorAll('.animate-on-scroll');
     
     if (!elements.length) return;
 
-    // Si no hay IntersectionObserver, mostrar todo
     if (!('IntersectionObserver' in window)) {
       elements.forEach((el) => el.classList.add('is-visible'));
       return;
@@ -33,10 +29,7 @@ export function useScrollAnimation() {
 
     elements.forEach((el) => observer.observe(el));
 
-    return () => {
-      observer.disconnect();
-      document.documentElement.classList.remove('js-ready');
-    };
+    return () => observer.disconnect();
   }, []);
 
   return null;
