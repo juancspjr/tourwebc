@@ -8,6 +8,14 @@ Rio Trip Vibes is a professional tourism website for booking tours and experienc
 
 Preferred communication style: Simple, everyday language.
 
+## Recent Changes
+
+**December 2025:**
+- Implemented professional scroll animation system that accounts for fixed 96px navbar height
+- The useScrollAnimation hook now calculates section visibility based on the visible area below the navbar
+- Updated all WhatsApp contact points to +58 414 282 3218
+- Fixed TypeScript type errors in scroll animation hook
+
 ## System Architecture
 
 ### Frontend Architecture
