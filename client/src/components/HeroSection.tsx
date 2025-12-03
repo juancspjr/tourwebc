@@ -33,6 +33,18 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
     window.scrollTo(0, 0);
   }, []);
 
+  // Escuchar evento para resetear el carrusel cuando se navega a "Inicio"
+  useEffect(() => {
+    const handleResetCarousel = () => {
+      setCurrentSlide(0);
+    };
+    
+    window.addEventListener('resetHeroCarousel', handleResetCarousel);
+    return () => {
+      window.removeEventListener('resetHeroCarousel', handleResetCarousel);
+    };
+  }, []);
+
   const handleExploreClick = () => {
     if (onExploreClick) {
       onExploreClick();
