@@ -45,6 +45,7 @@ export interface PackageData {
   title: string;
   description: string;
   image: string;
+  images: string[];
   gallery: string[];
   price: number;
   priceNote?: string;
@@ -148,6 +149,7 @@ export const packages: PackageData[] = [
     title: "Day Tour Rio de Janeiro",
     description: "Descubre lo mejor de Rio en un solo dia. Visitamos entre 7 a 9 puntos turisticos, incluyendo Cristo Redentor, Escadaria Selaron, Pao de Acucar, Mirante do Leblon y mucho mas. Una experiencia completa que te permitira conocer los iconos mas emblematicos de la ciudad maravillosa.",
     image: cristoImage,
+    images: [cristoImage, rio1, rio2, rio3, rio4, rioV1],
     gallery: [rio1, rio2, rio3, rio4, rioV1],
     price: 100,
     duration: "8-10 horas",
@@ -218,6 +220,7 @@ export const packages: PackageData[] = [
     title: "Tour por las Favelas",
     description: "Vive la autentica cultura carioca con recorridos guiados por las favelas mas famosas de Rio. Conoce su historia, su gente y sus miradores impresionantes. Una experiencia que cambiara tu perspectiva sobre estas vibrantes comunidades llenas de arte, musica y tradicion.",
     image: favelaImage,
+    images: [favelaImage, favela1, favela2, favela2_1, favela3, favela4],
     gallery: [favela1, favela2, favela2_1, favela3, favela4],
     price: 35,
     duration: "3-4 horas",
@@ -288,6 +291,7 @@ export const packages: PackageData[] = [
     title: "Tour por las Playas",
     description: "Explora las playas mas iconicas: Copacabana, Ipanema, Joatinga, Prainha y Grumari. Ideal para disfrutar del sol, surf, paisajes naturales y fotos espectaculares. Descubre las joyas escondidas del litoral carioca con sus aguas cristalinas y paisajes de postal.",
     image: beachImage,
+    images: [beachImage, playa2, playa3, playa4, playa5, playaV1],
     gallery: [playa2, playa3, playa4, playa5, playaV1],
     price: 80,
     duration: "6-8 horas",
@@ -358,6 +362,7 @@ export const packages: PackageData[] = [
     title: "Trilhas & Trekking",
     description: "Aventura garantizada en los morros mas famosos de Rio: Morro Dois Irmaos, Pedra Bonita, Pedra do Telegrafo, Pedra da Gavea. Guias especializados y vistas que te dejaran sin aliento. Conecta con la naturaleza exuberante de la Mata Atlantica mientras conquistas las cumbres mas iconicas.",
     image: trekkingImage,
+    images: [trekkingImage, trekking1, trekking2, trekking3, trekking4, trekking5],
     gallery: [trekking1, trekking2, trekking3, trekking4, trekking5],
     price: 50,
     priceNote: "Varia segun ruta",
@@ -431,6 +436,7 @@ export const packages: PackageData[] = [
     title: "Paseos en Barco",
     description: "Disfruta un dia en el paraiso navegando por Ilha Grande o Arraial do Cabo. Playas de aguas cristalinas, snorkel y paisajes de postal. Una experiencia unica para descubrir las islas y calas mas espectaculares del litoral brasileno.",
     image: boatImage,
+    images: [boatImage],
     gallery: [boatImage, boatImage, boatImage, boatImage, boatImage],
     price: 70,
     duration: "Dia completo",
@@ -500,6 +506,7 @@ export const packages: PackageData[] = [
     title: "Paseo en Yate VIP",
     description: "Experiencia exclusiva por las costas de Barra da Tijuca y Copacabana. Musica, bebidas, tripulacion profesional y el mejor atardecer de Rio. Ideal para celebraciones especiales, eventos corporativos o simplemente una experiencia de lujo inolvidable.",
     image: yachtImage,
+    images: [yachtImage],
     gallery: [yachtImage, yachtImage, yachtImage, yachtImage, yachtImage],
     price: 200,
     priceNote: "Por hora",
@@ -575,6 +582,7 @@ export const packages: PackageData[] = [
     title: "Paseo en Helicoptero",
     description: "Vive Rio desde el cielo. Un vuelo panoramico sobre Cristo Redentor, Pan de Azucar, playas y montanas. Experiencia premium con vistas unicas e inigualables que te permitiran apreciar la magnitud de la ciudad maravillosa.",
     image: helicopterImage,
+    images: [helicopterImage],
     gallery: [helicopterImage, helicopterImage, helicopterImage, helicopterImage, helicopterImage],
     price: 180,
     priceNote: "15 min vuelo",
