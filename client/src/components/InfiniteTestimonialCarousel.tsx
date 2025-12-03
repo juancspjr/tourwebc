@@ -42,7 +42,7 @@ export default function InfiniteTestimonialCarousel() {
   return (
     <section id="testimonials" className="py-16 md:py-24 bg-card overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="section-header animate-on-scroll text-center mb-12">
+        <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             Lo Que Dicen Nuestros Viajeros
           </h2>
@@ -78,7 +78,7 @@ export default function InfiniteTestimonialCarousel() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="animate-on-scroll text-center mt-12">
+        <div className="text-center mt-12">
           <div className="inline-flex items-center gap-2 bg-background rounded-full px-6 py-3 shadow-sm">
             <div className="flex -space-x-2">
               {testimonials.slice(0, 5).map((t) => (

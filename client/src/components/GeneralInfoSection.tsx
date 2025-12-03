@@ -45,7 +45,7 @@ export default function GeneralInfoSection() {
   return (
     <section id="info" className="py-16 md:py-24 bg-muted/30">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="section-header animate-on-scroll text-center mb-10">
+        <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 mb-4">
             <BookOpen className="w-6 h-6 text-primary" />
             <span className="text-sm font-medium text-primary uppercase tracking-wider">Guía del Viajero</span>
@@ -56,7 +56,7 @@ export default function GeneralInfoSection() {
           </p>
         </div>
 
-        <div className="animate-on-scroll">
+        <div>
           <Card className="overflow-hidden border-0 shadow-lg">
             <Tabs defaultValue="pagos" className="w-full">
               <div className="bg-muted/50 border-b">

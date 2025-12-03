@@ -1,5 +1,4 @@
 import { useState, useEffect, useLayoutEffect, lazy, Suspense } from "react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import SplashScreen from "@/components/SplashScreen";
@@ -24,8 +23,6 @@ function SectionSkeleton({ height = "400px" }: { height?: string }) {
 }
 
 export default function Home() {
-  useScrollAnimation();
-  
   const [showSplash, setShowSplash] = useState(() => {
     if (typeof window !== 'undefined') {
       return !sessionStorage.getItem('splashShown');
