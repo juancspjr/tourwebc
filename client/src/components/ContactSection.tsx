@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef } from "react";
-import { motion, useReducedMotion, useInView, useAnimation } from "framer-motion";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -15,13 +14,6 @@ import {
 import { Phone, Mail, MapPin, Clock, MessageCircle, Calculator, Users } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { packages, getPackageByTitle, type PackageData } from "@/lib/packages";
-import { 
-  revealVariants, 
-  scaleRevealVariants, 
-  staggerContainerVariants,
-  fadeInVariants,
-  reducedMotionVariants 
-} from "@/hooks/useRevealAnimation";
 
 interface ContactSectionProps {
   selectedPackage?: PackageData | null;
@@ -30,49 +22,7 @@ interface ContactSectionProps {
 
 export default function ContactSection({ selectedPackage, onPackageChange }: ContactSectionProps) {
   const { toast } = useToast();
-  const prefersReducedMotion = useReducedMotion();
   
-  const headerRef = useRef(null);
-  const formRef = useRef(null);
-  const infoRef = useRef(null);
-
-  const headerControls = useAnimation();
-  const formControls = useAnimation();
-  const infoControls = useAnimation();
-
-  const headerInView = useInView(headerRef, { once: false, amount: 0.15 });
-  const formInView = useInView(formRef, { once: false, amount: 0.1 });
-  const infoInView = useInView(infoRef, { once: false, amount: 0.08 });
-
-  useEffect(() => {
-    if (headerInView) {
-      headerControls.start("visible");
-    } else {
-      headerControls.start("hidden");
-    }
-  }, [headerInView, headerControls]);
-
-  useEffect(() => {
-    if (formInView) {
-      formControls.start("visible");
-    } else {
-      formControls.start("hidden");
-    }
-  }, [formInView, formControls]);
-
-  useEffect(() => {
-    if (infoInView) {
-      infoControls.start("visible");
-    } else {
-      infoControls.start("hidden");
-    }
-  }, [infoInView, infoControls]);
-
-  const headerVariants = prefersReducedMotion ? reducedMotionVariants : revealVariants;
-  const formVariants = prefersReducedMotion ? reducedMotionVariants : scaleRevealVariants;
-  const containerVariants = prefersReducedMotion ? reducedMotionVariants : staggerContainerVariants;
-  const itemVariants = prefersReducedMotion ? reducedMotionVariants : fadeInVariants;
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -160,13 +110,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
   return (
     <section id="contact" className="py-16 md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          ref={headerRef}
-          initial="hidden"
-          animate={headerControls}
-          variants={headerVariants}
-          className="text-center mb-12"
-        >
+        <div className="section-header animate-on-scroll text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             Reserva Tu Aventura
           </h2>
@@ -174,15 +118,10 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
             Completa el formulario y obten tu cotizacion al instante. 
             Tambien puedes escribirnos directamente por WhatsApp.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <motion.div
-            ref={formRef}
-            initial="hidden"
-            animate={formControls}
-            variants={formVariants}
-          >
+          <div className="contact-form animate-on-scroll">
           <Card>
             <CardContent className="p-6">
               <form onSubmit={handleSubmit} className="space-y-5">
@@ -330,16 +269,9 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
               </form>
             </CardContent>
           </Card>
-          </motion.div>
+          </div>
 
-          <motion.div
-            ref={infoRef}
-            initial="hidden"
-            animate={infoControls}
-            variants={containerVariants}
-            className="space-y-6"
-          >
-            <motion.div variants={itemVariants}>
+          <div className="contact-info animate-on-scroll space-y-6">
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-4">
@@ -393,9 +325,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                 </div>
               </CardContent>
             </Card>
-            </motion.div>
 
-            <motion.div variants={itemVariants}>
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-4">
@@ -423,9 +353,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                 </div>
               </CardContent>
             </Card>
-            </motion.div>
 
-            <motion.div variants={itemVariants}>
             <Card className="bg-primary/5 border-primary/20">
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-3">
@@ -447,8 +375,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                 </div>
               </CardContent>
             </Card>
-            </motion.div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

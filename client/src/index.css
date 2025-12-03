@@ -1,3 +1,5 @@
+@import './styles/scroll-animations.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -303,6 +305,4 @@ html {
   html {
     scroll-behavior: auto;
   }
-  
-  /* NO forzar animaciones a 0.01ms - dejar que Framer Motion maneje esto */
 }

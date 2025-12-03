@@ -1,5 +1,3 @@
-import { useRef, useEffect } from "react";
-import { motion, useReducedMotion, useInView, useAnimation } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -22,7 +20,6 @@ import {
 } from "lucide-react";
 import { SiBitcoin, SiPaypal } from "react-icons/si";
 import { generalInfo } from "@/lib/packages";
-import { revealVariants, revealFromLeftVariants, revealFromRightVariants, staggerContainerVariants, reducedMotionVariants } from "@/hooks/useRevealAnimation";
 
 const paymentIcons: Record<string, JSX.Element> = {
   "zelle": <Banknote className="w-5 h-5" />,
@@ -34,75 +31,20 @@ const paymentIcons: Record<string, JSX.Element> = {
 };
 
 export default function GeneralInfoSection() {
-  const prefersReducedMotion = useReducedMotion();
-
-  const headerRef = useRef(null);
-  const gridRef = useRef(null);
-  const faqsRef = useRef(null);
-
-  const headerControls = useAnimation();
-  const gridControls = useAnimation();
-  const faqsControls = useAnimation();
-
-  const headerInView = useInView(headerRef, { once: false, amount: 0.15 });
-  const gridInView = useInView(gridRef, { once: false, amount: 0.08 });
-  const faqsInView = useInView(faqsRef, { once: false, amount: 0.08 });
-
-  useEffect(() => {
-    if (headerInView) {
-      headerControls.start("visible");
-    } else {
-      headerControls.start("hidden");
-    }
-  }, [headerInView, headerControls]);
-
-  useEffect(() => {
-    if (gridInView) {
-      gridControls.start("visible");
-    } else {
-      gridControls.start("hidden");
-    }
-  }, [gridInView, gridControls]);
-
-  useEffect(() => {
-    if (faqsInView) {
-      faqsControls.start("visible");
-    } else {
-      faqsControls.start("hidden");
-    }
-  }, [faqsInView, faqsControls]);
-
-  const headerVariants = prefersReducedMotion ? reducedMotionVariants : revealVariants;
-  const containerVariants = prefersReducedMotion ? reducedMotionVariants : staggerContainerVariants;
-  const leftVariants = prefersReducedMotion ? reducedMotionVariants : revealFromLeftVariants;
-  const rightVariants = prefersReducedMotion ? reducedMotionVariants : revealFromRightVariants;
-
   return (
     <section id="info" className="py-16 md:py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          ref={headerRef}
-          initial="hidden"
-          animate={headerControls}
-          variants={headerVariants}
-          className="text-center mb-12"
-        >
+        <div className="section-header animate-on-scroll text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             Información útil para tu viaje
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Todo lo que necesitas saber antes de viajar. Métodos de pago, visados, monedas y preguntas frecuentes aplicables a cualquier destino.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div 
-          ref={gridRef}
-          initial="hidden"
-          animate={gridControls}
-          variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
-        >
-          <motion.div variants={leftVariants}>
+        <div className="info-grid grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="info-card animate-on-scroll">
             <Card>
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center gap-2 text-lg">
@@ -126,9 +68,9 @@ export default function GeneralInfoSection() {
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
 
-          <motion.div variants={rightVariants}>
+          <div className="info-card animate-on-scroll">
             <Card>
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center gap-2 text-lg">
@@ -161,9 +103,9 @@ export default function GeneralInfoSection() {
                 </Button>
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
 
-          <motion.div variants={leftVariants}>
+          <div className="info-card animate-on-scroll">
             <Card>
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center gap-2 text-lg">
@@ -198,9 +140,9 @@ export default function GeneralInfoSection() {
                 </p>
               </CardContent>
             </Card>
-          </motion.div>
+          </div>
 
-          <motion.div variants={rightVariants}>
+          <div className="info-card animate-on-scroll">
             <Card>
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center gap-2 text-lg">
@@ -225,16 +167,10 @@ export default function GeneralInfoSection() {
                 </div>
               </CardContent>
             </Card>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
-        <motion.div 
-          ref={faqsRef}
-          initial="hidden"
-          animate={faqsControls}
-          variants={headerVariants}
-          className="mt-8"
-        >
+        <div className="animate-on-scroll mt-8">
           <Card>
             <CardHeader className="pb-4">
               <CardTitle className="text-lg">Preguntas Frecuentes Generales</CardTitle>
@@ -257,7 +193,7 @@ export default function GeneralInfoSection() {
               </Accordion>
             </CardContent>
           </Card>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

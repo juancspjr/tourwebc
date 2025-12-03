@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from "react";
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -23,23 +22,6 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onExploreClick }: HeroSectionProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const prefersReducedMotion = useReducedMotion();
-  
-  const { scrollY } = useScroll({
-    layoutEffect: false
-  });
-  
-  const backgroundY = useTransform(
-    scrollY,
-    [0, 1000],
-    prefersReducedMotion ? [0, 0] : [0, 250]
-  );
-  
-  const backgroundScale = useTransform(
-    scrollY,
-    [0, 1000],
-    prefersReducedMotion ? [1.1, 1.1] : [1.1, 1.3]
-  );
 
   const handleExploreClick = () => {
     if (onExploreClick) {
@@ -72,14 +54,7 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
       id="home"
       className="relative min-h-[85vh] flex items-center justify-center overflow-hidden"
     >
-      <motion.div 
-        className="absolute inset-0"
-        style={{
-          y: backgroundY,
-          scale: backgroundScale,
-          willChange: "transform",
-        }}
-      >
+      <div className="absolute inset-0">
         {heroImages.map((image, index) => (
           <img
             key={index}
@@ -92,7 +67,7 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
             }}
           />
         ))}
-      </motion.div>
+      </div>
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/70 z-[2]" />
 
@@ -127,40 +102,21 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
         ))}
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight mb-6 uppercase"
-        >
+      <div className="relative z-10 max-w-4xl mx-auto px-4 text-center hero-content animate-on-scroll">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight mb-6 uppercase">
           Descubre tu próxima
           <span className="block text-accent">aventura</span>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-2"
-        >
+        <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-2">
           Explora los destinos más increíbles del mundo
-        </motion.p>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-8"
-        >
+        </p>
+        <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-8">
           y crea recuerdos inolvidables con nosotros.
-        </motion.p>
+        </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
+          <div className="hero-cta animate-on-scroll">
             <Button
               size="lg"
               className="text-base px-8 bg-cta hover:bg-cta/90 text-cta-foreground transition-all duration-300 hover:scale-103 hover:shadow-lg"
@@ -169,12 +125,8 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
             >
               Explorar Paquetes
             </Button>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
+          </div>
+          <div className="hero-cta animate-on-scroll">
             <Button
               size="lg"
               variant="outline"
@@ -184,21 +136,18 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
             >
               Reservar Ahora
             </Button>
-          </motion.div>
+          </div>
         </div>
       </div>
 
-      <motion.button
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.4, delay: 0.8 }}
+      <button
         onClick={handleExploreClick}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white animate-bounce z-10"
         aria-label="Scroll down"
         data-testid="button-scroll-down"
       >
         <ChevronDown className="w-10 h-10" />
-      </motion.button>
+      </button>
     </section>
   );
 }

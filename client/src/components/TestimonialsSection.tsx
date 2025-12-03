@@ -1,13 +1,4 @@
-import { useRef, useEffect } from "react";
-import { motion, useReducedMotion, useInView, useAnimation } from "framer-motion";
 import TestimonialCard, { type TestimonialData } from "./TestimonialCard";
-import { 
-  revealVariants, 
-  staggerContainerVariants, 
-  testimonialItemVariants, 
-  scaleRevealVariants,
-  reducedMotionVariants 
-} from "@/hooks/useRevealAnimation";
 import avatar1 from "@assets/stock_images/professional_headsho_dc765f4a.jpg";
 import avatar2 from "@assets/stock_images/professional_headsho_190f41fe.jpg";
 import avatar3 from "@assets/stock_images/professional_headsho_15c8265b.jpg";
@@ -42,74 +33,11 @@ const testimonials: TestimonialData[] = [
   },
 ];
 
-const testimonialDirectionalVariants = [
-  {
-    hidden: { opacity: 0, x: -20, y: 10 },
-    visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } },
-  },
-  {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } },
-  },
-  {
-    hidden: { opacity: 0, x: 20, y: 10 },
-    visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } },
-  },
-];
-
 export default function TestimonialsSection() {
-  const prefersReducedMotion = useReducedMotion();
-
-  const headerRef = useRef(null);
-  const gridRef = useRef(null);
-  const footerRef = useRef(null);
-
-  const headerControls = useAnimation();
-  const gridControls = useAnimation();
-  const footerControls = useAnimation();
-
-  const headerInView = useInView(headerRef, { once: false, amount: 0.15 });
-  const gridInView = useInView(gridRef, { once: false, amount: 0.08 });
-  const footerInView = useInView(footerRef, { once: false, amount: 0.2 });
-
-  useEffect(() => {
-    if (headerInView) {
-      headerControls.start("visible");
-    } else {
-      headerControls.start("hidden");
-    }
-  }, [headerInView, headerControls]);
-
-  useEffect(() => {
-    if (gridInView) {
-      gridControls.start("visible");
-    } else {
-      gridControls.start("hidden");
-    }
-  }, [gridInView, gridControls]);
-
-  useEffect(() => {
-    if (footerInView) {
-      footerControls.start("visible");
-    } else {
-      footerControls.start("hidden");
-    }
-  }, [footerInView, footerControls]);
-
-  const headerVariants = prefersReducedMotion ? reducedMotionVariants : revealVariants;
-  const containerVariants = prefersReducedMotion ? reducedMotionVariants : staggerContainerVariants;
-  const footerVariants = prefersReducedMotion ? reducedMotionVariants : scaleRevealVariants;
-
   return (
     <section id="testimonials" className="py-16 md:py-24 bg-card">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          ref={headerRef}
-          initial="hidden"
-          animate={headerControls}
-          variants={headerVariants}
-          className="text-center mb-12"
-        >
+        <div className="section-header animate-on-scroll text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             Lo Que Dicen Nuestros Viajeros
           </h2>
@@ -117,32 +45,21 @@ export default function TestimonialsSection() {
             Historias reales de personas que exploraron Rio con nosotros. 
             Mas de 1,000 viajeros felices nos respaldan.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div 
-          ref={gridRef}
-          initial="hidden"
-          animate={gridControls}
-          variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
+        <div className="testimonials-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
-            <motion.div 
+            <div 
               key={testimonial.id} 
-              variants={prefersReducedMotion ? reducedMotionVariants : testimonialDirectionalVariants[index % 3]}
+              className="testimonial-card animate-on-scroll"
+              style={{ "--index": index } as React.CSSProperties}
             >
               <TestimonialCard testimonial={testimonial} />
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
-        <motion.div 
-          ref={footerRef}
-          initial="hidden"
-          animate={footerControls}
-          variants={footerVariants}
-          className="text-center mt-12"
-        >
+        <div className="animate-on-scroll text-center mt-12">
           <div className="inline-flex items-center gap-2 bg-background rounded-full px-6 py-3 shadow-sm">
             <div className="flex -space-x-2">
               {testimonials.map((t) => (
@@ -158,7 +75,7 @@ export default function TestimonialsSection() {
               +1,000 viajeros satisfechos
             </span>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,15 +1,7 @@
-import { useState, useRef, useEffect } from "react";
-import { motion, useReducedMotion, useInView, useAnimation } from "framer-motion";
+import { useState } from "react";
 import PackageCard from "./PackageCard";
 import { Button } from "@/components/ui/button";
 import { packages, categories, type PackageData } from "@/lib/packages";
-import { 
-  revealVariants, 
-  revealFromLeftVariants, 
-  cardStaggerContainerVariants, 
-  cardItemVariants, 
-  reducedMotionVariants 
-} from "@/hooks/useRevealAnimation";
 
 export type { PackageData };
 
@@ -20,78 +12,24 @@ interface PackageGridProps {
 
 export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps) {
   const [activeCategory, setActiveCategory] = useState("Todos");
-  const prefersReducedMotion = useReducedMotion();
-
-  const titleRef = useRef(null);
-  const filterRef = useRef(null);
-  const gridRef = useRef(null);
-
-  const titleControls = useAnimation();
-  const filterControls = useAnimation();
-  const gridControls = useAnimation();
-
-  const titleInView = useInView(titleRef, { once: false, amount: 0.15 });
-  const filterInView = useInView(filterRef, { once: false, amount: 0.2 });
-  const gridInView = useInView(gridRef, { once: false, amount: 0.08 });
-
-  useEffect(() => {
-    if (titleInView) {
-      titleControls.start("visible");
-    } else {
-      titleControls.start("hidden");
-    }
-  }, [titleInView, titleControls]);
-
-  useEffect(() => {
-    if (filterInView) {
-      filterControls.start("visible");
-    } else {
-      filterControls.start("hidden");
-    }
-  }, [filterInView, filterControls]);
-
-  useEffect(() => {
-    if (gridInView) {
-      gridControls.start("visible");
-    } else {
-      gridControls.start("hidden");
-    }
-  }, [gridInView, gridControls]);
 
   const filteredPackages = activeCategory === "Todos"
     ? packages
     : packages.filter((pkg) => pkg.category === activeCategory);
 
-  const variants = prefersReducedMotion ? reducedMotionVariants : revealVariants;
-  const leftVariants = prefersReducedMotion ? reducedMotionVariants : revealFromLeftVariants;
-  const containerVariants = prefersReducedMotion ? reducedMotionVariants : cardStaggerContainerVariants;
-  const itemVariants = prefersReducedMotion ? reducedMotionVariants : cardItemVariants;
-
   return (
     <section id="packages" className="py-16 md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          ref={titleRef}
-          initial="hidden"
-          animate={titleControls}
-          variants={variants}
-          className="text-center mb-12"
-        >
+        <div className="section-header animate-on-scroll text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             Nuestros Paquetes Turisticos
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Encuentra la aventura perfecta para ti. Desde city tours hasta experiencias exclusivas en helicoptero.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div 
-          ref={filterRef}
-          initial="hidden"
-          animate={filterControls}
-          variants={leftVariants}
-          className="flex flex-wrap justify-center gap-2 mb-10"
-        >
+        <div className="animate-on-scroll flex flex-wrap justify-center gap-2 mb-10">
           {categories.map((category) => (
             <Button
               key={category}
@@ -104,25 +42,23 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
               {category}
             </Button>
           ))}
-        </motion.div>
+        </div>
 
-        <motion.div 
-          ref={gridRef}
-          initial="hidden"
-          animate={gridControls}
-          variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {filteredPackages.map((pkg) => (
-            <motion.div key={pkg.id} variants={itemVariants}>
+        <div className="packages-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredPackages.map((pkg, index) => (
+            <div 
+              key={pkg.id} 
+              className="package-card animate-on-scroll"
+              style={{ "--index": index } as React.CSSProperties}
+            >
               <PackageCard
                 package={pkg}
                 onViewDetails={onViewDetails}
                 onBook={onBook}
               />
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {filteredPackages.length === 0 && (
           <div className="text-center py-12">
