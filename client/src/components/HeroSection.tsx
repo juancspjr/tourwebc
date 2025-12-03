@@ -23,7 +23,6 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onExploreClick }: HeroSectionProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [direction, setDirection] = useState(1);
 
   const handleExploreClick = () => {
     if (onExploreClick) {
@@ -35,17 +34,14 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
   };
 
   const nextSlide = useCallback(() => {
-    setDirection(1);
     setCurrentSlide((prev) => (prev + 1) % heroImages.length);
   }, []);
 
   const prevSlide = useCallback(() => {
-    setDirection(-1);
     setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
   }, []);
 
   const goToSlide = (index: number) => {
-    setDirection(index > currentSlide ? 1 : -1);
     setCurrentSlide(index);
   };
 
@@ -55,46 +51,38 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
   }, [nextSlide]);
 
   const slideVariants = {
-    enter: (dir: number) => ({
-      x: dir > 0 ? 40 : -40,
-      rotateY: dir > 0 ? -18 : 18,
-      scale: 0.9,
+    enter: {
       opacity: 0,
-    }),
-    center: {
-      x: 0,
-      rotateY: 0,
-      scale: 1.05,
-      opacity: 1,
+      scale: 1.02,
     },
-    exit: (dir: number) => ({
-      x: dir > 0 ? -40 : 40,
-      rotateY: dir > 0 ? 18 : -18,
-      scale: 0.9,
+    center: {
+      opacity: 1,
+      scale: 1,
+    },
+    exit: {
       opacity: 0,
-    }),
+      scale: 0.98,
+    },
   };
 
   return (
     <section
       id="home"
       className="relative min-h-[85vh] flex items-center justify-center overflow-hidden"
-      style={{ perspective: "1000px" }}
     >
-      <div className="absolute inset-0 overflow-hidden" style={{ transformStyle: "preserve-3d" }}>
-        <AnimatePresence initial={false} custom={direction} mode="popLayout">
+      <div className="absolute inset-0 overflow-hidden">
+        <AnimatePresence initial={false} mode="sync">
           <motion.img
             key={currentSlide}
             src={heroImages[currentSlide].src}
             alt={heroImages[currentSlide].alt}
-            custom={direction}
             variants={slideVariants}
             initial="enter"
             animate="center"
             exit="exit"
             transition={{
-              duration: 0.6,
-              ease: [0.25, 0.46, 0.45, 0.94],
+              duration: 1.2,
+              ease: "easeInOut",
             }}
             className="absolute inset-0 w-full h-full object-cover"
           />
