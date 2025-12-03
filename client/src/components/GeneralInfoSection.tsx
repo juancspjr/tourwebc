@@ -1,5 +1,5 @@
-import { useRef } from "react";
-import { motion, useReducedMotion, useInView } from "framer-motion";
+import { useRef, useEffect } from "react";
+import { motion, useReducedMotion, useInView, useAnimation } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -40,9 +40,37 @@ export default function GeneralInfoSection() {
   const gridRef = useRef(null);
   const faqsRef = useRef(null);
 
+  const headerControls = useAnimation();
+  const gridControls = useAnimation();
+  const faqsControls = useAnimation();
+
   const headerInView = useInView(headerRef, { once: false, amount: 0.15 });
   const gridInView = useInView(gridRef, { once: false, amount: 0.08 });
   const faqsInView = useInView(faqsRef, { once: false, amount: 0.08 });
+
+  useEffect(() => {
+    if (headerInView) {
+      headerControls.start("visible");
+    } else {
+      headerControls.start("hidden");
+    }
+  }, [headerInView, headerControls]);
+
+  useEffect(() => {
+    if (gridInView) {
+      gridControls.start("visible");
+    } else {
+      gridControls.start("hidden");
+    }
+  }, [gridInView, gridControls]);
+
+  useEffect(() => {
+    if (faqsInView) {
+      faqsControls.start("visible");
+    } else {
+      faqsControls.start("hidden");
+    }
+  }, [faqsInView, faqsControls]);
 
   const headerVariants = prefersReducedMotion ? reducedMotionVariants : revealVariants;
   const containerVariants = prefersReducedMotion ? reducedMotionVariants : staggerContainerVariants;
@@ -55,7 +83,7 @@ export default function GeneralInfoSection() {
         <motion.div 
           ref={headerRef}
           initial="hidden"
-          animate={headerInView ? "visible" : "hidden"}
+          animate={headerControls}
           variants={headerVariants}
           className="text-center mb-12"
         >
@@ -70,7 +98,7 @@ export default function GeneralInfoSection() {
         <motion.div 
           ref={gridRef}
           initial="hidden"
-          animate={gridInView ? "visible" : "hidden"}
+          animate={gridControls}
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
@@ -203,7 +231,7 @@ export default function GeneralInfoSection() {
         <motion.div 
           ref={faqsRef}
           initial="hidden"
-          animate={faqsInView ? "visible" : "hidden"}
+          animate={faqsControls}
           variants={headerVariants}
           className="mt-8"
         >

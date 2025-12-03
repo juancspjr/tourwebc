@@ -1,5 +1,5 @@
-import { useRef } from "react";
-import { motion, useReducedMotion, useInView } from "framer-motion";
+import { useRef, useEffect } from "react";
+import { motion, useReducedMotion, useInView, useAnimation } from "framer-motion";
 import TestimonialCard, { type TestimonialData } from "./TestimonialCard";
 import { 
   revealVariants, 
@@ -64,9 +64,37 @@ export default function TestimonialsSection() {
   const gridRef = useRef(null);
   const footerRef = useRef(null);
 
+  const headerControls = useAnimation();
+  const gridControls = useAnimation();
+  const footerControls = useAnimation();
+
   const headerInView = useInView(headerRef, { once: false, amount: 0.15 });
   const gridInView = useInView(gridRef, { once: false, amount: 0.08 });
   const footerInView = useInView(footerRef, { once: false, amount: 0.2 });
+
+  useEffect(() => {
+    if (headerInView) {
+      headerControls.start("visible");
+    } else {
+      headerControls.start("hidden");
+    }
+  }, [headerInView, headerControls]);
+
+  useEffect(() => {
+    if (gridInView) {
+      gridControls.start("visible");
+    } else {
+      gridControls.start("hidden");
+    }
+  }, [gridInView, gridControls]);
+
+  useEffect(() => {
+    if (footerInView) {
+      footerControls.start("visible");
+    } else {
+      footerControls.start("hidden");
+    }
+  }, [footerInView, footerControls]);
 
   const headerVariants = prefersReducedMotion ? reducedMotionVariants : revealVariants;
   const containerVariants = prefersReducedMotion ? reducedMotionVariants : staggerContainerVariants;
@@ -78,7 +106,7 @@ export default function TestimonialsSection() {
         <motion.div 
           ref={headerRef}
           initial="hidden"
-          animate={headerInView ? "visible" : "hidden"}
+          animate={headerControls}
           variants={headerVariants}
           className="text-center mb-12"
         >
@@ -94,7 +122,7 @@ export default function TestimonialsSection() {
         <motion.div 
           ref={gridRef}
           initial="hidden"
-          animate={gridInView ? "visible" : "hidden"}
+          animate={gridControls}
           variants={containerVariants}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
@@ -111,7 +139,7 @@ export default function TestimonialsSection() {
         <motion.div 
           ref={footerRef}
           initial="hidden"
-          animate={footerInView ? "visible" : "hidden"}
+          animate={footerControls}
           variants={footerVariants}
           className="text-center mt-12"
         >

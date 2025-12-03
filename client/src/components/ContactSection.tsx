@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, useReducedMotion, useInView } from "framer-motion";
+import { motion, useReducedMotion, useInView, useAnimation } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -36,9 +36,37 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
   const formRef = useRef(null);
   const infoRef = useRef(null);
 
+  const headerControls = useAnimation();
+  const formControls = useAnimation();
+  const infoControls = useAnimation();
+
   const headerInView = useInView(headerRef, { once: false, amount: 0.15 });
   const formInView = useInView(formRef, { once: false, amount: 0.1 });
   const infoInView = useInView(infoRef, { once: false, amount: 0.08 });
+
+  useEffect(() => {
+    if (headerInView) {
+      headerControls.start("visible");
+    } else {
+      headerControls.start("hidden");
+    }
+  }, [headerInView, headerControls]);
+
+  useEffect(() => {
+    if (formInView) {
+      formControls.start("visible");
+    } else {
+      formControls.start("hidden");
+    }
+  }, [formInView, formControls]);
+
+  useEffect(() => {
+    if (infoInView) {
+      infoControls.start("visible");
+    } else {
+      infoControls.start("hidden");
+    }
+  }, [infoInView, infoControls]);
 
   const headerVariants = prefersReducedMotion ? reducedMotionVariants : revealVariants;
   const formVariants = prefersReducedMotion ? reducedMotionVariants : scaleRevealVariants;
@@ -135,7 +163,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
         <motion.div 
           ref={headerRef}
           initial="hidden"
-          animate={headerInView ? "visible" : "hidden"}
+          animate={headerControls}
           variants={headerVariants}
           className="text-center mb-12"
         >
@@ -152,7 +180,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
           <motion.div
             ref={formRef}
             initial="hidden"
-            animate={formInView ? "visible" : "hidden"}
+            animate={formControls}
             variants={formVariants}
           >
           <Card>
@@ -307,7 +335,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
           <motion.div
             ref={infoRef}
             initial="hidden"
-            animate={infoInView ? "visible" : "hidden"}
+            animate={infoControls}
             variants={containerVariants}
             className="space-y-6"
           >
