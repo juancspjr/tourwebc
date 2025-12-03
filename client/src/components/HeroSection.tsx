@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -50,46 +50,28 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
     return () => clearInterval(interval);
   }, [nextSlide]);
 
-  const slideVariants = {
-    enter: {
-      opacity: 0,
-      scale: 1.02,
-    },
-    center: {
-      opacity: 1,
-      scale: 1,
-    },
-    exit: {
-      opacity: 0,
-      scale: 0.98,
-    },
-  };
-
   return (
     <section
       id="home"
       className="relative min-h-[85vh] flex items-center justify-center overflow-hidden"
     >
-      <div className="absolute inset-0 overflow-hidden">
-        <AnimatePresence initial={false} mode="sync">
-          <motion.img
-            key={currentSlide}
-            src={heroImages[currentSlide].src}
-            alt={heroImages[currentSlide].alt}
-            variants={slideVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{
-              duration: 1.2,
-              ease: "easeInOut",
+      {/* All images stacked - only current one visible */}
+      <div className="absolute inset-0">
+        {heroImages.map((image, index) => (
+          <img
+            key={index}
+            src={image.src}
+            alt={image.alt}
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
+            style={{
+              opacity: index === currentSlide ? 1 : 0,
+              zIndex: index === currentSlide ? 1 : 0,
             }}
-            className="absolute inset-0 w-full h-full object-cover"
           />
-        </AnimatePresence>
+        ))}
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/70 z-[2]" />
 
       <button
         onClick={prevSlide}
@@ -188,7 +170,7 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4, delay: 0.8 }}
         onClick={handleExploreClick}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white animate-bounce"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white animate-bounce z-10"
         aria-label="Scroll down"
         data-testid="button-scroll-down"
       >
