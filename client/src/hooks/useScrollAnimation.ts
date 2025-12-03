@@ -1,17 +1,23 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 export function useScrollAnimation() {
-  useEffect(() => {
-    const elements = document.querySelectorAll('.animate-on-scroll');
-    
-    if (!elements.length) return;
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const mutationObserverRef = useRef<MutationObserver | null>(null);
 
+  useEffect(() => {
+    // Fallback for browsers without IntersectionObserver
     if (!('IntersectionObserver' in window)) {
-      elements.forEach((el) => el.classList.add('is-visible'));
+      const makeAllVisible = () => {
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+          el.classList.add('is-visible');
+        });
+      };
+      makeAllVisible();
       return;
     }
 
-    const observer = new IntersectionObserver(
+    // Create IntersectionObserver
+    observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -27,9 +33,47 @@ export function useScrollAnimation() {
       }
     );
 
-    elements.forEach((el) => observer.observe(el));
+    // Function to observe all animate-on-scroll elements
+    const observeElements = () => {
+      const elements = document.querySelectorAll('.animate-on-scroll:not([data-scroll-observed])');
+      elements.forEach((el) => {
+        el.setAttribute('data-scroll-observed', 'true');
+        observerRef.current?.observe(el);
+      });
+    };
 
-    return () => observer.disconnect();
+    // Initial observation
+    observeElements();
+
+    // MutationObserver to catch lazy-loaded components
+    mutationObserverRef.current = new MutationObserver((mutations) => {
+      let hasNewElements = false;
+      mutations.forEach((mutation) => {
+        if (mutation.addedNodes.length > 0) {
+          mutation.addedNodes.forEach((node) => {
+            if (node instanceof Element) {
+              if (node.classList?.contains('animate-on-scroll') || 
+                  node.querySelector?.('.animate-on-scroll')) {
+                hasNewElements = true;
+              }
+            }
+          });
+        }
+      });
+      if (hasNewElements) {
+        observeElements();
+      }
+    });
+
+    mutationObserverRef.current.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => {
+      observerRef.current?.disconnect();
+      mutationObserverRef.current?.disconnect();
+    };
   }, []);
 
   return null;
