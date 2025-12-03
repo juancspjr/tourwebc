@@ -14,7 +14,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Clock, MapPin, Check, Star, HelpCircle, Package } from "lucide-react";
+import { Clock, MapPin, Check, Star, HelpCircle, Package, MessageCircle } from "lucide-react";
 import type { PackageData } from "@/lib/packages";
 import ImageCarousel from "./ImageCarousel";
 
@@ -154,20 +154,31 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
             </TabsContent>
           </Tabs>
 
-          <div className="flex items-center justify-end gap-3 pt-6 mt-6 border-t border-border">
-            <Button variant="outline" onClick={onClose} data-testid="button-close-modal">
-              Cerrar
-            </Button>
+          <div className="flex flex-col gap-4 pt-6 mt-6 border-t border-border">
             <Button 
-              className="bg-cta hover:bg-cta/90 text-cta-foreground"
-              onClick={() => {
-                onBook?.(pkg);
-                onClose();
-              }} 
-              data-testid="button-book-modal"
+              variant="outline"
+              className="w-full gap-2"
+              onClick={() => window.open("https://wa.me/584142823218?text=" + encodeURIComponent(`Hola, me interesa el paquete "${pkg.title}" y me gustaria obtener mas informacion.`), "_blank")}
+              data-testid="button-contact-advisor"
             >
-              Reservar Ahora
+              <MessageCircle className="w-4 h-4" />
+              Contactar Asesor de Viaje
             </Button>
+            <div className="flex items-center justify-end gap-3">
+              <Button variant="outline" onClick={onClose} data-testid="button-close-modal">
+                Cerrar
+              </Button>
+              <Button 
+                className="bg-cta hover:bg-cta/90 text-cta-foreground"
+                onClick={() => {
+                  onBook?.(pkg);
+                  onClose();
+                }} 
+                data-testid="button-book-modal"
+              >
+                Reservar Ahora
+              </Button>
+            </div>
           </div>
         </div>
       </DialogContent>

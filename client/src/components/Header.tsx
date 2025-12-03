@@ -14,6 +14,7 @@ export default function Header({ onNavigate }: HeaderProps) {
   const navItems = [
     { label: "Inicio", href: "#home" },
     { label: "Destinos", href: "#packages" },
+    { label: "Info Viaje", href: "#info" },
     { label: "Testimonios", href: "#testimonials" },
     { label: "Contacto", href: "#contact" },
   ];
@@ -50,7 +51,7 @@ export default function Header({ onNavigate }: HeaderProps) {
                 key={item.label}
                 onClick={() => handleNavClick(item.href)}
                 className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                data-testid={`nav-${item.label.toLowerCase()}`}
+                data-testid={`nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
               >
                 {item.label}
               </button>
@@ -96,7 +97,7 @@ export default function Header({ onNavigate }: HeaderProps) {
                     key={item.label}
                     onClick={() => handleNavClick(item.href)}
                     className="text-lg font-medium text-foreground hover:text-primary transition-colors text-left"
-                    data-testid={`nav-mobile-${item.label.toLowerCase()}`}
+                    data-testid={`nav-mobile-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
                   >
                     {item.label}
                   </button>
