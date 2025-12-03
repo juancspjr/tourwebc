@@ -38,6 +38,17 @@ Preferred communication style: Simple, everyday language.
   - Created `client/src/hooks/useScrollAnimation.ts` hook placeholder
   - Deleted useRevealAnimation.ts and useParallax.ts
   - Site now loads all content immediately without animation delays
+- **Infinite Testimonial Carousel (December 2025):**
+  - Replaced static 3-column grid with smooth infinite horizontal carousel
+  - Added 13 testimonials with varied tours, dates, and authentic reviews
+  - Implemented requestAnimationFrame animation for 60fps smooth scrolling
+  - Carousel auto-scrolls continuously left-to-right like a "train"
+  - Pause on hover functionality for desktop users
+  - CSS gradient mask for fade effect on edges
+  - Full prefers-reduced-motion accessibility support
+  - Testimonials data now exported from `client/src/lib/packages.ts`
+  - New component: `client/src/components/InfiniteTestimonialCarousel.tsx`
+  - Deleted: `client/src/components/TestimonialsSection.tsx`
 
 ## System Architecture
 
@@ -64,15 +75,14 @@ Preferred communication style: Simple, everyday language.
 - HeroSection - Full-width hero with parallax background and CTA
 - PackageGrid - Filterable grid of tour packages with category filters
 - PackageModal - Detailed package information dialog
-- TestimonialsSection - Customer reviews with avatar cards and staggered animations
+- InfiniteTestimonialCarousel - Smooth infinite horizontal carousel with 13 testimonials
 - GeneralInfoSection - Travel info with alternating reveal animations
 - ContactSection - Lead capture form with package selection and quotation calculator
 - Footer - Site links and social media integration
 - WhatsAppButton - Floating CTA for direct WhatsApp contact
 
 **Animation Hooks** (`client/src/hooks/`):
-- `useParallax.ts` - Subtle parallax effect for hero backgrounds
-- `useRevealAnimation.ts` - IntersectionObserver-based reveal animations with multiple variants
+- `useScrollAnimation.ts` - IntersectionObserver-based reveal animations for scroll effects
 
 ### Backend Architecture
 
