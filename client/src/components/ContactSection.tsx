@@ -260,7 +260,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                       <SelectContent>
                         {packages.map((pkg) => (
                           <SelectItem key={pkg.id} value={pkg.title}>
-                            {pkg.title} - ${pkg.price} USD/día
+                            {pkg.title}
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -305,9 +305,6 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                 <div className="space-y-2">
                   <Label htmlFor="people">Número de Personas</Label>
                   <input type="hidden" name="people" value={formData.people} />
-                  {quotation && (
-                    <input type="hidden" name="quotation_total" value={`$${quotation.total.toFixed(2)} USD`} />
-                  )}
                   <Select
                     value={formData.people}
                     onValueChange={(value) => handleChange("people", value)}
