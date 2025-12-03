@@ -1,16 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Star } from "lucide-react";
-
-export interface TestimonialData {
-  id: string;
-  name: string;
-  avatar?: string;
-  date: string;
-  rating: number;
-  text: string;
-  tour: string;
-}
+import type { TestimonialData } from "@/lib/packages";
 
 interface TestimonialCardProps {
   testimonial: TestimonialData;

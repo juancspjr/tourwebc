@@ -86,3 +86,64 @@
     transition-delay: calc(var(--index, 0) * 0.05s);
   }
 }
+
+/* Carrusel Infinito de Testimonios */
+.testimonial-carousel-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+.testimonial-carousel-mask {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+}
+
+.testimonial-carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  will-change: transform;
+}
+
+.testimonial-carousel-item {
+  flex-shrink: 0;
+}
+
+/* Pausa en hover para accesibilidad */
+.testimonial-carousel-container:hover .testimonial-carousel-track {
+  animation-play-state: paused;
+}
+
+/* Respeto preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-carousel-track {
+    animation: none !important;
+    transform: none !important;
+  }
+  
+  .testimonial-carousel-mask {
+    mask-image: none;
+    -webkit-mask-image: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .testimonial-carousel-item {
+    scroll-snap-align: start;
+  }
+}

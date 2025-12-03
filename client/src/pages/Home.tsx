@@ -3,7 +3,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import PackageGrid from "@/components/PackageGrid";
-import TestimonialsSection from "@/components/TestimonialsSection";
+import InfiniteTestimonialCarousel from "@/components/InfiniteTestimonialCarousel";
 import GeneralInfoSection from "@/components/GeneralInfoSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -49,7 +49,7 @@ export default function Home() {
           onBook={handleBook}
         />
         
-        <TestimonialsSection />
+        <InfiniteTestimonialCarousel />
         
         <GeneralInfoSection />
         

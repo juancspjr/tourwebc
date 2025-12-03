@@ -652,3 +652,120 @@ export function getPackageById(id: string): PackageData | undefined {
 export function getPackageByTitle(title: string): PackageData | undefined {
   return packages.find(pkg => pkg.title === title);
 }
+
+export interface TestimonialData {
+  id: string;
+  name: string;
+  avatar?: string;
+  date: string;
+  rating: number;
+  text: string;
+  tour: string;
+}
+
+export const testimonials: TestimonialData[] = [
+  {
+    id: "1",
+    name: "Maria Garcia",
+    date: "Noviembre 2024",
+    rating: 5,
+    text: "Una experiencia increible! El guia fue muy profesional y conocedor. El tour al Cristo Redentor y Pan de Azucar supero todas mis expectativas. Recomiendo 100%.",
+    tour: "Day Tour Rio de Janeiro",
+  },
+  {
+    id: "2",
+    name: "Carlos Rodriguez",
+    date: "Octubre 2024",
+    rating: 5,
+    text: "El trekking a Pedra da Gavea fue desafiante pero las vistas son impresionantes. El guia nos cuido todo el tiempo y nos enseno sobre la flora local. Volvere por mas aventuras!",
+    tour: "Trilhas & Trekking",
+  },
+  {
+    id: "3",
+    name: "Ana Martinez",
+    date: "Septiembre 2024",
+    rating: 5,
+    text: "El paseo en yate fue espectacular! Vimos el atardecer desde el mar con Copacabana de fondo. Perfecto para celebrar nuestro aniversario. La tripulacion fue muy atenta.",
+    tour: "Paseo en Yate VIP",
+  },
+  {
+    id: "4",
+    name: "Diego Flores",
+    date: "Noviembre 2024",
+    rating: 5,
+    text: "El tour en helicoptero fue lo mas increible que he hecho! Ver el Cristo Redentor desde arriba y las playas de Rio es una experiencia que no tiene precio. Fotos espectaculares.",
+    tour: "Paseo en Helicoptero",
+  },
+  {
+    id: "5",
+    name: "Carolina Sanchez",
+    date: "Octubre 2024",
+    rating: 5,
+    text: "Las playas de Arraial do Cabo son un paraiso escondido. El agua cristalina, el snorkel increible y la tripulacion del barco super amable. Un dia perfecto en el mar.",
+    tour: "Paseos en Barco",
+  },
+  {
+    id: "6",
+    name: "Roberto Diaz",
+    date: "Septiembre 2024",
+    rating: 5,
+    text: "El tour por las favelas me cambio la perspectiva completamente. La cultura, el arte urbano, la musica... y las vistas desde Vidigal son de otro mundo. Muy recomendado.",
+    tour: "Tour por las Favelas",
+  },
+  {
+    id: "7",
+    name: "Patricia Morales",
+    date: "Agosto 2024",
+    rating: 5,
+    text: "Hicimos el trekking al Morro Dois Irmaos y las vistas de Ipanema y Leblon desde la cima son inolvidables. El guia muy profesional y el ritmo perfecto para disfrutar.",
+    tour: "Trilhas & Trekking",
+  },
+  {
+    id: "8",
+    name: "Fernando Castro",
+    date: "Agosto 2024",
+    rating: 5,
+    text: "El City Tour completo es la mejor forma de conocer Rio en un dia. Visitamos todos los puntos iconicos y el guia nos conto historias fascinantes de cada lugar.",
+    tour: "Day Tour Rio de Janeiro",
+  },
+  {
+    id: "9",
+    name: "Lucia Hernandez",
+    date: "Julio 2024",
+    rating: 5,
+    text: "Prainha y Grumari son playas paradisiacas! Lejos del turismo masivo, aguas limpias y paisajes de postal. El tour de playas fue nuestra mejor decision.",
+    tour: "Tour por las Playas",
+  },
+  {
+    id: "10",
+    name: "Miguel Torres",
+    date: "Julio 2024",
+    rating: 5,
+    text: "Celebramos el cumpleanos de mi esposa en el yate VIP y fue magico. Champagne, atardecer, musica y las luces de Rio de fondo. Servicio de primera clase.",
+    tour: "Paseo en Yate VIP",
+  },
+  {
+    id: "11",
+    name: "Valentina Ruiz",
+    date: "Junio 2024",
+    rating: 5,
+    text: "Ilha Grande es un paraiso! El paseo en barco nos llevo a playas secretas con aguas turquesas. El almuerzo de mariscos frescos fue delicioso. Dia inolvidable.",
+    tour: "Paseos en Barco",
+  },
+  {
+    id: "12",
+    name: "Andres Vargas",
+    date: "Junio 2024",
+    rating: 5,
+    text: "La Pedra do Telegrafo tiene las mejores fotos de Instagram! El trekking es accesible y las vistas de la costa son espectaculares. Guia excelente y muy paciente.",
+    tour: "Trilhas & Trekking",
+  },
+  {
+    id: "13",
+    name: "Camila Reyes",
+    date: "Mayo 2024",
+    rating: 5,
+    text: "Ver Rio desde el helicoptero al atardecer fue surrealista. Los colores del cielo, el Cristo iluminado y toda la bahia brillando. Una experiencia que vale cada centavo.",
+    tour: "Paseo en Helicoptero",
+  },
+];

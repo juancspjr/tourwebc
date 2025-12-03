@@ -1,0 +1,163 @@
+Transforma la sección de "Lo Que Dicen Nuestros Viajeros" en un carrusel infinito 
+que se desplaza continuamente de izquierda a derecha como un tren en movimiento lento y constante.
+
+## OBJETIVO GENERAL
+
+Reemplaza el grid estático de 3 testimonios con un carrusel dinámico que:
+- Muestre los testimonios desplazándose automáticamente de izquierda a derecha
+- Se repita infinitamente sin interrupciones (efecto "tren infinito")
+- Tenga una velocidad suave y controlada (no demasiado rápido, casi como un tren lento)
+- Permita a los usuarios ver más testimonios sin hacer clic en nada
+- Funcione en desktop y móvil sin problemas
+
+## PARTE 1: EXPANDIR LA DATA DE TESTIMONIOS
+
+Ubicación: client/src/lib/packages.ts
+
+Busca el array llamado "testimonials" que actualmente tiene 3 testimonios.
+
+Necesitas agregar 10 testimonios más para un total de 13. Cada nuevo testimonio debe tener:
+
+**Información requerida para cada testimonio:**
+- Un nombre único y realista (ej: Diego Flores, Carolina Sánchez, Roberto Díaz, etc.)
+- Un avatar/imagen diferente (puedes usar las mismas 3 imágenes rotadas o nuevas URLs de Unsplash)
+- Una fecha diferente (Noviembre, Octubre, Septiembre, Agosto 2024 - variar meses y años recientes)
+- Rating de 5 estrellas (mantener consistencia de calidad)
+- Un comentario auténtico y detallado de 2-3 líneas sobre:
+  * Una experiencia específica en Río de Janeiro o destino turístico
+  * Mención del tipo de tour (City Tour, Trekking, Paseo en Yate, Helicóptero, etc.)
+  * Detalles personales que hagan el testimonio creíble (vistas, sensaciones, recomendaciones)
+- El nombre del tour que realizaron
+
+**Variedad de tours que deben mencionar:**
+- City Tour Rio de Janeiro
+- Trilhas & Trekking
+- Paseo en Yate VIP
+- Tour en Helicóptero
+- Excursión a Playas
+- Tour Gastronómico
+- Aventura en Selva
+- Safari Urbano
+
+Mezcla los tours entre los testimonios para que sea variado.
+
+## PARTE 2: CREAR COMPONENTE DE CARRUSEL INFINITO
+
+Ubicación: client/src/components/InfiniteTestimonialCarousel.tsx
+
+Este es un archivo NUEVO que reemplazará completamente a TestimonialsSection.tsx
+
+**Estructura del componente:**
+
+Debe ser un componente React que:
+
+1. **Renderiza la sección con encabezado:**
+   - Título: "Lo Que Dicen Nuestros Viajeros"
+   - Subtítulo: Texto sobre los viajeros satisfechos
+   - Ambos deben tener la clase "animate-on-scroll" para mantener consistencia
+
+2. **Crea un contenedor de desplazamiento:**
+   - Necesita un div externo que actúe como ventana/viewport (con overflow hidden)
+   - Un div interno que contenga todos los testimonios duplicados
+   - Cada testimonio está dentro de una tarjeta TestimonialCard (reutiliza el componente existente)
+
+3. **Implementa la animación continua:**
+   - Usa un useEffect para animar el contenedor interno
+   - Usa requestAnimationFrame para suavidad (60 FPS)
+   - Los testimonios se desplazan continuamente hacia la izquierda
+   - La velocidad debe ser lenta y constante (aproximadamente 1-2 píxeles por frame para que sea cinematográfico)
+   - Cuando el contenedor llega al final de la primera duplicación, resetea a la posición inicial sin saltos
+
+4. **Duplica los testimonios para efecto infinito:**
+   - Toma el array de 13 testimonios
+   - Lo duplica en el render (13 × 2 = 26 items visibles)
+   - Esto permite que cuando se completa una vuelta, vuelve a empezar sin que el usuario lo note
+
+5. **Pausa en interacción (opcional pero recomendado):**
+   - Si el usuario mueve el mouse sobre el carrusel, la animación se pausa
+   - Cuando sale del área, la animación continúa
+   - En móvil, se puede omitir este comportamiento
+
+6. **Responsive:**
+   - En desktop: muestra varios testimonios simultáneamente (4-5 tarjetas visibles)
+   - En tablet: muestra 3 tarjetas
+   - En móvil: muestra 2-3 tarjetas
+   - El ancho de cada tarjeta se adapta pero mantiene tamaño consistente
+
+## PARTE 3: AGREGAR ESTILOS CSS
+
+Ubicación: client/src/styles/scroll-animations.css (al final del archivo)
+
+Necesitas agregar estilos nuevos para:
+
+1. **Contenedor del carrusel:**
+   - Overflow hidden (oculta lo que sale del viewport)
+   - Máscara de gradiente en los bordes (fade effect derecha e izquierda)
+   - Will-change para optimización GPU
+
+2. **Animación de desplazamiento:**
+   - Crea una animación llamada "scroll-left" usando keyframes
+   - La animación va de 0% (posición inicial) a 100% (desplazado completamente)
+   - Duration: 30-40 segundos aproximadamente (juega con esto para velocidad deseada)
+   - Animation timing: linear (velocidad constante, sin aceleración)
+   - Animation iteration: infinite (sin fin)
+
+3. **Estado hover (opcional):**
+   - Cuando el mouse está sobre el carrusel: animation-play-state pausa
+   - Cuando sale: continúa
+
+## PARTE 4: ACTUALIZAR Home.tsx
+
+Ubicación: client/src/pages/Home.tsx
+
+1. **Elimina el import del componente viejo:**
+   - Busca donde importa "TestimonialsSection"
+   - Reemplázalo con el nuevo import "InfiniteTestimonialCarousel"
+
+2. **Reemplaza en el JSX:**
+   - Busca donde se renderiza <TestimonialsSection />
+   - Reemplázalo con <InfiniteTestimonialCarousel />
+
+3. **No necesita cambios adicionales** - todo debería funcionar
+
+## PARTE 5: ELIMINAR ARCHIVO VIEJO
+
+Borra completamente el archivo: client/src/components/TestimonialsSection.tsx
+
+Ya no es necesario.
+
+## COMPORTAMIENTO ESPERADO
+
+**Resultado visual:**
+- Los testimonios se desplazan suavemente de izquierda a derecha
+- Parecen estar en un "tren infinito" que nunca se detiene
+- Cuando termina un testimonio, aparece el siguiente inmediatamente
+- No hay saltos ni reseteos visibles
+- El efecto es hipnotizante y profesional
+
+**Performance:**
+- 60 FPS sin caídas
+- Sin lag en desktop ni móvil
+- Sin uso excesivo de CPU
+
+**Interactividad:**
+- Se detiene al pasar el mouse (desktop)
+- Se reanuda al salir del área
+- No hay botones para pausar/reanudar (automático)
+
+**Responsive:**
+- Se adapta a todos los tamaños de pantalla
+- Mantiene la velocidad consistente
+- Las tarjetas se redimensionan pero el carrusel sigue fluyendo
+
+## DESPUÉS DE COMPLETAR
+
+Haz commit con mensaje: "feat: Add infinite testimonial carousel with smooth horizontal scrolling"
+
+Haz push al repositorio.
+
+Espera 2 minutos a que Replit redepliegue.
+
+Hard reload en el navegador (Ctrl+Shift+R).
+
+Verifica que los testimonios se desplacen infinitamente sin interrupciones.
