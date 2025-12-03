@@ -1,9 +1,34 @@
-// Hook para animaciones scroll con Intersection Observer
-// Por ahora retorna función vacía
-// Cuando estés listo, implementaremos la lógica
+import { useEffect } from 'react';
 
 export function useScrollAnimation() {
-  // TODO: Implementar Intersection Observer aquí
-  // Por ahora no hace nada
+  useEffect(() => {
+    if (!('IntersectionObserver' in window)) {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      elements.forEach((el) => el.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          } else {
+            entry.target.classList.remove('is-visible');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      }
+    );
+
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return null;
 }

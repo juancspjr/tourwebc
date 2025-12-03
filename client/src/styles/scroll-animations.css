@@ -1,18 +1,11 @@
-/* Animaciones scroll - Desactivadas por defecto */
-/* Se activarán con JavaScript cuando estén listas */
+/* Animaciones Scroll - Activadas */
 
-.animate-on-scroll {
-  /* Por ahora, todo visible y sin transiciones */
-  opacity: 1;
-  transform: none;
-}
-
-/* Cuando implementemos, usaremos estas clases: */
-/*
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
 }
 
 .animate-on-scroll.is-visible {
@@ -20,11 +13,66 @@
   transform: translateY(0);
 }
 
-.package-card.animate-on-scroll {
-  transition-delay: calc(var(--index) * 0.1s);
+/* Stagger en grids */
+.package-card.animate-on-scroll,
+.testimonial-card.animate-on-scroll,
+.info-card.animate-on-scroll {
+  transition-delay: calc(var(--index, 0) * 0.1s);
 }
 
-.testimonial-card.animate-on-scroll {
-  transition-delay: calc(var(--index) * 0.08s);
+/* Hero */
+.hero-content.animate-on-scroll {
+  transform: translateY(30px);
+  transition-duration: 0.8s;
 }
-*/
+
+.hero-cta.animate-on-scroll {
+  transform: scale(0.95);
+  transition-delay: 0.3s;
+}
+
+.hero-cta.is-visible {
+  transform: scale(1);
+}
+
+/* Section headers */
+.section-header.animate-on-scroll {
+  transform: translateY(24px);
+  transition-duration: 0.7s;
+}
+
+/* Contact form */
+.contact-form.animate-on-scroll {
+  transform: scale(0.97);
+  transition-duration: 0.7s;
+}
+
+.contact-form.is-visible {
+  transform: scale(1);
+}
+
+.contact-info.animate-on-scroll {
+  transition-delay: 0.2s;
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Optimización móvil */
+@media (max-width: 768px) {
+  .animate-on-scroll {
+    transition-duration: 0.5s;
+  }
+  
+  .package-card.animate-on-scroll,
+  .testimonial-card.animate-on-scroll,
+  .info-card.animate-on-scroll {
+    transition-delay: calc(var(--index, 0) * 0.05s);
+  }
+}

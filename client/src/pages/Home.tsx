@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import PackageGrid from "@/components/PackageGrid";
@@ -11,6 +12,8 @@ import PackageModal from "@/components/PackageModal";
 import type { PackageData } from "@/lib/packages";
 
 export default function Home() {
+  useScrollAnimation();
+  
   const [selectedPackage, setSelectedPackage] = useState<PackageData | null>(null);
   const [bookingPackage, setBookingPackage] = useState<PackageData | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);

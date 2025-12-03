@@ -1,0 +1,160 @@
+ACTIVA las animaciones scroll CSS que están preparadas pero deshabilitadas.
+
+## ARCHIVO 1: client/src/styles/scroll-animations.css
+
+ELIMINA todo el contenido y REEMPLAZA con esto exactamente:
+
+---START CSS---
+/* Animaciones Scroll - Activadas */
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger en grids */
+.package-card.animate-on-scroll,
+.testimonial-card.animate-on-scroll,
+.info-card.animate-on-scroll {
+  transition-delay: calc(var(--index, 0) * 0.1s);
+}
+
+/* Hero */
+.hero-content.animate-on-scroll {
+  transform: translateY(30px);
+  transition-duration: 0.8s;
+}
+
+.hero-cta.animate-on-scroll {
+  transform: scale(0.95);
+  transition-delay: 0.3s;
+}
+
+.hero-cta.is-visible {
+  transform: scale(1);
+}
+
+/* Section headers */
+.section-header.animate-on-scroll {
+  transform: translateY(24px);
+  transition-duration: 0.7s;
+}
+
+/* Contact form */
+.contact-form.animate-on-scroll {
+  transform: scale(0.97);
+  transition-duration: 0.7s;
+}
+
+.contact-form.is-visible {
+  transform: scale(1);
+}
+
+.contact-info.animate-on-scroll {
+  transition-delay: 0.2s;
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Optimización móvil */
+@media (max-width: 768px) {
+  .animate-on-scroll {
+    transition-duration: 0.5s;
+  }
+  
+  .package-card.animate-on-scroll,
+  .testimonial-card.animate-on-scroll,
+  .info-card.animate-on-scroll {
+    transition-delay: calc(var(--index, 0) * 0.05s);
+  }
+}
+---END CSS---
+
+## ARCHIVO 2: client/src/hooks/useScrollAnimation.ts
+
+ELIMINA todo el contenido y REEMPLAZA con esto exactamente:
+
+---START TYPESCRIPT---
+import { useEffect } from 'react';
+
+export function useScrollAnimation() {
+  useEffect(() => {
+    if (!('IntersectionObserver' in window)) {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      elements.forEach((el) => el.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          } else {
+            entry.target.classList.remove('is-visible');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      }
+    );
+
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+  return null;
+}
+---END TYPESCRIPT---
+
+## ARCHIVO 3: client/src/pages/Home.tsx
+
+AÑADE en la línea 2 (después de "import { useState } from "react";"):
+
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+AÑADE en la línea 12 (primera línea dentro de "export default function Home() {"):
+
+  useScrollAnimation();
+
+El resultado debe verse así:
+
+---START TYPESCRIPT---
+import { useState } from "react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";  // ← AÑADIDO
+import Header from "@/components/Header";
+// ... resto de imports
+
+export default function Home() {
+  useScrollAnimation();  // ← AÑADIDO (primera línea)
+  
+  const [selectedPackage, setSelectedPackage] = useState<PackageData | null>(null);
+  // ... resto del código SIN CAMBIOS
+}
+---END TYPESCRIPT---
+
+---
+
+IMPLEMENTA ESTOS 3 CAMBIOS AHORA. DESPUÉS COMMIT CON MENSAJE:
+"feat: Activate CSS scroll animations with Intersection Observer"
+
+LUEGO AVÍSAME PARA VERIFICAR.
