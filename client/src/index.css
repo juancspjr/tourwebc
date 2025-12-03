@@ -18,6 +18,9 @@
   --card: 0 0% 100%;
   --card-foreground: 207 8% 20%;
   --card-border: 33 30% 85%;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   --sidebar: 33 45% 88%;
   --sidebar-foreground: 207 8% 20%;
   --sidebar-border: 33 35% 80%;
@@ -105,6 +108,9 @@
   --card: 209 30% 12%;
   --card-foreground: 33 30% 95%;
   --card-border: 209 25% 16%;
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   --sidebar: 209 30% 14%;
   --sidebar-foreground: 33 30% 95%;
   --sidebar-border: 209 25% 18%;
