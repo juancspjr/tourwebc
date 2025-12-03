@@ -25,7 +25,9 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const prefersReducedMotion = useReducedMotion();
   
-  const { scrollY } = useScroll();
+  const { scrollY } = useScroll({
+    layoutEffect: false
+  });
   
   const backgroundY = useTransform(
     scrollY,

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import PackageGrid from "@/components/PackageGrid";
@@ -14,6 +14,12 @@ export default function Home() {
   const [selectedPackage, setSelectedPackage] = useState<PackageData | null>(null);
   const [bookingPackage, setBookingPackage] = useState<PackageData | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    window.dispatchEvent(new Event('scroll'));
+  }, []);
 
   const handleViewDetails = (pkg: PackageData) => {
     setSelectedPackage(pkg);
