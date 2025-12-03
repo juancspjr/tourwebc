@@ -74,7 +74,7 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
   return (
     <section
       id="home"
-      className="relative min-h-[85vh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[85vh] flex items-center justify-center overflow-hidden scroll-mt-24"
     >
       <div className="absolute inset-0">
         {heroImages.map((image, index) => (

@@ -22,9 +22,11 @@ export default function Header({ onNavigate }: HeaderProps) {
   const handleNavClick = (href: string) => {
     setIsOpen(false);
     
-    // Si se navega a home, resetear el carrusel a la primera imagen
+    // Si se navega a home, ir al inicio absoluto de la página y resetear carrusel
     if (href === "#home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
       window.dispatchEvent(new CustomEvent('resetHeroCarousel'));
+      return;
     }
     
     if (onNavigate) {
