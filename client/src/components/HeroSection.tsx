@@ -1,12 +1,30 @@
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
-import heroImage from "@assets/generated_images/rio_panoramic_hero_view.png";
+import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+
+import rio1Image from "@assets/rio1_1764724064822.webp";
+import rio3Image from "@assets/rio3_1764724064822.webp";
+import rio4Image from "@assets/rio4_1764724064822.webp";
+import egipto1Image from "@assets/egipto1_1764724064822.webp";
+import egipt2Image from "@assets/egipt2_1764724064822.webp";
+
+const heroImages = [
+  { src: rio1Image, alt: "Cristo Redentor - Río de Janeiro" },
+  { src: rio3Image, alt: "Pan de Azúcar - Río de Janeiro" },
+  { src: rio4Image, alt: "Atardecer en Ipanema" },
+  { src: egipt2Image, alt: "Esfinge y Pirámides de Giza" },
+  { src: egipto1Image, alt: "Templo de Edfu" },
+];
 
 interface HeroSectionProps {
   onExploreClick?: () => void;
 }
 
 export default function HeroSection({ onExploreClick }: HeroSectionProps) {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [direction, setDirection] = useState(1);
+
   const handleExploreClick = () => {
     if (onExploreClick) {
       onExploreClick();
@@ -16,54 +34,178 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
     }
   };
 
+  const nextSlide = useCallback(() => {
+    setDirection(1);
+    setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setDirection(-1);
+    setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  }, []);
+
+  const goToSlide = (index: number) => {
+    setDirection(index > currentSlide ? 1 : -1);
+    setCurrentSlide(index);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 5000);
+    return () => clearInterval(interval);
+  }, [nextSlide]);
+
+  const slideVariants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? 40 : -40,
+      rotateY: dir > 0 ? -18 : 18,
+      scale: 0.9,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      rotateY: 0,
+      scale: 1.05,
+      opacity: 1,
+    },
+    exit: (dir: number) => ({
+      x: dir > 0 ? -40 : 40,
+      rotateY: dir > 0 ? 18 : -18,
+      scale: 0.9,
+      opacity: 0,
+    }),
+  };
+
   return (
     <section
       id="home"
       className="relative min-h-[85vh] flex items-center justify-center overflow-hidden"
+      style={{ perspective: "1000px" }}
     >
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      />
+      <div className="absolute inset-0 overflow-hidden" style={{ transformStyle: "preserve-3d" }}>
+        <AnimatePresence initial={false} custom={direction} mode="popLayout">
+          <motion.img
+            key={currentSlide}
+            src={heroImages[currentSlide].src}
+            alt={heroImages[currentSlide].alt}
+            custom={direction}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              duration: 0.6,
+              ease: [0.25, 0.46, 0.45, 0.94],
+            }}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </AnimatePresence>
+      </div>
+
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/70" />
-      
+
+      <button
+        onClick={prevSlide}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 backdrop-blur-sm text-white transition-all duration-200 hover:bg-white/30 hover:scale-110"
+        aria-label="Slide anterior"
+        data-testid="button-carousel-prev"
+      >
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 backdrop-blur-sm text-white transition-all duration-200 hover:bg-white/30 hover:scale-110"
+        aria-label="Siguiente slide"
+        data-testid="button-carousel-next"
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
+
+      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {heroImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              index === currentSlide ? "w-6 bg-white" : "w-2 bg-white/50 hover:bg-white/70"
+            }`}
+            aria-label={`Ir a slide ${index + 1}`}
+            data-testid={`button-carousel-indicator-${index}`}
+          />
+        ))}
+      </div>
+
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight mb-6 animate-fade-in-up uppercase">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight mb-6 uppercase"
+        >
           Descubre tu próxima
           <span className="block text-accent">aventura</span>
-        </h1>
-        <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-8 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-          Explora los destinos más increíbles del mundo y crea recuerdos inolvidables con nosotros.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-          <Button
-            size="lg"
-            className="text-base px-8 bg-cta hover:bg-cta/90 text-cta-foreground"
-            onClick={handleExploreClick}
-            data-testid="button-explore-packages"
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-2"
+        >
+          Explora los destinos más increíbles del mundo
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-8"
+        >
+          y crea recuerdos inolvidables con nosotros.
+        </motion.p>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            Explorar Paquetes
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="text-base px-8 bg-white/10 border-white/30 text-white hover:bg-white/20"
-            onClick={() => window.open("https://wa.me/5521999999999", "_blank")}
-            data-testid="button-whatsapp-hero"
+            <Button
+              size="lg"
+              className="text-base px-8 bg-cta hover:bg-cta/90 text-cta-foreground transition-all duration-300 hover:scale-103 hover:shadow-lg"
+              onClick={handleExploreClick}
+              data-testid="button-explore-packages"
+            >
+              Explorar Paquetes
+            </Button>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            Consulta por WhatsApp
-          </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="text-base px-8 bg-white/10 border-white/30 text-white hover:bg-white/20 transition-all duration-300 hover:scale-103 hover:shadow-lg"
+              onClick={() => window.open("https://wa.me/5521999999999", "_blank")}
+              data-testid="button-whatsapp-hero"
+            >
+              Reservar Ahora
+            </Button>
+          </motion.div>
         </div>
       </div>
 
-      <button
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4, delay: 0.8 }}
         onClick={handleExploreClick}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white animate-bounce"
         aria-label="Scroll down"
         data-testid="button-scroll-down"
       >
         <ChevronDown className="w-10 h-10" />
-      </button>
+      </motion.button>
     </section>
   );
 }
