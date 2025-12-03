@@ -93,7 +93,7 @@ export default function Header({ onNavigate }: HeaderProps) {
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px]">
+            <SheetContent side="right" className="w-[300px] bg-background/60 backdrop-blur-xl border-l border-white/10">
               <div className="flex flex-col gap-6 mt-8">
                 <img 
                   src={logoImage} 
