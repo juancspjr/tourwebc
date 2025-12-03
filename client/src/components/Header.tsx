@@ -22,19 +22,22 @@ export default function Header({ onNavigate }: HeaderProps) {
   const handleNavClick = (href: string) => {
     setIsOpen(false);
     
-    // Si se navega a home, ir al inicio absoluto de la página y resetear carrusel
-    if (href === "#home") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      window.dispatchEvent(new CustomEvent('resetHeroCarousel'));
-      return;
-    }
-    
-    if (onNavigate) {
-      onNavigate(href);
-    } else {
-      const element = document.querySelector(href);
-      element?.scrollIntoView({ behavior: "smooth" });
-    }
+    // Pequeño delay para permitir que el menú se cierre antes de hacer scroll
+    setTimeout(() => {
+      // Si se navega a home, ir al inicio absoluto de la página y resetear carrusel
+      if (href === "#home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.dispatchEvent(new CustomEvent('resetHeroCarousel'));
+        return;
+      }
+      
+      if (onNavigate) {
+        onNavigate(href);
+      } else {
+        const element = document.querySelector(href);
+        element?.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 150);
   };
 
   return (
@@ -93,7 +96,7 @@ export default function Header({ onNavigate }: HeaderProps) {
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] !bg-background/40 backdrop-blur-xl border-l border-white/10 shadow-2xl">
+            <SheetContent side="right" className="w-[300px] !bg-background/90 backdrop-blur-xl border-l border-border/20 shadow-2xl">
               <div className="flex flex-col gap-6 mt-8">
                 <img 
                   src={logoImage} 
