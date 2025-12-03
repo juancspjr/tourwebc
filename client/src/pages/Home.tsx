@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
@@ -24,6 +24,27 @@ export default function Home() {
   const [selectedPackage, setSelectedPackage] = useState<PackageData | null>(null);
   const [bookingPackage, setBookingPackage] = useState<PackageData | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Asegurar posición inicial en el Hero al cargar
+  useLayoutEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
+  // Prevenir scroll durante el splash y restaurar posición al terminar
+  useEffect(() => {
+    if (showSplash) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+      window.scrollTo(0, 0);
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [showSplash]);
 
   const handleSplashComplete = () => {
     setShowSplash(false);

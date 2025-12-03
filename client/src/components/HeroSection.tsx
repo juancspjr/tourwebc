@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useLayoutEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -22,6 +22,16 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onExploreClick }: HeroSectionProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Asegurar que la página inicie en el Hero Section al cargar
+  useLayoutEffect(() => {
+    // Deshabilitar restauración automática del scroll del navegador
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    // Scroll inmediato al inicio (antes del render visual)
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleExploreClick = () => {
     if (onExploreClick) {
