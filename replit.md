@@ -49,6 +49,19 @@ Preferred communication style: Simple, everyday language.
   - Testimonials data now exported from `client/src/lib/packages.ts`
   - New component: `client/src/components/InfiniteTestimonialCarousel.tsx`
   - Deleted: `client/src/components/TestimonialsSection.tsx`
+- **Package Image Carousel (December 2025):**
+  - Added `images` array property to PackageData interface for multiple images per package
+  - New component: `client/src/components/PackageImageCarousel.tsx`
+  - Auto-advances images every 4.5 seconds with infinite loop
+  - Smooth 300ms fade transition between images
+  - Clickable indicator dots for manual navigation
+  - Arrow buttons visible on hover for left/right navigation
+  - Pauses on hover and focus for accessibility
+  - Keyboard navigation (Arrow keys) when carousel is focused
+  - Click on image opens package details modal
+  - Falls back to static image for packages with single image
+  - Full accessibility support with ARIA roles and labels
+  - CSS styles in `client/src/styles/scroll-animations.css`
 
 ## System Architecture
 
@@ -74,6 +87,8 @@ Preferred communication style: Simple, everyday language.
 - Header - Sticky navigation with responsive mobile menu
 - HeroSection - Full-width hero with parallax background and CTA
 - PackageGrid - Filterable grid of tour packages with category filters
+- PackageCard - Individual package card with image carousel and booking CTAs
+- PackageImageCarousel - Auto-advancing image carousel for package cards
 - PackageModal - Detailed package information dialog
 - InfiniteTestimonialCarousel - Smooth infinite horizontal carousel with 13 testimonials
 - GeneralInfoSection - Travel info with alternating reveal animations
