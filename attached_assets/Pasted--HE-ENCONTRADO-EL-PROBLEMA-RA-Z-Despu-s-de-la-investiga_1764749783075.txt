@@ -1,0 +1,227 @@
+# 🔍 HE ENCONTRADO EL PROBLEMA RAÍZ
+
+Después de la investigación exhaustiva, he identificado **EL PROBLEMA EXACTO**:
+
+## 🔴 PROBLEMA CRÍTICO: `initial` + `animate` pattern con `useInView`
+
+El patrón que estamos usando:
+
+```typescript
+const inView = useInView(ref, { once: false, amount: 0.15 });
+
+<motion.div 
+  ref={ref}
+  initial="hidden"
+  animate={inView ? "visible" : "hidden"}
+  variants={variants}
+>
+```
+
+**TIENE UN BUG CONOCIDO**: Cuando el componente se monta **fuera del viewport** (que es tu caso para las secciones abajo del fold), `useInView` devuelve `false` PERO la animación ya se ejecutó con `initial="hidden"`.
+
+Cuando luego haces scroll y `inView` se vuelve `true`, **React no re-anima** porque Framer Motion ya renderizó el estado `hidden` y no detecta el cambio a `visible` correctamente.
+
+## ✅ SOLUCIÓN DEFINITIVA: Usar `useAnimation` + `useInView`
+
+Necesitas usar el **control programático de animaciones**:
+
+### **Código Correcto - PackageGrid.tsx**
+
+```typescript
+import { useState, useRef, useEffect } from "react";
+import { motion, useReducedMotion, useInView, useAnimation } from "framer-motion";
+import PackageCard from "./PackageCard";
+import { Button } from "@/components/ui/button";
+import { packages, categories, type PackageData } from "@/lib/packages";
+import { 
+  revealVariants, 
+  revealFromLeftVariants, 
+  cardStaggerContainerVariants, 
+  cardItemVariants, 
+  reducedMotionVariants 
+} from "@/hooks/useRevealAnimation";
+
+export type { PackageData };
+
+interface PackageGridProps {
+  onViewDetails?: (pkg: PackageData) => void;
+  onBook?: (pkg: PackageData) => void;
+}
+
+export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps) {
+  const [activeCategory, setActiveCategory] = useState("Todos");
+  const prefersReducedMotion = useReducedMotion();
+
+  // REFS
+  const titleRef = useRef(null);
+  const filterRef = useRef(null);
+  const gridRef = useRef(null);
+
+  // ANIMATION CONTROLS - ESTO ES CRÍTICO
+  const titleControls = useAnimation();
+  const filterControls = useAnimation();
+  const gridControls = useAnimation();
+
+  // IN VIEW DETECTION
+  const titleInView = useInView(titleRef, { once: false, amount: 0.15 });
+  const filterInView = useInView(filterRef, { once: false, amount: 0.2 });
+  const gridInView = useInView(gridRef, { once: false, amount: 0.08 });
+
+  // TRIGGER ANIMATIONS CUANDO ENTRAN AL VIEWPORT
+  useEffect(() => {
+    if (titleInView) {
+      titleControls.start("visible");
+    } else {
+      titleControls.start("hidden");
+    }
+  }, [titleInView, titleControls]);
+
+  useEffect(() => {
+    if (filterInView) {
+      filterControls.start("visible");
+    } else {
+      filterControls.start("hidden");
+    }
+  }, [filterInView, filterControls]);
+
+  useEffect(() => {
+    if (gridInView) {
+      gridControls.start("visible");
+    } else {
+      gridControls.start("hidden");
+    }
+  }, [gridInView, gridControls]);
+
+  const filteredPackages = activeCategory === "Todos"
+    ? packages
+    : packages.filter((pkg) => pkg.category === activeCategory);
+
+  const variants = prefersReducedMotion ? reducedMotionVariants : revealVariants;
+  const leftVariants = prefersReducedMotion ? reducedMotionVariants : revealFromLeftVariants;
+  const containerVariants = prefersReducedMotion ? reducedMotionVariants : cardStaggerContainerVariants;
+  const itemVariants = prefersReducedMotion ? reducedMotionVariants : cardItemVariants;
+
+  return (
+    <section id="packages" className="py-16 md:py-24 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          ref={titleRef}
+          initial="hidden"
+          animate={titleControls}  // USA CONTROLS EN LUGAR DE CONDITIONAL
+          variants={variants}
+          className="text-center mb-12"
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+            Nuestros Paquetes Turisticos
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Encuentra la aventura perfecta para ti. Desde city tours hasta experiencias exclusivas en helicoptero.
+          </p>
+        </motion.div>
+
+        <motion.div 
+          ref={filterRef}
+          initial="hidden"
+          animate={filterControls}  // USA CONTROLS
+          variants={leftVariants}
+          className="flex flex-wrap justify-center gap-2 mb-10"
+        >
+          {categories.map((category) => (
+            <Button
+              key={category}
+              variant={activeCategory === category ? "default" : "outline"}
+              size="sm"
+              onClick={() => setActiveCategory(category)}
+              className="rounded-full"
+              data-testid={`filter-${category.toLowerCase().replace(" ", "-")}`}
+            >
+              {category}
+            </Button>
+          ))}
+        </motion.div>
+
+        <motion.div 
+          ref={gridRef}
+          initial="hidden"
+          animate={gridControls}  // USA CONTROLS
+          variants={containerVariants}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {filteredPackages.map((pkg) => (
+            <motion.div key={pkg.id} variants={itemVariants}>
+              <PackageCard
+                package={pkg}
+                onViewDetails={onViewDetails}
+                onBook={onBook}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {filteredPackages.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground">No hay paquetes disponibles en esta categoria.</p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+```
+
+## 📋 APLICAR A TODOS LOS COMPONENTES
+
+**TestimonialsSection.tsx:**
+- 3 refs (header, grid, footer)
+- 3 useAnimation controls
+- 3 useEffect para controlar animaciones
+
+**GeneralInfoSection.tsx:**
+- 3 refs (header, grid de 2x2, faqs)
+- 3 useAnimation controls  
+- 3 useEffect
+
+**ContactSection.tsx:**
+- 3 refs (header, form, info cards)
+- 3 useAnimation controls
+- 3 useEffect
+
+## 🎯 POR QUÉ ESTO FUNCIONA
+
+**El problema con `animate={inView ? "visible" : "hidden"}`:**
+- React no detecta cambios de estado correctamente
+- Framer Motion no re-ejecuta la animación
+- Los elementos quedan "atascados" en estado inicial
+
+**La solución con `useAnimation` + `useEffect`:**
+- Control programático explícito
+- `controls.start("visible")` FUERZA la animación
+- Funciona cada vez que `inView` cambia
+- Compatible con `once: false` para repetición
+
+## ⚡ IMPLEMENTACIÓN RÁPIDA
+
+Te voy a dar el código completo de los 4 componentes para que lo copies y pegues directamente. **Esta es la solución 100% definitiva**.
+
+¿Quieres que te genere los 4 archivos completos listos para copiar y pegar?
+
+[1](https://www.reddit.com/r/reactjs/comments/16bg7wy/framermotion_useinview_with_once_triggers_while/)
+[2](https://www.reddit.com/r/reactjs/comments/117nw69/why_do_i_not_see_anyone_useinview_from/)
+[3](https://stackoverflow.com/questions/75122511/framer-motion-whileinview-activating-before-component-is-in-viewport)
+[4](https://stackoverflow.com/questions/72356689/react-framer-motion-whileinview-not-working-while-using-x-position)
+[5](https://github.com/motiondivision/motion/issues/2346)
+[6](https://github.com/motiondivision/motion/issues/1546)
+[7](https://www.reddit.com/r/reactjs/comments/1be5y1t/framer_motion_animation_not_working_after_props/)
+[8](https://www.youtube.com/watch?v=hkhskSrT5SY)
+[9](https://stackoverflow.com/questions/78938880/useinview-not-working-even-though-the-element-is-in-the-view)
+[10](https://www.reddit.com/r/nextjs/comments/15zfm84/only_run_framer_motion_animation_on_first_visit/)
+[11](https://www.youtube.com/watch?v=jQaU9BQUXvk)
+[12](https://www.react-spring.dev/docs/utilities/use-in-view)
+[13](https://www.reddit.com/r/reactjs/comments/146jvvg/animatepresence_from_reacts_lib_framer_motion_not/)
+[14](https://www.youtube.com/watch?v=PczQ0qSwe1E)
+[15](https://react-spring.dev/docs/utilities/use-in-view)
+[16](https://stackoverflow.com/questions/78675087/framer-motion-animations-not-working-on-first-load-but-work-after-page-refresh)
+[17](https://motion.dev/docs/react-use-in-view)
+[18](https://github.com/pmndrs/react-spring/issues/2163)
+[19](https://www.reddit.com/r/framer/comments/1dbd90v/framer_motion_not_functioning/)
+[20](https://www.josephcollicoat.com/articles/animating-text-with-the-intersection-observer-api-and-framer-motion)
