@@ -14,7 +14,6 @@ import {
 import { Phone, Mail, MapPin, Clock, MessageCircle, Calculator, Users } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { packages, getPackageByTitle, type PackageData } from "@/lib/packages";
-import { useScrollAnimation, getStaggerStyle } from "@/hooks/useScrollAnimation";
 
 interface ContactSectionProps {
   selectedPackage?: PackageData | null;
@@ -23,10 +22,6 @@ interface ContactSectionProps {
 
 export default function ContactSection({ selectedPackage, onPackageChange }: ContactSectionProps) {
   const { toast } = useToast();
-
-  const [sectionRef, scrollState] = useScrollAnimation<HTMLElement>({
-    intensity: "soft",
-  });
 
   const [formData, setFormData] = useState({
     name: "",
@@ -37,9 +32,6 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
     people: "",
     message: "",
   });
-
-  const totalStaggerItems = 6;
-  const { prefersReducedMotion, progress } = scrollState;
 
   useEffect(() => {
     if (selectedPackage) {
@@ -116,39 +108,20 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
   };
 
   return (
-    <section 
-      id="contact" 
-      ref={sectionRef}
-      className="py-16 md:py-24 bg-background scroll-perspective"
-    >
-      <div 
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        style={scrollState.containerStyle}
-      >
-        <div 
-          className="text-center mb-12"
-          style={scrollState.innerStyle}
-        >
-          <h2 
-            className="text-3xl sm:text-4xl font-bold text-foreground mb-4"
-            style={getStaggerStyle(progress, 0, totalStaggerItems, prefersReducedMotion)}
-          >
+    <section id="contact" className="py-16 md:py-24 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             Reserva Tu Aventura
           </h2>
-          <p 
-            className="text-muted-foreground max-w-2xl mx-auto"
-            style={getStaggerStyle(progress, 1, totalStaggerItems, prefersReducedMotion)}
-          >
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             Completa el formulario y obten tu cotizacion al instante. 
             Tambien puedes escribirnos directamente por WhatsApp.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <Card 
-            className="scroll-card-premium"
-            style={getStaggerStyle(progress, 2, totalStaggerItems, prefersReducedMotion)}
-          >
+          <Card>
             <CardContent className="p-6">
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -297,10 +270,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
           </Card>
 
           <div className="space-y-6">
-            <Card 
-              className="scroll-card-premium"
-              style={getStaggerStyle(progress, 3, totalStaggerItems, prefersReducedMotion)}
-            >
+            <Card>
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-4">
                   Informacion de Contacto
@@ -354,10 +324,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
               </CardContent>
             </Card>
 
-            <Card 
-              className="scroll-card-premium"
-              style={getStaggerStyle(progress, 4, totalStaggerItems, prefersReducedMotion)}
-            >
+            <Card>
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-4">
                   Horario de Atencion
@@ -385,10 +352,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
               </CardContent>
             </Card>
 
-            <Card 
-              className="bg-primary/5 border-primary/20 scroll-card-premium"
-              style={getStaggerStyle(progress, 5, totalStaggerItems, prefersReducedMotion)}
-            >
+            <Card className="bg-primary/5 border-primary/20">
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-3">
                   Descuentos por Grupo

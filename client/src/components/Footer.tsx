@@ -1,17 +1,9 @@
 import { Facebook, Instagram, Youtube } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
 import logoImage from "@assets/Diseño_sin_título_(2)_1764694858372.png";
-import { useScrollAnimation, getStaggerStyle } from "@/hooks/useScrollAnimation";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-
-  const [footerRef, scrollState] = useScrollAnimation<HTMLElement>({
-    intensity: "subtle",
-  });
-
-  const totalStaggerItems = 5;
-  const { prefersReducedMotion, progress } = scrollState;
 
   const destinations = [
     { label: "Brasil", href: "#destinations" },
@@ -37,13 +29,10 @@ export default function Footer() {
   };
 
   return (
-    <footer ref={footerRef} className="bg-foreground text-background py-12 scroll-perspective">
-      <div 
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        style={scrollState.containerStyle}
-      >
+    <footer className="bg-foreground text-background py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div style={getStaggerStyle(progress, 0, totalStaggerItems, prefersReducedMotion)}>
+          <div>
             <div className="flex items-center gap-3 mb-4">
               <img 
                 src={logoImage} 
@@ -72,7 +61,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div style={getStaggerStyle(progress, 1, totalStaggerItems, prefersReducedMotion)}>
+          <div>
             <h3 className="font-semibold mb-4">Destinos</h3>
             <ul className="space-y-2">
               {destinations.map((link) => (
@@ -89,7 +78,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div style={getStaggerStyle(progress, 2, totalStaggerItems, prefersReducedMotion)}>
+          <div>
             <h3 className="font-semibold mb-4">Contacto</h3>
             <ul className="space-y-2 text-sm text-background/70">
               <li>
@@ -122,7 +111,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div style={getStaggerStyle(progress, 3, totalStaggerItems, prefersReducedMotion)}>
+          <div>
             <h3 className="font-semibold mb-4">Nuevas Aventuras</h3>
             <p className="text-sm text-background/70 mb-4">
               Estamos preparando destinos increibles para ti. 
@@ -135,10 +124,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div 
-          className="mt-12 pt-8 border-t border-background/20"
-          style={getStaggerStyle(progress, 4, totalStaggerItems, prefersReducedMotion)}
-        >
+        <div className="mt-12 pt-8 border-t border-background/20">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-background/60">
               {currentYear} Rio Trip Vibes. Todos los derechos reservados.
