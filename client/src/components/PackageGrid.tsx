@@ -16,8 +16,8 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.1
+      staggerChildren: 0.08,
+      delayChildren: 0.05
     }
   }
 };
@@ -25,8 +25,8 @@ const containerVariants = {
 const cardVariants = {
   hidden: { 
     opacity: 0, 
-    y: 40,
-    scale: 0.95
+    y: 30,
+    scale: 0.96
   },
   visible: { 
     opacity: 1, 
@@ -34,17 +34,17 @@ const cardVariants = {
     scale: 1,
     transition: {
       type: "spring",
-      stiffness: 100,
-      damping: 15,
-      mass: 1
+      stiffness: 120,
+      damping: 14,
+      mass: 0.8
     }
   },
   exit: {
     opacity: 0,
-    scale: 0.95,
-    y: -20,
+    scale: 0.96,
+    y: -15,
     transition: {
-      duration: 0.2
+      duration: 0.15
     }
   }
 };
@@ -63,8 +63,8 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
           className="section-header text-center mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.3, margin: "-50px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             Nuestros Paquetes Turisticos
@@ -78,16 +78,16 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
           className="flex flex-wrap justify-center gap-2 mb-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: false, amount: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
         >
           {categories.map((category, index) => (
             <motion.div
               key={category}
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.25, delay: index * 0.03 }}
             >
               <Button
                 variant={activeCategory === category ? "default" : "outline"}
@@ -107,11 +107,11 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: false, amount: 0.1 }}
           key={activeCategory}
         >
           <AnimatePresence mode="popLayout">
-            {filteredPackages.map((pkg, index) => (
+            {filteredPackages.map((pkg) => (
               <motion.div 
                 key={pkg.id} 
                 className="package-card"
@@ -119,7 +119,8 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
                 layout
                 whileHover={{ 
                   y: -8,
-                  transition: { duration: 0.3, ease: "easeOut" }
+                  scale: 1.02,
+                  transition: { duration: 0.25, ease: "easeOut" }
                 }}
               >
                 <PackageCard
