@@ -21,9 +21,7 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
     <section id="packages" className="py-16 md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="section-header text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Nuestros Paquetes Turisticos
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Nuestros Paquetes Turísticos</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Encuentra la aventura perfecta para ti. Desde city tours hasta experiencias exclusivas en helicoptero.
           </p>

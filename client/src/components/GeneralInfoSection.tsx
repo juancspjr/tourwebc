@@ -48,11 +48,11 @@ export default function GeneralInfoSection() {
         <div className="section-header animate-on-scroll text-center mb-10">
           <div className="inline-flex items-center gap-2 mb-4">
             <BookOpen className="w-6 h-6 text-primary" />
-            <span className="text-sm font-medium text-primary uppercase tracking-wider">Guia del Viajero</span>
+            <span className="text-sm font-medium text-primary uppercase tracking-wider">Guía del Viajero</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Información útil para tu viaje</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Todo lo que necesitas saber antes de partir. Explora cada seccion para prepararte mejor.
+            Todo lo que necesitas saber antes de partir. Explora cada sección para prepararte mejor.
           </p>
         </div>
 
@@ -107,7 +107,7 @@ export default function GeneralInfoSection() {
                       <div className="flex items-start gap-3">
                         <Info className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                         <p className="text-sm text-muted-foreground">
-                          Todos los pagos son seguros y verificados. Contacta a tu asesor para coordinar el metodo de pago mas conveniente.
+                          Todos los pagos son seguros y verificados. Contacta a tu asesor para coordinar el método de pago mas conveniente.
                         </p>
                       </div>
                     </div>

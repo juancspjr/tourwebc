@@ -92,7 +92,7 @@ export const generalInfo = {
     title: "Métodos de Pago",
     methods: [
       { name: "Zelle", icon: "zelle" },
-      { name: "Tarjetas de credito internacionales", icon: "credit-card" },
+      { name: "Tarjetas de crédito internacionales", icon: "credit-card" },
       { name: "Transferencias nacionales e internacionales", icon: "bank" },
       { name: "Divisas en efectivo (USD / EUR)", icon: "cash" },
       { name: "PayPal", icon: "paypal" },
@@ -101,62 +101,62 @@ export const generalInfo = {
   },
   visaInfo: {
     title: "Visados",
-    description: "Los requisitos de visa varian segun tu nacionalidad y el destino que elijas. Cada pais tiene sus propias regulaciones de entrada que pueden cambiar periodicamente.",
-    contactNote: "Para informacion especifica sobre visados segun tu destino, contacta a nuestro asesor de viajes quien te guiara con los requisitos actualizados.",
+    description: "Los requisitos de visa varían según tu nacionalidad y el destino que elijas. Cada país tiene sus propias regulaciones de entrada que pueden cambiar periódicamente.",
+    contactNote: "Para información específica sobre visados según tu destino, contacta a nuestro asesor de viajes quien te guiará con los requisitos actualizados.",
   },
   prohibitedActivities: {
     title: "Actividades Prohibidas",
-    description: "Estas son normas generales aplicables en la mayoria de nuestros destinos. Consulta las regulaciones especificas de cada pais con tu asesor.",
+    description: "Estas son normas generales aplicables en la mayoría de nuestros destinos. Consulta las regulaciones específicas de cada país con tu asesor.",
     items: [
-      "Encender fogatas en areas naturales protegidas",
-      "Arrojar desperdicios en espacios publicos o naturales",
-      "Trafico o consumo de sustancias ilegales",
-      "Porte de armas sin autorizacion",
-      "Danos al patrimonio cultural o natural"
+      "Encender fogatas en áreas naturales protegidas",
+      "Arrojar desperdicios en espacios públicos o naturales",
+      "Tráfico o consumo de sustancias ilegales",
+      "Porte de armas sin autorización",
+      "Daños al patrimonio cultural o natural"
     ]
   },
   currency: {
-    title: "Moneda del Pais",
-    description: "La moneda varia segun el destino. A continuacion te mostramos las principales divisas de nuestros destinos:",
+    title: "Moneda del País",
+    description: "La moneda varía según el destino. A continuación te mostramos las principales divisas de nuestros destinos:",
     currencies: [
-      { name: "Real Brasileno (BRL)", country: "Brasil", primary: true },
-      { name: "Dolar Estadounidense (USD)", country: "Estados Unidos", primary: false },
+      { name: "Real Brasileño (BRL)", country: "Brasil", primary: true },
+      { name: "Dólar Estadounidense (USD)", country: "Estados Unidos", primary: false },
       { name: "Euro (EUR)", country: "Egipto / Europa", primary: false },
       { name: "Libra Egipcia (EGP)", country: "Egipto", primary: false }
     ]
   },
   generalFaqs: [
     {
-      question: "Como puedo reservar un paquete turistico?",
-      answer: "Puedes reservar directamente a traves de nuestro sitio web haciendo clic en 'Reservar Ahora' en el paquete de tu eleccion, o contactando a nuestro asesor de viajes via WhatsApp para una atencion personalizada."
+      question: "¿Cómo puedo reservar un paquete turístico?",
+      answer: "Puedes reservar directamente a través de nuestro sitio web haciendo clic en 'Reservar Ahora' en el paquete de tu elección, o contactando a nuestro asesor de viajes vía WhatsApp para una atención personalizada."
     },
     {
-      question: "Que documentos necesito para viajar?",
-      answer: "Los documentos varian segun tu nacionalidad y destino. Generalmente necesitaras: pasaporte vigente (minimo 6 meses de validez), visa si aplica, seguro de viaje, y comprobantes de reservas. Contacta a nuestro asesor para requisitos especificos."
+      question: "¿Qué documentos necesito para viajar?",
+      answer: "Los documentos varían según tu nacionalidad y destino. Generalmente necesitarás: pasaporte vigente (mínimo 6 meses de validez), visa si aplica, seguro de viaje, y comprobantes de reservas. Contacta a nuestro asesor para requisitos específicos."
     },
     {
-      question: "Cual es la politica de cancelacion general?",
-      answer: "Ofrecemos cancelacion gratuita hasta 72 horas antes del viaje para la mayoria de paquetes. Cancelaciones tardias pueden tener cargos del 50%. En caso de fuerza mayor, reprogramamos sin costo adicional. Revisa los terminos especificos de cada paquete."
+      question: "¿Cuál es la política de cancelación general?",
+      answer: "Ofrecemos cancelación gratuita hasta 72 horas antes del viaje para la mayoría de paquetes. Cancelaciones tardías pueden tener cargos del 50%. En caso de fuerza mayor, reprogramamos sin costo adicional. Revisa los términos específicos de cada paquete."
     },
     {
-      question: "Pueden viajar ninos o personas de tercera edad?",
-      answer: "Si, la mayoria de nuestros tours son aptos para familias y personas mayores. Algunos tours de aventura tienen restricciones de edad por seguridad. Consultanos para adaptar la experiencia a las necesidades de tu grupo."
+      question: "¿Pueden viajar niños o personas de tercera edad?",
+      answer: "Sí, la mayoría de nuestros tours son aptos para familias y personas mayores. Algunos tours de aventura tienen restricciones de edad por seguridad. Consúltanos para adaptar la experiencia a las necesidades de tu grupo."
     },
     {
-      question: "Necesito llevar dinero en efectivo?",
-      answer: "Recomendamos llevar algo de efectivo en la moneda local del destino para pequenos gastos. La mayoria de establecimientos aceptan tarjetas, pero tener efectivo es util para mercados, propinas y transporte local."
+      question: "¿Necesito llevar dinero en efectivo?",
+      answer: "Recomendamos llevar algo de efectivo en la moneda local del destino para pequeños gastos. La mayoría de establecimientos aceptan tarjetas, pero tener efectivo es útil para mercados, propinas y transporte local."
     },
     {
-      question: "Que incluye generalmente un paquete turistico?",
-      answer: "Nuestros paquetes tipicamente incluyen: transporte, guia bilingue, entradas a atracciones principales, y actividades programadas. Algunos incluyen comidas y alojamiento. Revisa los detalles de cada paquete para conocer las inclusiones especificas."
+      question: "¿Qué incluye generalmente un paquete turístico?",
+      answer: "Nuestros paquetes típicamente incluyen: transporte, guía bilingüe, entradas a atracciones principales, y actividades programadas. Algunos incluyen comidas y alojamiento. Revisa los detalles de cada paquete para conocer las inclusiones específicas."
     },
     {
-      question: "Como me comunico con el asesor de viajes?",
-      answer: "Puedes contactar a nuestro asesor de viajes a traves de WhatsApp haciendo clic en el boton flotante, o mediante el formulario de contacto en nuestra pagina. Respondemos en un maximo de 24 horas."
+      question: "¿Cómo me comunico con el asesor de viajes?",
+      answer: "Puedes contactar a nuestro asesor de viajes a través de WhatsApp haciendo clic en el botón flotante, o mediante el formulario de contacto en nuestra página. Respondemos en un máximo de 24 horas."
     },
     {
-      question: "Ofrecen seguro de viaje?",
-      answer: "Si, recomendamos y ofrecemos opciones de seguro de viaje que cubren asistencia medica, cancelaciones, y equipaje. Consulta con tu asesor para conocer las opciones disponibles segun tu destino."
+      question: "¿Ofrecen seguro de viaje?",
+      answer: "Sí, recomendamos y ofrecemos opciones de seguro de viaje que cubren asistencia médica, cancelaciones, y equipaje. Consulta con tu asesor para conocer las opciones disponibles según tu destino."
     }
   ]
 };
