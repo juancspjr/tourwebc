@@ -82,35 +82,23 @@ export default function PackageCard({ package: pkg, onViewDetails, onBook }: Pac
           ))}
         </div>
 
-        <div className="flex items-end justify-between pt-4 border-t border-border">
-          <div>
-            <span className="text-xs text-muted-foreground">Desde</span>
-            <p className="text-2xl font-bold text-foreground">
-              ${pkg.price}
-              <span className="text-sm font-normal text-muted-foreground"> USD</span>
-            </p>
-            {pkg.priceNote && (
-              <span className="text-xs text-muted-foreground">{pkg.priceNote}</span>
-            )}
-          </div>
-          <div className="flex gap-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => onViewDetails?.(pkg)}
-              data-testid={`button-details-${pkg.id}`}
-            >
-              Detalles
-            </Button>
-            <Button
-              size="sm"
-              className="bg-cta hover:bg-cta/90 text-cta-foreground"
-              onClick={() => onBook?.(pkg)}
-              data-testid={`button-book-${pkg.id}`}
-            >
-              Reservar
-            </Button>
-          </div>
+        <div className="flex justify-end gap-2 pt-4 border-t border-border">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => onViewDetails?.(pkg)}
+            data-testid={`button-details-${pkg.id}`}
+          >
+            Detalles
+          </Button>
+          <Button
+            size="sm"
+            className="bg-cta hover:bg-cta/90 text-cta-foreground"
+            onClick={() => onBook?.(pkg)}
+            data-testid={`button-book-${pkg.id}`}
+          >
+            Reservar
+          </Button>
         </div>
       </CardContent>
     </Card>
