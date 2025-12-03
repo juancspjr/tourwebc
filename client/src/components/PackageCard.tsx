@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock, MapPin, Check, Star } from "lucide-react";
 import type { PackageData } from "@/lib/packages";
+import PackageImageCarousel from "./PackageImageCarousel";
 
 export type { PackageData };
 
@@ -13,26 +14,37 @@ interface PackageCardProps {
 }
 
 export default function PackageCard({ package: pkg, onViewDetails, onBook }: PackageCardProps) {
+  const hasMultipleImages = pkg.images && pkg.images.length > 1;
+
   return (
     <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
       <div className="relative aspect-[4/3] overflow-hidden">
-        <img
-          src={pkg.image}
-          alt={pkg.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
+        {hasMultipleImages ? (
+          <PackageImageCarousel
+            images={pkg.images}
+            packageTitle={pkg.title}
+            onImageClick={() => onViewDetails?.(pkg)}
+          />
+        ) : (
+          <img
+            src={pkg.image}
+            alt={pkg.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer"
+            onClick={() => onViewDetails?.(pkg)}
+          />
+        )}
         {pkg.badge && (
-          <Badge className="absolute top-3 right-3 bg-chart-2 text-white">
+          <Badge className="absolute top-3 right-3 bg-chart-2 text-white z-20">
             {pkg.badge}
           </Badge>
         )}
-        <div className="absolute top-3 left-3">
+        <div className="absolute top-3 left-3 z-20">
           <Badge variant="secondary" className="bg-black/60 text-white border-0">
             {pkg.category}
           </Badge>
         </div>
         {pkg.rating && (
-          <div className="absolute bottom-3 left-3 flex items-center gap-1 bg-black/60 rounded-full px-2 py-1">
+          <div className="absolute bottom-3 left-3 flex items-center gap-1 bg-black/60 rounded-full px-2 py-1 z-20">
             <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
             <span className="text-sm text-white font-medium">{pkg.rating}</span>
           </div>

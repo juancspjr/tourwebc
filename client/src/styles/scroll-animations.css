@@ -87,6 +87,121 @@
   }
 }
 
+/* Package Image Carousel */
+.package-carousel-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.package-carousel-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.package-carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+.package-carousel-image.active {
+  opacity: 1;
+}
+
+.package-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease, background-color 200ms ease, visibility 200ms ease;
+}
+
+.package-carousel-container:hover .package-carousel-arrow {
+  opacity: 1;
+  visibility: visible;
+}
+
+.package-carousel-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.package-carousel-arrow-left {
+  left: 8px;
+}
+
+.package-carousel-arrow-right {
+  right: 8px;
+}
+
+.package-carousel-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+
+.package-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 200ms ease, transform 200ms ease;
+}
+
+.package-carousel-dot:hover {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.package-carousel-dot.active {
+  background-color: white;
+  transform: scale(1.2);
+}
+
+/* Responsive para el carrusel */
+@media (max-width: 768px) {
+  .package-carousel-arrow {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .package-carousel-dot {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .package-carousel-dots {
+    bottom: 8px;
+    gap: 4px;
+  }
+}
+
 /* Carrusel Infinito de Testimonios */
 .testimonial-carousel-container {
   width: 100%;
