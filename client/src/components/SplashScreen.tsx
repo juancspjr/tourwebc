@@ -255,11 +255,11 @@ export default function SplashScreen({ onComplete, duration = 1800 }: SplashScre
         }
 
         .splash-loader {
+          position: relative;
           width: 200px;
-          height: 3px;
-          background: rgba(255, 255, 255, 0.2);
+          height: 2px;
+          background: transparent;
           border-radius: 4px;
-          overflow: hidden;
           animation: loaderAppear 200ms ease-out 900ms backwards;
         }
 
@@ -267,11 +267,13 @@ export default function SplashScreen({ onComplete, duration = 1800 }: SplashScre
           height: 100%;
           width: 0%;
           background: linear-gradient(90deg, 
-            hsl(21 100% 64%) 0%, 
-            hsl(33 100% 70%) 100%
+            rgba(255, 255, 255, 0.3) 0%,
+            rgba(255, 255, 255, 0.8) 50%,
+            rgba(255, 255, 255, 0.3) 100%
           );
+          box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
           border-radius: 4px;
-          animation: loaderProgress 1200ms ease-out 900ms forwards;
+          animation: loaderProgress 1100ms ease-out 900ms forwards;
         }
 
         .splash-skip-hint {
@@ -345,11 +347,17 @@ export default function SplashScreen({ onComplete, duration = 1800 }: SplashScre
         }
 
         @keyframes loaderProgress {
-          from {
+          0% {
             width: 0%;
+            opacity: 1;
           }
-          to {
+          85% {
+            width: 85%;
+            opacity: 1;
+          }
+          100% {
             width: 100%;
+            opacity: 0;
           }
         }
 
@@ -452,6 +460,7 @@ export default function SplashScreen({ onComplete, duration = 1800 }: SplashScre
 
           .splash-loader {
             width: 150px;
+            height: 1.5px;
           }
 
           .splash-skip-hint {
@@ -497,6 +506,7 @@ export default function SplashScreen({ onComplete, duration = 1800 }: SplashScre
 
           .splash-loader {
             width: 120px;
+            height: 1.5px;
           }
         }
 
