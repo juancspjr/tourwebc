@@ -33,6 +33,7 @@ interface ProgressiveHeroImageProps {
   isActive: boolean;
   isFirst: boolean;
   isPreloaded?: boolean;
+  priority?: "high" | "low" | "auto";
 }
 
 const ProgressiveHeroImage = memo(function ProgressiveHeroImage({
@@ -41,6 +42,7 @@ const ProgressiveHeroImage = memo(function ProgressiveHeroImage({
   isActive,
   isFirst,
   isPreloaded = false,
+  priority = "auto",
 }: ProgressiveHeroImageProps) {
   const [isLoaded, setIsLoaded] = useState(isPreloaded);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -91,6 +93,7 @@ const ProgressiveHeroImage = memo(function ProgressiveHeroImage({
         height={1080}
         loading={isFirst ? "eager" : "lazy"}
         decoding={isFirst ? "sync" : "async"}
+        {...(priority !== "auto" && { fetchpriority: priority })}
         onLoad={handleLoad}
         className="absolute inset-0 w-full h-full object-cover"
         style={{ 
@@ -195,6 +198,7 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
             alt={image.alt}
             isActive={index === currentSlide}
             isFirst={index === 0}
+            priority={index === 0 ? "high" : "low"}
           />
         ))}
       </div>

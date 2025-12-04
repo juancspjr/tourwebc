@@ -36,7 +36,7 @@ const ProgressiveCarouselImage = memo(function ProgressiveCarouselImage({
         height="100%"
         className="package-carousel-image w-full h-full object-cover"
         wrapperClassName="w-full h-full"
-        threshold={50}
+        threshold={200}
       />
     </div>
   );

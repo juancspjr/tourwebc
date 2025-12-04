@@ -36,7 +36,7 @@ const ProgressivePackageImage = memo(function ProgressivePackageImage({
         height="100%"
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         wrapperClassName="w-full h-full"
-        threshold={100}
+        threshold={200}
       />
     </div>
   );
