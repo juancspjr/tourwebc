@@ -99,77 +99,69 @@ export const categories: CategoryKey[] = [
   "vip",
 ];
 
+export interface GeneralInfoPaymentMethod {
+  nameKey: string;
+  icon: string;
+}
+
+export interface GeneralInfoCurrency {
+  nameKey: string;
+  countryKey: string;
+  primary: boolean;
+}
+
+export interface GeneralInfoFAQ {
+  questionKey: string;
+  answerKey: string;
+}
+
 export const generalInfo = {
   paymentMethods: {
-    title: "Métodos de Pago",
+    titleKey: "generalInfo.paymentMethods.title",
     methods: [
-      { name: "Zelle", icon: "zelle" },
-      { name: "Tarjetas de crédito internacionales", icon: "credit-card" },
-      { name: "Transferencias nacionales e internacionales", icon: "bank" },
-      { name: "Divisas en efectivo (USD / EUR)", icon: "cash" },
-      { name: "PayPal", icon: "paypal" },
-      { name: "Criptomonedas", icon: "bitcoin" },
+      { nameKey: "generalInfo.paymentMethods.methods.0", icon: "zelle" },
+      { nameKey: "generalInfo.paymentMethods.methods.1", icon: "credit-card" },
+      { nameKey: "generalInfo.paymentMethods.methods.2", icon: "bank" },
+      { nameKey: "generalInfo.paymentMethods.methods.3", icon: "cash" },
+      { nameKey: "generalInfo.paymentMethods.methods.4", icon: "paypal" },
+      { nameKey: "generalInfo.paymentMethods.methods.5", icon: "bitcoin" },
     ]
   },
   visaInfo: {
-    title: "Visados",
-    description: "Los requisitos de visa varían según tu nacionalidad y el destino que elijas. Cada país tiene sus propias regulaciones de entrada que pueden cambiar periódicamente.",
-    contactNote: "Para información específica sobre visados según tu destino, contacta a nuestro asesor de viajes quien te guiará con los requisitos actualizados.",
+    titleKey: "generalInfo.visaInfo.title",
+    descriptionKey: "generalInfo.visaInfo.description",
+    contactNoteKey: "generalInfo.visaInfo.contactNote",
   },
   prohibitedActivities: {
-    title: "Actividades Prohibidas",
-    description: "Estas son normas generales aplicables en la mayoría de nuestros destinos. Consulta las regulaciones específicas de cada país con tu asesor.",
-    items: [
-      "Encender fogatas en áreas naturales protegidas",
-      "Arrojar desperdicios en espacios públicos o naturales",
-      "Tráfico o consumo de sustancias ilegales",
-      "Porte de armas sin autorización",
-      "Daños al patrimonio cultural o natural"
+    titleKey: "generalInfo.prohibitedActivities.title",
+    descriptionKey: "generalInfo.prohibitedActivities.description",
+    itemKeys: [
+      "generalInfo.prohibitedActivities.items.0",
+      "generalInfo.prohibitedActivities.items.1",
+      "generalInfo.prohibitedActivities.items.2",
+      "generalInfo.prohibitedActivities.items.3",
+      "generalInfo.prohibitedActivities.items.4"
     ]
   },
   currency: {
-    title: "Moneda del País",
-    description: "La moneda varía según el destino. A continuación te mostramos las principales divisas de nuestros destinos:",
+    titleKey: "generalInfo.currency.title",
+    descriptionKey: "generalInfo.currency.description",
     currencies: [
-      { name: "Real Brasileño (BRL)", country: "Brasil", primary: true },
-      { name: "Dólar Estadounidense (USD)", country: "Estados Unidos", primary: false },
-      { name: "Euro (EUR)", country: "Egipto / Europa", primary: false },
-      { name: "Libra Egipcia (EGP)", country: "Egipto", primary: false }
+      { nameKey: "generalInfo.currency.currencies.0.name", countryKey: "generalInfo.currency.currencies.0.country", primary: true },
+      { nameKey: "generalInfo.currency.currencies.1.name", countryKey: "generalInfo.currency.currencies.1.country", primary: false },
+      { nameKey: "generalInfo.currency.currencies.2.name", countryKey: "generalInfo.currency.currencies.2.country", primary: false },
+      { nameKey: "generalInfo.currency.currencies.3.name", countryKey: "generalInfo.currency.currencies.3.country", primary: false }
     ]
   },
   generalFaqs: [
-    {
-      question: "¿Cómo puedo reservar un paquete turístico?",
-      answer: "Puedes reservar directamente a través de nuestro sitio web haciendo clic en 'Reservar Ahora' en el paquete de tu elección, o contactando a nuestro asesor de viajes vía WhatsApp para una atención personalizada."
-    },
-    {
-      question: "¿Qué documentos necesito para viajar?",
-      answer: "Los documentos varían según tu nacionalidad y destino. Generalmente necesitarás: pasaporte vigente (mínimo 6 meses de validez), visa si aplica, seguro de viaje, y comprobantes de reservas. Contacta a nuestro asesor para requisitos específicos."
-    },
-    {
-      question: "¿Cuál es la política de cancelación general?",
-      answer: "Ofrecemos cancelación gratuita hasta 72 horas antes del viaje para la mayoría de paquetes. Cancelaciones tardías pueden tener cargos del 50%. En caso de fuerza mayor, reprogramamos sin costo adicional. Revisa los términos específicos de cada paquete."
-    },
-    {
-      question: "¿Pueden viajar niños o personas de tercera edad?",
-      answer: "Sí, la mayoría de nuestros tours son aptos para familias y personas mayores. Algunos tours de aventura tienen restricciones de edad por seguridad. Consúltanos para adaptar la experiencia a las necesidades de tu grupo."
-    },
-    {
-      question: "¿Necesito llevar dinero en efectivo?",
-      answer: "Recomendamos llevar algo de efectivo en la moneda local del destino para pequeños gastos. La mayoría de establecimientos aceptan tarjetas, pero tener efectivo es útil para mercados, propinas y transporte local."
-    },
-    {
-      question: "¿Qué incluye generalmente un paquete turístico?",
-      answer: "Nuestros paquetes típicamente incluyen: transporte, guía bilingüe, entradas a atracciones principales, y actividades programadas. Algunos incluyen comidas y alojamiento. Revisa los detalles de cada paquete para conocer las inclusiones específicas."
-    },
-    {
-      question: "¿Cómo me comunico con el asesor de viajes?",
-      answer: "Puedes contactar a nuestro asesor de viajes a través de WhatsApp haciendo clic en el botón flotante, o mediante el formulario de contacto en nuestra página. Respondemos en un máximo de 24 horas."
-    },
-    {
-      question: "¿Ofrecen seguro de viaje?",
-      answer: "Sí, recomendamos y ofrecemos opciones de seguro de viaje que cubren asistencia médica, cancelaciones, y equipaje. Consulta con tu asesor para conocer las opciones disponibles según tu destino."
-    }
+    { questionKey: "generalInfo.faqs.0.question", answerKey: "generalInfo.faqs.0.answer" },
+    { questionKey: "generalInfo.faqs.1.question", answerKey: "generalInfo.faqs.1.answer" },
+    { questionKey: "generalInfo.faqs.2.question", answerKey: "generalInfo.faqs.2.answer" },
+    { questionKey: "generalInfo.faqs.3.question", answerKey: "generalInfo.faqs.3.answer" },
+    { questionKey: "generalInfo.faqs.4.question", answerKey: "generalInfo.faqs.4.answer" },
+    { questionKey: "generalInfo.faqs.5.question", answerKey: "generalInfo.faqs.5.answer" },
+    { questionKey: "generalInfo.faqs.6.question", answerKey: "generalInfo.faqs.6.answer" },
+    { questionKey: "generalInfo.faqs.7.question", answerKey: "generalInfo.faqs.7.answer" }
   ]
 };
 

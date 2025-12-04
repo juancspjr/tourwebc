@@ -304,5 +304,78 @@
         "4": { "question": "Posso portare la mia fotocamera professionale?", "answer": "Sì, usa qualsiasi attrezzatura fotografica. Finestre ampie e pulite per foto eccellenti." }
       }
     }
+  },
+  "generalInfo": {
+    "paymentMethods": {
+      "title": "Metodi di Pagamento",
+      "methods": {
+        "0": "Zelle",
+        "1": "Carte di credito internazionali",
+        "2": "Trasferimenti nazionali e internazionali",
+        "3": "Valuta estera in contanti (USD / EUR)",
+        "4": "PayPal",
+        "5": "Criptovalute"
+      }
+    },
+    "visaInfo": {
+      "title": "Visti",
+      "description": "I requisiti per il visto variano a seconda della tua nazionalità e della destinazione scelta. Ogni paese ha le proprie normative di ingresso che possono cambiare periodicamente.",
+      "contactNote": "Per informazioni specifiche sui visti in base alla tua destinazione, contatta il nostro consulente di viaggio che ti guiderà con i requisiti aggiornati."
+    },
+    "prohibitedActivities": {
+      "title": "Attività Proibite",
+      "description": "Queste sono regole generali applicabili nella maggior parte delle nostre destinazioni. Consulta le normative specifiche di ogni paese con il tuo consulente.",
+      "items": {
+        "0": "Accendere fuochi in aree naturali protette",
+        "1": "Gettare rifiuti in spazi pubblici o naturali",
+        "2": "Traffico o consumo di sostanze illegali",
+        "3": "Porto d'armi senza autorizzazione",
+        "4": "Danni al patrimonio culturale o naturale"
+      }
+    },
+    "currency": {
+      "title": "Valuta del Paese",
+      "description": "La valuta varia a seconda della destinazione. Di seguito ti mostriamo le principali valute delle nostre destinazioni:",
+      "currencies": {
+        "0": { "name": "Real Brasiliano (BRL)", "country": "Brasile" },
+        "1": { "name": "Dollaro Americano (USD)", "country": "Stati Uniti" },
+        "2": { "name": "Euro (EUR)", "country": "Egitto / Europa" },
+        "3": { "name": "Lira Egiziana (EGP)", "country": "Egitto" }
+      }
+    },
+    "faqs": {
+      "0": {
+        "question": "Come posso prenotare un pacchetto turistico?",
+        "answer": "Puoi prenotare direttamente tramite il nostro sito web cliccando su 'Prenota Ora' sul pacchetto di tua scelta, o contattando il nostro consulente di viaggio via WhatsApp per un'attenzione personalizzata."
+      },
+      "1": {
+        "question": "Quali documenti mi servono per viaggiare?",
+        "answer": "I documenti variano a seconda della tua nazionalità e destinazione. Generalmente avrai bisogno di: passaporto valido (minimo 6 mesi di validità), visto se applicabile, assicurazione viaggio e conferme di prenotazione. Contatta il nostro consulente per requisiti specifici."
+      },
+      "2": {
+        "question": "Qual è la politica di cancellazione generale?",
+        "answer": "Offriamo cancellazione gratuita fino a 72 ore prima del viaggio per la maggior parte dei pacchetti. Le cancellazioni tardive possono avere addebiti del 50%. In caso di forza maggiore, riprogrammiamo senza costi aggiuntivi. Consulta i termini specifici di ogni pacchetto."
+      },
+      "3": {
+        "question": "Bambini o anziani possono viaggiare?",
+        "answer": "Sì, la maggior parte dei nostri tour sono adatti a famiglie e anziani. Alcuni tour avventura hanno restrizioni di età per sicurezza. Consultaci per adattare l'esperienza alle esigenze del tuo gruppo."
+      },
+      "4": {
+        "question": "Devo portare contanti?",
+        "answer": "Consigliamo di portare un po' di contanti nella valuta locale della destinazione per piccole spese. La maggior parte degli esercizi accetta carte, ma avere contanti è utile per mercati, mance e trasporto locale."
+      },
+      "5": {
+        "question": "Cosa include generalmente un pacchetto turistico?",
+        "answer": "I nostri pacchetti includono tipicamente: trasporto, guida bilingue, ingressi alle attrazioni principali e attività programmate. Alcuni includono pasti e alloggio. Consulta i dettagli di ogni pacchetto per conoscere le inclusioni specifiche."
+      },
+      "6": {
+        "question": "Come contatto il consulente di viaggio?",
+        "answer": "Puoi contattare il nostro consulente di viaggio tramite WhatsApp cliccando sul pulsante flottante, o tramite il modulo di contatto sulla nostra pagina. Rispondiamo entro un massimo di 24 ore."
+      },
+      "7": {
+        "question": "Offrite assicurazione viaggio?",
+        "answer": "Sì, raccomandiamo e offriamo opzioni di assicurazione viaggio che coprono assistenza medica, cancellazioni e bagagli. Consulta il tuo consulente per conoscere le opzioni disponibili in base alla tua destinazione."
+      }
+    }
   }
 }

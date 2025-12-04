@@ -304,5 +304,78 @@
         "4": { "question": "Puis-je apporter ma caméra professionnelle?", "answer": "Oui, utilisez n'importe quel équipement photographique. Fenêtres larges et propres pour excellentes photos." }
       }
     }
+  },
+  "generalInfo": {
+    "paymentMethods": {
+      "title": "Moyens de Paiement",
+      "methods": {
+        "0": "Zelle",
+        "1": "Cartes de crédit internationales",
+        "2": "Virements nationaux et internationaux",
+        "3": "Devises en espèces (USD / EUR)",
+        "4": "PayPal",
+        "5": "Cryptomonnaies"
+      }
+    },
+    "visaInfo": {
+      "title": "Visas",
+      "description": "Les exigences de visa varient selon votre nationalité et la destination choisie. Chaque pays a ses propres réglementations d'entrée qui peuvent changer périodiquement.",
+      "contactNote": "Pour des informations spécifiques sur les visas selon votre destination, contactez notre conseiller voyage qui vous guidera avec les exigences actualisées."
+    },
+    "prohibitedActivities": {
+      "title": "Activités Interdites",
+      "description": "Ce sont des règles générales applicables dans la plupart de nos destinations. Consultez les réglementations spécifiques de chaque pays avec votre conseiller.",
+      "items": {
+        "0": "Allumer des feux dans les zones naturelles protégées",
+        "1": "Jeter des déchets dans les espaces publics ou naturels",
+        "2": "Trafic ou consommation de substances illégales",
+        "3": "Port d'armes sans autorisation",
+        "4": "Dommages au patrimoine culturel ou naturel"
+      }
+    },
+    "currency": {
+      "title": "Monnaie du Pays",
+      "description": "La monnaie varie selon la destination. Ci-dessous nous vous montrons les principales devises de nos destinations:",
+      "currencies": {
+        "0": { "name": "Réal Brésilien (BRL)", "country": "Brésil" },
+        "1": { "name": "Dollar Américain (USD)", "country": "États-Unis" },
+        "2": { "name": "Euro (EUR)", "country": "Égypte / Europe" },
+        "3": { "name": "Livre Égyptienne (EGP)", "country": "Égypte" }
+      }
+    },
+    "faqs": {
+      "0": {
+        "question": "Comment puis-je réserver un forfait touristique?",
+        "answer": "Vous pouvez réserver directement via notre site web en cliquant sur 'Réserver Maintenant' sur le forfait de votre choix, ou en contactant notre conseiller voyage via WhatsApp pour une attention personnalisée."
+      },
+      "1": {
+        "question": "Quels documents ai-je besoin pour voyager?",
+        "answer": "Les documents varient selon votre nationalité et destination. Généralement vous aurez besoin: passeport valide (minimum 6 mois de validité), visa si applicable, assurance voyage et confirmations de réservation. Contactez notre conseiller pour les exigences spécifiques."
+      },
+      "2": {
+        "question": "Quelle est la politique d'annulation générale?",
+        "answer": "Nous offrons l'annulation gratuite jusqu'à 72 heures avant le voyage pour la plupart des forfaits. Les annulations tardives peuvent avoir des frais de 50%. En cas de force majeure, nous reprogrammons sans frais supplémentaires. Consultez les termes spécifiques de chaque forfait."
+      },
+      "3": {
+        "question": "Les enfants ou personnes âgées peuvent-ils voyager?",
+        "answer": "Oui, la plupart de nos tours conviennent aux familles et personnes âgées. Certains tours d'aventure ont des restrictions d'âge pour la sécurité. Consultez-nous pour adapter l'expérience aux besoins de votre groupe."
+      },
+      "4": {
+        "question": "Dois-je apporter de l'argent liquide?",
+        "answer": "Nous recommandons d'apporter un peu d'argent dans la monnaie locale de la destination pour les petites dépenses. La plupart des établissements acceptent les cartes, mais avoir de l'argent est utile pour les marchés, pourboires et transport local."
+      },
+      "5": {
+        "question": "Qu'inclut généralement un forfait touristique?",
+        "answer": "Nos forfaits incluent généralement: transport, guide bilingue, entrées aux attractions principales et activités programmées. Certains incluent repas et hébergement. Consultez les détails de chaque forfait pour connaître les inclusions spécifiques."
+      },
+      "6": {
+        "question": "Comment contacter le conseiller voyage?",
+        "answer": "Vous pouvez contacter notre conseiller voyage via WhatsApp en cliquant sur le bouton flottant, ou via le formulaire de contact sur notre page. Nous répondons dans un maximum de 24 heures."
+      },
+      "7": {
+        "question": "Offrez-vous une assurance voyage?",
+        "answer": "Oui, nous recommandons et offrons des options d'assurance voyage couvrant l'assistance médicale, annulations et bagages. Consultez votre conseiller pour connaître les options disponibles selon votre destination."
+      }
+    }
   }
 }

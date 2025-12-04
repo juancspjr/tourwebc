@@ -86,7 +86,7 @@ export default function GeneralInfoSection() {
                         <CreditCard className="w-6 h-6 text-primary" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold">{generalInfo.paymentMethods.title}</h3>
+                        <h3 className="text-xl font-semibold">{t(generalInfo.paymentMethods.titleKey)}</h3>
                         <p className="text-sm text-muted-foreground">{t('info.flexibleOptions')}</p>
                       </div>
                     </div>
@@ -101,7 +101,7 @@ export default function GeneralInfoSection() {
                           <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                             {paymentIcons[method.icon]}
                           </div>
-                          <span className="font-medium">{method.name}</span>
+                          <span className="font-medium">{t(method.nameKey)}</span>
                         </div>
                       ))}
                     </div>
@@ -124,20 +124,20 @@ export default function GeneralInfoSection() {
                         <Globe className="w-6 h-6 text-primary" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold">{generalInfo.visaInfo.title}</h3>
+                        <h3 className="text-xl font-semibold">{t(generalInfo.visaInfo.titleKey)}</h3>
                         <p className="text-sm text-muted-foreground">{t('info.entryRequirements')}</p>
                       </div>
                     </div>
                     
                     <p className="text-muted-foreground leading-relaxed">
-                      {generalInfo.visaInfo.description}
+                      {t(generalInfo.visaInfo.descriptionKey)}
                     </p>
                     
                     <div className="p-4 rounded-lg bg-amber-500/10 border border-amber-500/20">
                       <div className="flex items-start gap-3">
                         <Info className="w-5 h-5 text-amber-600 dark:text-amber-400 mt-0.5 flex-shrink-0" />
                         <p className="text-sm text-muted-foreground">
-                          {generalInfo.visaInfo.contactNote}
+                          {t(generalInfo.visaInfo.contactNoteKey)}
                         </p>
                       </div>
                     </div>
@@ -161,13 +161,13 @@ export default function GeneralInfoSection() {
                         <Coins className="w-6 h-6 text-primary" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold">{generalInfo.currency.title}</h3>
+                        <h3 className="text-xl font-semibold">{t(generalInfo.currency.titleKey)}</h3>
                         <p className="text-sm text-muted-foreground">{t('info.currencyInfo')}</p>
                       </div>
                     </div>
                     
                     <p className="text-muted-foreground leading-relaxed">
-                      {generalInfo.currency.description}
+                      {t(generalInfo.currency.descriptionKey)}
                     </p>
                     
                     <div className="space-y-2">
@@ -181,13 +181,13 @@ export default function GeneralInfoSection() {
                             <Badge 
                               variant={currency.primary ? "default" : "secondary"}
                             >
-                              {currency.name}
+                              {t(currency.nameKey)}
                             </Badge>
                             {currency.primary && (
                               <span className="text-xs text-primary font-medium">{t('info.primary')}</span>
                             )}
                           </div>
-                          <span className="text-sm text-muted-foreground">{currency.country}</span>
+                          <span className="text-sm text-muted-foreground">{t(currency.countryKey)}</span>
                         </div>
                       ))}
                     </div>
@@ -205,24 +205,24 @@ export default function GeneralInfoSection() {
                         <ShieldAlert className="w-6 h-6 text-destructive" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold">{generalInfo.prohibitedActivities.title}</h3>
+                        <h3 className="text-xl font-semibold">{t(generalInfo.prohibitedActivities.titleKey)}</h3>
                         <p className="text-sm text-muted-foreground">{t('info.importantRules')}</p>
                       </div>
                     </div>
                     
                     <p className="text-muted-foreground leading-relaxed">
-                      {generalInfo.prohibitedActivities.description}
+                      {t(generalInfo.prohibitedActivities.descriptionKey)}
                     </p>
                     
                     <div className="space-y-3">
-                      {generalInfo.prohibitedActivities.items.map((item, index) => (
+                      {generalInfo.prohibitedActivities.itemKeys.map((itemKey, index) => (
                         <div 
                           key={index} 
                           className="flex items-center gap-3 p-4 rounded-lg bg-destructive/5 border border-destructive/10"
                           data-testid={`prohibited-item-${index}`}
                         >
                           <Ban className="w-5 h-5 text-destructive flex-shrink-0" />
-                          <span className="text-sm font-medium">{item}</span>
+                          <span className="text-sm font-medium">{t(itemKey)}</span>
                         </div>
                       ))}
                     </div>
@@ -254,10 +254,10 @@ export default function GeneralInfoSection() {
                             className="text-left text-sm font-medium hover:no-underline py-4" 
                             data-testid={`general-faq-trigger-${index}`}
                           >
-                            {faq.question}
+                            {t(faq.questionKey)}
                           </AccordionTrigger>
                           <AccordionContent className="text-sm text-muted-foreground pb-4">
-                            {faq.answer}
+                            {t(faq.answerKey)}
                           </AccordionContent>
                         </AccordionItem>
                       ))}

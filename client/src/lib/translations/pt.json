@@ -304,5 +304,78 @@
         "4": { "question": "Posso levar câmera profissional?", "answer": "Sim, use qualquer equipamento fotográfico. Janelas amplas e limpas para excelentes fotos." }
       }
     }
+  },
+  "generalInfo": {
+    "paymentMethods": {
+      "title": "Métodos de Pagamento",
+      "methods": {
+        "0": "Zelle",
+        "1": "Cartões de crédito internacionais",
+        "2": "Transferências nacionais e internacionais",
+        "3": "Moeda estrangeira em dinheiro (USD / EUR)",
+        "4": "PayPal",
+        "5": "Criptomoedas"
+      }
+    },
+    "visaInfo": {
+      "title": "Vistos",
+      "description": "Os requisitos de visto variam de acordo com sua nacionalidade e o destino escolhido. Cada país tem suas próprias regulamentações de entrada que podem mudar periodicamente.",
+      "contactNote": "Para informações específicas sobre vistos de acordo com seu destino, entre em contato com nosso assessor de viagem que irá orientá-lo com os requisitos atualizados."
+    },
+    "prohibitedActivities": {
+      "title": "Atividades Proibidas",
+      "description": "Estas são regras gerais aplicáveis na maioria dos nossos destinos. Consulte as regulamentações específicas de cada país com seu assessor.",
+      "items": {
+        "0": "Acender fogueiras em áreas naturais protegidas",
+        "1": "Jogar lixo em espaços públicos ou naturais",
+        "2": "Tráfico ou consumo de substâncias ilegais",
+        "3": "Porte de armas sem autorização",
+        "4": "Danos ao patrimônio cultural ou natural"
+      }
+    },
+    "currency": {
+      "title": "Moeda do País",
+      "description": "A moeda varia de acordo com o destino. Abaixo mostramos as principais moedas dos nossos destinos:",
+      "currencies": {
+        "0": { "name": "Real Brasileiro (BRL)", "country": "Brasil" },
+        "1": { "name": "Dólar Americano (USD)", "country": "Estados Unidos" },
+        "2": { "name": "Euro (EUR)", "country": "Egito / Europa" },
+        "3": { "name": "Libra Egípcia (EGP)", "country": "Egito" }
+      }
+    },
+    "faqs": {
+      "0": {
+        "question": "Como posso reservar um pacote turístico?",
+        "answer": "Você pode reservar diretamente através do nosso site clicando em 'Reservar Agora' no pacote de sua escolha, ou entrando em contato com nosso assessor de viagem via WhatsApp para atendimento personalizado."
+      },
+      "1": {
+        "question": "Quais documentos preciso para viajar?",
+        "answer": "Os documentos variam de acordo com sua nacionalidade e destino. Geralmente você precisará de: passaporte válido (mínimo 6 meses de validade), visto se aplicável, seguro viagem e comprovantes de reservas. Entre em contato com nosso assessor para requisitos específicos."
+      },
+      "2": {
+        "question": "Qual é a política de cancelamento geral?",
+        "answer": "Oferecemos cancelamento gratuito até 72 horas antes da viagem para a maioria dos pacotes. Cancelamentos tardios podem ter cobranças de 50%. Em caso de força maior, reagendamos sem custo adicional. Revise os termos específicos de cada pacote."
+      },
+      "3": {
+        "question": "Crianças ou idosos podem viajar?",
+        "answer": "Sim, a maioria dos nossos tours são adequados para famílias e idosos. Alguns tours de aventura têm restrições de idade por segurança. Consulte-nos para adaptar a experiência às necessidades do seu grupo."
+      },
+      "4": {
+        "question": "Preciso levar dinheiro em espécie?",
+        "answer": "Recomendamos levar algum dinheiro na moeda local do destino para pequenas despesas. A maioria dos estabelecimentos aceita cartões, mas ter dinheiro é útil para mercados, gorjetas e transporte local."
+      },
+      "5": {
+        "question": "O que geralmente inclui um pacote turístico?",
+        "answer": "Nossos pacotes tipicamente incluem: transporte, guia bilíngue, entradas para atrações principais e atividades programadas. Alguns incluem refeições e hospedagem. Revise os detalhes de cada pacote para conhecer as inclusões específicas."
+      },
+      "6": {
+        "question": "Como entro em contato com o assessor de viagem?",
+        "answer": "Você pode entrar em contato com nosso assessor de viagem através do WhatsApp clicando no botão flutuante, ou através do formulário de contato em nossa página. Respondemos em no máximo 24 horas."
+      },
+      "7": {
+        "question": "Vocês oferecem seguro viagem?",
+        "answer": "Sim, recomendamos e oferecemos opções de seguro viagem que cobrem assistência médica, cancelamentos e bagagem. Consulte seu assessor para conhecer as opções disponíveis de acordo com seu destino."
+      }
+    }
   }
 }

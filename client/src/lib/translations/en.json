@@ -752,5 +752,78 @@
         }
       }
     }
+  },
+  "generalInfo": {
+    "paymentMethods": {
+      "title": "Payment Methods",
+      "methods": {
+        "0": "Zelle",
+        "1": "International credit cards",
+        "2": "National and international transfers",
+        "3": "Cash in foreign currency (USD / EUR)",
+        "4": "PayPal",
+        "5": "Cryptocurrencies"
+      }
+    },
+    "visaInfo": {
+      "title": "Visas",
+      "description": "Visa requirements vary depending on your nationality and the destination you choose. Each country has its own entry regulations that may change periodically.",
+      "contactNote": "For specific visa information according to your destination, contact our travel advisor who will guide you with updated requirements."
+    },
+    "prohibitedActivities": {
+      "title": "Prohibited Activities",
+      "description": "These are general rules applicable in most of our destinations. Consult the specific regulations of each country with your advisor.",
+      "items": {
+        "0": "Starting fires in protected natural areas",
+        "1": "Littering in public or natural spaces",
+        "2": "Trafficking or consumption of illegal substances",
+        "3": "Carrying weapons without authorization",
+        "4": "Damage to cultural or natural heritage"
+      }
+    },
+    "currency": {
+      "title": "Country Currency",
+      "description": "The currency varies depending on the destination. Below we show you the main currencies of our destinations:",
+      "currencies": {
+        "0": { "name": "Brazilian Real (BRL)", "country": "Brazil" },
+        "1": { "name": "US Dollar (USD)", "country": "United States" },
+        "2": { "name": "Euro (EUR)", "country": "Egypt / Europe" },
+        "3": { "name": "Egyptian Pound (EGP)", "country": "Egypt" }
+      }
+    },
+    "faqs": {
+      "0": {
+        "question": "How can I book a tour package?",
+        "answer": "You can book directly through our website by clicking 'Book Now' on the package of your choice, or by contacting our travel advisor via WhatsApp for personalized attention."
+      },
+      "1": {
+        "question": "What documents do I need to travel?",
+        "answer": "Documents vary depending on your nationality and destination. Generally you will need: valid passport (minimum 6 months validity), visa if applicable, travel insurance, and booking confirmations. Contact our advisor for specific requirements."
+      },
+      "2": {
+        "question": "What is the general cancellation policy?",
+        "answer": "We offer free cancellation up to 72 hours before the trip for most packages. Late cancellations may have 50% charges. In case of force majeure, we reschedule at no additional cost. Review the specific terms of each package."
+      },
+      "3": {
+        "question": "Can children or elderly people travel?",
+        "answer": "Yes, most of our tours are suitable for families and elderly people. Some adventure tours have age restrictions for safety. Consult us to adapt the experience to your group's needs."
+      },
+      "4": {
+        "question": "Do I need to bring cash?",
+        "answer": "We recommend bringing some cash in the local currency of the destination for small expenses. Most establishments accept cards, but having cash is useful for markets, tips and local transportation."
+      },
+      "5": {
+        "question": "What does a tour package generally include?",
+        "answer": "Our packages typically include: transportation, bilingual guide, entrance to main attractions, and scheduled activities. Some include meals and accommodation. Review the details of each package to know the specific inclusions."
+      },
+      "6": {
+        "question": "How do I contact the travel advisor?",
+        "answer": "You can contact our travel advisor through WhatsApp by clicking the floating button, or through the contact form on our page. We respond within a maximum of 24 hours."
+      },
+      "7": {
+        "question": "Do you offer travel insurance?",
+        "answer": "Yes, we recommend and offer travel insurance options that cover medical assistance, cancellations, and luggage. Consult with your advisor to learn about the options available according to your destination."
+      }
+    }
   }
 }
