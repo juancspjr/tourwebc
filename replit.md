@@ -19,6 +19,16 @@ Preferred communication style: Simple, everyday language.
   - PackageGrid updated to display translated category labels via t(`categories.${category}`)
   - Added defensive handling in TestimonialCard and InfiniteTestimonialCarousel for translation loading edge cases
   - Translation key structure: `tourPackages.<packageId>.<field>` and `testimonials.items.<id>.<field>`
+  - **GeneralInfo Section Full Translation (04/12/2025):**
+    - Refactored generalInfo object in packages.ts to use translation keys (titleKey, descriptionKey, methodKeys, itemKeys)
+    - GeneralInfoSection.tsx updated to use t() function for all content
+    - All 5 language files contain complete generalInfo translations:
+      - Payment Methods: 6 payment options with descriptions
+      - Visa Information: Title, description, and contact note
+      - Prohibited Activities: 5 items with descriptions
+      - Currency Information: 4 currencies (BRL, USD, EUR, EGP) with country details
+      - FAQs: 8 frequently asked questions with answers
+    - Translation key structure: `generalInfo.<section>.<field>`
 - **Multilingual Support Implementation (04/12/2025):**
   - Added i18next, react-i18next, and i18next-browser-languagedetector packages
   - Created comprehensive translation files for 5 languages: Spanish (ES), English (EN), Portuguese (PT), French (FR), Italian (IT)
