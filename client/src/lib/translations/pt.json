@@ -36,6 +36,15 @@
     "book": "Reservar",
     "all": "Todos"
   },
+  "categories": {
+    "all": "Todos",
+    "cityTour": "City Tour",
+    "culture": "Cultura",
+    "beach": "Praia",
+    "adventure": "Aventura",
+    "water": "Esportes Aquáticos",
+    "vip": "VIP"
+  },
   "packageModal": {
     "duration": "Duração",
     "locations": "Locais",

@@ -36,6 +36,15 @@
     "book": "Réserver",
     "all": "Tous"
   },
+  "categories": {
+    "all": "Tous",
+    "cityTour": "Visite Guidée",
+    "culture": "Culture",
+    "beach": "Plage",
+    "adventure": "Aventure",
+    "water": "Sports Nautiques",
+    "vip": "VIP"
+  },
   "packageModal": {
     "duration": "Durée",
     "locations": "Lieux",

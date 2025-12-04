@@ -36,6 +36,15 @@
     "book": "Prenota",
     "all": "Tutti"
   },
+  "categories": {
+    "all": "Tutti",
+    "cityTour": "Tour della Città",
+    "culture": "Cultura",
+    "beach": "Spiaggia",
+    "adventure": "Avventura",
+    "water": "Sport Acquatici",
+    "vip": "VIP"
+  },
   "packageModal": {
     "duration": "Durata",
     "locations": "Luoghi",
