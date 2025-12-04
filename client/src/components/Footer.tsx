@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Instagram, Youtube } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
-import logoImage from "@assets/Diseño_sin_título_(2)_1764694858372.png";
+import logoImage from "@assets/Diseño_sin_título_(2)_1764694858372.webp";
 
 import logo_11zon from "@assets/logo_11zon.webp";
 

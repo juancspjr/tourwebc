@@ -1,10 +1,10 @@
-import cristoImage from "@assets/generated_images/cristo_redentor_statue.png";
-import favelaImage from "@assets/generated_images/colorful_rio_favela.png";
-import beachImage from "@assets/generated_images/copacabana_beach_rio.png";
-import trekkingImage from "@assets/generated_images/dois_irmaos_trekking.png";
-import boatImage from "@assets/generated_images/ilha_grande_paradise.png";
-import yachtImage from "@assets/generated_images/vip_yacht_rio.png";
-import helicopterImage from "@assets/generated_images/helicopter_tour_rio.png";
+import cristoImage from "@assets/generated_images/cristo_redentor_statue.webp";
+import favelaImage from "@assets/generated_images/colorful_rio_favela.webp";
+import beachImage from "@assets/generated_images/copacabana_beach_rio.webp";
+import trekkingImage from "@assets/generated_images/dois_irmaos_trekking.webp";
+import boatImage from "@assets/generated_images/ilha_grande_paradise.webp";
+import yachtImage from "@assets/generated_images/vip_yacht_rio.webp";
+import helicopterImage from "@assets/generated_images/helicopter_tour_rio.webp";
 
 import rio1 from "@assets/rio_1_1764736349812.webp";
 import rio2 from "@assets/rio_2_1764736349812.webp";

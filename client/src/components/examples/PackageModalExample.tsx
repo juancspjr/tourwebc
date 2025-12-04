@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PackageModal from "../PackageModal";
 import { Button } from "@/components/ui/button";
-import cristoImage from "@assets/generated_images/cristo_redentor_statue.png";
+import cristoImage from "@assets/generated_images/cristo_redentor_statue.webp";
 
 export default function PackageModalExample() {
   const [isOpen, setIsOpen] = useState(true);

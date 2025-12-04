@@ -1,5 +1,5 @@
 import TestimonialCard from "../TestimonialCard";
-import avatar1 from "@assets/stock_images/professional_headsho_dc765f4a.jpg";
+import avatar1 from "@assets/stock_images/professional_headsho_dc765f4a.webp";
 
 export default function TestimonialCardExample() {
   const testimonial = {
