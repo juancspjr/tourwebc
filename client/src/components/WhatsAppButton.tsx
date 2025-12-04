@@ -8,7 +8,7 @@ interface WhatsAppButtonProps {
 }
 
 export default function WhatsAppButton({
-  phoneNumber = "584142823218",
+  phoneNumber = "5521983526144",
   message = "Hola! Me gustaría obtener información sobre los tours en Río de Janeiro.",
 }: WhatsAppButtonProps) {
   const prefersReducedMotion = useReducedMotion();

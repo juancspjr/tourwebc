@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Youtube } from "lucide-react";
+import { Instagram, Youtube } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
 import logoImage from "@assets/Diseño_sin_título_(2)_1764694858372.png";
 
@@ -19,10 +19,9 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-    { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
-    { icon: SiTiktok, href: "https://tiktok.com", label: "TikTok" },
+    { icon: Instagram, href: "https://www.instagram.com/brianmachinee/", label: "Instagram" },
+    { icon: Youtube, href: "https://www.youtube.com/@BrianMachinee", label: "YouTube" },
+    { icon: SiTiktok, href: "https://www.tiktok.com/@brianmachinne", label: "TikTok" },
   ];
 
   const handleLinkClick = (href: string) => {
@@ -89,20 +88,20 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-background/70">
               <li>
                 <a 
-                  href="https://wa.me/584142823218" 
+                  href="https://wa.me/5521983526144" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors"
                 >
-                  WhatsApp: +58 414 282 3218
+                  WhatsApp: +55 21 98352-6144
                 </a>
               </li>
               <li>
                 <a 
-                  href="tel:+584142823218"
+                  href="tel:+5521983526144"
                   className="hover:text-primary transition-colors"
                 >
-                  Tel: +58 414 282 3218
+                  Tel: +55 21 98352-6144
                 </a>
               </li>
               <li>

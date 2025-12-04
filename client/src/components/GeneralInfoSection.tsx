@@ -142,7 +142,7 @@ export default function GeneralInfoSection() {
                     <Button
                       variant="default"
                       className="w-full gap-2"
-                      onClick={() => window.open("https://wa.me/584142823218?text=" + encodeURIComponent("Hola, necesito información sobre los requisitos de visa para mi destino."), "_blank")}
+                      onClick={() => window.open("https://wa.me/5521983526144?text=" + encodeURIComponent("Hola, necesito información sobre los requisitos de visa para mi destino."), "_blank")}
                       data-testid="button-visa-contact"
                     >
                       <MessageCircle className="w-4 h-4" />
@@ -267,7 +267,7 @@ export default function GeneralInfoSection() {
                       <Button
                         variant="outline"
                         className="gap-2"
-                        onClick={() => window.open("https://wa.me/584142823218?text=" + encodeURIComponent("Hola, tengo una consulta sobre mi viaje."), "_blank")}
+                        onClick={() => window.open("https://wa.me/5521983526144?text=" + encodeURIComponent("Hola, tengo una consulta sobre mi viaje."), "_blank")}
                         data-testid="button-faq-contact"
                       >
                         <MessageCircle className="w-4 h-4" />

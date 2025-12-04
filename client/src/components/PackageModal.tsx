@@ -146,7 +146,7 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
             <Button 
               variant="outline"
               className="w-full gap-2"
-              onClick={() => window.open("https://wa.me/584142823218?text=" + encodeURIComponent(`Hola, me interesa el paquete "${pkg.title}" y me gustaría obtener más información.`), "_blank")}
+              onClick={() => window.open("https://wa.me/5521983526144?text=" + encodeURIComponent(`Hola, me interesa el paquete "${pkg.title}" y me gustaría obtener más información.`), "_blank")}
               data-testid="button-contact-advisor"
             >
               <MessageCircle className="w-4 h-4" />

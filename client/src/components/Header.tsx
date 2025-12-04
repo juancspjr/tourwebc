@@ -2,12 +2,19 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { Menu, Phone } from "lucide-react";
+import { Menu, Phone, Instagram, Youtube } from "lucide-react";
+import { SiTiktok } from "react-icons/si";
 
 import logo1 from "@assets/logo1.webp";
 
 // Use stable URL for logo - preloaded in index.html for faster loading
 const logoImage = "/logo.png";
+
+const socialLinks = [
+  { icon: Instagram, href: "https://www.instagram.com/brianmachinee/", label: "Instagram" },
+  { icon: Youtube, href: "https://www.youtube.com/@BrianMachinee", label: "YouTube" },
+  { icon: SiTiktok, href: "https://www.tiktok.com/@brianmachinne", label: "TikTok" },
+];
 
 interface HeaderProps {
   onNavigate?: (section: string) => void;
@@ -79,7 +86,7 @@ export default function Header({ onNavigate }: HeaderProps) {
               variant="outline"
               size="sm"
               className="gap-2"
-              onClick={() => window.open("https://wa.me/584142823218", "_blank")}
+              onClick={() => window.open("https://wa.me/5521983526144", "_blank")}
               data-testid="button-whatsapp-header"
             >
               <Phone className="w-4 h-4" />
@@ -146,7 +153,7 @@ export default function Header({ onNavigate }: HeaderProps) {
                   <Button
                     variant="outline"
                     className="gap-2 w-full"
-                    onClick={() => window.open("https://wa.me/584142823218", "_blank")}
+                    onClick={() => window.open("https://wa.me/5521983526144", "_blank")}
                     data-testid="button-whatsapp-mobile"
                   >
                     <Phone className="w-4 h-4" />
@@ -173,6 +180,22 @@ export default function Header({ onNavigate }: HeaderProps) {
                   >
                     Reservar Ahora
                   </Button>
+                </div>
+                
+                <div className="flex items-center gap-3 mt-4 pt-4 border-t border-border/20">
+                  {socialLinks.map((social) => (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                      aria-label={social.label}
+                      data-testid={`social-mobile-${social.label.toLowerCase()}`}
+                    >
+                      <social.icon className="w-5 h-5" />
+                    </a>
+                  ))}
                 </div>
               </div>
             </SheetContent>
