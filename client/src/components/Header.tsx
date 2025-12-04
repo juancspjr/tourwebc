@@ -3,7 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { Menu, Phone } from "lucide-react";
-import logoImage from "@assets/fondtrans_1764705052522.png";
+
+// Use stable URL for logo - preloaded in index.html for faster loading
+const logoImage = "/logo.png";
 
 interface HeaderProps {
   onNavigate?: (section: string) => void;

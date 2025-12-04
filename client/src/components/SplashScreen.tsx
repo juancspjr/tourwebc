@@ -1,5 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
-import logoImage from "@assets/fondtrans_1764705052522.png";
+
+// Use stable URL for logo - preloaded in index.html for faster loading
+const logoImage = "/logo.png";
 
 interface SplashScreenProps {
   onComplete: () => void;
