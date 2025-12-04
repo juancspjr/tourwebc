@@ -3,16 +3,12 @@
   "version": "1.0.0",
   "type": "module",
   "license": "MIT",
-  "engines": {
-    "node": ">=18"
-  },
   "scripts": {
     "dev": "NODE_ENV=development tsx server/index.ts",
     "build": "tsx script/build.ts",
     "start": "NODE_ENV=production node dist/index.cjs",
     "check": "tsc",
-    "db:push": "drizzle-kit push",
-    "deploy:pages": "npx wrangler pages deploy ./dist/public --project-name=tourwebc --branch=main"
+    "db:push": "drizzle-kit push"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -103,10 +99,10 @@
     "tailwindcss": "^3.4.17",
     "tsx": "^4.21.0",
     "typescript": "5.6.3",
-    "vite": "^5.4.20",
-    "wrangler": "^4.52.1"
+    "vite": "^5.4.20"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.8"
   }
 }
+
