@@ -182,7 +182,7 @@ export default function Header({ onNavigate }: HeaderProps) {
                   </Button>
                 </div>
                 
-                <div className="flex items-center gap-3 mt-4 pt-4 border-t border-border/20">
+                <div className="flex items-center gap-3 border-t border-border/20 mt-[0px] mb-[0px] pt-[0px] pb-[0px] pl-[45px] pr-[45px]">
                   {socialLinks.map((social) => (
                     <a
                       key={social.label}
