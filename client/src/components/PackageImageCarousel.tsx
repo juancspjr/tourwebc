@@ -1,43 +1,21 @@
-import { useState, useEffect, useCallback, useRef, memo, useMemo } from "react";
+import { useState, useEffect, useCallback, useRef, memo } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import { getLqipUrl } from "@/lib/lqip";
 
 interface ProgressiveCarouselImageProps {
   src: string;
   alt: string;
   isActive: boolean;
-  width?: number;
-  height?: number;
 }
 
 const ProgressiveCarouselImage = memo(function ProgressiveCarouselImage({
   src,
   alt,
   isActive,
-  width = 400,
-  height = 300,
 }: ProgressiveCarouselImageProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const imgRef = useRef<HTMLImageElement>(null);
-  
-  const lqipSrc = useMemo(() => getLqipUrl(src), [src]);
-  
-  const prefersReducedMotion = useMemo(() => {
-    if (typeof window === 'undefined') return false;
-    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  }, []);
-
-  useEffect(() => {
-    if (imgRef.current?.complete && imgRef.current.naturalWidth > 0) {
-      setIsLoaded(true);
-    }
-  }, [src]);
-
-  const handleLoad = useCallback(() => {
-    setIsLoaded(true);
-  }, []);
-
-  const shouldShowPlaceholder = lqipSrc && !isLoaded && !prefersReducedMotion;
+  const lqipSrc = getLqipUrl(src);
 
   return (
     <div 
@@ -49,31 +27,16 @@ const ProgressiveCarouselImage = memo(function ProgressiveCarouselImage({
       }}
       aria-hidden={!isActive}
     >
-      {shouldShowPlaceholder && (
-        <img
-          src={lqipSrc}
-          alt=""
-          width={width}
-          height={height}
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ filter: 'blur(20px)', transform: 'scale(1.1)' }}
-          aria-hidden="true"
-        />
-      )}
-      <img
-        ref={imgRef}
+      <LazyLoadImage
         src={src}
         alt={alt}
-        width={width}
-        height={height}
-        loading="lazy"
-        decoding="async"
-        onLoad={handleLoad}
-        className="package-carousel-image"
-        style={{ 
-          opacity: isLoaded || prefersReducedMotion ? 1 : 0,
-          transition: prefersReducedMotion ? 'none' : 'opacity 0.35s ease-out',
-        }}
+        effect="blur"
+        placeholderSrc={lqipSrc || undefined}
+        width="100%"
+        height="100%"
+        className="package-carousel-image w-full h-full object-cover"
+        wrapperClassName="w-full h-full"
+        threshold={50}
       />
     </div>
   );

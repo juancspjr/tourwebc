@@ -18,11 +18,21 @@ const heroImages = [
   { src: egipto1Image, alt: "Templo de Edfu" },
 ];
 
+const preloadImage = (src: string): Promise<void> => {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve();
+    img.onerror = () => resolve();
+    img.src = src;
+  });
+};
+
 interface ProgressiveHeroImageProps {
   src: string;
   alt: string;
   isActive: boolean;
   isFirst: boolean;
+  isPreloaded?: boolean;
 }
 
 const ProgressiveHeroImage = memo(function ProgressiveHeroImage({
@@ -30,8 +40,9 @@ const ProgressiveHeroImage = memo(function ProgressiveHeroImage({
   alt,
   isActive,
   isFirst,
+  isPreloaded = false,
 }: ProgressiveHeroImageProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(isPreloaded);
   const imgRef = useRef<HTMLImageElement>(null);
   
   const lqipSrc = useMemo(() => getLqipUrl(src), [src]);
@@ -59,7 +70,7 @@ const ProgressiveHeroImage = memo(function ProgressiveHeroImage({
       style={{
         opacity: isActive ? 1 : 0,
         zIndex: isActive ? 1 : 0,
-        transition: prefersReducedMotion ? 'none' : 'opacity 1s ease-in-out',
+        transition: prefersReducedMotion ? 'none' : 'opacity 0.8s ease-in-out',
         pointerEvents: isActive ? 'auto' : 'none',
       }}
     >
@@ -84,7 +95,7 @@ const ProgressiveHeroImage = memo(function ProgressiveHeroImage({
         className="absolute inset-0 w-full h-full object-cover"
         style={{ 
           opacity: isLoaded || prefersReducedMotion ? 1 : 0,
-          transition: prefersReducedMotion ? 'none' : 'opacity 0.5s ease-out',
+          transition: prefersReducedMotion ? 'none' : 'opacity 0.3s ease-out',
         }}
       />
     </div>
@@ -97,17 +108,41 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onExploreClick }: HeroSectionProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [preloadedImages, setPreloadedImages] = useState<Set<number>>(new Set([0]));
   const { t } = useTranslation();
 
   // Asegurar que la página inicie en el Hero Section al cargar
   useLayoutEffect(() => {
-    // Deshabilitar restauración automática del scroll del navegador
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
-    // Scroll inmediato al inicio (antes del render visual)
     window.scrollTo(0, 0);
   }, []);
+
+  // Precargar las siguientes imágenes cuando cambia el slide
+  useEffect(() => {
+    const nextIndex = (currentSlide + 1) % heroImages.length;
+    const nextNextIndex = (currentSlide + 2) % heroImages.length;
+    
+    if (!preloadedImages.has(nextIndex)) {
+      preloadImage(heroImages[nextIndex].src).then(() => {
+        setPreloadedImages(prev => {
+          const newSet = new Set(Array.from(prev));
+          newSet.add(nextIndex);
+          return newSet;
+        });
+      });
+    }
+    if (!preloadedImages.has(nextNextIndex)) {
+      preloadImage(heroImages[nextNextIndex].src).then(() => {
+        setPreloadedImages(prev => {
+          const newSet = new Set(Array.from(prev));
+          newSet.add(nextNextIndex);
+          return newSet;
+        });
+      });
+    }
+  }, [currentSlide, preloadedImages]);
 
   // Escuchar evento para resetear el carrusel cuando se navega a "Inicio"
   useEffect(() => {

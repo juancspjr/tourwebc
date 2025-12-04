@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, memo, useMemo, useCallback } from "react";
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Clock, MapPin, Check, Star } from "lucide-react";
 import type { PackageData } from "@/lib/packages";
 import PackageImageCarousel from "./PackageImageCarousel";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import { getLqipUrl } from "@/lib/lqip";
 
 export type { PackageData };
@@ -21,54 +23,20 @@ const ProgressivePackageImage = memo(function ProgressivePackageImage({
   alt,
   onClick,
 }: ProgressivePackageImageProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const imgRef = useRef<HTMLImageElement>(null);
-  
-  const lqipSrc = useMemo(() => getLqipUrl(src), [src]);
-  
-  const prefersReducedMotion = useMemo(() => {
-    if (typeof window === 'undefined') return false;
-    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  }, []);
-
-  useEffect(() => {
-    if (imgRef.current?.complete && imgRef.current.naturalWidth > 0) {
-      setIsLoaded(true);
-    }
-  }, [src]);
-
-  const handleLoad = useCallback(() => {
-    setIsLoaded(true);
-  }, []);
-
-  const shouldShowPlaceholder = lqipSrc && !isLoaded && !prefersReducedMotion;
+  const lqipSrc = getLqipUrl(src);
 
   return (
-    <div className="relative w-full h-full overflow-hidden">
-      {shouldShowPlaceholder && (
-        <img
-          src={lqipSrc}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ filter: 'blur(20px)', transform: 'scale(1.1)' }}
-          aria-hidden="true"
-        />
-      )}
-      <img
-        ref={imgRef}
+    <div className="relative w-full h-full overflow-hidden cursor-pointer" onClick={onClick}>
+      <LazyLoadImage
         src={src}
         alt={alt}
-        width={400}
-        height={300}
-        loading="lazy"
-        decoding="async"
-        onLoad={handleLoad}
-        className="w-full h-full object-cover group-hover:scale-105 cursor-pointer"
-        style={{ 
-          opacity: isLoaded || prefersReducedMotion ? 1 : 0,
-          transition: prefersReducedMotion ? 'transform 0.5s' : 'opacity 0.4s ease-out, transform 0.5s',
-        }}
-        onClick={onClick}
+        effect="blur"
+        placeholderSrc={lqipSrc || undefined}
+        width="100%"
+        height="100%"
+        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        wrapperClassName="w-full h-full"
+        threshold={100}
       />
     </div>
   );
