@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import {
   Dialog,
   DialogContent,
@@ -26,6 +27,7 @@ interface PackageModalProps {
 }
 
 export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: PackageModalProps) {
+  const { t } = useTranslation();
   if (!pkg) return null;
 
   return (
@@ -60,15 +62,15 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
             <div className="flex items-center gap-2 text-sm">
               <Clock className="w-5 h-5 text-primary" />
               <div>
-                <span className="font-medium">Duración:</span>
+                <span className="font-medium">{t('packageModal.duration')}:</span>
                 <span className="text-muted-foreground ml-1">{pkg.duration}</span>
               </div>
             </div>
             <div className="flex items-center gap-2 text-sm">
               <MapPin className="w-5 h-5 text-primary" />
               <div>
-                <span className="font-medium">Lugares:</span>
-                <span className="text-muted-foreground ml-1">{pkg.locations.length} destinos</span>
+                <span className="font-medium">{t('packageModal.locations')}:</span>
+                <span className="text-muted-foreground ml-1">{pkg.locations.length} {t('packageModal.destinations')}</span>
               </div>
             </div>
           </div>
@@ -77,17 +79,17 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
             <TabsList className="grid w-full grid-cols-3">
               <TabsTrigger value="includes" className="gap-2" data-testid="tab-includes">
                 <Package className="w-4 h-4" />
-                <span className="hidden sm:inline">Qué Incluye</span>
-                <span className="sm:hidden">Incluye</span>
+                <span className="hidden sm:inline">{t('packageModal.whatIncludes')}</span>
+                <span className="sm:hidden">{t('packageModal.includes')}</span>
               </TabsTrigger>
               <TabsTrigger value="locations" className="gap-2" data-testid="tab-locations">
                 <MapPin className="w-4 h-4" />
-                <span className="hidden sm:inline">Destinos</span>
-                <span className="sm:hidden">Lugares</span>
+                <span className="hidden sm:inline">{t('packageModal.destinationsTab')}</span>
+                <span className="sm:hidden">{t('packageModal.places')}</span>
               </TabsTrigger>
               <TabsTrigger value="faqs" className="gap-2" data-testid="tab-faqs">
                 <HelpCircle className="w-4 h-4" />
-                <span>FAQ</span>
+                <span>{t('packageModal.faq')}</span>
               </TabsTrigger>
             </TabsList>
 
@@ -146,15 +148,15 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
             <Button 
               variant="outline"
               className="w-full gap-2"
-              onClick={() => window.open("https://wa.me/5521983526144?text=" + encodeURIComponent(`Hola, me interesa el paquete "${pkg.title}" y me gustaría obtener más información.`), "_blank")}
+              onClick={() => window.open("https://wa.me/5521983526144?text=" + encodeURIComponent(t('packageModal.whatsappMessage', { title: pkg.title })), "_blank")}
               data-testid="button-contact-advisor"
             >
               <MessageCircle className="w-4 h-4" />
-              Contactar Asesor de Viaje
+              {t('packageModal.contactAdvisor')}
             </Button>
             <div className="flex items-center justify-end gap-3">
               <Button variant="outline" onClick={onClose} data-testid="button-close-modal">
-                Cerrar
+                {t('packageModal.close')}
               </Button>
               <Button 
                 className="bg-cta hover:bg-cta/90 text-cta-foreground"
@@ -164,7 +166,7 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
                 }} 
                 data-testid="button-book-modal"
               >
-                Reservar Ahora
+                {t('packageModal.bookNow')}
               </Button>
             </div>
           </div>

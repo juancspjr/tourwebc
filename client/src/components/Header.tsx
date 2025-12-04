@@ -1,13 +1,14 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { Menu, Phone, Instagram, Youtube } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 import logo1 from "@assets/logo1.webp";
 
-// Use stable URL for logo - preloaded in index.html for faster loading
 const logoImage = "/logo.png";
 
 const socialLinks = [
@@ -22,13 +23,14 @@ interface HeaderProps {
 
 export default function Header({ onNavigate }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useTranslation();
 
   const navItems = [
-    { label: "Inicio", href: "#home" },
-    { label: "Destinos", href: "#packages" },
-    { label: "Info Viaje", href: "#info" },
-    { label: "Testimonios", href: "#testimonials" },
-    { label: "Contacto", href: "#contact" },
+    { label: t('nav.home'), href: "#home" },
+    { label: t('nav.destinations'), href: "#packages" },
+    { label: t('nav.travelInfo'), href: "#info" },
+    { label: t('nav.testimonials'), href: "#testimonials" },
+    { label: t('nav.contact'), href: "#contact" },
   ];
 
   const handleNavClick = (href: string) => {
@@ -82,6 +84,7 @@ export default function Header({ onNavigate }: HeaderProps) {
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
+            <LanguageSwitcher />
             <Button
               variant="outline"
               size="sm"
@@ -90,7 +93,7 @@ export default function Header({ onNavigate }: HeaderProps) {
               data-testid="button-whatsapp-header"
             >
               <Phone className="w-4 h-4" />
-              WhatsApp
+              {t('header.whatsapp')}
             </Button>
             <Button
               size="sm"
@@ -98,7 +101,7 @@ export default function Header({ onNavigate }: HeaderProps) {
               onClick={() => handleNavClick("#contact")}
               data-testid="button-reservar"
             >
-              Reservar Ahora
+              {t('header.bookNow')}
             </Button>
           </div>
 
@@ -110,8 +113,8 @@ export default function Header({ onNavigate }: HeaderProps) {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] !bg-background/90 backdrop-blur-xl border-l border-border/20 shadow-2xl">
               <VisuallyHidden>
-                <SheetTitle>Menú de navegación</SheetTitle>
-                <SheetDescription>Navega por las secciones del sitio</SheetDescription>
+                <SheetTitle>{t('nav.menuTitle')}</SheetTitle>
+                <SheetDescription>{t('nav.menuDescription')}</SheetDescription>
               </VisuallyHidden>
               <div className="flex flex-col gap-6 mt-8">
                 <img 
@@ -150,6 +153,7 @@ export default function Header({ onNavigate }: HeaderProps) {
                   </button>
                 ))}
                 <div className="flex flex-col gap-3 mt-4">
+                  <LanguageSwitcher />
                   <Button
                     variant="outline"
                     className="gap-2 w-full"
@@ -157,7 +161,7 @@ export default function Header({ onNavigate }: HeaderProps) {
                     data-testid="button-whatsapp-mobile"
                   >
                     <Phone className="w-4 h-4" />
-                    WhatsApp
+                    {t('header.whatsapp')}
                   </Button>
                   <Button 
                     className="w-full bg-cta hover:bg-cta/90 text-cta-foreground" 
@@ -178,7 +182,7 @@ export default function Header({ onNavigate }: HeaderProps) {
                     }}
                     data-testid="button-reservar-mobile"
                   >
-                    Reservar Ahora
+                    {t('header.bookNow')}
                   </Button>
                 </div>
                 

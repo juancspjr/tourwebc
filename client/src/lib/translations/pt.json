@@ -1,0 +1,133 @@
+{
+  "nav": {
+    "home": "Início",
+    "destinations": "Destinos",
+    "travelInfo": "Info Viagem",
+    "testimonials": "Depoimentos",
+    "contact": "Contato",
+    "menuTitle": "Menu de navegação",
+    "menuDescription": "Navegue pelas seções do site"
+  },
+  "header": {
+    "bookNow": "Reservar Agora",
+    "whatsapp": "WhatsApp"
+  },
+  "hero": {
+    "title1": "Descubra sua próxima",
+    "title2": "aventura",
+    "subtitle1": "Explore os destinos mais incríveis do mundo",
+    "subtitle2": "e crie memórias inesquecíveis conosco.",
+    "explorePackages": "Explorar Pacotes",
+    "bookNow": "Reservar Agora",
+    "prevSlide": "Slide anterior",
+    "nextSlide": "Próximo slide",
+    "goToSlide": "Ir para slide"
+  },
+  "splash": {
+    "tagline": "Descubra sua próxima aventura",
+    "skipHint": "Clique para pular",
+    "ariaLabel": "Tela de boas-vindas - Clique para pular"
+  },
+  "packages": {
+    "title": "Nossos Pacotes Turísticos",
+    "subtitle": "Encontre a aventura perfeita para você. De city tours a experiências exclusivas de helicóptero.",
+    "noPackages": "Não há pacotes disponíveis nesta categoria.",
+    "details": "Detalhes",
+    "book": "Reservar",
+    "all": "Todos"
+  },
+  "packageModal": {
+    "duration": "Duração",
+    "locations": "Locais",
+    "destinations": "destinos",
+    "whatIncludes": "O que Inclui",
+    "includes": "Inclui",
+    "destinationsTab": "Destinos",
+    "places": "Lugares",
+    "faq": "FAQ",
+    "contactAdvisor": "Contatar Assessor de Viagem",
+    "close": "Fechar",
+    "bookNow": "Reservar Agora",
+    "whatsappMessage": "Olá, estou interessado no pacote \"{title}\" e gostaria de mais informações."
+  },
+  "contact": {
+    "title": "Reserve Sua Aventura",
+    "subtitle": "Preencha o formulário e obtenha seu orçamento instantaneamente. Você também pode nos escrever diretamente pelo WhatsApp.",
+    "fullName": "Nome Completo",
+    "namePlaceholder": "Seu nome",
+    "email": "Endereço de Email",
+    "emailPlaceholder": "voce@email.com",
+    "phone": "Telefone / WhatsApp",
+    "phonePlaceholder": "+55 11 99999 9999",
+    "packageInterest": "Pacote de Interesse",
+    "selectPackage": "Selecione um pacote",
+    "startDate": "Data de Início",
+    "endDate": "Data de Término",
+    "dateError": "A data de término deve ser posterior à data de início",
+    "numberOfPeople": "Número de Pessoas",
+    "selectPeople": "Selecione a quantidade de pessoas",
+    "person": "pessoa",
+    "people": "pessoas",
+    "message": "Mensagem (Opcional)",
+    "messagePlaceholder": "Conte-nos sobre suas preferências, perguntas ou requisitos especiais...",
+    "submitRequest": "Enviar Solicitação",
+    "contactInfo": "Informações de Contato",
+    "telephone": "Telefone",
+    "location": "Localização",
+    "businessHours": "Horário de Atendimento",
+    "mondayFriday": "Segunda - Sexta",
+    "saturdaySunday": "Sábado - Domingo",
+    "dateErrorTitle": "Erro nas datas"
+  },
+  "footer": {
+    "description": "Sua agência de viagens de confiança. Experiências únicas, guias profissionais e memórias inesquecíveis ao redor do mundo.",
+    "tourPackages": "Pacotes Turísticos",
+    "contact": "Contato",
+    "newAdventures": "Novas Aventuras",
+    "comingSoon": "Estamos preparando destinos incríveis para você. Em breve você poderá explorar o mundo conosco!",
+    "upcomingDestinations": "Próximos destinos a caminho",
+    "allRightsReserved": "Todos os direitos reservados.",
+    "termsOfService": "Termos de Serviço",
+    "privacyPolicy": "Política de Privacidade"
+  },
+  "info": {
+    "travelerGuide": "Guia do Viajante",
+    "title": "Informações úteis para sua viagem",
+    "subtitle": "Tudo o que você precisa saber antes de partir. Explore cada seção para se preparar melhor.",
+    "payments": "Pagamentos",
+    "visas": "Vistos",
+    "currency": "Moeda",
+    "important": "Importante",
+    "faq": "FAQ",
+    "flexibleOptions": "Opções flexíveis para sua comodidade",
+    "paymentNote": "Todos os pagamentos são seguros e verificados. Entre em contato com seu assessor para coordenar o método de pagamento mais conveniente.",
+    "entryRequirements": "Requisitos de entrada por destino",
+    "consultRequirements": "Consultar Requisitos com Assessor",
+    "currencyInfo": "Informações monetárias do destino",
+    "primary": "Principal",
+    "currencyNote": "A moeda aceita depende do destino. Consulte seu assessor para mais detalhes.",
+    "importantRules": "Regras importantes a respeitar",
+    "violationWarning": "O descumprimento dessas regras pode resultar no cancelamento do serviço sem reembolso.",
+    "frequentQuestions": "Perguntas Frequentes",
+    "commonAnswers": "Respostas às dúvidas mais comuns",
+    "notFound": "Não encontrou o que procura?",
+    "contactAdvisor": "Contatar Assessor",
+    "visaWhatsapp": "Olá, preciso de informações sobre requisitos de visto para meu destino.",
+    "queryWhatsapp": "Olá, tenho uma pergunta sobre minha viagem."
+  },
+  "quotation": {
+    "title": "Seu Orçamento",
+    "selectToSee": "Selecione um pacote, datas e número de pessoas para ver seu orçamento estimado.",
+    "pricePerDay": "Preço por dia",
+    "days": "dias",
+    "subtotal": "Subtotal",
+    "groupDiscount": "Desconto de grupo",
+    "durationDiscount": "Desconto por duração",
+    "estimatedTotal": "Total Estimado",
+    "finalNote": "Os preços são estimativas e podem variar. Entre em contato com seu assessor para confirmar."
+  },
+  "seo": {
+    "title": "Rio Trip Vibes - Sua Agência de Viagens de Confiança",
+    "description": "Descubra experiências de viagem únicas no Rio de Janeiro com guias profissionais. Tours exclusivos, passeios de barco, trilhas e muito mais."
+  }
+}

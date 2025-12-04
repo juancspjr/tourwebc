@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import PackageCard from "./PackageCard";
 import { Button } from "@/components/ui/button";
 import { packages, categories, type PackageData } from "@/lib/packages";
@@ -12,6 +13,7 @@ interface PackageGridProps {
 
 export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps) {
   const [activeCategory, setActiveCategory] = useState("Todos");
+  const { t } = useTranslation();
 
   const filteredPackages = activeCategory === "Todos"
     ? packages
@@ -21,9 +23,9 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
     <section id="packages" className="py-16 md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="section-header text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Nuestros Paquetes Turísticos</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{t('packages.title')}</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Encuentra la aventura perfecta para ti. Desde city tours hasta experiencias exclusivas en helicóptero.
+            {t('packages.subtitle')}
           </p>
         </div>
 
@@ -56,7 +58,7 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
 
         {filteredPackages.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-muted-foreground">No hay paquetes disponibles en esta categoría.</p>
+            <p className="text-muted-foreground">{t('packages.noPackages')}</p>
           </div>
         )}
       </div>

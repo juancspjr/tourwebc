@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 
-// Use stable URL for logo - preloaded in index.html for faster loading
 const logoImage = "/logo.png";
 
 interface SplashScreenProps {
@@ -11,6 +11,7 @@ interface SplashScreenProps {
 export default function SplashScreen({ onComplete, duration = 1800 }: SplashScreenProps) {
   const [isExiting, setIsExiting] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const { t } = useTranslation();
 
   const handleSkip = useCallback(() => {
     if (!isExiting) {
@@ -55,7 +56,7 @@ export default function SplashScreen({ onComplete, duration = 1800 }: SplashScre
       onClick={handleSkip}
       role="button"
       tabIndex={0}
-      aria-label="Pantalla de bienvenida - Click para saltar"
+      aria-label={t('splash.ariaLabel')}
       data-testid="splash-screen"
     >
       <div className="splash-content">
@@ -68,7 +69,7 @@ export default function SplashScreen({ onComplete, duration = 1800 }: SplashScre
         </div>
         
         <p className="splash-tagline">
-          Descubre tu próxima aventura
+          {t('splash.tagline')}
         </p>
         
         <div className="splash-loader">
@@ -77,7 +78,7 @@ export default function SplashScreen({ onComplete, duration = 1800 }: SplashScre
       </div>
       
       <span className="splash-skip-hint">
-        Click para saltar
+        {t('splash.skipHint')}
       </span>
 
       <style>{`

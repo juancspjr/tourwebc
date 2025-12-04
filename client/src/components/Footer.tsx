@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Instagram, Youtube } from "lucide-react";
 import { SiTiktok } from "react-icons/si";
 import logoImage from "@assets/Diseño_sin_título_(2)_1764694858372.png";
@@ -8,6 +9,7 @@ import logo1 from "@assets/logo1.webp";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useTranslation();
 
   const tourPackages = [
     { label: "Day Tour Rio de Janeiro", href: "#packages" },
@@ -46,8 +48,7 @@ export default function Footer() {
               />
             </div>
             <p className="text-background/70 text-sm mb-4">
-              Tu agencia de viajes de confianza. 
-              Experiencias únicas, guías profesionales y recuerdos inolvidables alrededor del mundo.
+              {t('footer.description')}
             </p>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
@@ -67,7 +68,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Paquetes Turísticos</h3>
+            <h3 className="font-semibold mb-4">{t('footer.tourPackages')}</h3>
             <ul className="space-y-2">
               {tourPackages.map((link) => (
                 <li key={link.label}>
@@ -84,7 +85,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Contacto</h3>
+            <h3 className="font-semibold mb-4">{t('footer.contact')}</h3>
             <ul className="space-y-2 text-sm text-background/70">
               <li>
                 <a 
@@ -117,14 +118,13 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Nuevas Aventuras</h3>
+            <h3 className="font-semibold mb-4">{t('footer.newAdventures')}</h3>
             <p className="text-sm text-background/70 mb-4">
-              Estamos preparando destinos increíbles para ti. 
-              Muy pronto podrás explorar el mundo con nosotros!
+              {t('footer.comingSoon')}
             </p>
             <div className="flex items-center gap-2 text-sm">
               <span className="inline-block w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-background/70">Próximos destinos en camino</span>
+              <span className="text-background/70">{t('footer.upcomingDestinations')}</span>
             </div>
           </div>
         </div>
@@ -132,14 +132,14 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-background/20">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-background/60">
-              {currentYear} Rio Trip Vibes. Todos los derechos reservados.
+              {currentYear} Rio Trip Vibes. {t('footer.allRightsReserved')}
             </p>
             <div className="flex gap-6">
               <button className="text-sm text-background/60 hover:text-background transition-colors">
-                Términos de Servicio
+                {t('footer.termsOfService')}
               </button>
               <button className="text-sm text-background/60 hover:text-background transition-colors">
-                Política de Privacidad
+                {t('footer.privacyPolicy')}
               </button>
             </div>
           </div>

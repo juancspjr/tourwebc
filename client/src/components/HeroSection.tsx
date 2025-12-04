@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useLayoutEffect, useRef, memo, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 import { getLqipUrl } from "@/lib/lqip";
@@ -96,6 +97,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onExploreClick }: HeroSectionProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const { t } = useTranslation();
 
   // Asegurar que la página inicie en el Hero Section al cargar
   useLayoutEffect(() => {
@@ -167,7 +169,7 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
       <button
         onClick={prevSlide}
         className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-white/10 md:bg-white/20 backdrop-blur-sm text-white transition-all duration-200 hover:bg-white/30 hover:scale-110 hidden sm:flex"
-        aria-label="Slide anterior"
+        aria-label={t('hero.prevSlide')}
         data-testid="button-carousel-prev"
       >
         <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
@@ -175,7 +177,7 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
       <button
         onClick={nextSlide}
         className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-white/10 md:bg-white/20 backdrop-blur-sm text-white transition-all duration-200 hover:bg-white/30 hover:scale-110 hidden sm:flex"
-        aria-label="Siguiente slide"
+        aria-label={t('hero.nextSlide')}
         data-testid="button-carousel-next"
       >
         <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
@@ -189,7 +191,7 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
             className={`h-1 rounded-full transition-all duration-300 ${
               index === currentSlide ? "w-4 bg-white/60" : "w-1 bg-white/25 hover:bg-white/40"
             }`}
-            aria-label={`Ir a slide ${index + 1}`}
+            aria-label={`${t('hero.goToSlide')} ${index + 1}`}
             data-testid={`button-carousel-indicator-${index}`}
           />
         ))}
@@ -197,15 +199,15 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight mb-6 uppercase">
-          Descubre tu próxima
-          <span className="block text-accent">aventura</span>
+          {t('hero.title1')}
+          <span className="block text-accent">{t('hero.title2')}</span>
         </h1>
 
         <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-2">
-          Explora los destinos más increíbles del mundo
+          {t('hero.subtitle1')}
         </p>
         <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-8">
-          y crea recuerdos inolvidables con nosotros.
+          {t('hero.subtitle2')}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -215,7 +217,7 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
             onClick={handleExploreClick}
             data-testid="button-explore-packages"
           >
-            Explorar Paquetes
+            {t('hero.explorePackages')}
           </Button>
           <Button
             size="lg"
@@ -224,7 +226,7 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
             onClick={() => window.open("https://wa.me/5521983526144", "_blank")}
             data-testid="button-whatsapp-hero"
           >
-            Reservar Ahora
+            {t('hero.bookNow')}
           </Button>
         </div>
       </div>

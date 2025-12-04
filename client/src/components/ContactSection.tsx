@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -22,6 +23,7 @@ interface ContactSectionProps {
 
 export default function ContactSection({ selectedPackage, onPackageChange }: ContactSectionProps) {
   const { toast } = useToast();
+  const { t } = useTranslation();
   
   const [formData, setFormData] = useState({
     name: "",
@@ -125,7 +127,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
     const end = new Date(endDate);
     
     if (end <= start) {
-      setDateError("La fecha de finalización debe ser posterior a la fecha de inicio");
+      setDateError(t('contact.dateError'));
       return false;
     }
     
@@ -137,8 +139,8 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
     if (!validateDates(formData.startDate, formData.endDate)) {
       e.preventDefault();
       toast({
-        title: "Error en las fechas",
-        description: "La fecha de finalización debe ser posterior a la fecha de inicio",
+        title: t('contact.dateErrorTitle'),
+        description: t('contact.dateError'),
         variant: "destructive",
       });
       return;
@@ -183,11 +185,10 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Reserva Tu Aventura
+            {t('contact.title')}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Completa el formulario y obtén tu cotización al instante. 
-            También puedes escribirnos directamente por WhatsApp.
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -207,11 +208,11 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                   <input type="hidden" name="_template" value="table" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Nombre Completo</Label>
+                    <Label htmlFor="name">{t('contact.fullName')}</Label>
                     <Input
                       id="name"
                       name="name"
-                      placeholder="Tu nombre"
+                      placeholder={t('contact.namePlaceholder')}
                       value={formData.name}
                       onChange={(e) => handleChange("name", e.target.value)}
                       required
@@ -219,12 +220,12 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email">Correo Electrónico</Label>
+                    <Label htmlFor="email">{t('contact.email')}</Label>
                     <Input
                       id="email"
                       name="email"
                       type="email"
-                      placeholder="tu@email.com"
+                      placeholder={t('contact.emailPlaceholder')}
                       value={formData.email}
                       onChange={(e) => handleChange("email", e.target.value)}
                       required
@@ -235,26 +236,26 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Teléfono / WhatsApp</Label>
+                    <Label htmlFor="phone">{t('contact.phone')}</Label>
                     <Input
                       id="phone"
                       name="phone"
                       type="tel"
-                      placeholder="+1 234 567 8900"
+                      placeholder={t('contact.phonePlaceholder')}
                       value={formData.phone}
                       onChange={(e) => handleChange("phone", e.target.value)}
                       data-testid="input-phone"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="package">Paquete de Interés</Label>
+                    <Label htmlFor="package">{t('contact.packageInterest')}</Label>
                     <input type="hidden" name="package" value={formData.package} />
                     <Select
                       value={formData.package}
                       onValueChange={(value) => handleChange("package", value)}
                     >
                       <SelectTrigger id="package" data-testid="select-package">
-                        <SelectValue placeholder="Selecciona un paquete" />
+                        <SelectValue placeholder={t('contact.selectPackage')} />
                       </SelectTrigger>
                       <SelectContent>
                         {packages.map((pkg) => (
@@ -269,7 +270,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="startDate">Fecha de Inicio</Label>
+                    <Label htmlFor="startDate">{t('contact.startDate')}</Label>
                     <Input
                       id="startDate"
                       name="startDate"
@@ -281,7 +282,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="endDate">Fecha de Fin</Label>
+                    <Label htmlFor="endDate">{t('contact.endDate')}</Label>
                     <Input
                       id="endDate"
                       name="endDate"
@@ -302,19 +303,19 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                 )}
 
                 <div className="space-y-2">
-                  <Label htmlFor="people">Número de Personas</Label>
+                  <Label htmlFor="people">{t('contact.numberOfPeople')}</Label>
                   <input type="hidden" name="people" value={formData.people} />
                   <Select
                     value={formData.people}
                     onValueChange={(value) => handleChange("people", value)}
                   >
                     <SelectTrigger id="people" data-testid="select-people">
-                      <SelectValue placeholder="Selecciona cantidad de personas" />
+                      <SelectValue placeholder={t('contact.selectPeople')} />
                     </SelectTrigger>
                     <SelectContent>
                       {[1, 2, 3, 4, 5, 6, 7, 8, 9, "10+"].map((num) => (
                         <SelectItem key={num} value={String(num)}>
-                          {num} {num === 1 ? "persona" : "personas"}
+                          {num} {num === 1 ? t('contact.person') : t('contact.people')}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -322,11 +323,11 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message">Mensaje (Opcional)</Label>
+                  <Label htmlFor="message">{t('contact.message')}</Label>
                   <Textarea
                     id="message"
                     name="message"
-                    placeholder="Cuéntanos sobre tus preferencias, preguntas o requerimientos especiales..."
+                    placeholder={t('contact.messagePlaceholder')}
                     rows={3}
                     value={formData.message}
                     onChange={(e) => handleChange("message", e.target.value)}
@@ -341,7 +342,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                   data-testid="button-submit-form"
                   disabled={!!dateError}
                 >
-                  Enviar Solicitud
+                  {t('contact.submitRequest')}
                 </Button>
               </form>
             </CardContent>
@@ -351,7 +352,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-4">
-                  Información de Contacto
+                  {t('contact.contactInfo')}
                 </h3>
                 <div className="space-y-4">
                   <a
@@ -374,7 +375,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                       <Phone className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-medium text-foreground">Teléfono</p>
+                      <p className="font-medium text-foreground">{t('contact.telephone')}</p>
                       <p className="text-sm text-muted-foreground">+55 21 98352-6144</p>
                     </div>
                   </div>
@@ -394,7 +395,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                       <MapPin className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-medium text-foreground">Ubicación</p>
+                      <p className="font-medium text-foreground">{t('contact.location')}</p>
                       <p className="text-sm text-muted-foreground">Rio de Janeiro, Brasil</p>
                     </div>
                   </div>
@@ -405,14 +406,14 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-4">
-                  Horario de Atención
+                  {t('contact.businessHours')}
                 </h3>
                 <div className="space-y-3">
                   <div className="flex items-center gap-4">
                     <Clock className="w-5 h-5 text-primary" />
                     <div className="flex-1">
                       <div className="flex justify-between gap-2 flex-wrap">
-                        <span className="text-muted-foreground">Lunes - Viernes</span>
+                        <span className="text-muted-foreground">{t('contact.mondayFriday')}</span>
                         <span className="font-medium text-foreground">8:00 AM - 8:00 PM</span>
                       </div>
                     </div>
@@ -421,7 +422,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     <Clock className="w-5 h-5 text-primary" />
                     <div className="flex-1">
                       <div className="flex justify-between gap-2 flex-wrap">
-                        <span className="text-muted-foreground">Sábado - Domingo</span>
+                        <span className="text-muted-foreground">{t('contact.saturdaySunday')}</span>
                         <span className="font-medium text-foreground">9:00 AM - 6:00 PM</span>
                       </div>
                     </div>

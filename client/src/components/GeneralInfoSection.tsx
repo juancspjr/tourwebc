@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -33,26 +34,28 @@ const paymentIcons: Record<string, JSX.Element> = {
   "bitcoin": <SiBitcoin className="w-5 h-5" />,
 };
 
-const tabs = [
-  { id: "pagos", label: "Pagos", icon: CreditCard },
-  { id: "visados", label: "Visados", icon: Globe },
-  { id: "moneda", label: "Moneda", icon: Coins },
-  { id: "prohibido", label: "Importante", icon: ShieldAlert },
-  { id: "faq", label: "FAQ", icon: HelpCircle },
-];
-
 export default function GeneralInfoSection() {
+  const { t } = useTranslation();
+  
+  const tabs = [
+    { id: "pagos", label: t('info.payments'), icon: CreditCard },
+    { id: "visados", label: t('info.visas'), icon: Globe },
+    { id: "moneda", label: t('info.currency'), icon: Coins },
+    { id: "prohibido", label: t('info.important'), icon: ShieldAlert },
+    { id: "faq", label: t('info.faq'), icon: HelpCircle },
+  ];
+
   return (
     <section id="info" className="py-16 md:py-24 bg-muted/30">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 mb-4">
             <BookOpen className="w-6 h-6 text-primary" />
-            <span className="text-sm font-medium text-primary uppercase tracking-wider">Guía del Viajero</span>
+            <span className="text-sm font-medium text-primary uppercase tracking-wider">{t('info.travelerGuide')}</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Información útil para tu viaje</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{t('info.title')}</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Todo lo que necesitas saber antes de partir. Explora cada sección para prepararte mejor.
+            {t('info.subtitle')}
           </p>
         </div>
 
@@ -84,7 +87,7 @@ export default function GeneralInfoSection() {
                       </div>
                       <div>
                         <h3 className="text-xl font-semibold">{generalInfo.paymentMethods.title}</h3>
-                        <p className="text-sm text-muted-foreground">Opciones flexibles para tu comodidad</p>
+                        <p className="text-sm text-muted-foreground">{t('info.flexibleOptions')}</p>
                       </div>
                     </div>
                     
@@ -107,7 +110,7 @@ export default function GeneralInfoSection() {
                       <div className="flex items-start gap-3">
                         <Info className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                         <p className="text-sm text-muted-foreground">
-                          Todos los pagos son seguros y verificados. Contacta a tu asesor para coordinar el método de pago más conveniente.
+                          {t('info.paymentNote')}
                         </p>
                       </div>
                     </div>
@@ -122,7 +125,7 @@ export default function GeneralInfoSection() {
                       </div>
                       <div>
                         <h3 className="text-xl font-semibold">{generalInfo.visaInfo.title}</h3>
-                        <p className="text-sm text-muted-foreground">Requisitos de entrada según tu destino</p>
+                        <p className="text-sm text-muted-foreground">{t('info.entryRequirements')}</p>
                       </div>
                     </div>
                     
@@ -142,11 +145,11 @@ export default function GeneralInfoSection() {
                     <Button
                       variant="default"
                       className="w-full gap-2"
-                      onClick={() => window.open("https://wa.me/5521983526144?text=" + encodeURIComponent("Hola, necesito información sobre los requisitos de visa para mi destino."), "_blank")}
+                      onClick={() => window.open("https://wa.me/5521983526144?text=" + encodeURIComponent(t('info.visaWhatsapp')), "_blank")}
                       data-testid="button-visa-contact"
                     >
                       <MessageCircle className="w-4 h-4" />
-                      Consultar Requisitos con Asesor
+                      {t('info.consultRequirements')}
                     </Button>
                   </div>
                 </TabsContent>
@@ -159,7 +162,7 @@ export default function GeneralInfoSection() {
                       </div>
                       <div>
                         <h3 className="text-xl font-semibold">{generalInfo.currency.title}</h3>
-                        <p className="text-sm text-muted-foreground">Información monetaria del destino</p>
+                        <p className="text-sm text-muted-foreground">{t('info.currencyInfo')}</p>
                       </div>
                     </div>
                     
@@ -181,7 +184,7 @@ export default function GeneralInfoSection() {
                               {currency.name}
                             </Badge>
                             {currency.primary && (
-                              <span className="text-xs text-primary font-medium">Principal</span>
+                              <span className="text-xs text-primary font-medium">{t('info.primary')}</span>
                             )}
                           </div>
                           <span className="text-sm text-muted-foreground">{currency.country}</span>
@@ -190,7 +193,7 @@ export default function GeneralInfoSection() {
                     </div>
                     
                     <p className="text-sm text-muted-foreground italic text-center pt-2">
-                      La moneda aceptada depende del destino. Consulta con tu asesor para más detalles.
+                      {t('info.currencyNote')}
                     </p>
                   </div>
                 </TabsContent>
@@ -203,7 +206,7 @@ export default function GeneralInfoSection() {
                       </div>
                       <div>
                         <h3 className="text-xl font-semibold">{generalInfo.prohibitedActivities.title}</h3>
-                        <p className="text-sm text-muted-foreground">Normas importantes a respetar</p>
+                        <p className="text-sm text-muted-foreground">{t('info.importantRules')}</p>
                       </div>
                     </div>
                     
@@ -226,7 +229,7 @@ export default function GeneralInfoSection() {
                     
                     <div className="p-4 rounded-lg bg-muted/50">
                       <p className="text-sm text-muted-foreground text-center">
-                        El incumplimiento de estas normas puede resultar en la cancelación del servicio sin reembolso.
+                        {t('info.violationWarning')}
                       </p>
                     </div>
                   </div>
@@ -239,8 +242,8 @@ export default function GeneralInfoSection() {
                         <HelpCircle className="w-6 h-6 text-primary" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold">Preguntas Frecuentes</h3>
-                        <p className="text-sm text-muted-foreground">Respuestas a las dudas más comunes</p>
+                        <h3 className="text-xl font-semibold">{t('info.frequentQuestions')}</h3>
+                        <p className="text-sm text-muted-foreground">{t('info.commonAnswers')}</p>
                       </div>
                     </div>
                     
@@ -262,16 +265,16 @@ export default function GeneralInfoSection() {
                     
                     <div className="pt-4 text-center">
                       <p className="text-sm text-muted-foreground mb-3">
-                        ¿No encuentras lo que buscas?
+                        {t('info.notFound')}
                       </p>
                       <Button
                         variant="outline"
                         className="gap-2"
-                        onClick={() => window.open("https://wa.me/5521983526144?text=" + encodeURIComponent("Hola, tengo una consulta sobre mi viaje."), "_blank")}
+                        onClick={() => window.open("https://wa.me/5521983526144?text=" + encodeURIComponent(t('info.queryWhatsapp')), "_blank")}
                         data-testid="button-faq-contact"
                       >
                         <MessageCircle className="w-4 h-4" />
-                        Contactar Asesor
+                        {t('info.contactAdvisor')}
                       </Button>
                     </div>
                   </div>

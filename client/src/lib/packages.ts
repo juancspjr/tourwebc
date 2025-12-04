@@ -77,6 +77,28 @@ export interface PackageData {
   faqs: FAQ[];
 }
 
+export const categoryKeys = [
+  "all",
+  "cityTour",
+  "culture",
+  "beach",
+  "adventure",
+  "water",
+  "vip",
+] as const;
+
+export type CategoryKey = typeof categoryKeys[number];
+
+export const categoryToKey: Record<string, CategoryKey> = {
+  "Todos": "all",
+  "City Tour": "cityTour",
+  "Cultura": "culture",
+  "Playa": "beach",
+  "Aventura": "adventure",
+  "Acuático": "water",
+  "VIP": "vip",
+};
+
 export const categories = [
   "Todos",
   "City Tour",

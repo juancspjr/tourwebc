@@ -1,0 +1,142 @@
+{
+  "nav": {
+    "home": "Home",
+    "destinations": "Destinations",
+    "travelInfo": "Travel Info",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "menuTitle": "Navigation menu",
+    "menuDescription": "Navigate through site sections"
+  },
+  "header": {
+    "bookNow": "Book Now",
+    "whatsapp": "WhatsApp"
+  },
+  "hero": {
+    "title1": "Discover your next",
+    "title2": "adventure",
+    "subtitle1": "Explore the most incredible destinations in the world",
+    "subtitle2": "and create unforgettable memories with us.",
+    "explorePackages": "Explore Packages",
+    "bookNow": "Book Now",
+    "prevSlide": "Previous slide",
+    "nextSlide": "Next slide",
+    "goToSlide": "Go to slide"
+  },
+  "splash": {
+    "tagline": "Discover your next adventure",
+    "skipHint": "Click to skip",
+    "ariaLabel": "Welcome screen - Click to skip"
+  },
+  "packages": {
+    "title": "Our Tour Packages",
+    "subtitle": "Find the perfect adventure for you. From city tours to exclusive helicopter experiences.",
+    "noPackages": "No packages available in this category.",
+    "details": "Details",
+    "book": "Book",
+    "all": "All"
+  },
+  "categories": {
+    "all": "All",
+    "cityTour": "City Tour",
+    "culture": "Culture",
+    "beach": "Beach",
+    "adventure": "Adventure",
+    "water": "Water Sports",
+    "vip": "VIP"
+  },
+  "packageModal": {
+    "duration": "Duration",
+    "locations": "Locations",
+    "destinations": "destinations",
+    "whatIncludes": "What's Included",
+    "includes": "Includes",
+    "destinationsTab": "Destinations",
+    "places": "Places",
+    "faq": "FAQ",
+    "contactAdvisor": "Contact Travel Advisor",
+    "close": "Close",
+    "bookNow": "Book Now",
+    "whatsappMessage": "Hello, I'm interested in the \"{title}\" package and would like more information."
+  },
+  "contact": {
+    "title": "Book Your Adventure",
+    "subtitle": "Fill out the form and get your quote instantly. You can also contact us directly via WhatsApp.",
+    "fullName": "Full Name",
+    "namePlaceholder": "Your name",
+    "email": "Email Address",
+    "emailPlaceholder": "you@email.com",
+    "phone": "Phone / WhatsApp",
+    "phonePlaceholder": "+1 234 567 8900",
+    "packageInterest": "Package of Interest",
+    "selectPackage": "Select a package",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "dateError": "End date must be after start date",
+    "numberOfPeople": "Number of People",
+    "selectPeople": "Select number of people",
+    "person": "person",
+    "people": "people",
+    "message": "Message (Optional)",
+    "messagePlaceholder": "Tell us about your preferences, questions or special requirements...",
+    "submitRequest": "Submit Request",
+    "contactInfo": "Contact Information",
+    "telephone": "Telephone",
+    "location": "Location",
+    "businessHours": "Business Hours",
+    "mondayFriday": "Monday - Friday",
+    "saturdaySunday": "Saturday - Sunday",
+    "dateErrorTitle": "Date Error"
+  },
+  "footer": {
+    "description": "Your trusted travel agency. Unique experiences, professional guides and unforgettable memories around the world.",
+    "tourPackages": "Tour Packages",
+    "contact": "Contact",
+    "newAdventures": "New Adventures",
+    "comingSoon": "We're preparing incredible destinations for you. Very soon you'll be able to explore the world with us!",
+    "upcomingDestinations": "Upcoming destinations on the way",
+    "allRightsReserved": "All rights reserved.",
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy Policy"
+  },
+  "info": {
+    "travelerGuide": "Traveler's Guide",
+    "title": "Useful information for your trip",
+    "subtitle": "Everything you need to know before departure. Explore each section to prepare better.",
+    "payments": "Payments",
+    "visas": "Visas",
+    "currency": "Currency",
+    "important": "Important",
+    "faq": "FAQ",
+    "flexibleOptions": "Flexible options for your convenience",
+    "paymentNote": "All payments are secure and verified. Contact your advisor to coordinate the most convenient payment method.",
+    "entryRequirements": "Entry requirements by destination",
+    "consultRequirements": "Consult Requirements with Advisor",
+    "currencyInfo": "Destination currency information",
+    "primary": "Primary",
+    "currencyNote": "Accepted currency depends on destination. Consult your advisor for details.",
+    "importantRules": "Important rules to respect",
+    "violationWarning": "Violation of these rules may result in service cancellation without refund.",
+    "frequentQuestions": "Frequently Asked Questions",
+    "commonAnswers": "Answers to the most common questions",
+    "notFound": "Can't find what you're looking for?",
+    "contactAdvisor": "Contact Advisor",
+    "visaWhatsapp": "Hello, I need information about visa requirements for my destination.",
+    "queryWhatsapp": "Hello, I have a question about my trip."
+  },
+  "quotation": {
+    "title": "Your Quote",
+    "selectToSee": "Select a package, dates and number of people to see your estimated quote.",
+    "pricePerDay": "Price per day",
+    "days": "days",
+    "subtotal": "Subtotal",
+    "groupDiscount": "Group discount",
+    "durationDiscount": "Duration discount",
+    "estimatedTotal": "Estimated Total",
+    "finalNote": "Prices are estimates and may vary. Contact your advisor to confirm."
+  },
+  "seo": {
+    "title": "Rio Trip Vibes - Your Trusted Travel Agency",
+    "description": "Discover unique travel experiences in Rio de Janeiro with professional guides. Exclusive tours, boat rides, trails and much more."
+  }
+}

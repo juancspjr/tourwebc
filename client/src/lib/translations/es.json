@@ -1,0 +1,142 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "destinations": "Destinos",
+    "travelInfo": "Info Viaje",
+    "testimonials": "Testimonios",
+    "contact": "Contacto",
+    "menuTitle": "Menú de navegación",
+    "menuDescription": "Navega por las secciones del sitio"
+  },
+  "header": {
+    "bookNow": "Reservar Ahora",
+    "whatsapp": "WhatsApp"
+  },
+  "hero": {
+    "title1": "Descubre tu próxima",
+    "title2": "aventura",
+    "subtitle1": "Explora los destinos más increíbles del mundo",
+    "subtitle2": "y crea recuerdos inolvidables con nosotros.",
+    "explorePackages": "Explorar Paquetes",
+    "bookNow": "Reservar Ahora",
+    "prevSlide": "Slide anterior",
+    "nextSlide": "Siguiente slide",
+    "goToSlide": "Ir a slide"
+  },
+  "splash": {
+    "tagline": "Descubre tu próxima aventura",
+    "skipHint": "Click para saltar",
+    "ariaLabel": "Pantalla de bienvenida - Click para saltar"
+  },
+  "packages": {
+    "title": "Nuestros Paquetes Turísticos",
+    "subtitle": "Encuentra la aventura perfecta para ti. Desde city tours hasta experiencias exclusivas en helicóptero.",
+    "noPackages": "No hay paquetes disponibles en esta categoría.",
+    "details": "Detalles",
+    "book": "Reservar",
+    "all": "Todos"
+  },
+  "categories": {
+    "all": "Todos",
+    "cityTour": "City Tour",
+    "culture": "Cultura",
+    "beach": "Playa",
+    "adventure": "Aventura",
+    "water": "Acuático",
+    "vip": "VIP"
+  },
+  "packageModal": {
+    "duration": "Duración",
+    "locations": "Lugares",
+    "destinations": "destinos",
+    "whatIncludes": "Qué Incluye",
+    "includes": "Incluye",
+    "destinationsTab": "Destinos",
+    "places": "Lugares",
+    "faq": "FAQ",
+    "contactAdvisor": "Contactar Asesor de Viaje",
+    "close": "Cerrar",
+    "bookNow": "Reservar Ahora",
+    "whatsappMessage": "Hola, me interesa el paquete \"{title}\" y me gustaría obtener más información."
+  },
+  "contact": {
+    "title": "Reserva Tu Aventura",
+    "subtitle": "Completa el formulario y obtén tu cotización al instante. También puedes escribirnos directamente por WhatsApp.",
+    "fullName": "Nombre Completo",
+    "namePlaceholder": "Tu nombre",
+    "email": "Correo Electrónico",
+    "emailPlaceholder": "tu@email.com",
+    "phone": "Teléfono / WhatsApp",
+    "phonePlaceholder": "+1 234 567 8900",
+    "packageInterest": "Paquete de Interés",
+    "selectPackage": "Selecciona un paquete",
+    "startDate": "Fecha de Inicio",
+    "endDate": "Fecha de Fin",
+    "dateError": "La fecha de finalización debe ser posterior a la fecha de inicio",
+    "numberOfPeople": "Número de Personas",
+    "selectPeople": "Selecciona cantidad de personas",
+    "person": "persona",
+    "people": "personas",
+    "message": "Mensaje (Opcional)",
+    "messagePlaceholder": "Cuéntanos sobre tus preferencias, preguntas o requerimientos especiales...",
+    "submitRequest": "Enviar Solicitud",
+    "contactInfo": "Información de Contacto",
+    "telephone": "Teléfono",
+    "location": "Ubicación",
+    "businessHours": "Horario de Atención",
+    "mondayFriday": "Lunes - Viernes",
+    "saturdaySunday": "Sábado - Domingo",
+    "dateErrorTitle": "Error en las fechas"
+  },
+  "footer": {
+    "description": "Tu agencia de viajes de confianza. Experiencias únicas, guías profesionales y recuerdos inolvidables alrededor del mundo.",
+    "tourPackages": "Paquetes Turísticos",
+    "contact": "Contacto",
+    "newAdventures": "Nuevas Aventuras",
+    "comingSoon": "Estamos preparando destinos increíbles para ti. Muy pronto podrás explorar el mundo con nosotros!",
+    "upcomingDestinations": "Próximos destinos en camino",
+    "allRightsReserved": "Todos los derechos reservados.",
+    "termsOfService": "Términos de Servicio",
+    "privacyPolicy": "Política de Privacidad"
+  },
+  "info": {
+    "travelerGuide": "Guía del Viajero",
+    "title": "Información útil para tu viaje",
+    "subtitle": "Todo lo que necesitas saber antes de partir. Explora cada sección para prepararte mejor.",
+    "payments": "Pagos",
+    "visas": "Visados",
+    "currency": "Moneda",
+    "important": "Importante",
+    "faq": "FAQ",
+    "flexibleOptions": "Opciones flexibles para tu comodidad",
+    "paymentNote": "Todos los pagos son seguros y verificados. Contacta a tu asesor para coordinar el método de pago más conveniente.",
+    "entryRequirements": "Requisitos de entrada según tu destino",
+    "consultRequirements": "Consultar Requisitos con Asesor",
+    "currencyInfo": "Información monetaria del destino",
+    "primary": "Principal",
+    "currencyNote": "La moneda aceptada depende del destino. Consulta con tu asesor para más detalles.",
+    "importantRules": "Normas importantes a respetar",
+    "violationWarning": "El incumplimiento de estas normas puede resultar en la cancelación del servicio sin reembolso.",
+    "frequentQuestions": "Preguntas Frecuentes",
+    "commonAnswers": "Respuestas a las dudas más comunes",
+    "notFound": "¿No encuentras lo que buscas?",
+    "contactAdvisor": "Contactar Asesor",
+    "visaWhatsapp": "Hola, necesito información sobre los requisitos de visa para mi destino.",
+    "queryWhatsapp": "Hola, tengo una consulta sobre mi viaje."
+  },
+  "quotation": {
+    "title": "Tu Cotización",
+    "selectToSee": "Selecciona un paquete, fechas y número de personas para ver tu cotización estimada.",
+    "pricePerDay": "Precio por día",
+    "days": "días",
+    "subtotal": "Subtotal",
+    "groupDiscount": "Descuento grupal",
+    "durationDiscount": "Descuento por duración",
+    "estimatedTotal": "Total Estimado",
+    "finalNote": "Los precios son estimados y pueden variar. Contacta a tu asesor para confirmar."
+  },
+  "seo": {
+    "title": "Rio Trip Vibes - Tu Agencia de Viajes de Confianza",
+    "description": "Descubre experiencias únicas de viaje en Río de Janeiro con guías profesionales. Tours exclusivos, paseos en barco, trilhas y mucho más."
+  }
+}

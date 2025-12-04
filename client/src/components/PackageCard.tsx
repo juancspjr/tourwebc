@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, memo, useMemo, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -81,6 +82,7 @@ interface PackageCardProps {
 
 export default function PackageCard({ package: pkg, onViewDetails, onBook }: PackageCardProps) {
   const hasMultipleImages = pkg.images && pkg.images.length > 1;
+  const { t } = useTranslation();
 
   return (
     <Card className="group overflow-hidden hover:shadow-2xl transition-shadow duration-300 h-full">
@@ -154,7 +156,7 @@ export default function PackageCard({ package: pkg, onViewDetails, onBook }: Pac
             onClick={() => onViewDetails?.(pkg)}
             data-testid={`button-details-${pkg.id}`}
           >
-            Detalles
+            {t('packages.details')}
           </Button>
           <Button
             size="sm"
@@ -162,7 +164,7 @@ export default function PackageCard({ package: pkg, onViewDetails, onBook }: Pac
             onClick={() => onBook?.(pkg)}
             data-testid={`button-book-${pkg.id}`}
           >
-            Reservar
+            {t('packages.book')}
           </Button>
         </div>
       </CardContent>

@@ -11,6 +11,16 @@ Preferred communication style: Simple, everyday language.
 ## Recent Changes
 
 **December 2025:**
+- **Multilingual Support Implementation (04/12/2025):**
+  - Added i18next, react-i18next, and i18next-browser-languagedetector packages
+  - Created comprehensive translation files for 5 languages: Spanish (ES), English (EN), Portuguese (PT), French (FR), Italian (IT)
+  - Translation files located in `client/src/lib/translations/`
+  - Implemented LanguageSwitcher component in header for manual language selection
+  - All major components updated to use translations via useTranslation hook
+  - Browser language detection with fallback to Spanish (original language)
+  - SEO-friendly approach: Pre-defined translations (no API calls), faster load times
+  - Translations persist in localStorage with key `i18nextLng`
+  - Components with translations: Header, HeroSection, SplashScreen, PackageGrid, PackageCard, PackageModal, Footer, ContactSection, GeneralInfoSection
 - **Conversión a Sitio Estático (03/12/2025):**
   - Configurado despliegue estático usando `dist/public`
   - Formulario de contacto ahora usa FormSubmit.co (admin@riotripvibes.com)
@@ -161,6 +171,13 @@ Preferred communication style: Simple, everyday language.
 - Zod for schema validation
 - @hookform/resolvers for integration between React Hook Form and Zod
 - Drizzle-Zod for database schema validation
+
+**Internationalization**:
+- i18next for core i18n functionality
+- react-i18next for React integration with useTranslation hook
+- i18next-browser-languagedetector for automatic language detection
+- 5 supported languages: Spanish (default), English, Portuguese, French, Italian
+- Translation files in `client/src/lib/translations/` as JSON
 
 **Third-Party Services** (to be integrated):
 - WhatsApp Business API - Direct messaging integration via wa.me links
