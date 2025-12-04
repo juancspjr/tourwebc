@@ -4,6 +4,8 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from 
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { Menu, Phone } from "lucide-react";
 
+import logo1 from "@assets/logo1.webp";
+
 // Use stable URL for logo - preloaded in index.html for faster loading
 const logoImage = "/logo.png";
 
@@ -53,7 +55,7 @@ export default function Header({ onNavigate }: HeaderProps) {
             data-testid="link-logo-home"
           >
             <img 
-              src={logoImage} 
+              src={logo1} 
               alt="Rio Trip Vibes" 
               className="h-20 w-auto object-contain"
             />
