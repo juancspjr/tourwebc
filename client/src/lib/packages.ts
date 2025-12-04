@@ -89,24 +89,14 @@ export const categoryKeys = [
 
 export type CategoryKey = typeof categoryKeys[number];
 
-export const categoryToKey: Record<string, CategoryKey> = {
-  "Todos": "all",
-  "City Tour": "cityTour",
-  "Cultura": "culture",
-  "Playa": "beach",
-  "Aventura": "adventure",
-  "Acuático": "water",
-  "VIP": "vip",
-};
-
-export const categories = [
-  "Todos",
-  "City Tour",
-  "Cultura",
-  "Playa",
-  "Aventura",
-  "Acuático",
-  "VIP",
+export const categories: CategoryKey[] = [
+  "all",
+  "cityTour",
+  "culture",
+  "beach",
+  "adventure",
+  "water",
+  "vip",
 ];
 
 export const generalInfo = {
@@ -206,7 +196,7 @@ export const packages: PackageData[] = [
       "tourPackages.dayTour.highlights.1",
       "tourPackages.dayTour.highlights.2"
     ],
-    category: "City Tour",
+    category: "cityTour",
     badgeKey: "tourPackages.badges.mostPopular",
     rating: 4.9,
     includes: [
@@ -271,7 +261,7 @@ export const packages: PackageData[] = [
       "tourPackages.favelasTour.highlights.1",
       "tourPackages.favelasTour.highlights.2"
     ],
-    category: "Cultura",
+    category: "culture",
     rating: 4.8,
     includes: [
       {
@@ -338,7 +328,7 @@ export const packages: PackageData[] = [
       "tourPackages.playasTour.highlights.2",
       "tourPackages.playasTour.highlights.3"
     ],
-    category: "Playa",
+    category: "beach",
     rating: 4.7,
     includes: [
       {
@@ -404,7 +394,7 @@ export const packages: PackageData[] = [
       "tourPackages.trekking.highlights.1",
       "tourPackages.trekking.highlights.2"
     ],
-    category: "Aventura",
+    category: "adventure",
     badgeKey: "tourPackages.badges.adventure",
     rating: 4.9,
     includes: [
@@ -470,7 +460,7 @@ export const packages: PackageData[] = [
       "tourPackages.boatTour.highlights.1",
       "tourPackages.boatTour.highlights.2"
     ],
-    category: "Acuático",
+    category: "water",
     rating: 4.8,
     includes: [
       {
@@ -535,7 +525,7 @@ export const packages: PackageData[] = [
       "tourPackages.yachtVip.highlights.1",
       "tourPackages.yachtVip.highlights.2"
     ],
-    category: "VIP",
+    category: "vip",
     badgeKey: "tourPackages.badges.exclusive",
     rating: 5.0,
     includes: [
@@ -606,7 +596,7 @@ export const packages: PackageData[] = [
       "tourPackages.helicopter.highlights.1",
       "tourPackages.helicopter.highlights.2"
     ],
-    category: "VIP",
+    category: "vip",
     badgeKey: "tourPackages.badges.premium",
     rating: 5.0,
     includes: [

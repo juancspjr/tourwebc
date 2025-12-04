@@ -12,10 +12,10 @@ interface PackageGridProps {
 }
 
 export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps) {
-  const [activeCategory, setActiveCategory] = useState("Todos");
+  const [activeCategory, setActiveCategory] = useState("all");
   const { t } = useTranslation();
 
-  const filteredPackages = activeCategory === "Todos"
+  const filteredPackages = activeCategory === "all"
     ? packages
     : packages.filter((pkg) => pkg.category === activeCategory);
 
@@ -37,9 +37,9 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
               size="sm"
               onClick={() => setActiveCategory(category)}
               className="rounded-full"
-              data-testid={`filter-${category.toLowerCase().replace(" ", "-")}`}
+              data-testid={`filter-${category}`}
             >
-              {category}
+              {t(`categories.${category}`)}
             </Button>
           ))}
         </div>
