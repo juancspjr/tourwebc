@@ -84,25 +84,32 @@ export default function PackageCard({ package: pkg, onViewDetails, onBook }: Pac
   const hasMultipleImages = pkg.images && pkg.images.length > 1;
   const { t } = useTranslation();
 
+  const title = t(pkg.titleKey);
+  const description = t(pkg.descriptionKey);
+  const duration = t(pkg.durationKey);
+  const locations = pkg.locationKeys.map(key => t(key));
+  const highlights = pkg.highlightKeys.map(key => t(key));
+  const badge = pkg.badgeKey ? t(pkg.badgeKey) : undefined;
+
   return (
     <Card className="group overflow-hidden hover:shadow-2xl transition-shadow duration-300 h-full">
       <div className="relative aspect-[4/3] overflow-hidden">
         {hasMultipleImages ? (
           <PackageImageCarousel
             images={pkg.images}
-            packageTitle={pkg.title}
+            packageTitle={title}
             onImageClick={() => onViewDetails?.(pkg)}
           />
         ) : (
           <ProgressivePackageImage
             src={pkg.image}
-            alt={pkg.title}
+            alt={title}
             onClick={() => onViewDetails?.(pkg)}
           />
         )}
-        {pkg.badge && (
+        {badge && (
           <Badge className="absolute top-3 right-3 bg-chart-2 text-white z-20">
-            {pkg.badge}
+            {badge}
           </Badge>
         )}
         <div className="absolute top-3 left-3 z-20">
@@ -120,25 +127,25 @@ export default function PackageCard({ package: pkg, onViewDetails, onBook }: Pac
       
       <CardContent className="p-5">
         <h3 className="text-xl font-bold text-foreground mb-2 line-clamp-1">
-          {pkg.title}
+          {title}
         </h3>
         <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-          {pkg.description}
+          {description}
         </p>
         
         <div className="space-y-2 mb-4">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Clock className="w-4 h-4 text-primary" />
-            <span>{pkg.duration}</span>
+            <span>{duration}</span>
           </div>
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <MapPin className="w-4 h-4 text-primary" />
-            <span className="line-clamp-1">{pkg.locations.join(", ")}</span>
+            <span className="line-clamp-1">{locations.join(", ")}</span>
           </div>
         </div>
 
         <div className="flex flex-wrap gap-2 mb-4">
-          {pkg.highlights.slice(0, 3).map((highlight, index) => (
+          {highlights.slice(0, 3).map((highlight, index) => (
             <span
               key={index}
               className="inline-flex items-center gap-1 text-xs text-muted-foreground"

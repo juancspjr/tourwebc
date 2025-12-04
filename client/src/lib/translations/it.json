@@ -138,5 +138,171 @@
   "seo": {
     "title": "Rio Trip Vibes - La Tua Agenzia di Viaggi di Fiducia",
     "description": "Scopri esperienze di viaggio uniche a Rio de Janeiro con guide professionali. Tour esclusivi, gite in barca, sentieri e molto altro."
+  },
+  "testimonials": {
+    "title": "Cosa Dicono i Nostri Viaggiatori",
+    "subtitle": "Storie vere di persone che hanno esplorato Rio con noi. Più di 1.000 viaggiatori felici ci supportano.",
+    "satisfied": "+1.000 viaggiatori soddisfatti",
+    "items": {
+      "1": { "name": "Maria Garcia", "date": "Novembre 2024", "text": "Un'esperienza incredibile! La guida era molto professionale e competente. Il tour al Cristo Redentore e al Pan di Zucchero ha superato tutte le mie aspettative. 100% consigliato.", "tour": "Day Tour Rio de Janeiro" },
+      "2": { "name": "Carlos Rodriguez", "date": "Ottobre 2024", "text": "Il trekking a Pedra da Gávea era impegnativo ma le viste sono impressionanti. La guida si è presa cura di noi tutto il tempo e ci ha insegnato sulla flora locale. Tornerò per altre avventure!", "tour": "Sentieri & Trekking" },
+      "3": { "name": "Ana Martinez", "date": "Settembre 2024", "text": "La gita in yacht era spettacolare! Abbiamo visto il tramonto dal mare con Copacabana sullo sfondo. Perfetto per festeggiare il nostro anniversario. L'equipaggio era molto attento.", "tour": "Gita in Yacht VIP" },
+      "4": { "name": "Diego Flores", "date": "Novembre 2024", "text": "Il tour in elicottero è stata la cosa più incredibile che abbia mai fatto! Vedere il Cristo Redentore dall'alto e le spiagge di Rio è un'esperienza impagabile. Foto spettacolari.", "tour": "Tour in Elicottero" },
+      "5": { "name": "Carolina Sanchez", "date": "Ottobre 2024", "text": "Le spiagge di Arraial do Cabo sono un paradiso nascosto. Acqua cristallina, immersioni incredibili e l'equipaggio della barca super simpatico. Una giornata perfetta in mare.", "tour": "Gite in Barca" },
+      "6": { "name": "Roberto Diaz", "date": "Settembre 2024", "text": "Il tour delle favelas ha completamente cambiato la mia prospettiva. La cultura, l'arte urbana, la musica... e le viste da Vidigal sono di un altro mondo. Molto consigliato.", "tour": "Tour delle Favelas" },
+      "7": { "name": "Patricia Morales", "date": "Agosto 2024", "text": "Abbiamo fatto il trekking del Morro Dois Irmãos e le viste di Ipanema e Leblon dalla cima sono indimenticabili. Guida molto professionale e ritmo perfetto per godersi tutto.", "tour": "Sentieri & Trekking" },
+      "8": { "name": "Fernando Castro", "date": "Agosto 2024", "text": "Il City Tour completo è il modo migliore per conoscere Rio in un giorno. Abbiamo visitato tutti i punti iconici e la guida ci ha raccontato storie affascinanti di ogni luogo.", "tour": "Day Tour Rio de Janeiro" },
+      "9": { "name": "Lucia Hernandez", "date": "Luglio 2024", "text": "Prainha e Grumari sono spiagge paradisiache! Lontano dal turismo di massa, acque pulite e paesaggi da cartolina. Il tour delle spiagge è stata la nostra migliore decisione.", "tour": "Tour delle Spiagge" },
+      "10": { "name": "Miguel Torres", "date": "Luglio 2024", "text": "Abbiamo festeggiato il compleanno di mia moglie sullo yacht VIP ed è stato magico. Champagne, tramonto, musica e le luci di Rio sullo sfondo. Servizio di prima classe.", "tour": "Gita in Yacht VIP" },
+      "11": { "name": "Valentina Ruiz", "date": "Giugno 2024", "text": "Ilha Grande è un paradiso! La gita in barca ci ha portato in spiagge segrete con acque turchesi. Il pranzo di frutti di mare freschi era delizioso. Giornata indimenticabile.", "tour": "Gite in Barca" },
+      "12": { "name": "Andres Vargas", "date": "Giugno 2024", "text": "Pedra do Telégrafo ha le migliori foto Instagram! Il trekking è accessibile e le viste della costa sono spettacolari. Guida eccellente e molto paziente.", "tour": "Sentieri & Trekking" },
+      "13": { "name": "Camila Reyes", "date": "Maggio 2024", "text": "Vedere Rio dall'elicottero al tramonto era surreale. I colori del cielo, il Cristo illuminato e tutta la baia brillante. Un'esperienza che vale ogni centesimo.", "tour": "Tour in Elicottero" }
+    }
+  },
+  "tourPackages": {
+    "badges": { "mostPopular": "Più Popolare", "adventure": "Avventura", "exclusive": "Esclusivo", "premium": "Premium" },
+    "dayTour": {
+      "title": "Day Tour Rio de Janeiro",
+      "description": "Scopri il meglio di Rio in un solo giorno. Visitiamo tra 7 e 9 siti turistici, incluso il Cristo Redentore, la Scalinata Selarón, il Pan di Zucchero, il Belvedere di Leblon e molto altro.",
+      "duration": "8-10 ore",
+      "locations": { "0": "Cristo Redentore", "1": "Scalinata Selarón", "2": "Pan di Zucchero", "3": "Belvedere di Leblon", "4": "Lapa", "5": "Centro Storico" },
+      "highlights": { "0": "Trasporto incluso", "1": "Guida locale bilingue", "2": "Soste fotografiche" },
+      "includes": {
+        "transport": { "title": "Trasporto", "items": { "0": "Prelievo e ritorno in hotel", "1": "Veicolo climatizzato", "2": "Trasferimenti tra i siti" } },
+        "guide": { "title": "Guida e Accompagnamento", "items": { "0": "Guida locale certificata bilingue", "1": "Spiegazioni storiche e culturali", "2": "Assistenza durante tutto il tour" } },
+        "tickets": { "title": "Biglietti e Accessi", "items": { "0": "Ingresso al Corcovado", "1": "Funivia del Pan di Zucchero", "2": "Accesso ai belvedere" } },
+        "extras": { "title": "Extra", "items": { "0": "Acqua durante il tour", "1": "Kit avventura Rio Trip Vibes", "2": "Foto professionali" } }
+      },
+      "faqs": {
+        "0": { "question": "Qual è il periodo migliore?", "answer": "Rio ha clima tropicale tutto l'anno. Consigliamo aprile-ottobre per evitare forti piogge." },
+        "1": { "question": "Devo portare soldi extra?", "answer": "Consigliamo 30-50 USD per spese personali. Il pranzo non è incluso." },
+        "2": { "question": "Bambini e anziani possono partecipare?", "answer": "Sì, il tour è adatto a tutte le età." },
+        "3": { "question": "Cosa devo portare?", "answer": "Vestiti comodi, crema solare, cappello e scarpe comode." },
+        "4": { "question": "Qual è la politica di cancellazione?", "answer": "Cancellazione gratuita fino a 48h prima. Meno di 48h: addebito del 50%." }
+      }
+    },
+    "favelasTour": {
+      "title": "Tour delle Favelas",
+      "description": "Vivi l'autentica cultura carioca con tour guidati nelle favelas più famose di Rio. Scopri la loro storia, la loro gente e i loro belvedere impressionanti.",
+      "duration": "3-4 ore",
+      "locations": { "0": "Rocinha", "1": "Vidigal", "2": "Tavares Bastos", "3": "Santa Marta" },
+      "highlights": { "0": "Esperienza culturale autentica", "1": "Guida locale della comunità", "2": "Belvedere spettacolari" },
+      "includes": {
+        "transport": { "title": "Trasporto", "items": { "0": "Prelievo al punto d'incontro", "1": "Trasporto interno nella comunità", "2": "Ritorno al punto di partenza" } },
+        "guide": { "title": "Guida Locale", "items": { "0": "Guida residente della comunità", "1": "Storia e contesto sociale", "2": "Interazione con artisti locali" } },
+        "experiences": { "title": "Esperienze Incluse", "items": { "0": "Visita a progetti sociali", "1": "Degustazione di cucina tipica", "2": "Accesso a belvedere esclusivi", "3": "Arte urbana e graffiti" } },
+        "social": { "title": "Contributo Sociale", "items": { "0": "Parte del costo supporta progetti comunitari", "1": "Acquisti nei negozi locali", "2": "Turismo responsabile" } }
+      },
+      "faqs": {
+        "0": { "question": "È sicuro?", "answer": "Sì, i nostri tour sono completamente sicuri con guide locali esperte." },
+        "1": { "question": "Posso fare foto?", "answer": "Sì, di paesaggi e arte urbana. Chiedi permesso per fotografare i residenti." },
+        "2": { "question": "Qual è il periodo migliore?", "answer": "Il tour si può fare tutto l'anno. Evita giorni di forte pioggia." },
+        "3": { "question": "Cosa devo portare?", "answer": "Vestiti discreti, scarpe chiuse, pochi contanti." },
+        "4": { "question": "Ci sono opzioni vegetariane?", "answer": "Sì, informaci in anticipo delle restrizioni alimentari." }
+      }
+    },
+    "playasTour": {
+      "title": "Tour delle Spiagge",
+      "description": "Esplora le spiagge più iconiche: Copacabana, Ipanema, Joatinga, Prainha e Grumari. Ideale per goderti il sole, il surf e i paesaggi naturali.",
+      "duration": "6-8 ore",
+      "locations": { "0": "Copacabana", "1": "Ipanema", "2": "Joatinga", "3": "Prainha", "4": "Grumari" },
+      "highlights": { "0": "Spiagge paradisiache", "1": "Surf opzionale", "2": "Foto spettacolari", "3": "Acqua di cocco inclusa" },
+      "includes": {
+        "transport": { "title": "Trasporto", "items": { "0": "Prelievo e ritorno in hotel", "1": "Veicolo 4x4 per spiagge remote", "2": "Trasferimenti tra spiagge" } },
+        "beachTime": { "title": "Tempo in Spiaggia", "items": { "0": "Soste di 30-60 min ad ogni spiaggia", "1": "Tempo libero per nuotare", "2": "Assistenza per sport acquatici" } },
+        "included": { "title": "Incluso", "items": { "0": "Acqua di cocco alle soste", "1": "Ombrellone e sedie", "2": "Kit snorkel base", "3": "Asciugamani da spiaggia" } },
+        "optional": { "title": "Opzionali", "items": { "0": "Lezioni di surf", "1": "Pranzo al ristorante sulla spiaggia", "2": "Stand up paddle" } }
+      },
+      "faqs": {
+        "0": { "question": "Qual è il periodo migliore?", "answer": "Novembre-marzo è estate con temperature ideali. Aprile-ottobre ha anche giornate eccellenti." },
+        "1": { "question": "Devo saper nuotare?", "answer": "Non obbligatorio, ma consigliato. Segui le istruzioni della guida." },
+        "2": { "question": "Cosa devo portare?", "answer": "Costume, crema solare alta protezione, cappello, occhiali da sole e vestiti di ricambio." },
+        "3": { "question": "Le spiagge sono adatte ai bambini?", "answer": "Sì, specialmente Copacabana e Ipanema con acque più calme." },
+        "4": { "question": "Ci sono armadietti?", "answer": "No, ma la guida sorveglia gli oggetti mentre ti godi il mare." }
+      }
+    },
+    "trekking": {
+      "title": "Sentieri & Trekking",
+      "description": "Avventura garantita nelle colline più famose di Rio: Morro Dois Irmãos, Pedra Bonita, Pedra do Telégrafo, Pedra da Gávea. Guide specializzate e viste mozzafiato.",
+      "duration": "4-6 ore",
+      "priceNote": "Varia per percorso",
+      "locations": { "0": "Morro Dois Irmãos", "1": "Pedra Bonita", "2": "Pedra do Telégrafo", "3": "Pedra da Gávea" },
+      "highlights": { "0": "Guide specializzate", "1": "Attrezzatura di sicurezza", "2": "Viste panoramiche incredibili" },
+      "includes": {
+        "transport": { "title": "Trasporto", "items": { "0": "Prelievo e ritorno in hotel", "1": "Trasferimento all'inizio del sentiero", "2": "Veicolo climatizzato" } },
+        "safety": { "title": "Guida e Sicurezza", "items": { "0": "Guida di montagna certificata", "1": "Attrezzatura di sicurezza", "2": "Kit di primo soccorso", "3": "Radio di comunicazione" } },
+        "included": { "title": "Incluso", "items": { "0": "Bastoncini da trekking", "1": "Snack energetici", "2": "Acqua e bevande isotoniche", "3": "Foto professionali" } },
+        "kit": { "title": "Kit Avventura", "items": { "0": "T-shirt Dry Fit Rio Trip Vibes", "1": "Bandana multiuso", "2": "Custodia impermeabile per telefono" } }
+      },
+      "faqs": {
+        "0": { "question": "Qual è il livello di difficoltà?", "answer": "Variabile: Pedra do Telégrafo facile (2h), Dois Irmãos moderato (3h), Pedra Bonita moderato-alto (4h), Pedra da Gávea difficile (6h)." },
+        "1": { "question": "Qual è il periodo migliore?", "answer": "Aprile-ottobre ideale con clima secco. Evita giorni di pioggia." },
+        "2": { "question": "Ho bisogno di esperienza?", "answer": "Per percorsi facili e moderati, no. Per Pedra da Gávea consigliamo esperienza base." },
+        "3": { "question": "Cosa devo portare?", "answer": "Scarpe da trekking, abbigliamento sportivo, zainetto, crema solare, repellente e acqua." },
+        "4": { "question": "C'è un limite di età?", "answer": "Facili: 10+ anni. Moderati: 14+ anni. Difficili: 18+ anni. Oltre 60 richiede valutazione medica." }
+      }
+    },
+    "boatTour": {
+      "title": "Gite in Barca",
+      "description": "Goditi una giornata in paradiso navigando verso Ilha Grande o Arraial do Cabo. Spiagge con acque cristalline, snorkel e paesaggi da cartolina.",
+      "duration": "Giornata intera",
+      "locations": { "0": "Ilha Grande", "1": "Arraial do Cabo", "2": "Angra dos Reis" },
+      "highlights": { "0": "Trasporto incluso", "1": "Snorkel con attrezzatura", "2": "Pranzo a bordo opzionale" },
+      "includes": {
+        "transport": { "title": "Trasporto", "items": { "0": "Prelievo e ritorno in hotel", "1": "Trasferimento terrestre al porto", "2": "Navigazione su imbarcazione sicura" } },
+        "nautical": { "title": "Esperienza Nautica", "items": { "0": "Tour di 4-6 spiagge e isole", "1": "Soste per nuotare e fare snorkel", "2": "Attrezzatura snorkel inclusa" } },
+        "onboard": { "title": "A Bordo", "items": { "0": "Bevande (acqua, bibite)", "1": "Frutta tropicale", "2": "Ghiacciaia disponibile" } },
+        "safety": { "title": "Sicurezza", "items": { "0": "Giubbotti di salvataggio", "1": "Capitano ed equipaggio certificati", "2": "Assicurazione navigazione" } }
+      },
+      "faqs": {
+        "0": { "question": "Qual è il periodo migliore?", "answer": "Ottobre-aprile il mare è più calmo. Luglio-agosto possono avere mare mosso." },
+        "1": { "question": "Soffro il mal di mare, posso partecipare?", "answer": "Consigliamo farmaci contro il mal di mare prima del tour." },
+        "2": { "question": "Il pranzo è incluso?", "answer": "Il pranzo è opzionale con costo aggiuntivo. Puoi portare il tuo cibo." },
+        "3": { "question": "C'è un limite di peso o età?", "answer": "Bambini da 5 anni con supervisione. Nessun limite di peso ma capacità massima." },
+        "4": { "question": "Posso portare la mia attrezzatura snorkel?", "answer": "Sì, o usa la nostra senza costi aggiuntivi." }
+      }
+    },
+    "yachtVip": {
+      "title": "Gita in Yacht VIP",
+      "description": "Esperienza esclusiva lungo le coste di Barra da Tijuca e Copacabana. Musica, bevande, equipaggio professionale e il miglior tramonto di Rio.",
+      "duration": "Personalizzabile",
+      "priceNote": "Per ora",
+      "locations": { "0": "Barra da Tijuca", "1": "Copacabana", "2": "Niterói", "3": "Isole di Guanabara" },
+      "highlights": { "0": "Equipaggio professionale", "1": "Bevande premium incluse", "2": "Ideale per gruppi ed eventi" },
+      "includes": {
+        "yacht": { "title": "Lo Yacht", "items": { "0": "Imbarcazione di lusso (fino a 12 persone)", "1": "Salone climatizzato", "2": "Sistema audio premium", "3": "Area prendisole" } },
+        "crew": { "title": "Equipaggio", "items": { "0": "Capitano professionale", "1": "Marinaio assistente", "2": "Servizio barman", "3": "Chef opzionale" } },
+        "included": { "title": "Incluso", "items": { "0": "Bevande premium", "1": "Tagliere formaggi e stuzzichini", "2": "Ghiaccio illimitato", "3": "Attrezzatura snorkel" } },
+        "extras": { "title": "Extra Disponibili", "items": { "0": "Decorazione per eventi", "1": "Fotografo professionale", "2": "Menu gourmet personalizzato", "3": "DJ a bordo" } }
+      },
+      "faqs": {
+        "0": { "question": "Qual è la capacità massima?", "answer": "6-12 persone a seconda del modello. Per gruppi più grandi, più imbarcazioni." },
+        "1": { "question": "Si può prenotare per eventi?", "answer": "Sì, offriamo pacchetti per compleanni, addii, matrimoni ed eventi aziendali." },
+        "2": { "question": "Qual è l'orario ideale?", "answer": "Per il tramonto, parti 2-3h prima. Per giornata intera, partenze alle 10." },
+        "3": { "question": "Posso portare cibo aggiuntivo?", "answer": "Sì, senza costi aggiuntivi. Abbiamo ampi frigoriferi." },
+        "4": { "question": "C'è una politica per maltempo?", "answer": "Riprogrammiamo senza costi o rimborsiamo 100% in caso di condizioni avverse." }
+      }
+    },
+    "helicopter": {
+      "title": "Tour in Elicottero",
+      "description": "Vivi Rio dal cielo. Un volo panoramico sopra il Cristo Redentore, Pan di Zucchero, spiagge e montagne. Esperienza premium con viste uniche e indimenticabili.",
+      "duration": "15-30 min",
+      "priceNote": "15 min volo",
+      "locations": { "0": "Cristo Redentore", "1": "Pan di Zucchero", "2": "Spiagge", "3": "Lagoa", "4": "Maracanã" },
+      "highlights": { "0": "Volo panoramico", "1": "Video e foto incluse", "2": "Esperienza premium" },
+      "includes": {
+        "flight": { "title": "Il Volo", "items": { "0": "Elicottero con finestre panoramiche", "1": "Pilota commerciale certificato", "2": "Cuffie con comunicazione", "3": "Briefing di sicurezza" } },
+        "routes": { "title": "Percorsi Disponibili", "items": { "0": "Percorso Classico (15 min): Cristo, Pan di Zucchero, spiagge", "1": "Percorso Completo (20 min): + Maracanã, Lagoa", "2": "Percorso Premium (30 min): Tour completo di Rio" } },
+        "multimedia": { "title": "Multimedia", "items": { "0": "Video HD del volo completo", "1": "Fotografie aeree professionali", "2": "GoPro disponibile senza costi", "3": "Accesso digitale immediato" } },
+        "extras": { "title": "Extra", "items": { "0": "Champagne di benvenuto", "1": "Certificato di volo", "2": "Transfer dall'hotel" } }
+      },
+      "faqs": {
+        "0": { "question": "È sicuro volare in elicottero?", "answer": "Assolutamente. Piloti certificati, elicotteri con manutenzione rigorosa e conformità a tutte le norme aeronautiche." },
+        "1": { "question": "C'è un limite di peso?", "answer": "Il peso combinato non deve superare 450kg. Capacità di 4-6 passeggeri." },
+        "2": { "question": "Qual è l'orario migliore?", "answer": "Mattine presto per migliore visibilità. Tramonto per foto spettacolari." },
+        "3": { "question": "Si può volare con la pioggia?", "answer": "No, i voli vengono cancellati o riprogrammati in caso di pioggia, nebbia o venti forti." },
+        "4": { "question": "Posso portare la mia fotocamera professionale?", "answer": "Sì, usa qualsiasi attrezzatura fotografica. Finestre ampie e pulite per foto eccellenti." }
+      }
+    }
   }
 }

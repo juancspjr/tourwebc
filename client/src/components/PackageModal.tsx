@@ -30,19 +30,25 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
   const { t } = useTranslation();
   if (!pkg) return null;
 
+  const title = t(pkg.titleKey);
+  const description = t(pkg.descriptionKey);
+  const duration = t(pkg.durationKey);
+  const locations = pkg.locationKeys.map(key => t(key));
+  const badge = pkg.badgeKey ? t(pkg.badgeKey) : undefined;
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto p-0">
         <div className="p-6">
           <DialogHeader className="relative mb-4">
-            <ImageCarousel images={pkg.gallery} alt={pkg.title} />
+            <ImageCarousel images={pkg.gallery} alt={title} />
             
             <div className="mt-4">
-              <DialogTitle className="text-2xl font-bold">{pkg.title}</DialogTitle>
+              <DialogTitle className="text-2xl font-bold">{title}</DialogTitle>
               <div className="flex items-center gap-2 mt-2 flex-wrap">
                 <Badge variant="secondary">{pkg.category}</Badge>
-                {pkg.badge && (
-                  <Badge className="bg-chart-2 text-white">{pkg.badge}</Badge>
+                {badge && (
+                  <Badge className="bg-chart-2 text-white">{badge}</Badge>
                 )}
                 {pkg.rating && (
                   <div className="flex items-center gap-1">
@@ -55,7 +61,7 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
           </DialogHeader>
 
           <DialogDescription className="text-base text-muted-foreground mt-2">
-            {pkg.description}
+            {description}
           </DialogDescription>
 
           <div className="flex flex-wrap gap-4 mt-4 py-4 border-y border-border">
@@ -63,14 +69,14 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
               <Clock className="w-5 h-5 text-primary" />
               <div>
                 <span className="font-medium">{t('packageModal.duration')}:</span>
-                <span className="text-muted-foreground ml-1">{pkg.duration}</span>
+                <span className="text-muted-foreground ml-1">{duration}</span>
               </div>
             </div>
             <div className="flex items-center gap-2 text-sm">
               <MapPin className="w-5 h-5 text-primary" />
               <div>
                 <span className="font-medium">{t('packageModal.locations')}:</span>
-                <span className="text-muted-foreground ml-1">{pkg.locations.length} {t('packageModal.destinations')}</span>
+                <span className="text-muted-foreground ml-1">{locations.length} {t('packageModal.destinations')}</span>
               </div>
             </div>
           </div>
@@ -98,13 +104,13 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
                 <div key={sectionIndex} className="space-y-2">
                   <h4 className="font-semibold text-foreground flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-primary" />
-                    {section.title}
+                    {t(section.titleKey)}
                   </h4>
                   <ul className="grid grid-cols-1 gap-2 pl-4">
-                    {section.items.map((item, itemIndex) => (
+                    {section.itemKeys.map((itemKey, itemIndex) => (
                       <li key={itemIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
                         <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                        <span>{item}</span>
+                        <span>{t(itemKey)}</span>
                       </li>
                     ))}
                   </ul>
@@ -114,7 +120,7 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
 
             <TabsContent value="locations" className="mt-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {pkg.locations.map((location, index) => (
+                {locations.map((location, index) => (
                   <div 
                     key={index} 
                     className="flex items-center gap-3 p-3 rounded-lg bg-muted/50"
@@ -133,10 +139,10 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
                 {pkg.faqs.map((faq, index) => (
                   <AccordionItem key={index} value={`faq-${index}`}>
                     <AccordionTrigger className="text-left text-sm font-medium hover:no-underline" data-testid={`faq-trigger-${index}`}>
-                      {faq.question}
+                      {t(faq.questionKey)}
                     </AccordionTrigger>
                     <AccordionContent className="text-sm text-muted-foreground">
-                      {faq.answer}
+                      {t(faq.answerKey)}
                     </AccordionContent>
                   </AccordionItem>
                 ))}
@@ -148,7 +154,7 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
             <Button 
               variant="outline"
               className="w-full gap-2"
-              onClick={() => window.open("https://wa.me/5521983526144?text=" + encodeURIComponent(t('packageModal.whatsappMessage', { title: pkg.title })), "_blank")}
+              onClick={() => window.open("https://wa.me/5521983526144?text=" + encodeURIComponent(t('packageModal.whatsappMessage', { title })), "_blank")}
               data-testid="button-contact-advisor"
             >
               <MessageCircle className="w-4 h-4" />

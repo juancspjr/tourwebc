@@ -49,29 +49,29 @@ import heli4 from "@assets/Helicóptero4_1764759625353.webp";
 import heli5 from "@assets/Helicóptero5_1764759625353.webp";
 
 export interface FAQ {
-  question: string;
-  answer: string;
+  questionKey: string;
+  answerKey: string;
 }
 
 export interface PackageIncludes {
-  title: string;
-  items: string[];
+  titleKey: string;
+  itemKeys: string[];
 }
 
 export interface PackageData {
   id: string;
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   image: string;
   images: string[];
   gallery: string[];
   price: number;
-  priceNote?: string;
-  duration: string;
-  locations: string[];
-  highlights: string[];
+  priceNoteKey?: string;
+  durationKey: string;
+  locationKeys: string[];
+  highlightKeys: string[];
   category: string;
-  badge?: string;
+  badgeKey?: string;
   rating?: number;
   includes: PackageIncludes[];
   faqs: FAQ[];
@@ -186,509 +186,471 @@ export const generalInfo = {
 export const packages: PackageData[] = [
   {
     id: "day-tour",
-    title: "Day Tour Rio de Janeiro",
-    description: "Descubre lo mejor de Rio en un solo día. Visitamos entre 7 a 9 puntos turísticos, incluyendo Cristo Redentor, Escadaria Selarón, Pão de Açúcar, Mirante do Leblon y mucho más. Una experiencia completa que te permitirá conocer los íconos más emblemáticos de la ciudad maravillosa.",
+    titleKey: "tourPackages.dayTour.title",
+    descriptionKey: "tourPackages.dayTour.description",
     image: cristoImage,
     images: [cristoImage, rio1, rio2, rio3, rio4, rioV1],
     gallery: [rio1, rio2, rio3, rio4, rioV1],
     price: 100,
-    duration: "8-10 horas",
-    locations: ["Cristo Redentor", "Escadaria Selarón", "Pão de Açúcar", "Mirante do Leblon", "Lapa", "Centro Histórico"],
-    highlights: ["Transporte incluido", "Guía local bilingüe", "Paradas fotográficas"],
+    durationKey: "tourPackages.dayTour.duration",
+    locationKeys: [
+      "tourPackages.dayTour.locations.0",
+      "tourPackages.dayTour.locations.1",
+      "tourPackages.dayTour.locations.2",
+      "tourPackages.dayTour.locations.3",
+      "tourPackages.dayTour.locations.4",
+      "tourPackages.dayTour.locations.5"
+    ],
+    highlightKeys: [
+      "tourPackages.dayTour.highlights.0",
+      "tourPackages.dayTour.highlights.1",
+      "tourPackages.dayTour.highlights.2"
+    ],
     category: "City Tour",
-    badge: "Más Popular",
+    badgeKey: "tourPackages.badges.mostPopular",
     rating: 4.9,
     includes: [
       {
-        title: "Transporte",
-        items: [
-          "Recogida y retorno al hotel o punto de encuentro",
-          "Vehículo con aire acondicionado",
-          "Traslados entre todos los puntos turísticos"
+        titleKey: "tourPackages.dayTour.includes.transport.title",
+        itemKeys: [
+          "tourPackages.dayTour.includes.transport.items.0",
+          "tourPackages.dayTour.includes.transport.items.1",
+          "tourPackages.dayTour.includes.transport.items.2"
         ]
       },
       {
-        title: "Guía y Acompañamiento",
-        items: [
-          "Guía local certificado bilingüe (español/portugués)",
-          "Explicación histórica y cultural en cada parada",
-          "Asistencia durante todo el recorrido"
+        titleKey: "tourPackages.dayTour.includes.guide.title",
+        itemKeys: [
+          "tourPackages.dayTour.includes.guide.items.0",
+          "tourPackages.dayTour.includes.guide.items.1",
+          "tourPackages.dayTour.includes.guide.items.2"
         ]
       },
       {
-        title: "Entradas y Accesos",
-        items: [
-          "Entrada al Corcovado (Cristo Redentor)",
-          "Teleférico Pan de Azúcar",
-          "Acceso a miradores panorámicos"
+        titleKey: "tourPackages.dayTour.includes.tickets.title",
+        itemKeys: [
+          "tourPackages.dayTour.includes.tickets.items.0",
+          "tourPackages.dayTour.includes.tickets.items.1",
+          "tourPackages.dayTour.includes.tickets.items.2"
         ]
       },
       {
-        title: "Extras",
-        items: [
-          "Agua embotellada durante el tour",
-          "Kit de aventura Rio Trip Vibes",
-          "Fotos profesionales del recorrido"
+        titleKey: "tourPackages.dayTour.includes.extras.title",
+        itemKeys: [
+          "tourPackages.dayTour.includes.extras.items.0",
+          "tourPackages.dayTour.includes.extras.items.1",
+          "tourPackages.dayTour.includes.extras.items.2"
         ]
       }
     ],
     faqs: [
-      {
-        question: "¿Cuál es el mejor momento del año para este tour?",
-        answer: "Rio de Janeiro tiene clima tropical todo el año. Recomendamos de abril a octubre para evitar las lluvias intensas del verano. Sin embargo, cualquier época es buena para visitar."
-      },
-      {
-        question: "¿Necesito llevar dinero adicional?",
-        answer: "Recomendamos llevar entre $30-50 USD para gastos personales como souvenirs, snacks adicionales o propinas. El almuerzo no está incluido pero hay excelentes opciones en el recorrido."
-      },
-      {
-        question: "¿Pueden viajar niños o personas de tercera edad?",
-        answer: "Sí, el tour es apto para todas las edades. Contamos con vehículos cómodos y el ritmo se adapta al grupo. Para personas con movilidad reducida, consultar disponibilidad de rutas accesibles."
-      },
-      {
-        question: "¿Qué debo llevar?",
-        answer: "Ropa cómoda, protector solar, sombrero o gorra, cámara fotográfica y calzado cómodo para caminar. En verano, llevar repelente de insectos."
-      },
-      {
-        question: "¿Cuál es la política de cancelación?",
-        answer: "Cancelación gratuita hasta 48 horas antes del tour. Cancelaciones con menos de 48 horas tienen un cargo del 50%. No shows no son reembolsables."
-      }
+      { questionKey: "tourPackages.dayTour.faqs.0.question", answerKey: "tourPackages.dayTour.faqs.0.answer" },
+      { questionKey: "tourPackages.dayTour.faqs.1.question", answerKey: "tourPackages.dayTour.faqs.1.answer" },
+      { questionKey: "tourPackages.dayTour.faqs.2.question", answerKey: "tourPackages.dayTour.faqs.2.answer" },
+      { questionKey: "tourPackages.dayTour.faqs.3.question", answerKey: "tourPackages.dayTour.faqs.3.answer" },
+      { questionKey: "tourPackages.dayTour.faqs.4.question", answerKey: "tourPackages.dayTour.faqs.4.answer" }
     ]
   },
   {
     id: "favelas-tour",
-    title: "Tour por las Favelas",
-    description: "Vive la auténtica cultura carioca con recorridos guiados por las favelas más famosas de Rio. Conoce su historia, su gente y sus miradores impresionantes. Una experiencia que cambiará tu perspectiva sobre estas vibrantes comunidades llenas de arte, música y tradición.",
+    titleKey: "tourPackages.favelasTour.title",
+    descriptionKey: "tourPackages.favelasTour.description",
     image: favelaImage,
     images: [favelaImage, favela1, favela2, favela2_1, favela3, favela4],
     gallery: [favela1, favela2, favela2_1, favela3, favela4],
     price: 35,
-    duration: "3-4 horas",
-    locations: ["Rocinha", "Vidigal", "Tavares Bastos", "Santa Marta"],
-    highlights: ["Experiencia cultural auténtica", "Guía local de la comunidad", "Miradores espectaculares"],
+    durationKey: "tourPackages.favelasTour.duration",
+    locationKeys: [
+      "tourPackages.favelasTour.locations.0",
+      "tourPackages.favelasTour.locations.1",
+      "tourPackages.favelasTour.locations.2",
+      "tourPackages.favelasTour.locations.3"
+    ],
+    highlightKeys: [
+      "tourPackages.favelasTour.highlights.0",
+      "tourPackages.favelasTour.highlights.1",
+      "tourPackages.favelasTour.highlights.2"
+    ],
     category: "Cultura",
     rating: 4.8,
     includes: [
       {
-        title: "Transporte",
-        items: [
-          "Recogida en punto de encuentro",
-          "Transporte interno en la comunidad",
-          "Retorno al punto de partida"
+        titleKey: "tourPackages.favelasTour.includes.transport.title",
+        itemKeys: [
+          "tourPackages.favelasTour.includes.transport.items.0",
+          "tourPackages.favelasTour.includes.transport.items.1",
+          "tourPackages.favelasTour.includes.transport.items.2"
         ]
       },
       {
-        title: "Guía Local",
-        items: [
-          "Guía residente de la comunidad",
-          "Historia y contexto social",
-          "Interacción con artistas y comerciantes locales"
+        titleKey: "tourPackages.favelasTour.includes.guide.title",
+        itemKeys: [
+          "tourPackages.favelasTour.includes.guide.items.0",
+          "tourPackages.favelasTour.includes.guide.items.1",
+          "tourPackages.favelasTour.includes.guide.items.2"
         ]
       },
       {
-        title: "Experiencias Incluidas",
-        items: [
-          "Visita a proyectos sociales",
-          "Degustación de comida típica",
-          "Acceso a miradores exclusivos",
-          "Muestra de arte urbano y graffiti"
+        titleKey: "tourPackages.favelasTour.includes.experiences.title",
+        itemKeys: [
+          "tourPackages.favelasTour.includes.experiences.items.0",
+          "tourPackages.favelasTour.includes.experiences.items.1",
+          "tourPackages.favelasTour.includes.experiences.items.2",
+          "tourPackages.favelasTour.includes.experiences.items.3"
         ]
       },
       {
-        title: "Contribución Social",
-        items: [
-          "Parte del costo apoya proyectos comunitarios",
-          "Compras en comercios locales",
-          "Turismo responsable y sostenible"
+        titleKey: "tourPackages.favelasTour.includes.social.title",
+        itemKeys: [
+          "tourPackages.favelasTour.includes.social.items.0",
+          "tourPackages.favelasTour.includes.social.items.1",
+          "tourPackages.favelasTour.includes.social.items.2"
         ]
       }
     ],
     faqs: [
-      {
-        question: "¿Es seguro visitar las favelas?",
-        answer: "Sí, nuestros tours son completamente seguros. Trabajamos con guías locales que conocen perfectamente la comunidad y mantenemos rutas establecidas. La seguridad de nuestros visitantes es prioridad."
-      },
-      {
-        question: "¿Puedo tomar fotos?",
-        answer: "Sí, puedes tomar fotos de paisajes y arte urbano. Pedimos respeto y siempre solicitar permiso antes de fotografiar a residentes. Tu guía te orientará sobre las mejores prácticas."
-      },
-      {
-        question: "¿Cuál es el mejor momento del año para este tour?",
-        answer: "Este tour se puede realizar durante todo el año. Las mañanas suelen ser más tranquilas y con mejor luz para fotos. Evitar días de lluvia intensa."
-      },
-      {
-        question: "¿Qué debo llevar?",
-        answer: "Ropa cómoda y discreta, calzado cerrado para caminar, poco efectivo y evitar joyas llamativas. Llevar agua y protector solar."
-      },
-      {
-        question: "¿Hay opciones vegetarianas en la degustación?",
-        answer: "Sí, infórmanos con anticipación sobre restricciones alimentarias y adaptaremos la experiencia gastronómica a tus necesidades."
-      }
+      { questionKey: "tourPackages.favelasTour.faqs.0.question", answerKey: "tourPackages.favelasTour.faqs.0.answer" },
+      { questionKey: "tourPackages.favelasTour.faqs.1.question", answerKey: "tourPackages.favelasTour.faqs.1.answer" },
+      { questionKey: "tourPackages.favelasTour.faqs.2.question", answerKey: "tourPackages.favelasTour.faqs.2.answer" },
+      { questionKey: "tourPackages.favelasTour.faqs.3.question", answerKey: "tourPackages.favelasTour.faqs.3.answer" },
+      { questionKey: "tourPackages.favelasTour.faqs.4.question", answerKey: "tourPackages.favelasTour.faqs.4.answer" }
     ]
   },
   {
     id: "playas-tour",
-    title: "Tour por las Playas",
-    description: "Explora las playas más icónicas: Copacabana, Ipanema, Joatinga, Prainha y Grumari. Ideal para disfrutar del sol, surf, paisajes naturales y fotos espectaculares. Descubre las joyas escondidas del litoral carioca con sus aguas cristalinas y paisajes de postal.",
+    titleKey: "tourPackages.playasTour.title",
+    descriptionKey: "tourPackages.playasTour.description",
     image: beachImage,
     images: [beachImage, playa2, playa3, playa4, playa5, playaV1],
     gallery: [playa2, playa3, playa4, playa5, playaV1],
     price: 80,
-    duration: "6-8 horas",
-    locations: ["Copacabana", "Ipanema", "Joatinga", "Prainha", "Grumari"],
-    highlights: ["Playas paradisíacas", "Surf opcional", "Fotos espectaculares", "Agua de coco incluida"],
+    durationKey: "tourPackages.playasTour.duration",
+    locationKeys: [
+      "tourPackages.playasTour.locations.0",
+      "tourPackages.playasTour.locations.1",
+      "tourPackages.playasTour.locations.2",
+      "tourPackages.playasTour.locations.3",
+      "tourPackages.playasTour.locations.4"
+    ],
+    highlightKeys: [
+      "tourPackages.playasTour.highlights.0",
+      "tourPackages.playasTour.highlights.1",
+      "tourPackages.playasTour.highlights.2",
+      "tourPackages.playasTour.highlights.3"
+    ],
     category: "Playa",
     rating: 4.7,
     includes: [
       {
-        title: "Transporte",
-        items: [
-          "Recogida y retorno al hotel",
-          "Vehículo 4x4 para playas remotas",
-          "Traslados entre todas las playas"
+        titleKey: "tourPackages.playasTour.includes.transport.title",
+        itemKeys: [
+          "tourPackages.playasTour.includes.transport.items.0",
+          "tourPackages.playasTour.includes.transport.items.1",
+          "tourPackages.playasTour.includes.transport.items.2"
         ]
       },
       {
-        title: "Tiempo en Playa",
-        items: [
-          "Paradas de 30-60 min en cada playa",
-          "Tiempo libre para nadar y relajarse",
-          "Asistencia para deportes acuáticos"
+        titleKey: "tourPackages.playasTour.includes.beachTime.title",
+        itemKeys: [
+          "tourPackages.playasTour.includes.beachTime.items.0",
+          "tourPackages.playasTour.includes.beachTime.items.1",
+          "tourPackages.playasTour.includes.beachTime.items.2"
         ]
       },
       {
-        title: "Incluido",
-        items: [
-          "Agua de coco en las paradas",
-          "Sombrilla y sillas en playas principales",
-          "Kit de snorkel básico",
-          "Toallas de playa"
+        titleKey: "tourPackages.playasTour.includes.included.title",
+        itemKeys: [
+          "tourPackages.playasTour.includes.included.items.0",
+          "tourPackages.playasTour.includes.included.items.1",
+          "tourPackages.playasTour.includes.included.items.2",
+          "tourPackages.playasTour.includes.included.items.3"
         ]
       },
       {
-        title: "Opcionales",
-        items: [
-          "Clases de surf (costo adicional)",
-          "Almuerzo en restaurante de playa",
-          "Stand up paddle"
+        titleKey: "tourPackages.playasTour.includes.optional.title",
+        itemKeys: [
+          "tourPackages.playasTour.includes.optional.items.0",
+          "tourPackages.playasTour.includes.optional.items.1",
+          "tourPackages.playasTour.includes.optional.items.2"
         ]
       }
     ],
     faqs: [
-      {
-        question: "¿Cuál es el mejor momento del año para este tour?",
-        answer: "De noviembre a marzo es verano en Rio con temperaturas ideales para playa. Sin embargo, de abril a octubre también hay días excelentes con menos multitudes."
-      },
-      {
-        question: "¿Necesito saber nadar?",
-        answer: "No es obligatorio, pero recomendable. Algunas playas tienen corrientes, siempre seguir las indicaciones del guía y respetar las banderas de seguridad."
-      },
-      {
-        question: "¿Qué debo llevar?",
-        answer: "Traje de baño, protector solar alto (SPF 50+), sombrero, gafas de sol, sandalias, ropa de cambio y cámara resistente al agua si tienes."
-      },
-      {
-        question: "¿Las playas son aptas para niños?",
-        answer: "Sí, especialmente Copacabana e Ipanema que tienen aguas más tranquilas. Prainha y Joatinga son más agrestes y recomendadas para adultos."
-      },
-      {
-        question: "¿Hay lockers para guardar pertenencias?",
-        answer: "No hay lockers en las playas, pero nuestro guía cuida las pertenencias mientras disfrutan del mar. Recomendamos no llevar objetos de valor."
-      }
+      { questionKey: "tourPackages.playasTour.faqs.0.question", answerKey: "tourPackages.playasTour.faqs.0.answer" },
+      { questionKey: "tourPackages.playasTour.faqs.1.question", answerKey: "tourPackages.playasTour.faqs.1.answer" },
+      { questionKey: "tourPackages.playasTour.faqs.2.question", answerKey: "tourPackages.playasTour.faqs.2.answer" },
+      { questionKey: "tourPackages.playasTour.faqs.3.question", answerKey: "tourPackages.playasTour.faqs.3.answer" },
+      { questionKey: "tourPackages.playasTour.faqs.4.question", answerKey: "tourPackages.playasTour.faqs.4.answer" }
     ]
   },
   {
     id: "trekking",
-    title: "Trilhas & Trekking",
-    description: "Aventura garantizada en los morros más famosos de Rio: Morro Dois Irmãos, Pedra Bonita, Pedra do Telégrafo, Pedra da Gávea. Guías especializados y vistas que te dejarán sin aliento. Conecta con la naturaleza exuberante de la Mata Atlántica mientras conquistas las cumbres más icónicas.",
+    titleKey: "tourPackages.trekking.title",
+    descriptionKey: "tourPackages.trekking.description",
     image: trekkingImage,
     images: [trekkingImage, trekking1, trekking2, trekking3, trekking4, trekking5],
     gallery: [trekking1, trekking2, trekking3, trekking4, trekking5],
     price: 50,
-    priceNote: "Varía según ruta",
-    duration: "4-6 horas",
-    locations: ["Morro Dois Irmãos", "Pedra Bonita", "Pedra do Telégrafo", "Pedra da Gávea"],
-    highlights: ["Guías especializados", "Equipamiento de seguridad", "Vistas panorámicas increíbles"],
+    priceNoteKey: "tourPackages.trekking.priceNote",
+    durationKey: "tourPackages.trekking.duration",
+    locationKeys: [
+      "tourPackages.trekking.locations.0",
+      "tourPackages.trekking.locations.1",
+      "tourPackages.trekking.locations.2",
+      "tourPackages.trekking.locations.3"
+    ],
+    highlightKeys: [
+      "tourPackages.trekking.highlights.0",
+      "tourPackages.trekking.highlights.1",
+      "tourPackages.trekking.highlights.2"
+    ],
     category: "Aventura",
-    badge: "Aventura",
+    badgeKey: "tourPackages.badges.adventure",
     rating: 4.9,
     includes: [
       {
-        title: "Transporte",
-        items: [
-          "Recogida y retorno al hotel",
-          "Traslado al inicio del sendero",
-          "Vehículo con aire acondicionado"
+        titleKey: "tourPackages.trekking.includes.transport.title",
+        itemKeys: [
+          "tourPackages.trekking.includes.transport.items.0",
+          "tourPackages.trekking.includes.transport.items.1",
+          "tourPackages.trekking.includes.transport.items.2"
         ]
       },
       {
-        title: "Guía y Seguridad",
-        items: [
-          "Guía de montaña certificado",
-          "Equipamiento de seguridad",
-          "Botiquín de primeros auxilios",
-          "Radio de comunicación"
+        titleKey: "tourPackages.trekking.includes.safety.title",
+        itemKeys: [
+          "tourPackages.trekking.includes.safety.items.0",
+          "tourPackages.trekking.includes.safety.items.1",
+          "tourPackages.trekking.includes.safety.items.2",
+          "tourPackages.trekking.includes.safety.items.3"
         ]
       },
       {
-        title: "Incluido",
-        items: [
-          "Bastones de trekking",
-          "Snacks energéticos",
-          "Agua y bebidas isotónicas",
-          "Fotos profesionales del recorrido"
+        titleKey: "tourPackages.trekking.includes.included.title",
+        itemKeys: [
+          "tourPackages.trekking.includes.included.items.0",
+          "tourPackages.trekking.includes.included.items.1",
+          "tourPackages.trekking.includes.included.items.2",
+          "tourPackages.trekking.includes.included.items.3"
         ]
       },
       {
-        title: "Kit de Aventura",
-        items: [
-          "Franela Dry Fit Rio Trip Vibes",
-          "Bandana multiusos",
-          "Bolsa impermeable para celular"
+        titleKey: "tourPackages.trekking.includes.kit.title",
+        itemKeys: [
+          "tourPackages.trekking.includes.kit.items.0",
+          "tourPackages.trekking.includes.kit.items.1",
+          "tourPackages.trekking.includes.kit.items.2"
         ]
       }
     ],
     faqs: [
-      {
-        question: "¿Cuál es el nivel de dificultad?",
-        answer: "Varía según la ruta: Pedra do Telégrafo es fácil (2h), Dois Irmãos es moderado (3h), Pedra Bonita moderado-alto (4h) y Pedra da Gávea es difícil (6h, requiere experiencia)."
-      },
-      {
-        question: "¿Cuál es el mejor momento del año para hacer trekking?",
-        answer: "De abril a octubre es ideal con clima seco y temperaturas agradables. Evitar días de lluvia por seguridad en los senderos."
-      },
-      {
-        question: "¿Necesito experiencia previa?",
-        answer: "Para rutas fáciles y moderadas no es necesario. Para Pedra da Gávea recomendamos experiencia básica en montañismo. Siempre evaluamos la condición física del grupo."
-      },
-      {
-        question: "¿Qué debo llevar?",
-        answer: "Calzado de trekking o tenis con buen agarre, ropa deportiva, mochila pequeña, protector solar, repelente, gorra y mínimo 1.5 litros de agua personal."
-      },
-      {
-        question: "¿Hay límite de edad?",
-        answer: "Rutas fáciles: desde 10 años. Moderadas: desde 14 años. Difíciles: mayores de 18 años. Personas mayores de 60 años requieren evaluación médica."
-      }
+      { questionKey: "tourPackages.trekking.faqs.0.question", answerKey: "tourPackages.trekking.faqs.0.answer" },
+      { questionKey: "tourPackages.trekking.faqs.1.question", answerKey: "tourPackages.trekking.faqs.1.answer" },
+      { questionKey: "tourPackages.trekking.faqs.2.question", answerKey: "tourPackages.trekking.faqs.2.answer" },
+      { questionKey: "tourPackages.trekking.faqs.3.question", answerKey: "tourPackages.trekking.faqs.3.answer" },
+      { questionKey: "tourPackages.trekking.faqs.4.question", answerKey: "tourPackages.trekking.faqs.4.answer" }
     ]
   },
   {
     id: "boat-tour",
-    title: "Paseos en Barco",
-    description: "Disfruta un día en el paraíso navegando por Ilha Grande o Arraial do Cabo. Playas de aguas cristalinas, snorkel y paisajes de postal. Una experiencia única para descubrir las islas y calas más espectaculares del litoral brasileño.",
+    titleKey: "tourPackages.boatTour.title",
+    descriptionKey: "tourPackages.boatTour.description",
     image: boatImage,
     images: [boatImage, barco1, barco2, barco3, barco4, barco5],
     gallery: [barco1, barco2, barco3, barco4, barco5],
     price: 70,
-    duration: "Día completo",
-    locations: ["Ilha Grande", "Arraial do Cabo", "Angra dos Reis"],
-    highlights: ["Transporte incluido", "Snorkel con equipo", "Almuerzo a bordo opcional"],
+    durationKey: "tourPackages.boatTour.duration",
+    locationKeys: [
+      "tourPackages.boatTour.locations.0",
+      "tourPackages.boatTour.locations.1",
+      "tourPackages.boatTour.locations.2"
+    ],
+    highlightKeys: [
+      "tourPackages.boatTour.highlights.0",
+      "tourPackages.boatTour.highlights.1",
+      "tourPackages.boatTour.highlights.2"
+    ],
     category: "Acuático",
     rating: 4.8,
     includes: [
       {
-        title: "Transporte",
-        items: [
-          "Recogida y retorno al hotel",
-          "Traslado terrestre al puerto",
-          "Navegación en embarcación segura"
+        titleKey: "tourPackages.boatTour.includes.transport.title",
+        itemKeys: [
+          "tourPackages.boatTour.includes.transport.items.0",
+          "tourPackages.boatTour.includes.transport.items.1",
+          "tourPackages.boatTour.includes.transport.items.2"
         ]
       },
       {
-        title: "Experiencia Náutica",
-        items: [
-          "Recorrido por 4-6 playas e islas",
-          "Paradas para nadar y snorkel",
-          "Equipo de snorkel incluido"
+        titleKey: "tourPackages.boatTour.includes.nautical.title",
+        itemKeys: [
+          "tourPackages.boatTour.includes.nautical.items.0",
+          "tourPackages.boatTour.includes.nautical.items.1",
+          "tourPackages.boatTour.includes.nautical.items.2"
         ]
       },
       {
-        title: "A Bordo",
-        items: [
-          "Bebidas (agua, refrescos)",
-          "Frutas tropicales",
-          "Hielo y cooler disponible"
+        titleKey: "tourPackages.boatTour.includes.onboard.title",
+        itemKeys: [
+          "tourPackages.boatTour.includes.onboard.items.0",
+          "tourPackages.boatTour.includes.onboard.items.1",
+          "tourPackages.boatTour.includes.onboard.items.2"
         ]
       },
       {
-        title: "Seguridad",
-        items: [
-          "Chalecos salvavidas",
-          "Capitán y tripulación certificados",
-          "Seguro de navegación"
+        titleKey: "tourPackages.boatTour.includes.safety.title",
+        itemKeys: [
+          "tourPackages.boatTour.includes.safety.items.0",
+          "tourPackages.boatTour.includes.safety.items.1",
+          "tourPackages.boatTour.includes.safety.items.2"
         ]
       }
     ],
     faqs: [
-      {
-        question: "¿Cuál es el mejor momento del año para este tour?",
-        answer: "De octubre a abril el mar está más calmado y las aguas más cristalinas. Julio y agosto pueden tener mar agitado pero siguen siendo viables."
-      },
-      {
-        question: "¿Me mareo en barco, puedo hacer el tour?",
-        answer: "Recomendamos tomar medicamento para el mareo antes del tour. La mayoría de las embarcaciones son estables, pero el mar puede variar."
-      },
-      {
-        question: "¿El almuerzo está incluido?",
-        answer: "El almuerzo es opcional con costo adicional. Ofrecemos menú de mariscos frescos o pollo. También puedes llevar tu propia comida."
-      },
-      {
-        question: "¿Hay límite de peso o edad?",
-        answer: "Niños desde 5 años pueden participar con supervisión. No hay límite de peso pero las embarcaciones tienen capacidad máxima por seguridad."
-      },
-      {
-        question: "¿Puedo llevar mi propio equipo de snorkel?",
-        answer: "Sí, puedes traer tu equipo personal. También proporcionamos equipo de calidad sin costo adicional."
-      }
+      { questionKey: "tourPackages.boatTour.faqs.0.question", answerKey: "tourPackages.boatTour.faqs.0.answer" },
+      { questionKey: "tourPackages.boatTour.faqs.1.question", answerKey: "tourPackages.boatTour.faqs.1.answer" },
+      { questionKey: "tourPackages.boatTour.faqs.2.question", answerKey: "tourPackages.boatTour.faqs.2.answer" },
+      { questionKey: "tourPackages.boatTour.faqs.3.question", answerKey: "tourPackages.boatTour.faqs.3.answer" },
+      { questionKey: "tourPackages.boatTour.faqs.4.question", answerKey: "tourPackages.boatTour.faqs.4.answer" }
     ]
   },
   {
     id: "yacht-vip",
-    title: "Paseo en Yate VIP",
-    description: "Experiencia exclusiva por las costas de Barra da Tijuca y Copacabana. Música, bebidas, tripulación profesional y el mejor atardecer de Rio. Ideal para celebraciones especiales, eventos corporativos o simplemente una experiencia de lujo inolvidable.",
+    titleKey: "tourPackages.yachtVip.title",
+    descriptionKey: "tourPackages.yachtVip.description",
     image: yachtImage,
     images: [yachtImage, yate1, yate2, yate3, yate4, yate5],
     gallery: [yate1, yate2, yate3, yate4, yate5],
     price: 200,
-    priceNote: "Por hora",
-    duration: "Personalizable",
-    locations: ["Barra da Tijuca", "Copacabana", "Niterói", "Islas de Guanabara"],
-    highlights: ["Tripulación profesional", "Bebidas premium incluidas", "Ideal para grupos y eventos"],
+    priceNoteKey: "tourPackages.yachtVip.priceNote",
+    durationKey: "tourPackages.yachtVip.duration",
+    locationKeys: [
+      "tourPackages.yachtVip.locations.0",
+      "tourPackages.yachtVip.locations.1",
+      "tourPackages.yachtVip.locations.2",
+      "tourPackages.yachtVip.locations.3"
+    ],
+    highlightKeys: [
+      "tourPackages.yachtVip.highlights.0",
+      "tourPackages.yachtVip.highlights.1",
+      "tourPackages.yachtVip.highlights.2"
+    ],
     category: "VIP",
-    badge: "Exclusivo",
+    badgeKey: "tourPackages.badges.exclusive",
     rating: 5.0,
     includes: [
       {
-        title: "El Yate",
-        items: [
-          "Embarcación de lujo (hasta 12 personas)",
-          "Salón climatizado",
-          "Sistema de sonido premium",
-          "Área de soleo"
+        titleKey: "tourPackages.yachtVip.includes.yacht.title",
+        itemKeys: [
+          "tourPackages.yachtVip.includes.yacht.items.0",
+          "tourPackages.yachtVip.includes.yacht.items.1",
+          "tourPackages.yachtVip.includes.yacht.items.2",
+          "tourPackages.yachtVip.includes.yacht.items.3"
         ]
       },
       {
-        title: "Tripulación",
-        items: [
-          "Capitán profesional",
-          "Marinero asistente",
-          "Servicio de bartender",
-          "Chef opcional (costo adicional)"
+        titleKey: "tourPackages.yachtVip.includes.crew.title",
+        itemKeys: [
+          "tourPackages.yachtVip.includes.crew.items.0",
+          "tourPackages.yachtVip.includes.crew.items.1",
+          "tourPackages.yachtVip.includes.crew.items.2",
+          "tourPackages.yachtVip.includes.crew.items.3"
         ]
       },
       {
-        title: "Incluido",
-        items: [
-          "Bebidas premium (champagne, vinos, cócteles)",
-          "Tabla de quesos y aperitivos",
-          "Hielo ilimitado",
-          "Equipo de snorkel"
+        titleKey: "tourPackages.yachtVip.includes.included.title",
+        itemKeys: [
+          "tourPackages.yachtVip.includes.included.items.0",
+          "tourPackages.yachtVip.includes.included.items.1",
+          "tourPackages.yachtVip.includes.included.items.2",
+          "tourPackages.yachtVip.includes.included.items.3"
         ]
       },
       {
-        title: "Extras Disponibles",
-        items: [
-          "Decoración para eventos",
-          "Fotógrafo profesional",
-          "Menú gourmet personalizado",
-          "DJ a bordo"
+        titleKey: "tourPackages.yachtVip.includes.extras.title",
+        itemKeys: [
+          "tourPackages.yachtVip.includes.extras.items.0",
+          "tourPackages.yachtVip.includes.extras.items.1",
+          "tourPackages.yachtVip.includes.extras.items.2",
+          "tourPackages.yachtVip.includes.extras.items.3"
         ]
       }
     ],
     faqs: [
-      {
-        question: "¿Cuál es la capacidad máxima?",
-        answer: "Nuestros yates tienen capacidad para 6-12 personas según el modelo. Para grupos mayores, podemos coordinar múltiples embarcaciones."
-      },
-      {
-        question: "¿Se puede reservar para eventos especiales?",
-        answer: "Sí, ofrecemos paquetes para cumpleaños, despedidas, pedidas de matrimonio, eventos corporativos y más. Incluimos decoración temática."
-      },
-      {
-        question: "¿Cuál es el horario ideal?",
-        answer: "Para atardeceres espectaculares, recomendamos salir 2-3 horas antes del ocaso. Para día completo de playa, salidas a las 10am."
-      },
-      {
-        question: "¿Qué puedo llevar adicional?",
-        answer: "Puedes traer comida y bebidas adicionales sin cargo. Contamos con refrigeradores amplios y área de cocina básica."
-      },
-      {
-        question: "¿Hay política de mal tiempo?",
-        answer: "En caso de condiciones climáticas adversas, reprogramamos sin costo adicional o reembolsamos el 100% del pago."
-      }
+      { questionKey: "tourPackages.yachtVip.faqs.0.question", answerKey: "tourPackages.yachtVip.faqs.0.answer" },
+      { questionKey: "tourPackages.yachtVip.faqs.1.question", answerKey: "tourPackages.yachtVip.faqs.1.answer" },
+      { questionKey: "tourPackages.yachtVip.faqs.2.question", answerKey: "tourPackages.yachtVip.faqs.2.answer" },
+      { questionKey: "tourPackages.yachtVip.faqs.3.question", answerKey: "tourPackages.yachtVip.faqs.3.answer" },
+      { questionKey: "tourPackages.yachtVip.faqs.4.question", answerKey: "tourPackages.yachtVip.faqs.4.answer" }
     ]
   },
   {
     id: "helicopter",
-    title: "Paseo en Helicóptero",
-    description: "Vive Rio desde el cielo. Un vuelo panorámico sobre Cristo Redentor, Pan de Azúcar, playas y montañas. Experiencia premium con vistas únicas e inigualables que te permitirán apreciar la magnitud de la ciudad maravillosa.",
+    titleKey: "tourPackages.helicopter.title",
+    descriptionKey: "tourPackages.helicopter.description",
     image: helicopterImage,
     images: [helicopterImage, heli1, heli2, heli3, heli4, heli5],
     gallery: [heli1, heli2, heli3, heli4, heli5],
     price: 180,
-    priceNote: "15 min vuelo",
-    duration: "15-30 min",
-    locations: ["Cristo Redentor", "Pan de Azúcar", "Playas", "Lagoa", "Maracanã"],
-    highlights: ["Vuelo panorámico", "Video y fotos incluidas", "Experiencia premium"],
+    priceNoteKey: "tourPackages.helicopter.priceNote",
+    durationKey: "tourPackages.helicopter.duration",
+    locationKeys: [
+      "tourPackages.helicopter.locations.0",
+      "tourPackages.helicopter.locations.1",
+      "tourPackages.helicopter.locations.2",
+      "tourPackages.helicopter.locations.3",
+      "tourPackages.helicopter.locations.4"
+    ],
+    highlightKeys: [
+      "tourPackages.helicopter.highlights.0",
+      "tourPackages.helicopter.highlights.1",
+      "tourPackages.helicopter.highlights.2"
+    ],
     category: "VIP",
-    badge: "Premium",
+    badgeKey: "tourPackages.badges.premium",
     rating: 5.0,
     includes: [
       {
-        title: "El Vuelo",
-        items: [
-          "Helicóptero con ventanas panorámicas",
-          "Piloto comercial certificado",
-          "Auriculares con comunicación",
-          "Briefing de seguridad"
+        titleKey: "tourPackages.helicopter.includes.flight.title",
+        itemKeys: [
+          "tourPackages.helicopter.includes.flight.items.0",
+          "tourPackages.helicopter.includes.flight.items.1",
+          "tourPackages.helicopter.includes.flight.items.2",
+          "tourPackages.helicopter.includes.flight.items.3"
         ]
       },
       {
-        title: "Rutas Disponibles",
-        items: [
-          "Ruta Clásica (15 min): Cristo, Pan de Azúcar, playas",
-          "Ruta Completa (20 min): + Maracanã, Lagoa",
-          "Ruta Premium (30 min): Tour completo de Rio"
+        titleKey: "tourPackages.helicopter.includes.routes.title",
+        itemKeys: [
+          "tourPackages.helicopter.includes.routes.items.0",
+          "tourPackages.helicopter.includes.routes.items.1",
+          "tourPackages.helicopter.includes.routes.items.2"
         ]
       },
       {
-        title: "Multimedia",
-        items: [
-          "Video HD del vuelo completo",
-          "Fotografías aéreas profesionales",
-          "GoPro disponible sin costo",
-          "Acceso digital inmediato"
+        titleKey: "tourPackages.helicopter.includes.multimedia.title",
+        itemKeys: [
+          "tourPackages.helicopter.includes.multimedia.items.0",
+          "tourPackages.helicopter.includes.multimedia.items.1",
+          "tourPackages.helicopter.includes.multimedia.items.2",
+          "tourPackages.helicopter.includes.multimedia.items.3"
         ]
       },
       {
-        title: "Extras",
-        items: [
-          "Champagne de bienvenida",
-          "Certificado de vuelo",
-          "Transfer desde hotel (costo adicional)"
+        titleKey: "tourPackages.helicopter.includes.extras.title",
+        itemKeys: [
+          "tourPackages.helicopter.includes.extras.items.0",
+          "tourPackages.helicopter.includes.extras.items.1",
+          "tourPackages.helicopter.includes.extras.items.2"
         ]
       }
     ],
     faqs: [
-      {
-        question: "¿Es seguro volar en helicóptero?",
-        answer: "Absolutamente. Operamos con pilotos altamente certificados, helicópteros con mantenimiento riguroso y cumplimos todas las normas de aviación civil de Brasil."
-      },
-      {
-        question: "¿Hay límite de peso?",
-        answer: "El peso combinado de pasajeros no debe exceder 450kg por seguridad. Helicópteros tienen capacidad de 4-6 pasajeros según modelo."
-      },
-      {
-        question: "¿Cuál es el mejor horario para volar?",
-        answer: "Las mañanas tempranas ofrecen mejor visibilidad. Los atardeceres son espectaculares para fotos. Evitar horas de medio día por turbulencia térmica."
-      },
-      {
-        question: "¿Se puede volar con lluvia?",
-        answer: "Por seguridad, los vuelos se cancelan o reprograman en caso de lluvia, niebla densa o vientos fuertes. Ofrecemos reprogramación sin costo."
-      },
-      {
-        question: "¿Puedo llevar mi cámara profesional?",
-        answer: "Sí, puedes usar cualquier equipo fotográfico. Solo asegúrate de sujetarlo bien. Las ventanas son amplias y limpias para excelentes tomas."
-      }
+      { questionKey: "tourPackages.helicopter.faqs.0.question", answerKey: "tourPackages.helicopter.faqs.0.answer" },
+      { questionKey: "tourPackages.helicopter.faqs.1.question", answerKey: "tourPackages.helicopter.faqs.1.answer" },
+      { questionKey: "tourPackages.helicopter.faqs.2.question", answerKey: "tourPackages.helicopter.faqs.2.answer" },
+      { questionKey: "tourPackages.helicopter.faqs.3.question", answerKey: "tourPackages.helicopter.faqs.3.answer" },
+      { questionKey: "tourPackages.helicopter.faqs.4.question", answerKey: "tourPackages.helicopter.faqs.4.answer" }
     ]
   },
 ];
@@ -697,123 +659,122 @@ export function getPackageById(id: string): PackageData | undefined {
   return packages.find(pkg => pkg.id === id);
 }
 
-export function getPackageByTitle(title: string): PackageData | undefined {
-  return packages.find(pkg => pkg.title === title);
+export function getPackageByTitle(titleKey: string): PackageData | undefined {
+  return packages.find(pkg => pkg.titleKey === titleKey);
 }
 
 export interface TestimonialData {
   id: string;
-  name: string;
-  avatar?: string;
-  date: string;
+  nameKey: string;
+  dateKey: string;
   rating: number;
-  text: string;
-  tour: string;
+  textKey: string;
+  tourKey: string;
 }
 
 export const testimonials: TestimonialData[] = [
   {
     id: "1",
-    name: "María García",
-    date: "Noviembre 2024",
+    nameKey: "testimonials.items.1.name",
+    dateKey: "testimonials.items.1.date",
     rating: 5,
-    text: "Una experiencia increíble! El guía fue muy profesional y conocedor. El tour al Cristo Redentor y Pan de Azúcar superó todas mis expectativas. Recomiendo 100%.",
-    tour: "Day Tour Rio de Janeiro",
+    textKey: "testimonials.items.1.text",
+    tourKey: "testimonials.items.1.tour",
   },
   {
     id: "2",
-    name: "Carlos Rodríguez",
-    date: "Octubre 2024",
+    nameKey: "testimonials.items.2.name",
+    dateKey: "testimonials.items.2.date",
     rating: 5,
-    text: "El trekking a Pedra da Gávea fue desafiante pero las vistas son impresionantes. El guía nos cuidó todo el tiempo y nos enseñó sobre la flora local. Volveré por más aventuras!",
-    tour: "Trilhas & Trekking",
+    textKey: "testimonials.items.2.text",
+    tourKey: "testimonials.items.2.tour",
   },
   {
     id: "3",
-    name: "Ana Martínez",
-    date: "Septiembre 2024",
+    nameKey: "testimonials.items.3.name",
+    dateKey: "testimonials.items.3.date",
     rating: 5,
-    text: "El paseo en yate fue espectacular! Vimos el atardecer desde el mar con Copacabana de fondo. Perfecto para celebrar nuestro aniversario. La tripulación fue muy atenta.",
-    tour: "Paseo en Yate VIP",
+    textKey: "testimonials.items.3.text",
+    tourKey: "testimonials.items.3.tour",
   },
   {
     id: "4",
-    name: "Diego Flores",
-    date: "Noviembre 2024",
+    nameKey: "testimonials.items.4.name",
+    dateKey: "testimonials.items.4.date",
     rating: 5,
-    text: "El tour en helicóptero fue lo más increíble que he hecho! Ver el Cristo Redentor desde arriba y las playas de Rio es una experiencia que no tiene precio. Fotos espectaculares.",
-    tour: "Paseo en Helicóptero",
+    textKey: "testimonials.items.4.text",
+    tourKey: "testimonials.items.4.tour",
   },
   {
     id: "5",
-    name: "Carolina Sánchez",
-    date: "Octubre 2024",
+    nameKey: "testimonials.items.5.name",
+    dateKey: "testimonials.items.5.date",
     rating: 5,
-    text: "Las playas de Arraial do Cabo son un paraíso escondido. El agua cristalina, el snorkel increíble y la tripulación del barco súper amable. Un día perfecto en el mar.",
-    tour: "Paseos en Barco",
+    textKey: "testimonials.items.5.text",
+    tourKey: "testimonials.items.5.tour",
   },
   {
     id: "6",
-    name: "Roberto Díaz",
-    date: "Septiembre 2024",
+    nameKey: "testimonials.items.6.name",
+    dateKey: "testimonials.items.6.date",
     rating: 5,
-    text: "El tour por las favelas me cambió la perspectiva completamente. La cultura, el arte urbano, la música... y las vistas desde Vidigal son de otro mundo. Muy recomendado.",
-    tour: "Tour por las Favelas",
+    textKey: "testimonials.items.6.text",
+    tourKey: "testimonials.items.6.tour",
   },
   {
     id: "7",
-    name: "Patricia Morales",
-    date: "Agosto 2024",
+    nameKey: "testimonials.items.7.name",
+    dateKey: "testimonials.items.7.date",
     rating: 5,
-    text: "Hicimos el trekking al Morro Dois Irmãos y las vistas de Ipanema y Leblon desde la cima son inolvidables. El guía muy profesional y el ritmo perfecto para disfrutar.",
-    tour: "Trilhas & Trekking",
+    textKey: "testimonials.items.7.text",
+    tourKey: "testimonials.items.7.tour",
   },
   {
     id: "8",
-    name: "Fernando Castro",
-    date: "Agosto 2024",
+    nameKey: "testimonials.items.8.name",
+    dateKey: "testimonials.items.8.date",
     rating: 5,
-    text: "El City Tour completo es la mejor forma de conocer Rio en un día. Visitamos todos los puntos icónicos y el guía nos contó historias fascinantes de cada lugar.",
-    tour: "Day Tour Rio de Janeiro",
+    textKey: "testimonials.items.8.text",
+    tourKey: "testimonials.items.8.tour",
   },
   {
     id: "9",
-    name: "Lucía Hernández",
-    date: "Julio 2024",
+    nameKey: "testimonials.items.9.name",
+    dateKey: "testimonials.items.9.date",
     rating: 5,
-    text: "Prainha y Grumari son playas paradisíacas! Lejos del turismo masivo, aguas limpias y paisajes de postal. El tour de playas fue nuestra mejor decisión.",
-    tour: "Tour por las Playas",
+    textKey: "testimonials.items.9.text",
+    tourKey: "testimonials.items.9.tour",
   },
   {
     id: "10",
-    name: "Miguel Torres",
-    date: "Julio 2024",
+    nameKey: "testimonials.items.10.name",
+    dateKey: "testimonials.items.10.date",
     rating: 5,
-    text: "Celebramos el cumpleaños de mi esposa en el yate VIP y fue mágico. Champagne, atardecer, música y las luces de Rio de fondo. Servicio de primera clase.",
-    tour: "Paseo en Yate VIP",
+    textKey: "testimonials.items.10.text",
+    tourKey: "testimonials.items.10.tour",
   },
   {
     id: "11",
-    name: "Valentina Ruiz",
-    date: "Junio 2024",
+    nameKey: "testimonials.items.11.name",
+    dateKey: "testimonials.items.11.date",
     rating: 5,
-    text: "Ilha Grande es un paraíso! El paseo en barco nos llevó a playas secretas con aguas turquesas. El almuerzo de mariscos frescos fue delicioso. Día inolvidable.",
-    tour: "Paseos en Barco",
+    textKey: "testimonials.items.11.text",
+    tourKey: "testimonials.items.11.tour",
   },
   {
     id: "12",
-    name: "Andrés Vargas",
-    date: "Junio 2024",
+    nameKey: "testimonials.items.12.name",
+    dateKey: "testimonials.items.12.date",
     rating: 5,
-    text: "La Pedra do Telégrafo tiene las mejores fotos de Instagram! El trekking es accesible y las vistas de la costa son espectaculares. Guía excelente y muy paciente.",
-    tour: "Trilhas & Trekking",
+    textKey: "testimonials.items.12.text",
+    tourKey: "testimonials.items.12.tour",
   },
   {
     id: "13",
-    name: "Camila Reyes",
-    date: "Mayo 2024",
+    nameKey: "testimonials.items.13.name",
+    dateKey: "testimonials.items.13.date",
     rating: 5,
-    text: "Ver Rio desde el helicóptero al atardecer fue surrealista. Los colores del cielo, el Cristo iluminado y toda la bahía brillando. Una experiencia que vale cada centavo.",
-    tour: "Paseo en Helicóptero",
+    textKey: "testimonials.items.13.text",
+    tourKey: "testimonials.items.13.tour",
   },
 ];

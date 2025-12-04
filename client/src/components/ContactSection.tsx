@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/select";
 import { Phone, Mail, MapPin, Clock, MessageCircle, Calendar } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { packages, getPackageByTitle, type PackageData } from "@/lib/packages";
+import { packages, getPackageById, type PackageData } from "@/lib/packages";
 
 interface ContactSectionProps {
   selectedPackage?: PackageData | null;
@@ -42,12 +42,12 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
     if (selectedPackage) {
       setFormData(prev => ({
         ...prev,
-        package: selectedPackage.title,
+        package: selectedPackage.id,
       }));
     }
   }, [selectedPackage]);
 
-  const currentPackage = formData.package ? getPackageByTitle(formData.package) : null;
+  const currentPackage = formData.package ? getPackageById(formData.package) : null;
   const numberOfPeople = formData.people ? (formData.people === "10+" ? 10 : parseInt(formData.people)) : 0;
   
   const calculateDays = (): number => {
@@ -67,10 +67,6 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
     const pricePerDay = currentPackage.price;
     const baseSubtotal = pricePerDay * numberOfDays * numberOfPeople;
     
-    // =====================================================
-    // DESCUENTOS POR CANTIDAD DE PERSONAS (APLICAR PRIMERO)
-    // Ajusta estos valores según tus necesidades
-    // =====================================================
     let groupDiscountPercent = 0;
     if (numberOfPeople >= 6) {
       groupDiscountPercent = 15;
@@ -79,15 +75,10 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
     } else if (numberOfPeople >= 2) {
       groupDiscountPercent = 5;
     }
-    // 1 persona: 0% descuento (precio base)
     
     const groupDiscount = baseSubtotal * (groupDiscountPercent / 100);
     const afterGroupDiscount = baseSubtotal - groupDiscount;
     
-    // =====================================================
-    // DESCUENTOS POR DURACIÓN EN DÍAS (APLICAR SEGUNDO)
-    // Ajusta estos valores según tus necesidades
-    // =====================================================
     let durationDiscountPercent = 0;
     if (numberOfDays >= 15) {
       durationDiscountPercent = 25;
@@ -96,7 +87,6 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
     } else if (numberOfDays >= 4) {
       durationDiscountPercent = 8;
     }
-    // 1-3 días: 0% descuento adicional
     
     const durationDiscount = afterGroupDiscount * (durationDiscountPercent / 100);
     const total = afterGroupDiscount - durationDiscount;
@@ -145,9 +135,6 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
       });
       return;
     }
-    
-    // Allow native form submission to FormSubmit.co
-    // The form will be submitted via HTTP POST to the formsubmit.co endpoint
   };
 
   const handleChange = (field: string, value: string) => {
@@ -164,7 +151,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
     });
     
     if (field === "package") {
-      const pkg = getPackageByTitle(value);
+      const pkg = getPackageById(value);
       onPackageChange?.(pkg || null);
     }
   };
@@ -201,7 +188,6 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                   onSubmit={handleSubmit} 
                   className="space-y-5"
                 >
-                  {/* FormSubmit.co hidden fields */}
                   <input type="hidden" name="_next" value="https://riotripvibes.com" />
                   <input type="hidden" name="_subject" value="Nueva Reserva - Rio Trip Vibes" />
                   <input type="hidden" name="_captcha" value="false" />
@@ -249,7 +235,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="package">{t('contact.packageInterest')}</Label>
-                    <input type="hidden" name="package" value={formData.package} />
+                    <input type="hidden" name="package" value={currentPackage ? t(currentPackage.titleKey) : formData.package} />
                     <Select
                       value={formData.package}
                       onValueChange={(value) => handleChange("package", value)}
@@ -259,8 +245,8 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                       </SelectTrigger>
                       <SelectContent>
                         {packages.map((pkg) => (
-                          <SelectItem key={pkg.id} value={pkg.title}>
-                            {pkg.title}
+                          <SelectItem key={pkg.id} value={pkg.id}>
+                            {t(pkg.titleKey)}
                           </SelectItem>
                         ))}
                       </SelectContent>

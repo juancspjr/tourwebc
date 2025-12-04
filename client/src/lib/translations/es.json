@@ -138,5 +138,619 @@
   "seo": {
     "title": "Rio Trip Vibes - Tu Agencia de Viajes de Confianza",
     "description": "Descubre experiencias únicas de viaje en Río de Janeiro con guías profesionales. Tours exclusivos, paseos en barco, trilhas y mucho más."
+  },
+  "testimonials": {
+    "title": "Lo Que Dicen Nuestros Viajeros",
+    "subtitle": "Historias reales de personas que exploraron Rio con nosotros. Más de 1,000 viajeros felices nos respaldan.",
+    "satisfied": "+1,000 viajeros satisfechos",
+    "items": {
+      "1": {
+        "name": "María García",
+        "date": "Noviembre 2024",
+        "text": "Una experiencia increíble! El guía fue muy profesional y conocedor. El tour al Cristo Redentor y Pan de Azúcar superó todas mis expectativas. Recomiendo 100%.",
+        "tour": "Day Tour Rio de Janeiro"
+      },
+      "2": {
+        "name": "Carlos Rodríguez",
+        "date": "Octubre 2024",
+        "text": "El trekking a Pedra da Gávea fue desafiante pero las vistas son impresionantes. El guía nos cuidó todo el tiempo y nos enseñó sobre la flora local. Volveré por más aventuras!",
+        "tour": "Trilhas & Trekking"
+      },
+      "3": {
+        "name": "Ana Martínez",
+        "date": "Septiembre 2024",
+        "text": "El paseo en yate fue espectacular! Vimos el atardecer desde el mar con Copacabana de fondo. Perfecto para celebrar nuestro aniversario. La tripulación fue muy atenta.",
+        "tour": "Paseo en Yate VIP"
+      },
+      "4": {
+        "name": "Diego Flores",
+        "date": "Noviembre 2024",
+        "text": "El tour en helicóptero fue lo más increíble que he hecho! Ver el Cristo Redentor desde arriba y las playas de Rio es una experiencia que no tiene precio. Fotos espectaculares.",
+        "tour": "Paseo en Helicóptero"
+      },
+      "5": {
+        "name": "Carolina Sánchez",
+        "date": "Octubre 2024",
+        "text": "Las playas de Arraial do Cabo son un paraíso escondido. El agua cristalina, el snorkel increíble y la tripulación del barco súper amable. Un día perfecto en el mar.",
+        "tour": "Paseos en Barco"
+      },
+      "6": {
+        "name": "Roberto Díaz",
+        "date": "Septiembre 2024",
+        "text": "El tour por las favelas me cambió la perspectiva completamente. La cultura, el arte urbano, la música... y las vistas desde Vidigal son de otro mundo. Muy recomendado.",
+        "tour": "Tour por las Favelas"
+      },
+      "7": {
+        "name": "Patricia Morales",
+        "date": "Agosto 2024",
+        "text": "Hicimos el trekking al Morro Dois Irmãos y las vistas de Ipanema y Leblon desde la cima son inolvidables. El guía muy profesional y el ritmo perfecto para disfrutar.",
+        "tour": "Trilhas & Trekking"
+      },
+      "8": {
+        "name": "Fernando Castro",
+        "date": "Agosto 2024",
+        "text": "El City Tour completo es la mejor forma de conocer Rio en un día. Visitamos todos los puntos icónicos y el guía nos contó historias fascinantes de cada lugar.",
+        "tour": "Day Tour Rio de Janeiro"
+      },
+      "9": {
+        "name": "Lucía Hernández",
+        "date": "Julio 2024",
+        "text": "Prainha y Grumari son playas paradisíacas! Lejos del turismo masivo, aguas limpias y paisajes de postal. El tour de playas fue nuestra mejor decisión.",
+        "tour": "Tour por las Playas"
+      },
+      "10": {
+        "name": "Miguel Torres",
+        "date": "Julio 2024",
+        "text": "Celebramos el cumpleaños de mi esposa en el yate VIP y fue mágico. Champagne, atardecer, música y las luces de Rio de fondo. Servicio de primera clase.",
+        "tour": "Paseo en Yate VIP"
+      },
+      "11": {
+        "name": "Valentina Ruiz",
+        "date": "Junio 2024",
+        "text": "Ilha Grande es un paraíso! El paseo en barco nos llevó a playas secretas con aguas turquesas. El almuerzo de mariscos frescos fue delicioso. Día inolvidable.",
+        "tour": "Paseos en Barco"
+      },
+      "12": {
+        "name": "Andrés Vargas",
+        "date": "Junio 2024",
+        "text": "La Pedra do Telégrafo tiene las mejores fotos de Instagram! El trekking es accesible y las vistas de la costa son espectaculares. Guía excelente y muy paciente.",
+        "tour": "Trilhas & Trekking"
+      },
+      "13": {
+        "name": "Camila Reyes",
+        "date": "Mayo 2024",
+        "text": "Ver Rio desde el helicóptero al atardecer fue surrealista. Los colores del cielo, el Cristo iluminado y toda la bahía brillando. Una experiencia que vale cada centavo.",
+        "tour": "Paseo en Helicóptero"
+      }
+    }
+  },
+  "tourPackages": {
+    "badges": {
+      "mostPopular": "Más Popular",
+      "adventure": "Aventura",
+      "exclusive": "Exclusivo",
+      "premium": "Premium"
+    },
+    "dayTour": {
+      "title": "Day Tour Rio de Janeiro",
+      "description": "Descubre lo mejor de Rio en un solo día. Visitamos entre 7 a 9 puntos turísticos, incluyendo Cristo Redentor, Escadaria Selarón, Pão de Açúcar, Mirante do Leblon y mucho más. Una experiencia completa que te permitirá conocer los íconos más emblemáticos de la ciudad maravillosa.",
+      "duration": "8-10 horas",
+      "locations": {
+        "0": "Cristo Redentor",
+        "1": "Escadaria Selarón",
+        "2": "Pão de Açúcar",
+        "3": "Mirante do Leblon",
+        "4": "Lapa",
+        "5": "Centro Histórico"
+      },
+      "highlights": {
+        "0": "Transporte incluido",
+        "1": "Guía local bilingüe",
+        "2": "Paradas fotográficas"
+      },
+      "includes": {
+        "transport": {
+          "title": "Transporte",
+          "items": {
+            "0": "Recogida y retorno al hotel o punto de encuentro",
+            "1": "Vehículo con aire acondicionado",
+            "2": "Traslados entre todos los puntos turísticos"
+          }
+        },
+        "guide": {
+          "title": "Guía y Acompañamiento",
+          "items": {
+            "0": "Guía local certificado bilingüe (español/portugués)",
+            "1": "Explicación histórica y cultural en cada parada",
+            "2": "Asistencia durante todo el recorrido"
+          }
+        },
+        "tickets": {
+          "title": "Entradas y Accesos",
+          "items": {
+            "0": "Entrada al Corcovado (Cristo Redentor)",
+            "1": "Teleférico Pan de Azúcar",
+            "2": "Acceso a miradores panorámicos"
+          }
+        },
+        "extras": {
+          "title": "Extras",
+          "items": {
+            "0": "Agua embotellada durante el tour",
+            "1": "Kit de aventura Rio Trip Vibes",
+            "2": "Fotos profesionales del recorrido"
+          }
+        }
+      },
+      "faqs": {
+        "0": {
+          "question": "¿Cuál es el mejor momento del año para este tour?",
+          "answer": "Rio de Janeiro tiene clima tropical todo el año. Recomendamos de abril a octubre para evitar las lluvias intensas del verano. Sin embargo, cualquier época es buena para visitar."
+        },
+        "1": {
+          "question": "¿Necesito llevar dinero adicional?",
+          "answer": "Recomendamos llevar entre $30-50 USD para gastos personales como souvenirs, snacks adicionales o propinas. El almuerzo no está incluido pero hay excelentes opciones en el recorrido."
+        },
+        "2": {
+          "question": "¿Pueden viajar niños o personas de tercera edad?",
+          "answer": "Sí, el tour es apto para todas las edades. Contamos con vehículos cómodos y el ritmo se adapta al grupo. Para personas con movilidad reducida, consultar disponibilidad de rutas accesibles."
+        },
+        "3": {
+          "question": "¿Qué debo llevar?",
+          "answer": "Ropa cómoda, protector solar, sombrero o gorra, cámara fotográfica y calzado cómodo para caminar. En verano, llevar repelente de insectos."
+        },
+        "4": {
+          "question": "¿Cuál es la política de cancelación?",
+          "answer": "Cancelación gratuita hasta 48 horas antes del tour. Cancelaciones con menos de 48 horas tienen un cargo del 50%. No shows no son reembolsables."
+        }
+      }
+    },
+    "favelasTour": {
+      "title": "Tour por las Favelas",
+      "description": "Vive la auténtica cultura carioca con recorridos guiados por las favelas más famosas de Rio. Conoce su historia, su gente y sus miradores impresionantes. Una experiencia que cambiará tu perspectiva sobre estas vibrantes comunidades llenas de arte, música y tradición.",
+      "duration": "3-4 horas",
+      "locations": {
+        "0": "Rocinha",
+        "1": "Vidigal",
+        "2": "Tavares Bastos",
+        "3": "Santa Marta"
+      },
+      "highlights": {
+        "0": "Experiencia cultural auténtica",
+        "1": "Guía local de la comunidad",
+        "2": "Miradores espectaculares"
+      },
+      "includes": {
+        "transport": {
+          "title": "Transporte",
+          "items": {
+            "0": "Recogida en punto de encuentro",
+            "1": "Transporte interno en la comunidad",
+            "2": "Retorno al punto de partida"
+          }
+        },
+        "guide": {
+          "title": "Guía Local",
+          "items": {
+            "0": "Guía residente de la comunidad",
+            "1": "Historia y contexto social",
+            "2": "Interacción con artistas y comerciantes locales"
+          }
+        },
+        "experiences": {
+          "title": "Experiencias Incluidas",
+          "items": {
+            "0": "Visita a proyectos sociales",
+            "1": "Degustación de comida típica",
+            "2": "Acceso a miradores exclusivos",
+            "3": "Muestra de arte urbano y graffiti"
+          }
+        },
+        "social": {
+          "title": "Contribución Social",
+          "items": {
+            "0": "Parte del costo apoya proyectos comunitarios",
+            "1": "Compras en comercios locales",
+            "2": "Turismo responsable y sostenible"
+          }
+        }
+      },
+      "faqs": {
+        "0": {
+          "question": "¿Es seguro visitar las favelas?",
+          "answer": "Sí, nuestros tours son completamente seguros. Trabajamos con guías locales que conocen perfectamente la comunidad y mantenemos rutas establecidas. La seguridad de nuestros visitantes es prioridad."
+        },
+        "1": {
+          "question": "¿Puedo tomar fotos?",
+          "answer": "Sí, puedes tomar fotos de paisajes y arte urbano. Pedimos respeto y siempre solicitar permiso antes de fotografiar a residentes. Tu guía te orientará sobre las mejores prácticas."
+        },
+        "2": {
+          "question": "¿Cuál es el mejor momento del año para este tour?",
+          "answer": "Este tour se puede realizar durante todo el año. Las mañanas suelen ser más tranquilas y con mejor luz para fotos. Evitar días de lluvia intensa."
+        },
+        "3": {
+          "question": "¿Qué debo llevar?",
+          "answer": "Ropa cómoda y discreta, calzado cerrado para caminar, poco efectivo y evitar joyas llamativas. Llevar agua y protector solar."
+        },
+        "4": {
+          "question": "¿Hay opciones vegetarianas en la degustación?",
+          "answer": "Sí, infórmanos con anticipación sobre restricciones alimentarias y adaptaremos la experiencia gastronómica a tus necesidades."
+        }
+      }
+    },
+    "playasTour": {
+      "title": "Tour por las Playas",
+      "description": "Explora las playas más icónicas: Copacabana, Ipanema, Joatinga, Prainha y Grumari. Ideal para disfrutar del sol, surf, paisajes naturales y fotos espectaculares. Descubre las joyas escondidas del litoral carioca con sus aguas cristalinas y paisajes de postal.",
+      "duration": "6-8 horas",
+      "locations": {
+        "0": "Copacabana",
+        "1": "Ipanema",
+        "2": "Joatinga",
+        "3": "Prainha",
+        "4": "Grumari"
+      },
+      "highlights": {
+        "0": "Playas paradisíacas",
+        "1": "Surf opcional",
+        "2": "Fotos espectaculares",
+        "3": "Agua de coco incluida"
+      },
+      "includes": {
+        "transport": {
+          "title": "Transporte",
+          "items": {
+            "0": "Recogida y retorno al hotel",
+            "1": "Vehículo 4x4 para playas remotas",
+            "2": "Traslados entre todas las playas"
+          }
+        },
+        "beachTime": {
+          "title": "Tiempo en Playa",
+          "items": {
+            "0": "Paradas de 30-60 min en cada playa",
+            "1": "Tiempo libre para nadar y relajarse",
+            "2": "Asistencia para deportes acuáticos"
+          }
+        },
+        "included": {
+          "title": "Incluido",
+          "items": {
+            "0": "Agua de coco en las paradas",
+            "1": "Sombrilla y sillas en playas principales",
+            "2": "Kit de snorkel básico",
+            "3": "Toallas de playa"
+          }
+        },
+        "optional": {
+          "title": "Opcionales",
+          "items": {
+            "0": "Clases de surf (costo adicional)",
+            "1": "Almuerzo en restaurante de playa",
+            "2": "Stand up paddle"
+          }
+        }
+      },
+      "faqs": {
+        "0": {
+          "question": "¿Cuál es el mejor momento del año para este tour?",
+          "answer": "De noviembre a marzo es verano en Rio con temperaturas ideales para playa. Sin embargo, de abril a octubre también hay días excelentes con menos multitudes."
+        },
+        "1": {
+          "question": "¿Necesito saber nadar?",
+          "answer": "No es obligatorio, pero recomendable. Algunas playas tienen corrientes, siempre seguir las indicaciones del guía y respetar las banderas de seguridad."
+        },
+        "2": {
+          "question": "¿Qué debo llevar?",
+          "answer": "Traje de baño, protector solar alto (SPF 50+), sombrero, gafas de sol, sandalias, ropa de cambio y cámara resistente al agua si tienes."
+        },
+        "3": {
+          "question": "¿Las playas son aptas para niños?",
+          "answer": "Sí, especialmente Copacabana e Ipanema que tienen aguas más tranquilas. Prainha y Joatinga son más agrestes y recomendadas para adultos."
+        },
+        "4": {
+          "question": "¿Hay lockers para guardar pertenencias?",
+          "answer": "No hay lockers en las playas, pero nuestro guía cuida las pertenencias mientras disfrutan del mar. Recomendamos no llevar objetos de valor."
+        }
+      }
+    },
+    "trekking": {
+      "title": "Trilhas & Trekking",
+      "description": "Aventura garantizada en los morros más famosos de Rio: Morro Dois Irmãos, Pedra Bonita, Pedra do Telégrafo, Pedra da Gávea. Guías especializados y vistas que te dejarán sin aliento. Conecta con la naturaleza exuberante de la Mata Atlántica mientras conquistas las cumbres más icónicas.",
+      "duration": "4-6 horas",
+      "priceNote": "Varía según ruta",
+      "locations": {
+        "0": "Morro Dois Irmãos",
+        "1": "Pedra Bonita",
+        "2": "Pedra do Telégrafo",
+        "3": "Pedra da Gávea"
+      },
+      "highlights": {
+        "0": "Guías especializados",
+        "1": "Equipamiento de seguridad",
+        "2": "Vistas panorámicas increíbles"
+      },
+      "includes": {
+        "transport": {
+          "title": "Transporte",
+          "items": {
+            "0": "Recogida y retorno al hotel",
+            "1": "Traslado al inicio del sendero",
+            "2": "Vehículo con aire acondicionado"
+          }
+        },
+        "safety": {
+          "title": "Guía y Seguridad",
+          "items": {
+            "0": "Guía de montaña certificado",
+            "1": "Equipamiento de seguridad",
+            "2": "Botiquín de primeros auxilios",
+            "3": "Radio de comunicación"
+          }
+        },
+        "included": {
+          "title": "Incluido",
+          "items": {
+            "0": "Bastones de trekking",
+            "1": "Snacks energéticos",
+            "2": "Agua y bebidas isotónicas",
+            "3": "Fotos profesionales del recorrido"
+          }
+        },
+        "kit": {
+          "title": "Kit de Aventura",
+          "items": {
+            "0": "Franela Dry Fit Rio Trip Vibes",
+            "1": "Bandana multiusos",
+            "2": "Bolsa impermeable para celular"
+          }
+        }
+      },
+      "faqs": {
+        "0": {
+          "question": "¿Cuál es el nivel de dificultad?",
+          "answer": "Varía según la ruta: Pedra do Telégrafo es fácil (2h), Dois Irmãos es moderado (3h), Pedra Bonita moderado-alto (4h) y Pedra da Gávea es difícil (6h, requiere experiencia)."
+        },
+        "1": {
+          "question": "¿Cuál es el mejor momento del año para hacer trekking?",
+          "answer": "De abril a octubre es ideal con clima seco y temperaturas agradables. Evitar días de lluvia por seguridad en los senderos."
+        },
+        "2": {
+          "question": "¿Necesito experiencia previa?",
+          "answer": "Para rutas fáciles y moderadas no es necesario. Para Pedra da Gávea recomendamos experiencia básica en montañismo. Siempre evaluamos la condición física del grupo."
+        },
+        "3": {
+          "question": "¿Qué debo llevar?",
+          "answer": "Calzado de trekking o tenis con buen agarre, ropa deportiva, mochila pequeña, protector solar, repelente, gorra y mínimo 1.5 litros de agua personal."
+        },
+        "4": {
+          "question": "¿Hay límite de edad?",
+          "answer": "Rutas fáciles: desde 10 años. Moderadas: desde 14 años. Difíciles: mayores de 18 años. Personas mayores de 60 años requieren evaluación médica."
+        }
+      }
+    },
+    "boatTour": {
+      "title": "Paseos en Barco",
+      "description": "Disfruta un día en el paraíso navegando por Ilha Grande o Arraial do Cabo. Playas de aguas cristalinas, snorkel y paisajes de postal. Una experiencia única para descubrir las islas y calas más espectaculares del litoral brasileño.",
+      "duration": "Día completo",
+      "locations": {
+        "0": "Ilha Grande",
+        "1": "Arraial do Cabo",
+        "2": "Angra dos Reis"
+      },
+      "highlights": {
+        "0": "Transporte incluido",
+        "1": "Snorkel con equipo",
+        "2": "Almuerzo a bordo opcional"
+      },
+      "includes": {
+        "transport": {
+          "title": "Transporte",
+          "items": {
+            "0": "Recogida y retorno al hotel",
+            "1": "Traslado terrestre al puerto",
+            "2": "Navegación en embarcación segura"
+          }
+        },
+        "nautical": {
+          "title": "Experiencia Náutica",
+          "items": {
+            "0": "Recorrido por 4-6 playas e islas",
+            "1": "Paradas para nadar y snorkel",
+            "2": "Equipo de snorkel incluido"
+          }
+        },
+        "onboard": {
+          "title": "A Bordo",
+          "items": {
+            "0": "Bebidas (agua, refrescos)",
+            "1": "Frutas tropicales",
+            "2": "Hielo y cooler disponible"
+          }
+        },
+        "safety": {
+          "title": "Seguridad",
+          "items": {
+            "0": "Chalecos salvavidas",
+            "1": "Capitán y tripulación certificados",
+            "2": "Seguro de navegación"
+          }
+        }
+      },
+      "faqs": {
+        "0": {
+          "question": "¿Cuál es el mejor momento del año para este tour?",
+          "answer": "De octubre a abril el mar está más calmado y las aguas más cristalinas. Julio y agosto pueden tener mar agitado pero siguen siendo viables."
+        },
+        "1": {
+          "question": "¿Me mareo en barco, puedo hacer el tour?",
+          "answer": "Recomendamos tomar medicamento para el mareo antes del tour. La mayoría de las embarcaciones son estables, pero el mar puede variar."
+        },
+        "2": {
+          "question": "¿El almuerzo está incluido?",
+          "answer": "El almuerzo es opcional con costo adicional. Ofrecemos menú de mariscos frescos o pollo. También puedes llevar tu propia comida."
+        },
+        "3": {
+          "question": "¿Hay límite de peso o edad?",
+          "answer": "Niños desde 5 años pueden participar con supervisión. No hay límite de peso pero las embarcaciones tienen capacidad máxima por seguridad."
+        },
+        "4": {
+          "question": "¿Puedo llevar mi propio equipo de snorkel?",
+          "answer": "Sí, puedes traer tu equipo personal. También proporcionamos equipo de calidad sin costo adicional."
+        }
+      }
+    },
+    "yachtVip": {
+      "title": "Paseo en Yate VIP",
+      "description": "Experiencia exclusiva por las costas de Barra da Tijuca y Copacabana. Música, bebidas, tripulación profesional y el mejor atardecer de Rio. Ideal para celebraciones especiales, eventos corporativos o simplemente una experiencia de lujo inolvidable.",
+      "duration": "Personalizable",
+      "priceNote": "Por hora",
+      "locations": {
+        "0": "Barra da Tijuca",
+        "1": "Copacabana",
+        "2": "Niterói",
+        "3": "Islas de Guanabara"
+      },
+      "highlights": {
+        "0": "Tripulación profesional",
+        "1": "Bebidas premium incluidas",
+        "2": "Ideal para grupos y eventos"
+      },
+      "includes": {
+        "yacht": {
+          "title": "El Yate",
+          "items": {
+            "0": "Embarcación de lujo (hasta 12 personas)",
+            "1": "Salón climatizado",
+            "2": "Sistema de sonido premium",
+            "3": "Área de soleo"
+          }
+        },
+        "crew": {
+          "title": "Tripulación",
+          "items": {
+            "0": "Capitán profesional",
+            "1": "Marinero asistente",
+            "2": "Servicio de bartender",
+            "3": "Chef opcional (costo adicional)"
+          }
+        },
+        "included": {
+          "title": "Incluido",
+          "items": {
+            "0": "Bebidas premium (champagne, vinos, cócteles)",
+            "1": "Tabla de quesos y aperitivos",
+            "2": "Hielo ilimitado",
+            "3": "Equipo de snorkel"
+          }
+        },
+        "extras": {
+          "title": "Extras Disponibles",
+          "items": {
+            "0": "Decoración para eventos",
+            "1": "Fotógrafo profesional",
+            "2": "Menú gourmet personalizado",
+            "3": "DJ a bordo"
+          }
+        }
+      },
+      "faqs": {
+        "0": {
+          "question": "¿Cuál es la capacidad máxima?",
+          "answer": "Nuestros yates tienen capacidad para 6-12 personas según el modelo. Para grupos mayores, podemos coordinar múltiples embarcaciones."
+        },
+        "1": {
+          "question": "¿Se puede reservar para eventos especiales?",
+          "answer": "Sí, ofrecemos paquetes para cumpleaños, despedidas, pedidas de matrimonio, eventos corporativos y más. Incluimos decoración temática."
+        },
+        "2": {
+          "question": "¿Cuál es el horario ideal?",
+          "answer": "Para atardeceres espectaculares, recomendamos salir 2-3 horas antes del ocaso. Para día completo de playa, salidas a las 10am."
+        },
+        "3": {
+          "question": "¿Qué puedo llevar adicional?",
+          "answer": "Puedes traer comida y bebidas adicionales sin cargo. Contamos con refrigeradores amplios y área de cocina básica."
+        },
+        "4": {
+          "question": "¿Hay política de mal tiempo?",
+          "answer": "En caso de condiciones climáticas adversas, reprogramamos sin costo adicional o reembolsamos el 100% del pago."
+        }
+      }
+    },
+    "helicopter": {
+      "title": "Paseo en Helicóptero",
+      "description": "Vive Rio desde el cielo. Un vuelo panorámico sobre Cristo Redentor, Pan de Azúcar, playas y montañas. Experiencia premium con vistas únicas e inigualables que te permitirán apreciar la magnitud de la ciudad maravillosa.",
+      "duration": "15-30 min",
+      "priceNote": "15 min vuelo",
+      "locations": {
+        "0": "Cristo Redentor",
+        "1": "Pan de Azúcar",
+        "2": "Playas",
+        "3": "Lagoa",
+        "4": "Maracanã"
+      },
+      "highlights": {
+        "0": "Vuelo panorámico",
+        "1": "Video y fotos incluidas",
+        "2": "Experiencia premium"
+      },
+      "includes": {
+        "flight": {
+          "title": "El Vuelo",
+          "items": {
+            "0": "Helicóptero con ventanas panorámicas",
+            "1": "Piloto comercial certificado",
+            "2": "Auriculares con comunicación",
+            "3": "Briefing de seguridad"
+          }
+        },
+        "routes": {
+          "title": "Rutas Disponibles",
+          "items": {
+            "0": "Ruta Clásica (15 min): Cristo, Pan de Azúcar, playas",
+            "1": "Ruta Completa (20 min): + Maracanã, Lagoa",
+            "2": "Ruta Premium (30 min): Tour completo de Rio"
+          }
+        },
+        "multimedia": {
+          "title": "Multimedia",
+          "items": {
+            "0": "Video HD del vuelo completo",
+            "1": "Fotografías aéreas profesionales",
+            "2": "GoPro disponible sin costo",
+            "3": "Acceso digital inmediato"
+          }
+        },
+        "extras": {
+          "title": "Extras",
+          "items": {
+            "0": "Champagne de bienvenida",
+            "1": "Certificado de vuelo",
+            "2": "Transfer desde hotel (costo adicional)"
+          }
+        }
+      },
+      "faqs": {
+        "0": {
+          "question": "¿Es seguro volar en helicóptero?",
+          "answer": "Absolutamente. Operamos con pilotos altamente certificados, helicópteros con mantenimiento riguroso y cumplimos todas las normas de aviación civil de Brasil."
+        },
+        "1": {
+          "question": "¿Hay límite de peso?",
+          "answer": "El peso combinado de pasajeros no debe exceder 450kg por seguridad. Helicópteros tienen capacidad de 4-6 pasajeros según modelo."
+        },
+        "2": {
+          "question": "¿Cuál es el mejor horario para volar?",
+          "answer": "Las mañanas tempranas ofrecen mejor visibilidad. Los atardeceres son espectaculares para fotos. Evitar horas de medio día por turbulencia térmica."
+        },
+        "3": {
+          "question": "¿Se puede volar con lluvia?",
+          "answer": "Por seguridad, los vuelos se cancelan o reprograman en caso de lluvia, niebla densa o vientos fuertes. Ofrecemos reprogramación sin costo."
+        },
+        "4": {
+          "question": "¿Puedo llevar mi cámara profesional?",
+          "answer": "Sí, puedes usar cualquier equipo fotográfico. Solo asegúrate de sujetarlo bien. Las ventanas son amplias y limpias para excelentes tomas."
+        }
+      }
+    }
   }
 }

@@ -138,5 +138,171 @@
   "seo": {
     "title": "Rio Trip Vibes - Sua Agência de Viagens de Confiança",
     "description": "Descubra experiências de viagem únicas no Rio de Janeiro com guias profissionais. Tours exclusivos, passeios de barco, trilhas e muito mais."
+  },
+  "testimonials": {
+    "title": "O Que Nossos Viajantes Dizem",
+    "subtitle": "Histórias reais de pessoas que exploraram o Rio conosco. Mais de 1.000 viajantes felizes nos apoiam.",
+    "satisfied": "+1.000 viajantes satisfeitos",
+    "items": {
+      "1": { "name": "Maria Garcia", "date": "Novembro 2024", "text": "Uma experiência incrível! O guia foi muito profissional e conhecedor. O passeio ao Cristo Redentor e Pão de Açúcar superou todas as minhas expectativas. 100% recomendado.", "tour": "Day Tour Rio de Janeiro" },
+      "2": { "name": "Carlos Rodriguez", "date": "Outubro 2024", "text": "A trilha para Pedra da Gávea foi desafiadora mas as vistas são impressionantes. O guia cuidou de nós o tempo todo e nos ensinou sobre a flora local. Voltarei para mais aventuras!", "tour": "Trilhas & Trekking" },
+      "3": { "name": "Ana Martinez", "date": "Setembro 2024", "text": "O passeio de iate foi espetacular! Vimos o pôr do sol do mar com Copacabana ao fundo. Perfeito para comemorar nosso aniversário. A tripulação foi muito atenciosa.", "tour": "Passeio de Iate VIP" },
+      "4": { "name": "Diego Flores", "date": "Novembro 2024", "text": "O passeio de helicóptero foi a coisa mais incrível que já fiz! Ver o Cristo Redentor de cima e as praias do Rio é uma experiência impagável. Fotos espetaculares.", "tour": "Passeio de Helicóptero" },
+      "5": { "name": "Carolina Sanchez", "date": "Outubro 2024", "text": "As praias de Arraial do Cabo são um paraíso escondido. Água cristalina, mergulho incrível e a tripulação do barco super simpática. Um dia perfeito no mar.", "tour": "Passeios de Barco" },
+      "6": { "name": "Roberto Diaz", "date": "Setembro 2024", "text": "O tour pela favela mudou completamente minha perspectiva. A cultura, arte urbana, música... e as vistas do Vidigal são de outro mundo. Muito recomendado.", "tour": "Tour pelas Favelas" },
+      "7": { "name": "Patricia Morales", "date": "Agosto 2024", "text": "Fizemos a trilha do Morro Dois Irmãos e as vistas de Ipanema e Leblon do topo são inesquecíveis. Guia muito profissional e ritmo perfeito para aproveitar.", "tour": "Trilhas & Trekking" },
+      "8": { "name": "Fernando Castro", "date": "Agosto 2024", "text": "O City Tour completo é a melhor forma de conhecer o Rio em um dia. Visitamos todos os pontos icônicos e o guia nos contou histórias fascinantes de cada lugar.", "tour": "Day Tour Rio de Janeiro" },
+      "9": { "name": "Lucia Hernandez", "date": "Julho 2024", "text": "Prainha e Grumari são praias paradisíacas! Longe do turismo de massa, águas limpas e paisagens de cartão postal. O tour de praias foi nossa melhor decisão.", "tour": "Tour pelas Praias" },
+      "10": { "name": "Miguel Torres", "date": "Julho 2024", "text": "Comemoramos o aniversário da minha esposa no iate VIP e foi mágico. Champanhe, pôr do sol, música e as luzes do Rio ao fundo. Serviço de primeira classe.", "tour": "Passeio de Iate VIP" },
+      "11": { "name": "Valentina Ruiz", "date": "Junho 2024", "text": "Ilha Grande é um paraíso! O passeio de barco nos levou a praias secretas com águas turquesas. O almoço de frutos do mar frescos foi delicioso. Dia inesquecível.", "tour": "Passeios de Barco" },
+      "12": { "name": "Andres Vargas", "date": "Junho 2024", "text": "Pedra do Telégrafo tem as melhores fotos de Instagram! A trilha é acessível e as vistas da costa são espetaculares. Guia excelente e muito paciente.", "tour": "Trilhas & Trekking" },
+      "13": { "name": "Camila Reyes", "date": "Maio 2024", "text": "Ver o Rio do helicóptero ao pôr do sol foi surreal. As cores do céu, o Cristo iluminado e toda a baía brilhando. Uma experiência que vale cada centavo.", "tour": "Passeio de Helicóptero" }
+    }
+  },
+  "tourPackages": {
+    "badges": { "mostPopular": "Mais Popular", "adventure": "Aventura", "exclusive": "Exclusivo", "premium": "Premium" },
+    "dayTour": {
+      "title": "Day Tour Rio de Janeiro",
+      "description": "Descubra o melhor do Rio em um único dia. Visitamos entre 7 a 9 pontos turísticos, incluindo Cristo Redentor, Escadaria Selarón, Pão de Açúcar, Mirante do Leblon e muito mais.",
+      "duration": "8-10 horas",
+      "locations": { "0": "Cristo Redentor", "1": "Escadaria Selarón", "2": "Pão de Açúcar", "3": "Mirante do Leblon", "4": "Lapa", "5": "Centro Histórico" },
+      "highlights": { "0": "Transporte incluído", "1": "Guia local bilíngue", "2": "Paradas para fotos" },
+      "includes": {
+        "transport": { "title": "Transporte", "items": { "0": "Busca e retorno ao hotel", "1": "Veículo com ar condicionado", "2": "Traslados entre pontos turísticos" } },
+        "guide": { "title": "Guia e Acompanhamento", "items": { "0": "Guia local certificado bilíngue", "1": "Explicação histórica e cultural", "2": "Assistência durante todo o passeio" } },
+        "tickets": { "title": "Ingressos e Acessos", "items": { "0": "Entrada do Corcovado", "1": "Teleférico do Pão de Açúcar", "2": "Acesso aos mirantes" } },
+        "extras": { "title": "Extras", "items": { "0": "Água durante o passeio", "1": "Kit aventura Rio Trip Vibes", "2": "Fotos profissionais" } }
+      },
+      "faqs": {
+        "0": { "question": "Qual a melhor época do ano?", "answer": "O Rio tem clima tropical o ano todo. Recomendamos abril a outubro para evitar chuvas fortes." },
+        "1": { "question": "Preciso levar dinheiro extra?", "answer": "Recomendamos $30-50 USD para gastos pessoais. O almoço não está incluído." },
+        "2": { "question": "Crianças e idosos podem participar?", "answer": "Sim, o passeio é adequado para todas as idades." },
+        "3": { "question": "O que devo levar?", "answer": "Roupas confortáveis, protetor solar, chapéu e calçado confortável." },
+        "4": { "question": "Qual a política de cancelamento?", "answer": "Cancelamento gratuito até 48 horas antes. Menos de 48h tem cobrança de 50%." }
+      }
+    },
+    "favelasTour": {
+      "title": "Tour pelas Favelas",
+      "description": "Viva a autêntica cultura carioca com passeios guiados pelas favelas mais famosas do Rio. Conheça sua história, seu povo e seus mirantes impressionantes.",
+      "duration": "3-4 horas",
+      "locations": { "0": "Rocinha", "1": "Vidigal", "2": "Tavares Bastos", "3": "Santa Marta" },
+      "highlights": { "0": "Experiência cultural autêntica", "1": "Guia local da comunidade", "2": "Mirantes espetaculares" },
+      "includes": {
+        "transport": { "title": "Transporte", "items": { "0": "Busca no ponto de encontro", "1": "Transporte interno na comunidade", "2": "Retorno ao ponto de partida" } },
+        "guide": { "title": "Guia Local", "items": { "0": "Guia morador da comunidade", "1": "História e contexto social", "2": "Interação com artistas locais" } },
+        "experiences": { "title": "Experiências Incluídas", "items": { "0": "Visita a projetos sociais", "1": "Degustação de comida típica", "2": "Acesso a mirantes exclusivos", "3": "Arte urbana e grafite" } },
+        "social": { "title": "Contribuição Social", "items": { "0": "Parte do custo apoia projetos comunitários", "1": "Compras em comércios locais", "2": "Turismo responsável" } }
+      },
+      "faqs": {
+        "0": { "question": "É seguro visitar as favelas?", "answer": "Sim, nossos passeios são completamente seguros com guias locais experientes." },
+        "1": { "question": "Posso tirar fotos?", "answer": "Sim, de paisagens e arte urbana. Peça permissão para fotografar moradores." },
+        "2": { "question": "Qual a melhor época?", "answer": "O passeio pode ser feito o ano todo. Evite dias de chuva forte." },
+        "3": { "question": "O que devo levar?", "answer": "Roupas discretas, calçado fechado, pouco dinheiro." },
+        "4": { "question": "Há opções vegetarianas?", "answer": "Sim, informe-nos com antecedência sobre restrições alimentares." }
+      }
+    },
+    "playasTour": {
+      "title": "Tour pelas Praias",
+      "description": "Explore as praias mais icônicas: Copacabana, Ipanema, Joatinga, Prainha e Grumari. Ideal para aproveitar o sol, surf e paisagens naturais.",
+      "duration": "6-8 horas",
+      "locations": { "0": "Copacabana", "1": "Ipanema", "2": "Joatinga", "3": "Prainha", "4": "Grumari" },
+      "highlights": { "0": "Praias paradisíacas", "1": "Surf opcional", "2": "Fotos espetaculares", "3": "Água de coco incluída" },
+      "includes": {
+        "transport": { "title": "Transporte", "items": { "0": "Busca e retorno ao hotel", "1": "Veículo 4x4 para praias remotas", "2": "Traslados entre praias" } },
+        "beachTime": { "title": "Tempo na Praia", "items": { "0": "Paradas de 30-60 min em cada praia", "1": "Tempo livre para nadar", "2": "Assistência para esportes aquáticos" } },
+        "included": { "title": "Incluído", "items": { "0": "Água de coco nas paradas", "1": "Guarda-sol e cadeiras", "2": "Kit de snorkel básico", "3": "Toalhas de praia" } },
+        "optional": { "title": "Opcionais", "items": { "0": "Aulas de surf", "1": "Almoço em restaurante de praia", "2": "Stand up paddle" } }
+      },
+      "faqs": {
+        "0": { "question": "Qual a melhor época?", "answer": "Novembro a março é verão com temperaturas ideais. Abril a outubro também tem dias excelentes." },
+        "1": { "question": "Preciso saber nadar?", "answer": "Não é obrigatório, mas recomendável. Siga as instruções do guia." },
+        "2": { "question": "O que devo levar?", "answer": "Maiô, protetor solar alto, chapéu, óculos de sol e roupa de troca." },
+        "3": { "question": "As praias são adequadas para crianças?", "answer": "Sim, especialmente Copacabana e Ipanema com águas mais calmas." },
+        "4": { "question": "Há armários?", "answer": "Não há armários, mas o guia cuida dos pertences enquanto você aproveita o mar." }
+      }
+    },
+    "trekking": {
+      "title": "Trilhas & Trekking",
+      "description": "Aventura garantida nos morros mais famosos do Rio: Morro Dois Irmãos, Pedra Bonita, Pedra do Telégrafo, Pedra da Gávea. Guias especializados e vistas de tirar o fôlego.",
+      "duration": "4-6 horas",
+      "priceNote": "Varia por rota",
+      "locations": { "0": "Morro Dois Irmãos", "1": "Pedra Bonita", "2": "Pedra do Telégrafo", "3": "Pedra da Gávea" },
+      "highlights": { "0": "Guias especializados", "1": "Equipamento de segurança", "2": "Vistas panorâmicas incríveis" },
+      "includes": {
+        "transport": { "title": "Transporte", "items": { "0": "Busca e retorno ao hotel", "1": "Traslado ao início da trilha", "2": "Veículo com ar condicionado" } },
+        "safety": { "title": "Guia e Segurança", "items": { "0": "Guia de montanha certificado", "1": "Equipamento de segurança", "2": "Kit de primeiros socorros", "3": "Rádio de comunicação" } },
+        "included": { "title": "Incluído", "items": { "0": "Bastões de trekking", "1": "Lanches energéticos", "2": "Água e bebidas isotônicas", "3": "Fotos profissionais" } },
+        "kit": { "title": "Kit Aventura", "items": { "0": "Camiseta Dry Fit Rio Trip Vibes", "1": "Bandana multiuso", "2": "Bolsa impermeável para celular" } }
+      },
+      "faqs": {
+        "0": { "question": "Qual o nível de dificuldade?", "answer": "Varia: Pedra do Telégrafo é fácil (2h), Dois Irmãos moderado (3h), Pedra Bonita moderado-alto (4h), Pedra da Gávea difícil (6h)." },
+        "1": { "question": "Qual a melhor época?", "answer": "Abril a outubro é ideal com clima seco. Evite dias de chuva." },
+        "2": { "question": "Preciso de experiência?", "answer": "Para rotas fáceis e moderadas, não. Para Pedra da Gávea recomendamos experiência básica." },
+        "3": { "question": "O que devo levar?", "answer": "Calçado de trekking, roupa esportiva, mochila pequena, protetor solar, repelente e água." },
+        "4": { "question": "Há limite de idade?", "answer": "Fáceis: 10+ anos. Moderadas: 14+ anos. Difíceis: 18+ anos. Acima de 60 requer avaliação médica." }
+      }
+    },
+    "boatTour": {
+      "title": "Passeios de Barco",
+      "description": "Aproveite um dia no paraíso navegando por Ilha Grande ou Arraial do Cabo. Praias de águas cristalinas, snorkel e paisagens de cartão postal.",
+      "duration": "Dia inteiro",
+      "locations": { "0": "Ilha Grande", "1": "Arraial do Cabo", "2": "Angra dos Reis" },
+      "highlights": { "0": "Transporte incluído", "1": "Snorkel com equipamento", "2": "Almoço a bordo opcional" },
+      "includes": {
+        "transport": { "title": "Transporte", "items": { "0": "Busca e retorno ao hotel", "1": "Traslado terrestre ao porto", "2": "Navegação em embarcação segura" } },
+        "nautical": { "title": "Experiência Náutica", "items": { "0": "Passeio por 4-6 praias e ilhas", "1": "Paradas para nadar e mergulhar", "2": "Equipamento de snorkel incluído" } },
+        "onboard": { "title": "A Bordo", "items": { "0": "Bebidas (água, refrigerantes)", "1": "Frutas tropicais", "2": "Gelo e cooler disponíveis" } },
+        "safety": { "title": "Segurança", "items": { "0": "Coletes salva-vidas", "1": "Capitão e tripulação certificados", "2": "Seguro de navegação" } }
+      },
+      "faqs": {
+        "0": { "question": "Qual a melhor época?", "answer": "Outubro a abril o mar está mais calmo. Julho e agosto podem ter mar agitado." },
+        "1": { "question": "Fico enjoado, posso fazer?", "answer": "Recomendamos medicamento para enjoo antes do passeio." },
+        "2": { "question": "O almoço está incluído?", "answer": "O almoço é opcional com custo adicional. Você pode trazer sua comida." },
+        "3": { "question": "Há limite de peso ou idade?", "answer": "Crianças a partir de 5 anos com supervisão. Sem limite de peso, mas há capacidade máxima." },
+        "4": { "question": "Posso levar meu equipamento de snorkel?", "answer": "Sim, ou use o nosso sem custo adicional." }
+      }
+    },
+    "yachtVip": {
+      "title": "Passeio de Iate VIP",
+      "description": "Experiência exclusiva pelas costas da Barra da Tijuca e Copacabana. Música, bebidas, tripulação profissional e o melhor pôr do sol do Rio.",
+      "duration": "Personalizável",
+      "priceNote": "Por hora",
+      "locations": { "0": "Barra da Tijuca", "1": "Copacabana", "2": "Niterói", "3": "Ilhas da Guanabara" },
+      "highlights": { "0": "Tripulação profissional", "1": "Bebidas premium incluídas", "2": "Ideal para grupos e eventos" },
+      "includes": {
+        "yacht": { "title": "O Iate", "items": { "0": "Embarcação de luxo (até 12 pessoas)", "1": "Salão climatizado", "2": "Sistema de som premium", "3": "Área de sol" } },
+        "crew": { "title": "Tripulação", "items": { "0": "Capitão profissional", "1": "Marinheiro assistente", "2": "Serviço de bartender", "3": "Chef opcional" } },
+        "included": { "title": "Incluído", "items": { "0": "Bebidas premium", "1": "Tábua de queijos e aperitivos", "2": "Gelo ilimitado", "3": "Equipamento de snorkel" } },
+        "extras": { "title": "Extras Disponíveis", "items": { "0": "Decoração para eventos", "1": "Fotógrafo profissional", "2": "Menu gourmet personalizado", "3": "DJ a bordo" } }
+      },
+      "faqs": {
+        "0": { "question": "Qual a capacidade máxima?", "answer": "6-12 pessoas dependendo do modelo. Para grupos maiores, múltiplas embarcações." },
+        "1": { "question": "Pode ser reservado para eventos?", "answer": "Sim, oferecemos pacotes para aniversários, despedidas, casamentos e eventos corporativos." },
+        "2": { "question": "Qual o horário ideal?", "answer": "Para pôr do sol, saia 2-3 horas antes. Para dia completo, saídas às 10h." },
+        "3": { "question": "Posso levar comida adicional?", "answer": "Sim, sem custo adicional. Temos refrigeradores amplos." },
+        "4": { "question": "Há política de mau tempo?", "answer": "Reagendamos sem custo ou reembolsamos 100% em caso de condições adversas." }
+      }
+    },
+    "helicopter": {
+      "title": "Passeio de Helicóptero",
+      "description": "Viva o Rio do céu. Um voo panorâmico sobre Cristo Redentor, Pão de Açúcar, praias e montanhas. Experiência premium com vistas únicas e inesquecíveis.",
+      "duration": "15-30 min",
+      "priceNote": "15 min voo",
+      "locations": { "0": "Cristo Redentor", "1": "Pão de Açúcar", "2": "Praias", "3": "Lagoa", "4": "Maracanã" },
+      "highlights": { "0": "Voo panorâmico", "1": "Vídeo e fotos incluídas", "2": "Experiência premium" },
+      "includes": {
+        "flight": { "title": "O Voo", "items": { "0": "Helicóptero com janelas panorâmicas", "1": "Piloto comercial certificado", "2": "Fones de ouvido com comunicação", "3": "Briefing de segurança" } },
+        "routes": { "title": "Rotas Disponíveis", "items": { "0": "Rota Clássica (15 min): Cristo, Pão de Açúcar, praias", "1": "Rota Completa (20 min): + Maracanã, Lagoa", "2": "Rota Premium (30 min): Tour completo do Rio" } },
+        "multimedia": { "title": "Multimídia", "items": { "0": "Vídeo HD do voo completo", "1": "Fotografias aéreas profissionais", "2": "GoPro disponível sem custo", "3": "Acesso digital imediato" } },
+        "extras": { "title": "Extras", "items": { "0": "Champanhe de boas-vindas", "1": "Certificado de voo", "2": "Transfer do hotel" } }
+      },
+      "faqs": {
+        "0": { "question": "É seguro voar de helicóptero?", "answer": "Absolutamente. Pilotos certificados, helicópteros com manutenção rigorosa e cumprimos todas as normas de aviação." },
+        "1": { "question": "Há limite de peso?", "answer": "Peso combinado não deve exceder 450kg. Capacidade de 4-6 passageiros." },
+        "2": { "question": "Qual o melhor horário?", "answer": "Manhãs cedo para melhor visibilidade. Pôr do sol para fotos espetaculares." },
+        "3": { "question": "Pode voar com chuva?", "answer": "Não, voos são cancelados ou reagendados em caso de chuva, neblina ou ventos fortes." },
+        "4": { "question": "Posso levar câmera profissional?", "answer": "Sim, use qualquer equipamento fotográfico. Janelas amplas e limpas para excelentes fotos." }
+      }
+    }
   }
 }
