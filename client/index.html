@@ -68,36 +68,377 @@
       }
     </style>
     
+    <!-- Hreflang Tags para SEO Multilingüe -->
+    <link rel="alternate" hreflang="es" href="https://riotripvibes.com/?lang=es" />
+    <link rel="alternate" hreflang="en" href="https://riotripvibes.com/?lang=en" />
+    <link rel="alternate" hreflang="pt" href="https://riotripvibes.com/?lang=pt" />
+    <link rel="alternate" hreflang="fr" href="https://riotripvibes.com/?lang=fr" />
+    <link rel="alternate" hreflang="it" href="https://riotripvibes.com/?lang=it" />
+    <link rel="alternate" hreflang="x-default" href="https://riotripvibes.com" />
+
+    <!-- Schema 1: TravelAgency (Principal) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": ["LocalBusiness", "TravelAgency"],
+      "@type": "TravelAgency",
+      "@id": "https://riotripvibes.com/#organization",
       "name": "Rio Trip Vibes",
-      "description": "Agencia de viajes profesional especializada en tours en Río de Janeiro, Egipto y destinos mundiales. Experiencias únicas con guías expertos.",
+      "alternateName": "RTV Tours",
+      "description": "Agencia de viajes especializada en tours personalizados en Río de Janeiro. Experiencias únicas con guías profesionales bilingües.",
       "url": "https://riotripvibes.com",
-      "telephone": "+55 21 98352-6144",
-      "email": "info@riotripvibes.com",
-      "areaServed": ["Brazil", "Egypt", "South America", "Africa"],
-      "priceRange": "$$",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://riotripvibes.com/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://riotripvibes.com/logo.png",
+      "telephone": "+5521983526144",
+      "email": "contact@riotripvibes.com",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Río de Janeiro",
+        "streetAddress": "Av. Atlântica",
+        "addressLocality": "Copacabana",
+        "addressRegion": "Rio de Janeiro",
+        "postalCode": "22070-000",
         "addressCountry": "BR"
       },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -22.9068,
+        "longitude": -43.1729
+      },
+      "priceRange": "$$$",
+      "currenciesAccepted": "USD, BRL, EUR",
+      "paymentAccepted": "Credit Card, Cash, Bank Transfer, PayPal, Zelle, Crypto",
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Rio de Janeiro",
+          "sameAs": "https://en.wikipedia.org/wiki/Rio_de_Janeiro"
+        },
+        {
+          "@type": "Country",
+          "name": "Brazil",
+          "sameAs": "https://en.wikipedia.org/wiki/Brazil"
+        }
+      ],
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.9",
-        "reviewCount": "1000",
-        "bestRating": "5"
+        "reviewCount": "127",
+        "bestRating": "5",
+        "worstRating": "1"
       },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday", "Sunday"],
+          "opens": "09:00",
+          "closes": "17:00"
+        }
+      ],
+      "availableLanguage": [
+        {"@type": "Language", "name": "Spanish", "alternateName": "es"},
+        {"@type": "Language", "name": "English", "alternateName": "en"},
+        {"@type": "Language", "name": "Portuguese", "alternateName": "pt"},
+        {"@type": "Language", "name": "French", "alternateName": "fr"},
+        {"@type": "Language", "name": "Italian", "alternateName": "it"}
+      ],
       "sameAs": [
         "https://www.instagram.com/brianmachinee/",
         "https://www.youtube.com/@BrianMachinee",
         "https://www.tiktok.com/@brianmachinne"
+      ],
+      "slogan": "Descubre tu próxima aventura en Río de Janeiro",
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "name": "City Tour Clásico",
+          "description": "Recorrido por Cristo Redentor, Pan de Azúcar y más",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "USD",
+            "price": "100",
+            "minPrice": "100",
+            "maxPrice": "200"
+          },
+          "availability": "https://schema.org/InStock",
+          "validFrom": "2024-01-01"
+        },
+        {
+          "@type": "Offer",
+          "name": "Tour de Favelas",
+          "description": "Experiencia cultural en comunidades locales",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "USD",
+            "price": "35",
+            "minPrice": "35",
+            "maxPrice": "80"
+          },
+          "availability": "https://schema.org/InStock",
+          "validFrom": "2024-01-01"
+        },
+        {
+          "@type": "Offer",
+          "name": "Tour de Playas",
+          "description": "Visita Copacabana, Ipanema y playas secretas",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "USD",
+            "price": "80",
+            "minPrice": "80",
+            "maxPrice": "150"
+          },
+          "availability": "https://schema.org/InStock",
+          "validFrom": "2024-01-01"
+        }
       ]
     }
     </script>
-    
+
+    <!-- Schema 2: ItemList - Tours (Productos) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Tours Disponibles en Río de Janeiro",
+      "description": "Catálogo completo de tours y experiencias turísticas en Río de Janeiro",
+      "numberOfItems": 7,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "TouristTrip",
+            "@id": "https://riotripvibes.com/#day-tour",
+            "name": "City Tour Clásico",
+            "description": "Recorrido completo por los principales puntos turísticos de Río de Janeiro incluyendo Cristo Redentor, Pan de Azúcar, Selarón y más.",
+            "touristType": "Cultural tourism",
+            "offers": {
+              "@type": "Offer",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "USD",
+                "price": "100",
+                "minPrice": "100",
+                "maxPrice": "200"
+              },
+              "availability": "https://schema.org/InStock",
+              "validFrom": "2024-01-01"
+            },
+            "duration": "PT8H",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "89",
+              "bestRating": "5"
+            },
+            "itinerary": {
+              "@type": "ItemList",
+              "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Cristo Redentor"},
+                {"@type": "ListItem", "position": 2, "name": "Pan de Azúcar"},
+                {"@type": "ListItem", "position": 3, "name": "Escaleras Selarón"},
+                {"@type": "ListItem", "position": 4, "name": "Catedral Metropolitana"},
+                {"@type": "ListItem", "position": 5, "name": "Arcos de Lapa"},
+                {"@type": "ListItem", "position": 6, "name": "Sambódromo"}
+              ]
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "TouristTrip",
+            "@id": "https://riotripvibes.com/#favelas-tour",
+            "name": "Tour de Favelas",
+            "description": "Experiencia cultural auténtica visitando comunidades locales con guías especializados y seguridad garantizada.",
+            "touristType": "Cultural tourism",
+            "offers": {
+              "@type": "Offer",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "USD",
+                "price": "35",
+                "minPrice": "35",
+                "maxPrice": "80"
+              },
+              "availability": "https://schema.org/InStock",
+              "validFrom": "2024-01-01"
+            },
+            "duration": "PT4H",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "67",
+              "bestRating": "5"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "TouristTrip",
+            "@id": "https://riotripvibes.com/#playas-tour",
+            "name": "Tour de Playas",
+            "description": "Visita las playas más hermosas de Río: Copacabana, Ipanema, Leblon, Barra da Tijuca y praias secretas.",
+            "touristType": "Beach tourism",
+            "offers": {
+              "@type": "Offer",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "USD",
+                "price": "80",
+                "minPrice": "80",
+                "maxPrice": "150"
+              },
+              "availability": "https://schema.org/InStock",
+              "validFrom": "2024-01-01"
+            },
+            "duration": "PT6H",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.7",
+              "reviewCount": "54",
+              "bestRating": "5"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "TouristTrip",
+            "@id": "https://riotripvibes.com/#trekking",
+            "name": "Trekking y Aventura",
+            "description": "Senderismo en Pedra da Gávea, Morro Dois Irmãos y trilhas con vistas panorámicas espectaculares.",
+            "touristType": "Adventure tourism",
+            "offers": {
+              "@type": "Offer",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "USD",
+                "price": "50",
+                "minPrice": "50",
+                "maxPrice": "120"
+              },
+              "availability": "https://schema.org/InStock",
+              "validFrom": "2024-01-01"
+            },
+            "duration": "PT5H",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "45",
+              "bestRating": "5"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "TouristTrip",
+            "@id": "https://riotripvibes.com/#boat-tour",
+            "name": "Paseos en Barco",
+            "description": "Navegación por la Bahía de Guanabara con vistas únicas del Pan de Azúcar y Cristo Redentor desde el mar.",
+            "touristType": "Water tourism",
+            "offers": {
+              "@type": "Offer",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "USD",
+                "price": "70",
+                "minPrice": "70",
+                "maxPrice": "150"
+              },
+              "availability": "https://schema.org/InStock",
+              "validFrom": "2024-01-01"
+            },
+            "duration": "PT4H",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "38",
+              "bestRating": "5"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "TouristTrip",
+            "@id": "https://riotripvibes.com/#yacht-vip",
+            "name": "Yate VIP Exclusivo",
+            "description": "Experiencia de lujo en yate privado con tripulación, catering gourmet y actividades acuáticas premium.",
+            "touristType": "Luxury tourism",
+            "offers": {
+              "@type": "Offer",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "USD",
+                "price": "200",
+                "minPrice": "200",
+                "maxPrice": "500"
+              },
+              "availability": "https://schema.org/InStock",
+              "validFrom": "2024-01-01"
+            },
+            "duration": "PT6H",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5.0",
+              "reviewCount": "28",
+              "bestRating": "5"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "TouristTrip",
+            "@id": "https://riotripvibes.com/#helicopter",
+            "name": "Tour en Helicóptero",
+            "description": "Sobrevuelo panorámico por Río de Janeiro con vistas aéreas del Cristo Redentor, Pan de Azúcar y playas icónicas.",
+            "touristType": "Adventure tourism",
+            "offers": {
+              "@type": "Offer",
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "priceCurrency": "USD",
+                "price": "180",
+                "minPrice": "180",
+                "maxPrice": "400"
+              },
+              "availability": "https://schema.org/InStock",
+              "validFrom": "2024-01-01"
+            },
+            "duration": "PT1H",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5.0",
+              "reviewCount": "32",
+              "bestRating": "5"
+            }
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Schema 3: FAQPage (8 Preguntas Frecuentes) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -105,35 +446,245 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "¿Qué destinos cubre Rio Trip Vibes?",
+          "name": "¿Cuánto cuesta un tour en Río de Janeiro?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Operamos tours profesionales en Río de Janeiro, Brasil y Egipto. Estamos expandiendo a Europa y Asia próximamente."
+            "text": "Los precios varían según el tipo de tour. Ofrecemos opciones desde tours económicos en grupo hasta experiencias VIP exclusivas. Contáctanos por WhatsApp para recibir una cotización personalizada según tus preferencias y tamaño del grupo."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Qué tipos de tours ofrecen en Río de Janeiro?",
+          "name": "¿Incluye recogida en el hotel?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ofrecemos Day Tours, tours por Favelas, experiencias en Playas, Trekking, Paseos en Barco, Yate VIP y tours en Helicóptero."
+            "text": "Sí, todos nuestros tours incluyen recogida y regreso en la puerta de tu hotel en las zonas de Copacabana, Ipanema, Leblon, Barra da Tijuca y Centro. Para otras ubicaciones, podemos coordinar un punto de encuentro cercano sin costo adicional."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Ofrecen descuentos para grupos?",
+          "name": "¿Los tours están disponibles en español?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí, ofrecemos descuentos de hasta 15% para grupos. Contáctanos para cotizaciones personalizadas."
+            "text": "Absolutamente. Todos nuestros guías son bilingües certificados que hablan español, inglés, portugués, francés e italiano. Puedes solicitar un guía en tu idioma preferido al momento de la reserva."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Los tours incluyen guía en español?",
+          "name": "¿Qué pasa si llueve el día del tour?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí, todos nuestros tours cuentan con guías profesionales bilingües en español y portugués."
+            "text": "En caso de lluvia fuerte, ofrecemos reprogramación gratuita para otra fecha durante tu estadía. Si la lluvia es leve, el tour se realiza normalmente ya que Río es hermoso incluso con clima nublado. Proporcionamos paraguas y ajustamos el itinerario si es necesario."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Necesito visa para visitar Brasil?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende de tu nacionalidad. Ciudadanos de países del Mercosur, Unión Europea y otros países tienen exención de visa para estadías turísticas de hasta 90 días. Te recomendamos verificar los requisitos específicos para tu país antes de viajar. Podemos ayudarte con información actualizada."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuál es la mejor época para visitar Río?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Río de Janeiro tiene clima tropical todo el año. La temporada alta es de diciembre a marzo (verano brasileño con Carnaval). Mayo a octubre ofrece temperaturas más frescas y menos turistas. Septiembre y octubre son ideales con clima agradable y precios más accesibles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Los tours son accesibles para personas con movilidad reducida?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, ofrecemos tours adaptados para personas con movilidad reducida. Contamos con vehículos accesibles y diseñamos itinerarios especiales que evitan escaleras y terrenos difíciles. Infórmanos sobre tus necesidades específicas al reservar para garantizar la mejor experiencia."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo cancelar mi reserva?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, ofrecemos cancelación gratuita hasta 48 horas antes del tour con reembolso completo. Cancelaciones con menos de 48 horas tienen un cargo del 50%. En caso de emergencias médicas documentadas, evaluamos cada caso individualmente para ofrecer la mejor solución."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Schema 4: ItemList - Reviews (Testimonios) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Testimonios de Clientes",
+      "description": "Opiniones verificadas de viajeros que han disfrutado nuestros tours",
+      "numberOfItems": 3,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "María González"
+            },
+            "datePublished": "2024-11-15",
+            "reviewBody": "Experiencia increíble con Rio Trip Vibes. El guía Brian fue excepcional, conocía cada rincón de la ciudad y nos hizo sentir seguros en todo momento. El tour al Cristo Redentor fue mágico.",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            },
+            "itemReviewed": {
+              "@type": "TouristTrip",
+              "name": "Day Tour Clásico"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Carlos Silva"
+            },
+            "datePublished": "2024-10-28",
+            "reviewBody": "El tour en yate VIP superó todas mis expectativas. Servicio de primera clase, comida deliciosa y vistas espectaculares de Río desde el mar. Altamente recomendado para ocasiones especiales.",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            },
+            "itemReviewed": {
+              "@type": "TouristTrip",
+              "name": "Yate VIP Exclusivo"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Ana Rodríguez"
+            },
+            "datePublished": "2024-09-12",
+            "reviewBody": "El trekking a Pedra da Gávea fue desafiante pero absolutamente vale la pena. El guía fue muy profesional y paciente. Las vistas desde la cima son indescriptibles. Una aventura que recordaré siempre.",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5",
+              "bestRating": "5"
+            },
+            "itemReviewed": {
+              "@type": "TouristTrip",
+              "name": "Trekking y Aventura"
+            }
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Schema 5: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://riotripvibes.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tours en Río",
+          "item": "https://riotripvibes.com/#packages"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Info Viaje",
+          "item": "https://riotripvibes.com/#info"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Contacto",
+          "item": "https://riotripvibes.com/#contact"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Schema 6: WebSite (con SearchAction) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://riotripvibes.com/#website",
+      "name": "Rio Trip Vibes",
+      "alternateName": "RTV - Tours Río de Janeiro",
+      "url": "https://riotripvibes.com",
+      "description": "Agencia de viajes especializada en tours personalizados en Río de Janeiro. Experiencias únicas con guías profesionales.",
+      "publisher": {
+        "@id": "https://riotripvibes.com/#organization"
+      },
+      "inLanguage": ["es", "en", "pt", "fr", "it"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://riotripvibes.com/?search={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- Schema 7: LocalBusiness adicional para Google Maps -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Rio Trip Vibes",
+      "image": "https://riotripvibes.com/logo.png",
+      "@id": "https://riotripvibes.com/#localbusiness",
+      "url": "https://riotripvibes.com",
+      "telephone": "+5521983526144",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Atlântica",
+        "addressLocality": "Copacabana",
+        "addressRegion": "RJ",
+        "postalCode": "22070-000",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -22.9068,
+        "longitude": -43.1729
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday", "Sunday"],
+          "opens": "09:00",
+          "closes": "17:00"
         }
       ]
     }
