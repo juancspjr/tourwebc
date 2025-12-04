@@ -1,5 +1,45 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef, memo } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+
+interface ProgressiveCarouselImageProps {
+  src: string;
+  alt: string;
+  isActive: boolean;
+  width?: number;
+  height?: number;
+}
+
+const ProgressiveCarouselImage = memo(function ProgressiveCarouselImage({
+  src,
+  alt,
+  isActive,
+  width = 400,
+  height = 300,
+}: ProgressiveCarouselImageProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (imgRef.current?.complete && imgRef.current.naturalWidth > 0) {
+      setIsLoaded(true);
+    }
+  }, [src]);
+
+  return (
+    <img
+      ref={imgRef}
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      loading="lazy"
+      decoding="async"
+      onLoad={() => setIsLoaded(true)}
+      className={`package-carousel-image ${isActive ? "active" : ""} ${isLoaded ? "img-loaded" : "img-loading"}`}
+      aria-hidden={!isActive}
+    />
+  );
+});
 
 interface PackageImageCarouselProps {
   images: string[];
@@ -79,18 +119,11 @@ export default function PackageImageCarousel({
         data-testid={`button-carousel-view-${carouselId}`}
       >
         {images.map((image, index) => (
-          <img
+          <ProgressiveCarouselImage
             key={index}
             src={image}
             alt={`${packageTitle} - imagen ${index + 1}`}
-            width={400}
-            height={300}
-            loading="lazy"
-            decoding="async"
-            className={`package-carousel-image ${
-              index === currentIndex ? "active" : ""
-            }`}
-            aria-hidden={index !== currentIndex}
+            isActive={index === currentIndex}
           />
         ))}
       </div>

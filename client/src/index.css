@@ -427,3 +427,54 @@ html {
     scroll-behavior: auto;
   }
 }
+
+/* ===== PROGRESSIVE IMAGE LOADING STYLES ===== */
+/* These styles provide smooth blur-to-sharp transitions for all images */
+
+.img-loading {
+  filter: blur(8px);
+  opacity: 0.85;
+  transform: scale(1.02);
+}
+
+.img-loaded {
+  filter: blur(0);
+  opacity: 1;
+  transform: scale(1);
+  transition: filter 0.4s ease-out, opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+/* Package carousel specific progressive loading */
+.package-carousel-image.img-loading {
+  filter: blur(6px);
+  opacity: 0.9;
+}
+
+.package-carousel-image.img-loaded {
+  filter: blur(0);
+  opacity: 1;
+  transition: filter 0.35s ease-out, opacity 0.35s ease-out;
+}
+
+/* Hero section progressive loading - maintain existing opacity transitions */
+.img-loading[style*="opacity: 1"],
+.img-loading[style*="opacity:1"] {
+  filter: blur(8px);
+}
+
+.img-loaded[style*="opacity: 1"],
+.img-loaded[style*="opacity:1"] {
+  filter: blur(0);
+}
+
+/* Reduced motion support for progressive images */
+@media (prefers-reduced-motion: reduce) {
+  .img-loading,
+  .img-loaded,
+  .package-carousel-image.img-loading,
+  .package-carousel-image.img-loaded {
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

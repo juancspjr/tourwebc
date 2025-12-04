@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useLayoutEffect } from "react";
+import { useState, useEffect, useCallback, useLayoutEffect, useRef, memo } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -15,6 +15,47 @@ const heroImages = [
   { src: egipt2Image, alt: "Esfinge y Pirámides de Giza" },
   { src: egipto1Image, alt: "Templo de Edfu" },
 ];
+
+interface ProgressiveHeroImageProps {
+  src: string;
+  alt: string;
+  isActive: boolean;
+  isFirst: boolean;
+}
+
+const ProgressiveHeroImage = memo(function ProgressiveHeroImage({
+  src,
+  alt,
+  isActive,
+  isFirst,
+}: ProgressiveHeroImageProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (imgRef.current?.complete && imgRef.current.naturalWidth > 0) {
+      setIsLoaded(true);
+    }
+  }, [src]);
+
+  return (
+    <img
+      ref={imgRef}
+      src={src}
+      alt={alt}
+      width={1920}
+      height={1080}
+      loading={isFirst ? "eager" : "lazy"}
+      decoding={isFirst ? "sync" : "async"}
+      onLoad={() => setIsLoaded(true)}
+      className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${isLoaded ? "img-loaded" : "img-loading"}`}
+      style={{
+        opacity: isActive ? 1 : 0,
+        zIndex: isActive ? 1 : 0,
+      }}
+    />
+  );
+});
 
 interface HeroSectionProps {
   onExploreClick?: () => void;
@@ -78,19 +119,12 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
     >
       <div className="absolute inset-0">
         {heroImages.map((image, index) => (
-          <img
+          <ProgressiveHeroImage
             key={index}
             src={image.src}
             alt={image.alt}
-            width={1920}
-            height={1080}
-            loading={index === 0 ? "eager" : "lazy"}
-            decoding={index === 0 ? "sync" : "async"}
-            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
-            style={{
-              opacity: index === currentSlide ? 1 : 0,
-              zIndex: index === currentSlide ? 1 : 0,
-            }}
+            isActive={index === currentSlide}
+            isFirst={index === 0}
           />
         ))}
       </div>

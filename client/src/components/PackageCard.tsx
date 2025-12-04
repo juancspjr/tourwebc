@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef, memo } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -6,6 +7,42 @@ import type { PackageData } from "@/lib/packages";
 import PackageImageCarousel from "./PackageImageCarousel";
 
 export type { PackageData };
+
+interface ProgressivePackageImageProps {
+  src: string;
+  alt: string;
+  onClick?: () => void;
+}
+
+const ProgressivePackageImage = memo(function ProgressivePackageImage({
+  src,
+  alt,
+  onClick,
+}: ProgressivePackageImageProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (imgRef.current?.complete && imgRef.current.naturalWidth > 0) {
+      setIsLoaded(true);
+    }
+  }, [src]);
+
+  return (
+    <img
+      ref={imgRef}
+      src={src}
+      alt={alt}
+      width={400}
+      height={300}
+      loading="lazy"
+      decoding="async"
+      onLoad={() => setIsLoaded(true)}
+      className={`w-full h-full object-cover group-hover:scale-105 transition-all duration-500 cursor-pointer ${isLoaded ? "img-loaded" : "img-loading"}`}
+      onClick={onClick}
+    />
+  );
+});
 
 interface PackageCardProps {
   package: PackageData;
@@ -26,14 +63,9 @@ export default function PackageCard({ package: pkg, onViewDetails, onBook }: Pac
             onImageClick={() => onViewDetails?.(pkg)}
           />
         ) : (
-          <img
+          <ProgressivePackageImage
             src={pkg.image}
             alt={pkg.title}
-            width={400}
-            height={300}
-            loading="lazy"
-            decoding="async"
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer"
             onClick={() => onViewDetails?.(pkg)}
           />
         )}

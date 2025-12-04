@@ -1,6 +1,39 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect, useRef, memo } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+interface ProgressiveCarouselMainImageProps {
+  src: string;
+  alt: string;
+  testId: string;
+}
+
+const ProgressiveCarouselMainImage = memo(function ProgressiveCarouselMainImage({
+  src,
+  alt,
+  testId,
+}: ProgressiveCarouselMainImageProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    setIsLoaded(false);
+    if (imgRef.current?.complete && imgRef.current.naturalWidth > 0) {
+      setIsLoaded(true);
+    }
+  }, [src]);
+
+  return (
+    <img
+      ref={imgRef}
+      src={src}
+      alt={alt}
+      onLoad={() => setIsLoaded(true)}
+      className={`w-full h-full object-cover transition-all duration-300 ${isLoaded ? "img-loaded" : "img-loading"}`}
+      data-testid={testId}
+    />
+  );
+});
 
 interface ImageCarouselProps {
   images: string[];
@@ -29,11 +62,10 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
   return (
     <div className="relative w-full">
       <div className="relative aspect-video w-full overflow-hidden rounded-lg">
-        <img
+        <ProgressiveCarouselMainImage
           src={images[currentIndex]}
           alt={`${alt} - ${currentIndex + 1}`}
-          className="w-full h-full object-cover transition-opacity duration-300"
-          data-testid={`carousel-image-${currentIndex}`}
+          testId={`carousel-image-${currentIndex}`}
         />
         
         {images.length > 1 && (
