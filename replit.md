@@ -11,6 +11,14 @@ Preferred communication style: Simple, everyday language.
 ## Recent Changes
 
 **December 2025:**
+- **Image Optimization & Performance (04/12/2025):**
+  - Reduced total assets from 71 MB to 14 MB (80% reduction)
+  - Created `scripts/optimize-images.js` to automate PNG→WebP conversion
+  - Converted 14 PNG images to WebP format with 75-80% quality
+  - Removed unused diagnostic files (screen_*.png, targeted_element_*.png)
+  - Increased lazy loading threshold from 100px to 200px for earlier preloading
+  - Added fetchPriority attribute to Hero images (high for first, low for rest)
+  - All generated_images now use .webp format for better compression
 - **Complete Translation System Enhancement (04/12/2025):**
   - Refactored packages.ts to use translation keys instead of hardcoded Spanish text
   - All 7 tour packages now use translation keys for titles, descriptions, highlights, locations, includes, and FAQs
