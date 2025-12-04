@@ -4,6 +4,8 @@ import logoImage from "@assets/Diseño_sin_título_(2)_1764694858372.png";
 
 import logo_11zon from "@assets/logo_11zon.webp";
 
+import logo1 from "@assets/logo1.webp";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -39,7 +41,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img 
-                src={logo_11zon} 
+                src={logo1} 
                 alt="Rio Trip Vibes" 
                 className="h-16 w-auto object-contain bg-white/90 rounded-lg p-2"
               />
