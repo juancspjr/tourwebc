@@ -167,7 +167,7 @@ export default function SplashScreen({ onComplete, duration = 1800 }: SplashScre
           );
           box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
           border-radius: 4px;
-          animation: loaderProgress 1100ms ease-out 900ms forwards;
+          animation: loaderProgress 1800ms ease-out 900ms forwards;
         }
 
         .splash-skip-hint {

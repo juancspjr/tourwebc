@@ -83,9 +83,16 @@ export default function Home() {
   return (
     <>
       {showSplash && (
-        <SplashScreen onComplete={handleSplashComplete} duration={1800} />
+        <SplashScreen onComplete={handleSplashComplete} duration={2500} />
       )}
-      <div className="min-h-screen bg-background">
+      <div 
+        className="min-h-screen bg-background"
+        style={{ 
+          visibility: showSplash ? 'hidden' : 'visible',
+          opacity: showSplash ? 0 : 1,
+          transition: 'opacity 300ms ease-out'
+        }}
+      >
         <Header onNavigate={handleNavigate} />
       
       <main>
