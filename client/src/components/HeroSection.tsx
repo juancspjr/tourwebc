@@ -1,6 +1,7 @@
-import { useState, useEffect, useCallback, useLayoutEffect, useRef, memo } from "react";
+import { useState, useEffect, useCallback, useLayoutEffect, useRef, memo, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { getLqipUrl } from "@/lib/lqip";
 
 import rio1Image from "@assets/rio1_1764724064822.webp";
 import rio3Image from "@assets/rio3_1764724064822.webp";
@@ -31,6 +32,13 @@ const ProgressiveHeroImage = memo(function ProgressiveHeroImage({
 }: ProgressiveHeroImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
+  
+  const lqipSrc = useMemo(() => getLqipUrl(src), [src]);
+  
+  const prefersReducedMotion = useMemo(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }, []);
 
   useEffect(() => {
     if (imgRef.current?.complete && imgRef.current.naturalWidth > 0) {
@@ -38,22 +46,47 @@ const ProgressiveHeroImage = memo(function ProgressiveHeroImage({
     }
   }, [src]);
 
+  const handleLoad = useCallback(() => {
+    setIsLoaded(true);
+  }, []);
+
+  const shouldShowPlaceholder = lqipSrc && !isLoaded && !prefersReducedMotion;
+
   return (
-    <img
-      ref={imgRef}
-      src={src}
-      alt={alt}
-      width={1920}
-      height={1080}
-      loading={isFirst ? "eager" : "lazy"}
-      decoding={isFirst ? "sync" : "async"}
-      onLoad={() => setIsLoaded(true)}
-      className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${isLoaded ? "img-loaded" : "img-loading"}`}
+    <div
+      className="absolute inset-0 w-full h-full"
       style={{
         opacity: isActive ? 1 : 0,
         zIndex: isActive ? 1 : 0,
+        transition: prefersReducedMotion ? 'none' : 'opacity 1s ease-in-out',
+        pointerEvents: isActive ? 'auto' : 'none',
       }}
-    />
+    >
+      {shouldShowPlaceholder && (
+        <img
+          src={lqipSrc}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ filter: 'blur(20px)', transform: 'scale(1.1)' }}
+          aria-hidden="true"
+        />
+      )}
+      <img
+        ref={imgRef}
+        src={src}
+        alt={alt}
+        width={1920}
+        height={1080}
+        loading={isFirst ? "eager" : "lazy"}
+        decoding={isFirst ? "sync" : "async"}
+        onLoad={handleLoad}
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ 
+          opacity: isLoaded || prefersReducedMotion ? 1 : 0,
+          transition: prefersReducedMotion ? 'none' : 'opacity 0.5s ease-out',
+        }}
+      />
+    </div>
   );
 });
 

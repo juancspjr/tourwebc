@@ -1,6 +1,7 @@
-import { useState, useCallback, useEffect, useRef, memo } from "react";
+import { useState, useEffect, useRef, memo, useMemo, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getLqipUrl } from "@/lib/lqip";
 
 interface ProgressiveCarouselMainImageProps {
   src: string;
@@ -15,6 +16,13 @@ const ProgressiveCarouselMainImage = memo(function ProgressiveCarouselMainImage(
 }: ProgressiveCarouselMainImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
+  
+  const lqipSrc = useMemo(() => getLqipUrl(src), [src]);
+  
+  const prefersReducedMotion = useMemo(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }, []);
 
   useEffect(() => {
     setIsLoaded(false);
@@ -23,15 +31,36 @@ const ProgressiveCarouselMainImage = memo(function ProgressiveCarouselMainImage(
     }
   }, [src]);
 
+  const handleLoad = useCallback(() => {
+    setIsLoaded(true);
+  }, []);
+
+  const shouldShowPlaceholder = lqipSrc && !isLoaded && !prefersReducedMotion;
+
   return (
-    <img
-      ref={imgRef}
-      src={src}
-      alt={alt}
-      onLoad={() => setIsLoaded(true)}
-      className={`w-full h-full object-cover transition-all duration-300 ${isLoaded ? "img-loaded" : "img-loading"}`}
-      data-testid={testId}
-    />
+    <div className="relative w-full h-full overflow-hidden">
+      {shouldShowPlaceholder && (
+        <img
+          src={lqipSrc}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ filter: 'blur(20px)', transform: 'scale(1.1)' }}
+          aria-hidden="true"
+        />
+      )}
+      <img
+        ref={imgRef}
+        src={src}
+        alt={alt}
+        onLoad={handleLoad}
+        className="w-full h-full object-cover"
+        style={{ 
+          opacity: isLoaded || prefersReducedMotion ? 1 : 0,
+          transition: prefersReducedMotion ? 'none' : 'opacity 0.3s ease-out',
+        }}
+        data-testid={testId}
+      />
+    </div>
   );
 });
 
