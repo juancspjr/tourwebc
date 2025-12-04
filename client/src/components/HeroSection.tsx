@@ -145,7 +145,7 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
           <Button
             size="lg"
             variant="outline"
-            className="text-base px-8 backdrop-blur-md bg-white/15 border-white/40 text-white hover:bg-white/25 transition-all duration-300 hover:scale-103 hover:shadow-lg shadow-lg"
+            className="text-base px-8 backdrop-blur-md bg-cta/80 border-cta/60 text-cta-foreground hover:bg-cta/90 transition-all duration-300 hover:scale-103 hover:shadow-lg shadow-lg"
             onClick={handleExploreClick}
             data-testid="button-explore-packages"
           >
@@ -154,7 +154,7 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
           <Button
             size="lg"
             variant="outline"
-            className="text-base px-8 backdrop-blur-md bg-white/15 border-white/40 text-white hover:bg-white/25 transition-all duration-300 hover:scale-103 hover:shadow-lg shadow-lg"
+            className="text-base px-8 backdrop-blur-md bg-cta/80 border-cta/60 text-cta-foreground hover:bg-cta/90 transition-all duration-300 hover:scale-103 hover:shadow-lg shadow-lg"
             onClick={() => window.open("https://wa.me/5521983526144", "_blank")}
             data-testid="button-whatsapp-hero"
           >
