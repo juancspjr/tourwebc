@@ -85,7 +85,7 @@ export default function Header({ onNavigate }: HeaderProps) {
             <Button
               variant="outline"
               size="sm"
-              className="gap-2 backdrop-blur-md bg-cta/80 border-cta/60 text-cta-foreground hover:bg-cta/90"
+              className="gap-2"
               onClick={() => window.open("https://wa.me/5521983526144", "_blank")}
               data-testid="button-whatsapp-header"
             >
@@ -94,8 +94,7 @@ export default function Header({ onNavigate }: HeaderProps) {
             </Button>
             <Button
               size="sm"
-              variant="outline"
-              className="backdrop-blur-md bg-cta/80 border-cta/60 text-cta-foreground hover:bg-cta/90"
+              className="bg-cta hover:bg-cta/90 text-cta-foreground"
               onClick={() => handleNavClick("#contact")}
               data-testid="button-reservar"
             >
@@ -153,7 +152,7 @@ export default function Header({ onNavigate }: HeaderProps) {
                 <div className="flex flex-col gap-3 mt-4">
                   <Button
                     variant="outline"
-                    className="gap-2 w-full backdrop-blur-md bg-cta/80 border-cta/60 text-cta-foreground hover:bg-cta/90"
+                    className="gap-2 w-full"
                     onClick={() => window.open("https://wa.me/5521983526144", "_blank")}
                     data-testid="button-whatsapp-mobile"
                   >
@@ -161,8 +160,7 @@ export default function Header({ onNavigate }: HeaderProps) {
                     WhatsApp
                   </Button>
                   <Button 
-                    variant="outline"
-                    className="w-full backdrop-blur-md bg-cta/80 border-cta/60 text-cta-foreground hover:bg-cta/90" 
+                    className="w-full bg-cta hover:bg-cta/90 text-cta-foreground" 
                     onClick={() => {
                       setIsOpen(false);
                       setTimeout(() => {

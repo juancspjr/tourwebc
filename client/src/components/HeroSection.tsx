@@ -144,8 +144,7 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
             size="lg"
-            variant="outline"
-            className="text-base px-8 backdrop-blur-md bg-cta/80 border-cta/60 text-cta-foreground hover:bg-cta/90 transition-all duration-300 hover:scale-103 hover:shadow-lg shadow-lg"
+            className="text-base px-8 bg-cta hover:bg-cta/90 text-cta-foreground transition-all duration-300 hover:scale-103 hover:shadow-lg"
             onClick={handleExploreClick}
             data-testid="button-explore-packages"
           >
@@ -154,7 +153,7 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
           <Button
             size="lg"
             variant="outline"
-            className="text-base px-8 backdrop-blur-md bg-cta/80 border-cta/60 text-cta-foreground hover:bg-cta/90 transition-all duration-300 hover:scale-103 hover:shadow-lg shadow-lg"
+            className="text-base px-8 bg-white/10 border-white/30 text-white hover:bg-white/20 transition-all duration-300 hover:scale-103 hover:shadow-lg"
             onClick={() => window.open("https://wa.me/5521983526144", "_blank")}
             data-testid="button-whatsapp-hero"
           >

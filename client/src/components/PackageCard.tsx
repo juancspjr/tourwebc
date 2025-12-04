@@ -90,7 +90,6 @@ export default function PackageCard({ package: pkg, onViewDetails, onBook }: Pac
           <Button
             variant="outline"
             size="sm"
-            className="backdrop-blur-sm bg-primary/10 border-primary/30 hover:bg-primary/20"
             onClick={() => onViewDetails?.(pkg)}
             data-testid={`button-details-${pkg.id}`}
           >
@@ -98,8 +97,7 @@ export default function PackageCard({ package: pkg, onViewDetails, onBook }: Pac
           </Button>
           <Button
             size="sm"
-            variant="outline"
-            className="backdrop-blur-sm bg-primary/10 border-primary/30 hover:bg-primary/20"
+            className="bg-cta hover:bg-cta/90 text-cta-foreground"
             onClick={() => onBook?.(pkg)}
             data-testid={`button-book-${pkg.id}`}
           >
