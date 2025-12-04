@@ -183,7 +183,7 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
         <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
       </button>
 
-      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-1.5">
+      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex gap-1.5">
         {heroImages.map((_, index) => (
           <button
             key={index}
