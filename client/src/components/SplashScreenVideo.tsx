@@ -36,9 +36,9 @@ export default function SplashScreenVideo({
           clearInterval(progressInterval);
           return 100;
         }
-        return prev + 4;
+        return prev + 10;
       });
-    }, 40);
+    }, 20);
 
     return () => clearInterval(progressInterval);
   }, []);
@@ -54,7 +54,7 @@ export default function SplashScreenVideo({
     const testVideo = document.createElement('video');
     testVideo.muted = true;
     testVideo.playsInline = true;
-    testVideo.src = videoSrc;
+    testVideo.src = 'data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAA';
 
     try {
       await testVideo.play();
