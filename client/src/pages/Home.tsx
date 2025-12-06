@@ -1,7 +1,6 @@
 import { useState, useEffect, useLayoutEffect, lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import SplashScreen from "@/components/SplashScreen";
 import SplashScreenVideo from "@/components/SplashScreenVideo";
 import type { PackageData } from "@/lib/packages";
 
@@ -31,14 +30,14 @@ function SectionSkeleton({ height = "400px" }: { height?: string }) {
   );
 }
 
-type SplashPhase = 'logo' | 'video' | 'complete';
+type SplashPhase = 'video' | 'complete';
 
 export default function Home() {
   const [splashPhase, setSplashPhase] = useState<SplashPhase>(() => {
     if (typeof window !== 'undefined') {
-      return sessionStorage.getItem('splashShown') ? 'complete' : 'logo';
+      return sessionStorage.getItem('splashShown') ? 'complete' : 'video';
     }
-    return 'logo';
+    return 'video';
   });
   const [selectedPackage, setSelectedPackage] = useState<PackageData | null>(null);
   const [bookingPackage, setBookingPackage] = useState<PackageData | null>(null);
@@ -75,10 +74,6 @@ export default function Home() {
     };
   }, [showSplash]);
 
-  const handleLogoSplashComplete = () => {
-    setSplashPhase('video');
-  };
-
   const handleVideoSplashComplete = () => {
     setSplashPhase('complete');
     if (typeof window !== 'undefined') {
@@ -107,12 +102,6 @@ export default function Home() {
 
   return (
     <>
-      {splashPhase === 'logo' && (
-        <SplashScreen 
-          onComplete={handleLogoSplashComplete}
-          duration={2500}
-        />
-      )}
       {splashPhase === 'video' && (
         <SplashScreenVideo 
           videoSrc="/videos/splash.mp4"
