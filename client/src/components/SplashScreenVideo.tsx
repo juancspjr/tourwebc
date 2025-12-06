@@ -3,293 +3,175 @@ import { useTranslation } from 'react-i18next';
 
 interface SplashScreenVideoProps {
   videoSrc: string;
-  audioSrc?: string;
-  videoDuration?: number;
   logoUrl?: string;
   onComplete: () => void;
 }
 
 export default function SplashScreenVideo({
   videoSrc,
-  audioSrc,
-  videoDuration = 5000,
   logoUrl,
   onComplete,
 }: SplashScreenVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const audioRef = useRef<HTMLAudioElement>(null);
   const [isVisible, setIsVisible] = useState(true);
   const [videoReady, setVideoReady] = useState(false);
-  const [audioReady, setAudioReady] = useState(!audioSrc);
-  const [allReady, setAllReady] = useState(false);
-  const [audioPlaying, setAudioPlaying] = useState(false);
-  const [needsUserGesture, setNeedsUserGesture] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [needsInteraction, setNeedsInteraction] = useState(false);
   const hasCompletedRef = useRef(false);
   const { t } = useTranslation();
 
   useEffect(() => {
-    const preloadResources = async () => {
-      try {
-        if (logoUrl) {
-          const logo = new Image();
-          logo.src = logoUrl;
-        }
-
-        const video = videoRef.current;
-        if (video) {
-          video.preload = 'metadata';
-        }
-
-        if (audioSrc && audioRef.current) {
-          const audio = audioRef.current;
-          audio.preload = 'auto';
-          audio.load();
-        }
-      } catch (err) {
-        console.error('Preload error:', err);
-      }
-    };
-
-    preloadResources();
-  }, [logoUrl, audioSrc]);
-
-  const forceAudioPlayback = useCallback(async () => {
-    if (!audioRef.current) {
-      setAudioPlaying(true);
-      return;
+    if (logoUrl) {
+      const logo = new Image();
+      logo.src = logoUrl;
     }
-
-    try {
-      const audioElement = audioRef.current;
-      audioElement.volume = 0.8;
-
-      const playPromise = audioElement.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            console.log('Audio playing with sound');
-            setAudioPlaying(true);
-            setNeedsUserGesture(false);
-          })
-          .catch((err) => {
-            console.warn('Autoplay blocked, waiting for user interaction:', err);
-            setNeedsUserGesture(true);
-          });
-      }
-    } catch (err) {
-      console.error('Audio error:', err);
-      setAudioPlaying(true);
-    }
-  }, []);
-
-  const syncVideoWithAudio = useCallback(() => {
-    const video = videoRef.current;
-    const audio = audioRef.current;
-
-    if (!video || !audio) return;
-
-    const handleVideoTimeUpdate = () => {
-      if (Math.abs(video.currentTime - audio.currentTime) > 0.1) {
-        audio.currentTime = video.currentTime;
-      }
-    };
-
-    video.addEventListener('timeupdate', handleVideoTimeUpdate);
-
-    return () => {
-      video.removeEventListener('timeupdate', handleVideoTimeUpdate);
-    };
-  }, []);
+  }, [logoUrl]);
 
   useEffect(() => {
-    const handleVideoCanPlay = () => {
-      console.log('Video ready');
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleCanPlay = () => {
+      console.log('Video can play');
       setVideoReady(true);
     };
 
-    const handleAudioCanPlayThrough = () => {
-      console.log('Audio ready');
-      setAudioReady(true);
+    const handlePlaying = () => {
+      console.log('Video is playing');
+      setIsPlaying(true);
+      setNeedsInteraction(false);
     };
 
-    const video = videoRef.current;
-    const audio = audioRef.current;
+    const handleEnded = () => {
+      console.log('Video ended naturally');
+      handleComplete();
+    };
 
-    if (video) {
-      video.addEventListener('canplay', handleVideoCanPlay);
-      if (video.readyState >= 3) {
-        setVideoReady(true);
-      }
-    }
+    const handleError = (e: Event) => {
+      console.error('Video error:', e);
+      handleComplete();
+    };
 
-    if (audio) {
-      audio.addEventListener('canplaythrough', handleAudioCanPlayThrough);
-      if (audio.readyState >= 4) {
-        setAudioReady(true);
-      }
+    video.addEventListener('canplay', handleCanPlay);
+    video.addEventListener('playing', handlePlaying);
+    video.addEventListener('ended', handleEnded);
+    video.addEventListener('error', handleError);
+
+    if (video.readyState >= 3) {
+      setVideoReady(true);
     }
 
     return () => {
-      if (video) {
-        video.removeEventListener('canplay', handleVideoCanPlay);
-      }
-      if (audio) {
-        audio.removeEventListener('canplaythrough', handleAudioCanPlayThrough);
-      }
+      video.removeEventListener('canplay', handleCanPlay);
+      video.removeEventListener('playing', handlePlaying);
+      video.removeEventListener('ended', handleEnded);
+      video.removeEventListener('error', handleError);
     };
   }, []);
 
   useEffect(() => {
-    if (!videoReady || !audioReady) return;
-
-    console.log('Starting playback');
-    setAllReady(true);
+    if (!videoReady) return;
 
     const video = videoRef.current;
     if (!video) return;
 
-    const playVideoPromise = video.play();
-    if (playVideoPromise !== undefined) {
-      playVideoPromise.catch((err) => {
-        console.warn('Video autoplay fallback:', err);
-        handleVideoComplete();
-      });
-    }
+    const attemptPlay = async () => {
+      try {
+        video.muted = false;
+        video.volume = 0.8;
+        await video.play();
+        console.log('Autoplay with sound succeeded');
+      } catch (err) {
+        console.warn('Autoplay with sound blocked, trying muted:', err);
+        try {
+          video.muted = true;
+          await video.play();
+          console.log('Muted autoplay succeeded - need interaction for sound');
+          setNeedsInteraction(true);
+        } catch (mutedErr) {
+          console.warn('Even muted autoplay blocked:', mutedErr);
+          setNeedsInteraction(true);
+        }
+      }
+    };
 
-    forceAudioPlayback();
+    attemptPlay();
+  }, [videoReady]);
 
-    const cleanup = syncVideoWithAudio();
-    return cleanup;
-  }, [videoReady, audioReady, forceAudioPlayback, syncVideoWithAudio]);
-
-  const handleVideoComplete = useCallback(() => {
+  const handleComplete = useCallback(() => {
     if (hasCompletedRef.current) return;
     hasCompletedRef.current = true;
 
-    console.log('Transitioning out');
+    console.log('Splash complete - transitioning out');
 
-    if (audioRef.current) {
-      audioRef.current.pause();
+    const video = videoRef.current;
+    if (video) {
+      video.pause();
     }
 
     setIsVisible(false);
 
     setTimeout(() => {
       onComplete();
-    }, 300);
+    }, 400);
   }, [onComplete]);
 
-  const handleSkip = useCallback(() => {
-    if (needsUserGesture && audioRef.current) {
-      const audioElement = audioRef.current;
-      audioElement.play()
-        .then(() => {
-          console.log('Audio started after user gesture');
-          setAudioPlaying(true);
-          setNeedsUserGesture(false);
-        })
-        .catch((err) => {
-          console.error('Audio play failed:', err);
-          setAudioPlaying(true);
-          setNeedsUserGesture(false);
-        });
-      return;
-    }
-
-    if (!hasCompletedRef.current) {
-      handleVideoComplete();
-    }
-  }, [handleVideoComplete, needsUserGesture]);
-
-  useEffect(() => {
+  const handleUserInteraction = useCallback(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    const handleVideoEnd = () => handleVideoComplete();
-    const handleVideoError = () => {
-      console.error('Video error');
-      handleVideoComplete();
-    };
-
-    video.addEventListener('ended', handleVideoEnd);
-    video.addEventListener('error', handleVideoError);
-
-    const timeoutId = setTimeout(() => {
-      if (!hasCompletedRef.current) {
-        console.warn('Timeout reached');
-        handleVideoComplete();
+    if (needsInteraction) {
+      video.muted = false;
+      video.volume = 0.8;
+      
+      if (video.paused) {
+        video.play().catch(console.error);
       }
-    }, videoDuration + 1000);
-
-    return () => {
-      video.removeEventListener('ended', handleVideoEnd);
-      video.removeEventListener('error', handleVideoError);
-      clearTimeout(timeoutId);
-    };
-  }, [videoDuration, handleVideoComplete]);
-
-  useEffect(() => {
-    const handleKeyDown = () => {
-      handleSkip();
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [handleSkip]);
+      
+      setNeedsInteraction(false);
+      console.log('User enabled sound');
+    }
+  }, [needsInteraction]);
 
   if (!isVisible) return null;
 
   return (
     <div
-      className="fixed inset-0 z-[9999] bg-black flex items-center justify-center overflow-hidden cursor-pointer"
+      className="fixed inset-0 z-[9999] bg-black flex items-center justify-center overflow-hidden"
       style={{
         opacity: isVisible ? 1 : 0,
-        transition: 'opacity 300ms ease-out',
+        transition: 'opacity 400ms ease-out',
       }}
-      onClick={handleSkip}
-      role="button"
-      tabIndex={0}
-      aria-label={t('splash.ariaLabel')}
+      onClick={handleUserInteraction}
+      role="presentation"
       data-testid="splash-screen-video"
     >
       <div
         className="relative w-full h-full flex items-center justify-center"
-        style={{
-          backgroundColor: '#000000',
-        }}
+        style={{ backgroundColor: '#000000' }}
       >
         <video
           ref={videoRef}
           src={videoSrc}
-          autoPlay={false}
-          muted={true}
           playsInline
-          preload="metadata"
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
           style={{
-            display: allReady ? 'block' : 'none',
+            opacity: isPlaying ? 1 : 0,
+            transition: 'opacity 300ms ease-out',
             transform: 'translateZ(0)',
             backfaceVisibility: 'hidden',
           }}
           data-testid="video-splash"
         />
 
-        {audioSrc && (
-          <audio
-            ref={audioRef}
-            src={audioSrc}
-            preload="auto"
-            playsInline
-            style={{ display: 'none' }}
-          />
-        )}
-
-        {!allReady && logoUrl && (
+        {(!isPlaying || needsInteraction) && logoUrl && (
           <div
             className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[hsl(209,61%,42%)] via-[hsl(192,100%,46%)] to-[hsl(209,61%,35%)]"
             style={{
-              opacity: allReady ? 0 : 1,
+              opacity: isPlaying && !needsInteraction ? 0 : 1,
               transition: 'opacity 300ms ease-out',
+              pointerEvents: needsInteraction ? 'auto' : 'none',
             }}
           >
             <div className="relative flex flex-col items-center gap-4">
@@ -303,38 +185,58 @@ export default function SplashScreenVideo({
                   filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.3))',
                 }}
               />
-              <div
-                className="w-12 h-12 border-4 border-white/30 border-t-white rounded-full"
-                style={{
-                  animation: 'spin 1s linear infinite',
-                }}
-              />
-              <p className="text-white/70 text-sm">{t('splash.tagline')}</p>
+              
+              {needsInteraction ? (
+                <button
+                  onClick={handleUserInteraction}
+                  className="mt-4 px-6 py-3 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full text-white font-medium transition-all duration-200 flex items-center gap-2"
+                  data-testid="button-enable-sound"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                  {t('splash.tapToPlay', 'Toca para reproducir con sonido')}
+                </button>
+              ) : (
+                <>
+                  <div
+                    className="w-12 h-12 border-4 border-white/30 border-t-white rounded-full"
+                    style={{ animation: 'spin 1s linear infinite' }}
+                  />
+                  <p className="text-white/70 text-sm">{t('splash.tagline')}</p>
+                </>
+              )}
             </div>
           </div>
         )}
 
-        {!allReady && !logoUrl && (
+        {!logoUrl && !isPlaying && (
           <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[hsl(209,61%,42%)] via-[hsl(192,100%,46%)] to-[hsl(209,61%,35%)]">
             <div className="flex flex-col items-center gap-4">
-              <div 
-                className="w-12 h-12 border-4 border-white/30 border-t-white rounded-full"
-                style={{
-                  animation: 'spin 1s linear infinite',
-                }}
-              />
-              <p className="text-white text-sm">{t('splash.tagline')}</p>
+              {needsInteraction ? (
+                <button
+                  onClick={handleUserInteraction}
+                  className="px-6 py-3 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full text-white font-medium transition-all duration-200 flex items-center gap-2"
+                  data-testid="button-enable-sound-alt"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                  {t('splash.tapToPlay', 'Toca para reproducir con sonido')}
+                </button>
+              ) : (
+                <>
+                  <div 
+                    className="w-12 h-12 border-4 border-white/30 border-t-white rounded-full"
+                    style={{ animation: 'spin 1s linear infinite' }}
+                  />
+                  <p className="text-white text-sm">{t('splash.tagline')}</p>
+                </>
+              )}
             </div>
           </div>
         )}
       </div>
-
-      <span 
-        className="absolute bottom-6 right-6 text-xs text-white/50"
-        data-testid="text-skip-hint"
-      >
-        {t('splash.skipHint')}
-      </span>
 
       <style>{`
         @keyframes spin {

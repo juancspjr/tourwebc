@@ -26,6 +26,7 @@
   "splash": {
     "tagline": "Discover your next adventure",
     "skipHint": "Click to skip",
+    "tapToPlay": "Tap to play with sound",
     "ariaLabel": "Welcome screen - Click to skip"
   },
   "packages": {
