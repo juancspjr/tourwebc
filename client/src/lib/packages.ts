@@ -26,6 +26,8 @@ import favela2 from "@assets/favela2_1764736538872.webp";
 import favela2_1 from "@assets/favela2-1_1764736538872.webp";
 import favela3 from "@assets/favela3_1764736538872.webp";
 import favela4 from "@assets/favela4_1764736538872.webp";
+import favela5 from "@assets/favela5_1764995992345.webp";
+import favela6 from "@assets/favela6_1764995992347.webp";
 
 import playa1 from "@assets/playa1_1764991730825.webp";
 import playa2 from "@assets/playa2_1764991730825.webp";
@@ -248,8 +250,8 @@ export const packages: PackageData[] = [
     titleKey: "tourPackages.favelasTour.title",
     descriptionKey: "tourPackages.favelasTour.description",
     image: favelaImage,
-    images: [favelaImage, favela1, favela2, favela2_1, favela3, favela4],
-    gallery: [favela1, favela2, favela2_1, favela3, favela4],
+    images: [favelaImage, favela1, favela2, favela2_1, favela3, favela4, favela5, favela6],
+    gallery: [favela1, favela2, favela2_1, favela3, favela4, favela5, favela6],
     price: 35,
     durationKey: "tourPackages.favelasTour.duration",
     locationKeys: [
