@@ -167,7 +167,7 @@ export default function SplashScreenVideo({
             <img
               src={logoUrl}
               alt="Rio Trip Vibes"
-              className="w-40 h-auto object-contain"
+              className="w-52 h-auto object-contain"
               style={{
                 transform: 'translateZ(0)',
                 backfaceVisibility: 'hidden',
@@ -190,13 +190,13 @@ export default function SplashScreenVideo({
               {phase === 'ready' && needsClick && (
                 <button
                   onClick={handleManualStart}
-                  className="px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full text-white font-semibold text-lg transition-all duration-200 flex items-center gap-3 border border-white/30"
+                  className="px-10 py-5 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full text-white font-semibold text-xl transition-all duration-200 flex items-center gap-4 border border-white/30 whitespace-nowrap"
                   data-testid="button-play-video"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M8 5v14l11-7z"/>
                   </svg>
-                  {t('splash.tapToPlay', 'Toca para comenzar')}
+                  {t('splash.tapToPlay')}
                 </button>
               )}
             </div>
