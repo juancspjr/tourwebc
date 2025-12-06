@@ -188,9 +188,9 @@ export default function SplashScreenVideo({
             alt="Rio Trip Vibes"
             className="absolute left-1/2 object-contain"
             style={{
-              width: '180px',
+              width: '190px',
               height: 'auto',
-              top: '17%',
+              top: '18%',
               transform: 'translateX(-50%)',
               opacity: showContent ? 1 : 0,
               transition: 'opacity 800ms ease-out',
