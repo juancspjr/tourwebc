@@ -8,7 +8,6 @@ import helicopterImage from "@assets/generated_images/helicopter_tour_rio.webp";
 
 import rio1 from "@assets/rio_1_1764736349812.webp";
 import rio2 from "@assets/rio_2_1764736349812.webp";
-import rio3 from "@assets/rio_3_1764736349812.webp";
 import rio4 from "@assets/rio_4_1764736349812.webp";
 import rioV1 from "@assets/riov_1-1_1764736349812.webp";
 
@@ -172,8 +171,8 @@ export const packages: PackageData[] = [
     titleKey: "tourPackages.dayTour.title",
     descriptionKey: "tourPackages.dayTour.description",
     image: cristoImage,
-    images: [cristoImage, rio1, rio2, rio3, rio4, rioV1],
-    gallery: [rio1, rio2, rio3, rio4, rioV1],
+    images: [cristoImage, rio1, rio2, rio4, rioV1],
+    gallery: [rio1, rio2, rio4, rioV1],
     price: 100,
     durationKey: "tourPackages.dayTour.duration",
     locationKeys: [
