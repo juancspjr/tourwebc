@@ -66,7 +66,7 @@ export default function Header({ onNavigate }: HeaderProps) {
             <img 
               src={logo1} 
               alt="Rio Trip Vibes" 
-              className="h-20 w-auto object-contain"
+              className="h-[5.5rem] w-auto object-contain relative -top-[10%]"
             />
           </button>
 
