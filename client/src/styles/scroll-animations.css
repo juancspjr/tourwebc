@@ -1,3 +1,194 @@
+/* ===== PREMIUM SCROLL ANIMATIONS ===== */
+/* GPU-accelerated, performance-optimized animations */
+
+/* Base animation preparation - GPU acceleration */
+.motion-prepare {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Fade In Up - Primary entrance animation */
+.motion-fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.motion-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade In Scale - For cards and images */
+.motion-scale-in {
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  transition: opacity 0.5s ease-out,
+              transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.motion-scale-in.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Slide In Left */
+.motion-slide-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.5s ease-out,
+              transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.motion-slide-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Slide In Right */
+.motion-slide-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.5s ease-out,
+              transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.motion-slide-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Bounce In - For icons and CTAs */
+.motion-bounce-in {
+  opacity: 0;
+  transform: scale(0.3);
+  transition: opacity 0.4s ease-out,
+              transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.motion-bounce-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Card Hover Elevation - Premium float effect */
+.motion-card-hover {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.3s ease-out;
+}
+
+.motion-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px -8px rgba(0, 0, 0, 0.15);
+}
+
+.dark .motion-card-hover:hover {
+  box-shadow: 0 12px 40px -8px rgba(0, 0, 0, 0.4);
+}
+
+/* Stagger delay utilities */
+.motion-delay-1 { transition-delay: 0.1s; }
+.motion-delay-2 { transition-delay: 0.2s; }
+.motion-delay-3 { transition-delay: 0.3s; }
+.motion-delay-4 { transition-delay: 0.4s; }
+.motion-delay-5 { transition-delay: 0.5s; }
+
+/* Hero text reveal */
+.motion-hero-text {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out,
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.motion-hero-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Form field entrance */
+.motion-form-field {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.4s ease-out,
+              transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.motion-form-field.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Success message bounce */
+.motion-success {
+  animation: successBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes successBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(10px);
+  }
+  50% {
+    transform: scale(1.02) translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Ripple effect for buttons */
+.motion-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.motion-ripple::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 60%);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.motion-ripple:active::after {
+  transform: scale(2.5);
+  opacity: 1;
+  transition: transform 0s, opacity 0s;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .motion-fade-in,
+  .motion-scale-in,
+  .motion-slide-left,
+  .motion-slide-right,
+  .motion-bounce-in,
+  .motion-hero-text,
+  .motion-form-field {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  .motion-card-hover:hover {
+    transform: none !important;
+  }
+  
+  .motion-success {
+    animation: none !important;
+  }
+  
+  .motion-ripple::after {
+    display: none !important;
+  }
+}
+
 /* Package Image Carousel - Mobile First */
 .package-carousel-container {
   position: relative;
