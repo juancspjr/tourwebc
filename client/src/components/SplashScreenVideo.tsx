@@ -22,6 +22,8 @@ export default function SplashScreenVideo({
   const [videoReady, setVideoReady] = useState(false);
   const [audioReady, setAudioReady] = useState(!audioSrc);
   const [allReady, setAllReady] = useState(false);
+  const [audioPlaying, setAudioPlaying] = useState(false);
+  const [needsUserGesture, setNeedsUserGesture] = useState(false);
   const hasCompletedRef = useRef(false);
   const { t } = useTranslation();
 
@@ -52,7 +54,10 @@ export default function SplashScreenVideo({
   }, [logoUrl, audioSrc]);
 
   const forceAudioPlayback = useCallback(async () => {
-    if (!audioRef.current) return;
+    if (!audioRef.current) {
+      setAudioPlaying(true);
+      return;
+    }
 
     try {
       const audioElement = audioRef.current;
@@ -63,20 +68,17 @@ export default function SplashScreenVideo({
         playPromise
           .then(() => {
             console.log('Audio playing with sound');
+            setAudioPlaying(true);
+            setNeedsUserGesture(false);
           })
           .catch((err) => {
             console.warn('Autoplay blocked, waiting for user interaction:', err);
-            const playOnInteraction = () => {
-              audioElement.play().catch(() => {});
-              document.removeEventListener('click', playOnInteraction);
-              document.removeEventListener('touchstart', playOnInteraction);
-            };
-            document.addEventListener('click', playOnInteraction, { once: true });
-            document.addEventListener('touchstart', playOnInteraction, { once: true });
+            setNeedsUserGesture(true);
           });
       }
     } catch (err) {
       console.error('Audio error:', err);
+      setAudioPlaying(true);
     }
   }, []);
 
@@ -178,10 +180,26 @@ export default function SplashScreenVideo({
   }, [onComplete]);
 
   const handleSkip = useCallback(() => {
+    if (needsUserGesture && audioRef.current) {
+      const audioElement = audioRef.current;
+      audioElement.play()
+        .then(() => {
+          console.log('Audio started after user gesture');
+          setAudioPlaying(true);
+          setNeedsUserGesture(false);
+        })
+        .catch((err) => {
+          console.error('Audio play failed:', err);
+          setAudioPlaying(true);
+          setNeedsUserGesture(false);
+        });
+      return;
+    }
+
     if (!hasCompletedRef.current) {
       handleVideoComplete();
     }
-  }, [handleVideoComplete]);
+  }, [handleVideoComplete, needsUserGesture]);
 
   useEffect(() => {
     const video = videoRef.current;
