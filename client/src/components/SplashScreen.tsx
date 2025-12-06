@@ -129,10 +129,11 @@ export default function SplashScreen({ onComplete, duration = 1800 }: SplashScre
         }
 
         .splash-logo {
-          width: 160px;
+          width: 168px;
           height: auto;
           filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.3));
           animation: logoScale 400ms ease-out 200ms backwards;
+          transform: translateY(-12%);
         }
 
         .splash-tagline {
@@ -200,11 +201,11 @@ export default function SplashScreen({ onComplete, duration = 1800 }: SplashScre
 
         @keyframes logoScale {
           from {
-            transform: scale(0.8);
+            transform: scale(0.8) translateY(-12%);
             opacity: 0;
           }
           to {
-            transform: scale(1);
+            transform: scale(1) translateY(-12%);
             opacity: 1;
           }
         }
@@ -257,7 +258,8 @@ export default function SplashScreen({ onComplete, duration = 1800 }: SplashScre
 
         @media (max-width: 768px) {
           .splash-logo {
-            width: 130px;
+            width: 136px;
+            transform: translateY(-12%);
           }
 
           .splash-tagline {
@@ -278,7 +280,8 @@ export default function SplashScreen({ onComplete, duration = 1800 }: SplashScre
 
         @media (max-width: 480px) {
           .splash-logo {
-            width: 110px;
+            width: 116px;
+            transform: translateY(-12%);
           }
 
           .splash-tagline {
