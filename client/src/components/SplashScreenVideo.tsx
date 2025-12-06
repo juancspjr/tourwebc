@@ -13,9 +13,11 @@ export default function SplashScreenVideo({
   onComplete,
 }: SplashScreenVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [phase, setPhase] = useState<'checking' | 'ready' | 'playing' | 'complete'>('checking');
+  const [phase, setPhase] = useState<'loading' | 'ready' | 'playing' | 'complete'>('loading');
+  const [loadProgress, setLoadProgress] = useState(0);
   const [needsClick, setNeedsClick] = useState(false);
   const hasCompletedRef = useRef(false);
+  const autoplayCheckedRef = useRef(false);
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -24,8 +26,25 @@ export default function SplashScreenVideo({
   }, [logoUrl]);
 
   useEffect(() => {
-    checkAutoplayAndStart();
+    const progressInterval = setInterval(() => {
+      setLoadProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(progressInterval);
+          return 100;
+        }
+        return prev + 4;
+      });
+    }, 40);
+
+    return () => clearInterval(progressInterval);
   }, []);
+
+  useEffect(() => {
+    if (loadProgress >= 100 && !autoplayCheckedRef.current) {
+      autoplayCheckedRef.current = true;
+      checkAutoplayAndStart();
+    }
+  }, [loadProgress]);
 
   const checkAutoplayAndStart = async () => {
     const testVideo = document.createElement('video');
@@ -142,7 +161,7 @@ export default function SplashScreenVideo({
         data-testid="video-splash"
       />
 
-      {(phase === 'checking' || phase === 'ready') && (
+      {(phase === 'loading' || phase === 'ready') && (
         <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[hsl(209,61%,42%)] via-[hsl(192,100%,46%)] to-[hsl(209,61%,35%)]">
           <div className="relative flex flex-col items-center gap-6">
             <img
@@ -160,25 +179,27 @@ export default function SplashScreenVideo({
               {t('splash.tagline')}
             </p>
 
-            {needsClick ? (
-              <button
-                onClick={handleManualStart}
-                className="mt-4 px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full text-white font-semibold text-lg transition-all duration-200 flex items-center gap-3 border border-white/30"
-                data-testid="button-play-video"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-                {t('splash.tapToPlay', 'Toca para comenzar')}
-              </button>
-            ) : (
-              <div className="mt-4 flex flex-col items-center gap-3">
-                <div
-                  className="w-8 h-8 border-2 border-white/30 border-t-white rounded-full"
-                  style={{ animation: 'spin 1s linear infinite' }}
+            <div className="mt-2 w-48 flex flex-col items-center gap-4">
+              <div className="w-full h-1 bg-white/20 rounded-full overflow-hidden">
+                <div 
+                  className="h-full bg-white rounded-full transition-all duration-150 ease-out"
+                  style={{ width: `${loadProgress}%` }}
                 />
               </div>
-            )}
+
+              {phase === 'ready' && needsClick && (
+                <button
+                  onClick={handleManualStart}
+                  className="px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full text-white font-semibold text-lg transition-all duration-200 flex items-center gap-3 border border-white/30"
+                  data-testid="button-play-video"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                  {t('splash.tapToPlay', 'Toca para comenzar')}
+                </button>
+              )}
+            </div>
           </div>
         </div>
       )}
@@ -190,13 +211,6 @@ export default function SplashScreenVideo({
       >
         {t('splash.skip', 'Click para saltar')}
       </button>
-
-      <style>{`
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
     </div>
   );
 }
