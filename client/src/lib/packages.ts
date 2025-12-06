@@ -248,8 +248,8 @@ export const packages: PackageData[] = [
     titleKey: "tourPackages.favelasTour.title",
     descriptionKey: "tourPackages.favelasTour.description",
     image: favelaImage,
-    images: [favelaImage, favela1, favela3, favela4, favela5, favela6],
-    gallery: [favela1, favela3, favela4, favela5, favela6],
+    images: [favelaImage, favela6, favela1, favela3, favela4, favela5],
+    gallery: [favela6, favela1, favela3, favela4, favela5],
     price: 35,
     durationKey: "tourPackages.favelasTour.duration",
     locationKeys: [
