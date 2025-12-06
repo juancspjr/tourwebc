@@ -356,6 +356,21 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     </div>
                   </a>
 
+                  <a
+                    href="https://wa.me/5521965498171"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 p-3 rounded-lg bg-green-500/10 hover:bg-green-500/20 transition-colors"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center">
+                      <MessageCircle className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-foreground">WhatsApp 2</p>
+                      <p className="text-sm text-muted-foreground">+55 21 96549-8171</p>
+                    </div>
+                  </a>
+
                   <div className="flex items-center gap-4 p-3">
                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                       <Phone className="w-5 h-5 text-primary" />

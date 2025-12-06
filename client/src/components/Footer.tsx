@@ -99,6 +99,16 @@ export default function Footer() {
               </li>
               <li>
                 <a 
+                  href="https://wa.me/5521965498171" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  WhatsApp 2: +55 21 96549-8171
+                </a>
+              </li>
+              <li>
+                <a 
                   href="tel:+5521983526144"
                   className="hover:text-primary transition-colors"
                 >
