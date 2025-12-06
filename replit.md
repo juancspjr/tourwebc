@@ -2,222 +2,40 @@
 
 ## Overview
 
-Rio Trip Vibes is a professional tourism website for booking tours and experiences in Rio de Janeiro, Brazil. The platform showcases various travel packages including day tours, favela tours, beach excursions, trekking adventures, boat trips, VIP yacht experiences, and helicopter tours. The website focuses on tropical vibrancy, trust-building through clear pricing and social proof, and action-oriented design to drive bookings and inquiries.
+Rio Trip Vibes is a professional tourism website dedicated to booking tours and experiences in Rio de Janeiro, Brazil. It features a variety of travel packages, including day tours, favela tours, beach excursions, trekking, boat trips, VIP yacht experiences, and helicopter tours. The platform emphasizes a tropical aesthetic, builds user trust through transparent pricing and social proof, and employs an action-oriented design to drive bookings and inquiries. The project aims to capture the vibrant essence of Rio while providing a seamless booking experience for travelers.
 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
 
-## Recent Changes
-
-**December 2025:**
-- **Image Optimization & Performance (04/12/2025):**
-  - Reduced total assets from 71 MB to 14 MB (80% reduction)
-  - Created `scripts/optimize-images.js` to automate PNG→WebP conversion
-  - Converted 14 PNG images to WebP format with 75-80% quality
-  - Removed unused diagnostic files (screen_*.png, targeted_element_*.png)
-  - Increased lazy loading threshold from 100px to 200px for earlier preloading
-  - Added fetchPriority attribute to Hero images (high for first, low for rest)
-  - All generated_images now use .webp format for better compression
-- **Complete Translation System Enhancement (04/12/2025):**
-  - Refactored packages.ts to use translation keys instead of hardcoded Spanish text
-  - All 7 tour packages now use translation keys for titles, descriptions, highlights, locations, includes, and FAQs
-  - All 13 testimonials now use translation keys for names, dates, text, and tour names
-  - Category filter labels fully localized using internal keys (all, cityTour, culture, beach, adventure, water, vip)
-  - PackageGrid updated to display translated category labels via t(`categories.${category}`)
-  - Added defensive handling in TestimonialCard and InfiniteTestimonialCarousel for translation loading edge cases
-  - Translation key structure: `tourPackages.<packageId>.<field>` and `testimonials.items.<id>.<field>`
-  - **GeneralInfo Section Full Translation (04/12/2025):**
-    - Refactored generalInfo object in packages.ts to use translation keys (titleKey, descriptionKey, methodKeys, itemKeys)
-    - GeneralInfoSection.tsx updated to use t() function for all content
-    - All 5 language files contain complete generalInfo translations:
-      - Payment Methods: 6 payment options with descriptions
-      - Visa Information: Title, description, and contact note
-      - Prohibited Activities: 5 items with descriptions
-      - Currency Information: 4 currencies (BRL, USD, EUR, EGP) with country details
-      - FAQs: 8 frequently asked questions with answers
-    - Translation key structure: `generalInfo.<section>.<field>`
-- **Multilingual Support Implementation (04/12/2025):**
-  - Added i18next, react-i18next, and i18next-browser-languagedetector packages
-  - Created comprehensive translation files for 5 languages: Spanish (ES), English (EN), Portuguese (PT), French (FR), Italian (IT)
-  - Translation files located in `client/src/lib/translations/`
-  - Implemented LanguageSwitcher component in header for manual language selection
-  - All major components updated to use translations via useTranslation hook
-  - Browser language detection with fallback to Spanish (original language)
-  - SEO-friendly approach: Pre-defined translations (no API calls), faster load times
-  - Translations persist in localStorage with key `i18nextLng`
-  - Components with translations: Header, HeroSection, SplashScreen, PackageGrid, PackageCard, PackageModal, Footer, ContactSection, GeneralInfoSection
-- **Conversión a Sitio Estático (03/12/2025):**
-  - Configurado despliegue estático usando `dist/public`
-  - Formulario de contacto ahora usa FormSubmit.co (admin@riotripvibes.com)
-  - Eliminada dependencia del backend para envío de formularios
-  - Campos ocultos agregados: _next, _subject, _captcha, _template
-  - Cotización calculada se envía automáticamente con el formulario
-  - Build: `npm run build` genera archivos estáticos en `dist/public`
-- Added "Info Viaje" global menu section linking to travel information
-- Renamed "Informacion Importante" to "Información útil para tu viaje" with generic multi-destination content
-- Updated visa info to be generic with advisor contact button
-- Added currency information for multiple destinations (BRL Brazil, USD, EUR Egypt/Europe, EGP Egypt)
-- Added 8 generic travel FAQs applicable to any destination
-- Added "Contactar Asesor de Viaje" WhatsApp button in package detail modals
-- Implemented professional scroll animation system that accounts for fixed 96px navbar height
-- The useScrollAnimation hook now calculates section visibility based on the visible area below the navbar
-- Updated all WhatsApp contact points to +58 414 282 3218
-- Fixed TypeScript type errors in scroll animation hook
-- **Cinematic scroll effects implemented (Framer Motion):**
-  - useParallax hook: Uses Framer Motion useScroll/useTransform for smooth hero background parallax (y: 0-120px, scale: 1.1-1.18)
-  - useRevealAnimation hook: Provides animation variants with whileInView and repeatable triggers (once: false)
-  - Section titles with fade-up reveal animations (0.7-0.8s duration, easeOut curves)
-  - Alternating left/right reveal on info cards with slide+opacity transitions
-  - Staggered fade-in on testimonial cards (0.12s stagger)
-  - No animations on package cards, contact form, or fixed menu (prioritizes CTA clarity)
-  - Full prefers-reduced-motion accessibility support via useReducedMotion hook
-- **Scroll Animation Cleanup (December 2025):**
-  - Removed all non-functional scroll animation code from components
-  - Deleted unused hooks: `useScrollAnimation.ts` and `use-scroll-animation.ts`
-  - Cleaned up `scroll-animations.css` to only keep working carousel styles
-  - Preserved all functional features: hero carousel, package filters, contact form, FAQ accordion, modals
-  - Site content loads immediately without animation delays
-  - Note: WhatsAppButton.tsx still uses Framer Motion for entrance animation (intentionally preserved)
-- **Infinite Testimonial Carousel (December 2025):**
-  - Replaced static 3-column grid with smooth infinite horizontal carousel
-  - Added 13 testimonials with varied tours, dates, and authentic reviews
-  - Implemented requestAnimationFrame animation for 60fps smooth scrolling
-  - Carousel auto-scrolls continuously left-to-right like a "train"
-  - Pause on hover functionality for desktop users
-  - CSS gradient mask for fade effect on edges
-  - Full prefers-reduced-motion accessibility support
-  - Testimonials data now exported from `client/src/lib/packages.ts`
-  - New component: `client/src/components/InfiniteTestimonialCarousel.tsx`
-  - Deleted: `client/src/components/TestimonialsSection.tsx`
-- **Package Image Carousel (December 2025):**
-  - Added `images` array property to PackageData interface for multiple images per package
-  - New component: `client/src/components/PackageImageCarousel.tsx`
-  - Auto-advances images every 4.5 seconds with infinite loop
-  - Smooth 300ms fade transition between images
-  - Clickable indicator dots for manual navigation
-  - Arrow buttons visible on hover for left/right navigation
-  - Pauses on hover and focus for accessibility
-  - Keyboard navigation (Arrow keys) when carousel is focused
-  - Click on image opens package details modal
-  - Falls back to static image for packages with single image
-  - Full accessibility support with ARIA roles and labels
-  - CSS styles in `client/src/styles/scroll-animations.css`
-- **Core Web Vitals Optimization (December 2025):**
-  - Added font preloading in index.html with dns-prefetch and preconnect for Google Fonts
-  - Hero images: First image uses `loading="eager"` and `decoding="sync"`, others use `loading="lazy"` and `decoding="async"`
-  - All images include explicit `width` and `height` attributes to prevent CLS
-  - Package card images use lazy loading for below-the-fold content
-  - Package carousel images use lazy loading and async decoding
-  - Vite build optimized with chunk splitting for vendor libraries (react, radix-ui, tanstack)
-
 ## System Architecture
 
 ### Frontend Architecture
 
-**Framework**: React 18+ with TypeScript using Vite as the build tool and development server.
-
-**Routing**: Client-side routing implemented with Wouter, a lightweight React router. Single-page application with smooth scrolling navigation between sections.
-
-**UI Component Library**: shadcn/ui (New York style) built on Radix UI primitives. Components are self-contained in `client/src/components/ui/` and use Tailwind CSS for styling with a custom design system.
-
-**State Management**: React hooks for local state management. TanStack Query (React Query) v5 for server state management, data fetching, and caching.
-
-**Design System**: 
-- Typography: Montserrat font family (Google Fonts)
-- Color palette: Warm beige travel theme in light mode with HSL-based color system
-- Custom CSS variables for theming support
-- Tailwind CSS with custom configuration for spacing, colors, and utilities
-- Component styling follows a tropical, vibrant aesthetic per design guidelines
-
-**Key Pages & Components**:
-- Home page (`client/src/pages/Home.tsx`) - Main landing page orchestrating all sections
-- Header - Sticky navigation with responsive mobile menu
-- HeroSection - Full-width hero with parallax background and CTA
-- PackageGrid - Filterable grid of tour packages with category filters
-- PackageCard - Individual package card with image carousel and booking CTAs
-- PackageImageCarousel - Auto-advancing image carousel for package cards
-- PackageModal - Detailed package information dialog
-- InfiniteTestimonialCarousel - Smooth infinite horizontal carousel with 13 testimonials
-- GeneralInfoSection - Travel info with alternating reveal animations
-- ContactSection - Lead capture form with package selection and quotation calculator
-- Footer - Site links and social media integration
-- WhatsAppButton - Floating CTA for direct WhatsApp contact
-
-**Animation Hooks** (`client/src/hooks/`):
-- `useScrollAnimation.ts` - IntersectionObserver-based reveal animations for scroll effects
+**Frameworks & Libraries**: React 18+ with TypeScript, Vite for bundling, Wouter for client-side routing, and shadcn/ui (New York style) built on Radix UI for UI components.
+**State Management**: React hooks for local state; TanStack Query v5 for server state, data fetching, and caching.
+**Design System**: Features a warm beige tropical theme in light mode with an HSL-based color system, Montserrat font, custom Tailwind CSS configuration, and utilizes custom CSS variables for theming.
+**Key Features**: Includes a sticky header, full-width hero section with parallax, filterable package grid with individual cards featuring image carousels, detailed package modals, an infinite testimonial carousel, a general information section with reveal animations, a lead capture contact form with a quotation calculator, and a floating WhatsApp CTA.
+**Animations**: Incorporates Framer Motion for cinematic scroll effects (parallax, fade-up reveals, staggered animations) with full `prefers-reduced-motion` accessibility support. A splash screen with user-interaction-based video playback is implemented.
 
 ### Backend Architecture
 
-**Server Framework**: Express.js with TypeScript running on Node.js.
-
-**Server Structure**:
-- `server/index.ts` - Application entry point with middleware setup and request logging
-- `server/routes.ts` - API route registration (currently minimal, ready for expansion)
-- `server/static.ts` - Static file serving for production builds
-- `server/vite.ts` - Vite integration for development with HMR support
-- `server/storage.ts` - Data access layer with in-memory storage implementation
-
-**Storage Layer**: Abstract storage interface (`IStorage`) with an in-memory implementation (`MemStorage`). Designed to be replaced with a database-backed implementation. Current implementation provides user CRUD operations as a template.
-
-**Development vs Production**:
-- Development: Vite dev server with HMR and middleware mode
-- Production: Pre-built static assets served by Express
-- Build process: Client built with Vite, server bundled with esbuild
-
-**API Design**: RESTful API structure under `/api` prefix (routes to be implemented). Currently uses client-side data from `client/src/lib/packages.ts` for package information.
+**Server**: Express.js with TypeScript on Node.js.
+**Data Storage**: Utilizes an abstract `IStorage` interface with an in-memory `MemStorage` implementation, designed for future database integration.
+**Development/Production**: Vite for development (HMR), Express serving pre-built static assets for production.
+**API**: RESTful API structure planned under `/api`; currently, package data is managed client-side.
 
 ### Data Storage Solutions
 
-**Database ORM**: Drizzle ORM configured for PostgreSQL with the Neon serverless adapter.
+**Database ORM**: Drizzle ORM for PostgreSQL, using the Neon serverless adapter.
+**Schema**: Defined in `shared/schema.ts` with Drizzle table definitions and Zod validation.
+**Migrations**: Drizzle Kit manages schema migrations.
 
-**Schema Location**: `shared/schema.ts` - Contains Drizzle table definitions and Zod validation schemas.
+## External Dependencies
 
-**Current Schema**: Basic user table with username/password authentication ready for expansion.
-
-**Migration Strategy**: Drizzle Kit configured to generate migrations in `migrations/` directory. Uses `drizzle.config.ts` for configuration with PostgreSQL dialect.
-
-**Environment Variables**: `DATABASE_URL` required for database connection.
-
-### External Dependencies
-
-**Database**: 
-- PostgreSQL via Neon serverless (`@neondatabase/serverless`)
-- Drizzle ORM for type-safe database queries
-- Connect-pg-simple for session storage (configured but not yet implemented)
-
-**UI Libraries**:
-- Radix UI primitives for accessible components (accordion, dialog, dropdown, etc.)
-- Tailwind CSS for utility-first styling
-- Lucide React for icons
-- React Icons (specifically SiTiktok for social media)
-
-**Forms & Validation**:
-- React Hook Form for form state management
-- Zod for schema validation
-- @hookform/resolvers for integration between React Hook Form and Zod
-- Drizzle-Zod for database schema validation
-
-**Internationalization**:
-- i18next for core i18n functionality
-- react-i18next for React integration with useTranslation hook
-- i18next-browser-languagedetector for automatic language detection
-- 5 supported languages: Spanish (default), English, Portuguese, French, Italian
-- Translation files in `client/src/lib/translations/` as JSON
-
-**Third-Party Services** (to be integrated):
-- WhatsApp Business API - Direct messaging integration via wa.me links
-- Google Fonts - Montserrat and Material Symbols fonts
-- Social Media - Instagram, Facebook, YouTube, TikTok (links in footer)
-
-**Development Tools**:
-- TypeScript for type safety across client and server
-- Vite for fast development and optimized builds
-- esbuild for server bundling
-- Replit plugins for development experience (cartographer, dev banner, runtime error overlay)
-
-**Asset Management**:
-- Images stored in `attached_assets/` directory
-- Vite alias `@assets` for importing assets
-- Generated images for package cards and hero sections
-- Stock images for testimonial avatars
+**Database**: PostgreSQL (via Neon serverless), Drizzle ORM, `connect-pg-simple` (for session storage).
+**UI/Styling**: Radix UI, Tailwind CSS, Lucide React, React Icons.
+**Forms & Validation**: React Hook Form, Zod, @hookform/resolvers, Drizzle-Zod.
+**Internationalization**: `i18next`, `react-i18next`, `i18next-browser-languagedetector` for 5 languages (Spanish, English, Portuguese, French, Italian).
+**Third-Party Services**: WhatsApp Business API (via wa.me links), Google Fonts (Montserrat, Material Symbols), FormSubmit.co (for contact form submissions), and social media integrations (Instagram, Facebook, YouTube, TikTok).
+**Development Tools**: TypeScript, Vite, esbuild, Replit plugins.
