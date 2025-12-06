@@ -24,11 +24,11 @@ import playa4 from "@assets/playa4_1764737177292.webp";
 import playa5 from "@assets/playa5_1764737177292.webp";
 import playaV1 from "@assets/playav1_1764737177292.webp";
 
-import trekking1 from "@assets/TrilhasTrekking1_1764737275383.webp";
-import trekking2 from "@assets/TrilhasTrekking2_1764737275383.webp";
-import trekking3 from "@assets/TrilhasTrekking3_1764737275383.webp";
-import trekking4 from "@assets/TrilhasTrekking4_1764737275383.webp";
-import trekking5 from "@assets/TrilhasTrekking5_1764737275383.webp";
+import trekking1 from "@assets/trekking1_1764989191591.webp";
+import trekking2 from "@assets/trekking2_1764989191591.webp";
+import trekking3 from "@assets/trekking3_1764989191591.webp";
+import trekking4 from "@assets/trekking4_1764989191591.webp";
+import trekking5 from "@assets/trekking5_1764989191591.webp";
 
 import barco1 from "@assets/PaseosBarco1_1764759429302.webp";
 import barco2 from "@assets/PaseosBarco2_1764759429302.webp";
