@@ -13,10 +13,7 @@ export default function SplashScreenVideo({
   onComplete,
 }: SplashScreenVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [phase, setPhase] = useState<'loading' | 'ready' | 'playing' | 'complete'>('loading');
-  const [loadProgress, setLoadProgress] = useState(0);
-  const [needsClick, setNeedsClick] = useState(false);
-  const [autoplayChecked, setAutoplayChecked] = useState(false);
+  const [phase, setPhase] = useState<'checking' | 'needsClick' | 'playing' | 'complete'>('checking');
   const hasCompletedRef = useRef(false);
   const { t } = useTranslation();
 
@@ -26,47 +23,10 @@ export default function SplashScreenVideo({
   }, [logoUrl]);
 
   useEffect(() => {
-    const progressInterval = setInterval(() => {
-      setLoadProgress(prev => {
-        if (prev >= 100) {
-          clearInterval(progressInterval);
-          return 100;
-        }
-        return prev + 2;
-      });
-    }, 50);
-
-    return () => clearInterval(progressInterval);
+    checkAutoplayAndStart();
   }, []);
 
-  useEffect(() => {
-    if (loadProgress >= 100 && !autoplayChecked) {
-      checkAutoplayAndStart();
-    }
-  }, [loadProgress, autoplayChecked]);
-
   const checkAutoplayAndStart = async () => {
-    setAutoplayChecked(true);
-    
-    const testVideo = document.createElement('video');
-    testVideo.muted = true;
-    testVideo.playsInline = true;
-    testVideo.src = videoSrc;
-
-    try {
-      await testVideo.play();
-      testVideo.pause();
-      testVideo.remove();
-      
-      startVideoAutomatic();
-    } catch {
-      testVideo.remove();
-      setNeedsClick(true);
-      setPhase('ready');
-    }
-  };
-
-  const startVideoAutomatic = () => {
     const video = videoRef.current;
     if (!video) {
       handleComplete();
@@ -76,15 +36,18 @@ export default function SplashScreenVideo({
     video.muted = false;
     video.volume = 0.8;
 
-    video.play()
-      .then(() => {
+    try {
+      await video.play();
+      setPhase('playing');
+    } catch {
+      video.muted = true;
+      try {
+        await video.play();
         setPhase('playing');
-        setNeedsClick(false);
-      })
-      .catch(() => {
-        setNeedsClick(true);
-        setPhase('ready');
-      });
+      } catch {
+        setPhase('needsClick');
+      }
+    }
   };
 
   const handleManualStart = useCallback(() => {
@@ -100,7 +63,6 @@ export default function SplashScreenVideo({
     video.play()
       .then(() => {
         setPhase('playing');
-        setNeedsClick(false);
       })
       .catch(() => {
         handleComplete();
@@ -144,10 +106,6 @@ export default function SplashScreenVideo({
   return (
     <div
       className="fixed inset-0 z-[9999] bg-black flex items-center justify-center overflow-hidden"
-      style={{
-        opacity: 1,
-        transition: 'opacity 400ms ease-out',
-      }}
       role="presentation"
       data-testid="splash-screen-video"
     >
@@ -166,7 +124,7 @@ export default function SplashScreenVideo({
         data-testid="video-splash"
       />
 
-      {(phase === 'loading' || phase === 'ready') && (
+      {(phase === 'checking' || phase === 'needsClick') && (
         <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[hsl(209,61%,42%)] via-[hsl(192,100%,46%)] to-[hsl(209,61%,35%)]">
           <div className="relative flex flex-col items-center gap-6">
             <img
@@ -184,19 +142,7 @@ export default function SplashScreenVideo({
               {t('splash.tagline')}
             </p>
 
-            {phase === 'loading' && (
-              <div className="mt-4 flex flex-col items-center gap-3 w-48">
-                <div className="w-full h-1 bg-white/20 rounded-full overflow-hidden">
-                  <div 
-                    className="h-full bg-white rounded-full transition-all duration-100 ease-out"
-                    style={{ width: `${loadProgress}%` }}
-                  />
-                </div>
-                <p className="text-white/60 text-sm">{t('splash.loading', 'Cargando...')}</p>
-              </div>
-            )}
-
-            {phase === 'ready' && needsClick && (
+            {phase === 'needsClick' && (
               <button
                 onClick={handleManualStart}
                 className="mt-4 px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full text-white font-semibold text-lg transition-all duration-200 flex items-center gap-3 border border-white/30"
@@ -219,13 +165,6 @@ export default function SplashScreenVideo({
       >
         {t('splash.skip', 'Click para saltar')}
       </button>
-
-      <style>{`
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
     </div>
   );
 }
