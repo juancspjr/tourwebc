@@ -16,6 +16,7 @@ export default function SplashScreenVideo({
   const [isExiting, setIsExiting] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
   const hasCompletedRef = useRef(false);
+  const playAttemptRef = useRef(0);
   const { t } = useTranslation();
 
   const handleVideoComplete = useCallback(() => {
@@ -34,15 +35,45 @@ export default function SplashScreenVideo({
     }
   }, [isExiting, handleVideoComplete]);
 
+  const tryPlayVideo = useCallback((video: HTMLVideoElement) => {
+    if (hasCompletedRef.current) return;
+    
+    video.muted = true;
+    video.volume = 0;
+    
+    const playPromise = video.play();
+    
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          setVideoReady(true);
+        })
+        .catch(() => {
+          playAttemptRef.current += 1;
+          if (playAttemptRef.current < 3) {
+            setTimeout(() => tryPlayVideo(video), 100);
+          } else {
+            handleVideoComplete();
+          }
+        });
+    }
+  }, [handleVideoComplete]);
+
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    const handleCanPlay = () => {
-      setVideoReady(true);
-      video.play().catch(() => {
-        handleVideoComplete();
-      });
+    video.muted = true;
+    video.volume = 0;
+    video.playsInline = true;
+    (video as any).webkitPlaysInline = true;
+
+    const handleLoadedData = () => {
+      tryPlayVideo(video);
+    };
+
+    const handleCanPlayThrough = () => {
+      tryPlayVideo(video);
     };
 
     const handleVideoEnd = () => {
@@ -53,23 +84,31 @@ export default function SplashScreenVideo({
       handleVideoComplete();
     };
 
-    video.addEventListener('canplay', handleCanPlay);
+    video.addEventListener('loadeddata', handleLoadedData);
+    video.addEventListener('canplaythrough', handleCanPlayThrough);
     video.addEventListener('ended', handleVideoEnd);
     video.addEventListener('error', handleVideoError);
+
+    if (video.readyState >= 3) {
+      tryPlayVideo(video);
+    } else {
+      video.load();
+    }
 
     const timeoutId = setTimeout(() => {
       if (!hasCompletedRef.current) {
         handleVideoComplete();
       }
-    }, videoDuration + 500);
+    }, videoDuration + 1000);
 
     return () => {
-      video.removeEventListener('canplay', handleCanPlay);
+      video.removeEventListener('loadeddata', handleLoadedData);
+      video.removeEventListener('canplaythrough', handleCanPlayThrough);
       video.removeEventListener('ended', handleVideoEnd);
       video.removeEventListener('error', handleVideoError);
       clearTimeout(timeoutId);
     };
-  }, [videoDuration, handleVideoComplete]);
+  }, [videoDuration, handleVideoComplete, tryPlayVideo]);
 
   useEffect(() => {
     const handleKeyDown = () => {
