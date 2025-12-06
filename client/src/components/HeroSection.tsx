@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
 import { getLqipUrl } from "@/lib/lqip";
+import "@/styles/scroll-animations.css";
 
 import rio1Image from "@assets/rio1_1764724064822.webp";
 import rio3Image from "@assets/rio3_1764724064822.webp";
@@ -112,7 +113,22 @@ interface HeroSectionProps {
 export default function HeroSection({ onExploreClick }: HeroSectionProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [preloadedImages, setPreloadedImages] = useState<Set<number>>(new Set([0]));
+  const [contentVisible, setContentVisible] = useState(false);
   const { t } = useTranslation();
+
+  const prefersReducedMotion = useMemo(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }, []);
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      setContentVisible(true);
+      return;
+    }
+    const timer = setTimeout(() => setContentVisible(true), 100);
+    return () => clearTimeout(timer);
+  }, [prefersReducedMotion]);
 
   // Asegurar que la página inicie en el Hero Section al cargar
   useLayoutEffect(() => {
@@ -237,22 +253,22 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight mb-6 uppercase">
+        <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight mb-6 uppercase motion-hero-text ${contentVisible ? 'visible' : ''}`}>
           {t('hero.title1')}
           <span className="block text-accent">{t('hero.title2')}</span>
         </h1>
 
-        <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-2">
+        <p className={`text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-2 motion-hero-text motion-delay-1 ${contentVisible ? 'visible' : ''}`}>
           {t('hero.subtitle1')}
         </p>
-        <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-8">
+        <p className={`text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-8 motion-hero-text motion-delay-2 ${contentVisible ? 'visible' : ''}`}>
           {t('hero.subtitle2')}
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className={`flex flex-col sm:flex-row gap-4 justify-center motion-fade-in motion-delay-3 ${contentVisible ? 'visible' : ''}`}>
           <Button
             size="lg"
-            className="text-base px-8 bg-cta hover:bg-cta/90 text-cta-foreground transition-all duration-300 hover:scale-103 hover:shadow-lg"
+            className="text-base px-8 bg-cta hover:bg-cta/90 text-cta-foreground transition-all duration-300 hover:scale-103 hover:shadow-lg motion-ripple"
             onClick={handleExploreClick}
             data-testid="button-explore-packages"
           >
@@ -261,7 +277,7 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
           <Button
             size="lg"
             variant="outline"
-            className="text-base px-8 bg-white/10 border-white/30 text-white hover:bg-white/20 transition-all duration-300 hover:scale-103 hover:shadow-lg"
+            className="text-base px-8 bg-white/10 border-white/30 text-white hover:bg-white/20 transition-all duration-300 hover:scale-103 hover:shadow-lg motion-ripple"
             onClick={() => window.open("https://wa.me/5521983526144", "_blank")}
             data-testid="button-whatsapp-hero"
           >

@@ -15,6 +15,8 @@ import {
 import { Phone, Mail, MapPin, Clock, MessageCircle, Calendar } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { packages, getPackageById, type PackageData } from "@/lib/packages";
+import { useIntersectionTrigger } from "@/hooks/useScrollTrigger";
+import "@/styles/scroll-animations.css";
 
 interface ContactSectionProps {
   selectedPackage?: PackageData | null;
@@ -24,6 +26,9 @@ interface ContactSectionProps {
 export default function ContactSection({ selectedPackage, onPackageChange }: ContactSectionProps) {
   const { toast } = useToast();
   const { t } = useTranslation();
+  const [headerRef, headerVisible] = useIntersectionTrigger({ threshold: 0.2 });
+  const [formRef, formVisible] = useIntersectionTrigger({ threshold: 0.1, delay: 100 });
+  const [infoRef, infoVisible] = useIntersectionTrigger({ threshold: 0.1, delay: 200 });
   
   const [formData, setFormData] = useState({
     name: "",
@@ -170,7 +175,10 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
   return (
     <section id="contact" className="py-16 md:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-12 motion-fade-in ${headerVisible ? 'visible' : ''}`}
+        >
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
             {t('contact.title')}
           </h2>
@@ -180,6 +188,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div ref={formRef} className={`motion-slide-left ${formVisible ? 'visible' : ''}`}>
           <Card>
             <CardContent className="p-6">
               <form 
@@ -333,8 +342,9 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
               </form>
             </CardContent>
           </Card>
+          </div>
 
-          <div className="space-y-6">
+          <div ref={infoRef} className={`space-y-6 motion-slide-right ${infoVisible ? 'visible' : ''}`}>
             <Card>
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold text-foreground mb-4">

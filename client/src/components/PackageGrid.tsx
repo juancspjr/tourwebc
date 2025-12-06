@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import PackageCard from "./PackageCard";
 import { Button } from "@/components/ui/button";
 import { packages, categories, type PackageData } from "@/lib/packages";
+import { useStaggeredAnimation } from "@/hooks/useScrollTrigger";
+import "@/styles/scroll-animations.css";
 
 export type { PackageData };
 
@@ -18,6 +20,8 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
   const filteredPackages = activeCategory === "all"
     ? packages
     : packages.filter((pkg) => pkg.category === activeCategory);
+
+  const { containerRef, isItemVisible } = useStaggeredAnimation(filteredPackages.length, 0, 100);
 
   return (
     <section id="packages" className="py-16 md:py-24 bg-background">
@@ -44,9 +48,15 @@ export default function PackageGrid({ onViewDetails, onBook }: PackageGridProps)
           ))}
         </div>
 
-        <div className="packages-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredPackages.map((pkg) => (
-            <div key={pkg.id} className="package-card">
+        <div 
+          ref={containerRef}
+          className="packages-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {filteredPackages.map((pkg, index) => (
+            <div 
+              key={pkg.id} 
+              className={`package-card motion-scale-in motion-card-hover ${isItemVisible(index) ? 'visible' : ''}`}
+            >
               <PackageCard
                 package={pkg}
                 onViewDetails={onViewDetails}

@@ -24,6 +24,8 @@ import {
 } from "lucide-react";
 import { SiBitcoin, SiPaypal } from "react-icons/si";
 import { generalInfo } from "@/lib/packages";
+import { useIntersectionTrigger } from "@/hooks/useScrollTrigger";
+import "@/styles/scroll-animations.css";
 
 const paymentIcons: Record<string, JSX.Element> = {
   "zelle": <Banknote className="w-5 h-5" />,
@@ -36,6 +38,8 @@ const paymentIcons: Record<string, JSX.Element> = {
 
 export default function GeneralInfoSection() {
   const { t } = useTranslation();
+  const [headerRef, headerVisible] = useIntersectionTrigger({ threshold: 0.2 });
+  const [cardRef, cardVisible] = useIntersectionTrigger({ threshold: 0.1, delay: 150 });
   
   const tabs = [
     { id: "pagos", label: t('info.payments'), icon: CreditCard },
@@ -48,9 +52,12 @@ export default function GeneralInfoSection() {
   return (
     <section id="info" className="py-16 md:py-24 bg-muted/30">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-10 motion-fade-in ${headerVisible ? 'visible' : ''}`}
+        >
           <div className="inline-flex items-center gap-2 mb-4">
-            <BookOpen className="w-6 h-6 text-primary" />
+            <BookOpen className={`w-6 h-6 text-primary motion-bounce-in motion-delay-1 ${headerVisible ? 'visible' : ''}`} />
             <span className="text-sm font-medium text-primary uppercase tracking-wider">{t('info.travelerGuide')}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{t('info.title')}</h2>
@@ -59,7 +66,10 @@ export default function GeneralInfoSection() {
           </p>
         </div>
 
-        <div>
+        <div 
+          ref={cardRef}
+          className={`motion-scale-in ${cardVisible ? 'visible' : ''}`}
+        >
           <Card className="overflow-hidden border-0 shadow-lg">
             <Tabs defaultValue="pagos" className="w-full">
               <div className="bg-muted/50 border-b">
