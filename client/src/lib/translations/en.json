@@ -758,7 +758,7 @@
     "paymentMethods": {
       "title": "Payment Methods",
       "methods": {
-        "0": "Zelle",
+        "0": "Pix",
         "1": "International credit cards",
         "2": "National and international transfers",
         "3": "Cash in foreign currency (USD / EUR)",

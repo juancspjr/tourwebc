@@ -28,7 +28,7 @@ import { useIntersectionTrigger } from "@/hooks/useScrollTrigger";
 import "@/styles/scroll-animations.css";
 
 const paymentIcons: Record<string, JSX.Element> = {
-  "zelle": <Banknote className="w-5 h-5" />,
+  "pix": <Banknote className="w-5 h-5" />,
   "credit-card": <CreditCard className="w-5 h-5" />,
   "bank": <Building2 className="w-5 h-5" />,
   "cash": <Banknote className="w-5 h-5" />,

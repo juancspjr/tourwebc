@@ -310,7 +310,7 @@
     "paymentMethods": {
       "title": "Metodi di Pagamento",
       "methods": {
-        "0": "Zelle",
+        "0": "Pix",
         "1": "Carte di credito internazionali",
         "2": "Trasferimenti nazionali e internazionali",
         "3": "Valuta estera in contanti (USD / EUR)",

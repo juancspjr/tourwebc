@@ -130,7 +130,7 @@ export const generalInfo = {
   paymentMethods: {
     titleKey: "generalInfo.paymentMethods.title",
     methods: [
-      { nameKey: "generalInfo.paymentMethods.methods.0", icon: "zelle" },
+      { nameKey: "generalInfo.paymentMethods.methods.0", icon: "pix" },
       { nameKey: "generalInfo.paymentMethods.methods.1", icon: "credit-card" },
       { nameKey: "generalInfo.paymentMethods.methods.2", icon: "bank" },
       { nameKey: "generalInfo.paymentMethods.methods.3", icon: "cash" },

@@ -310,7 +310,7 @@
     "paymentMethods": {
       "title": "Moyens de Paiement",
       "methods": {
-        "0": "Zelle",
+        "0": "Pix",
         "1": "Cartes de crédit internationales",
         "2": "Virements nationaux et internationaux",
         "3": "Devises en espèces (USD / EUR)",
