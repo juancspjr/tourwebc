@@ -18,11 +18,10 @@ import favela2_1 from "@assets/favela2-1_1764736538872.webp";
 import favela3 from "@assets/favela3_1764736538872.webp";
 import favela4 from "@assets/favela4_1764736538872.webp";
 
-import playa2 from "@assets/playa2_1764737177292.webp";
-import playa3 from "@assets/playa3_1764737177292.webp";
-import playa4 from "@assets/playa4_1764737177292.webp";
-import playa5 from "@assets/playa5_1764737177292.webp";
-import playaV1 from "@assets/playav1_1764737177292.webp";
+import playa1 from "@assets/playa1_1764991730825.webp";
+import playa2 from "@assets/playa2_1764991730825.webp";
+import playa3 from "@assets/playa3_1764991730825.webp";
+import playa4 from "@assets/playa4_1764991730825.webp";
 
 import trekking1 from "@assets/trekking1_1764989191591.webp";
 import trekking2 from "@assets/trekking2_1764989191591.webp";
@@ -303,8 +302,8 @@ export const packages: PackageData[] = [
     titleKey: "tourPackages.playasTour.title",
     descriptionKey: "tourPackages.playasTour.description",
     image: beachImage,
-    images: [beachImage, playa2, playa3, playa4, playa5, playaV1],
-    gallery: [playa2, playa3, playa4, playa5, playaV1],
+    images: [beachImage, playa1, playa2, playa3, playa4],
+    gallery: [playa1, playa2, playa3, playa4],
     price: 80,
     durationKey: "tourPackages.playasTour.duration",
     locationKeys: [
