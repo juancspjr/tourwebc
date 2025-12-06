@@ -190,7 +190,7 @@ export default function SplashScreenVideo({
               className="w-40 h-auto object-contain mx-auto"
               style={{
                 opacity: showContent ? 1 : 0,
-                transform: showContent ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)',
+                transform: showContent ? 'translateY(-40px) scale(1)' : 'translateY(-20px) scale(0.95)',
                 transition: 'opacity 800ms ease-out, transform 800ms ease-out',
                 filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.3))',
               }}
