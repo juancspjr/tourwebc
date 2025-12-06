@@ -1,8 +1,14 @@
 import { useState, useEffect, useLayoutEffect, lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import SplashScreen from "@/components/SplashScreen";
+import SplashScreenVideo from "@/components/SplashScreenVideo";
 import type { PackageData } from "@/lib/packages";
+
+import rio1Image from "@assets/rio1_1764724064822.webp";
+import rio3Image from "@assets/rio3_1764724064822.webp";
+import rio4Image from "@assets/rio4_1764724064822.webp";
+import egipto1Image from "@assets/egipto1_1764724064822.webp";
+import egipt2Image from "@assets/egipt2_1764724064822.webp";
 
 const PackageGrid = lazy(() => import("@/components/PackageGrid"));
 const InfiniteTestimonialCarousel = lazy(() => import("@/components/InfiniteTestimonialCarousel"));
@@ -11,6 +17,8 @@ const ContactSection = lazy(() => import("@/components/ContactSection"));
 const Footer = lazy(() => import("@/components/Footer"));
 const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
 const PackageModal = lazy(() => import("@/components/PackageModal"));
+
+const heroImages = [rio1Image, rio3Image, rio4Image, egipt2Image, egipto1Image];
 
 function SectionSkeleton({ height = "400px" }: { height?: string }) {
   return (
@@ -33,7 +41,6 @@ export default function Home() {
   const [bookingPackage, setBookingPackage] = useState<PackageData | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Asegurar posición inicial en el Hero al cargar
   useLayoutEffect(() => {
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
@@ -41,7 +48,16 @@ export default function Home() {
     window.scrollTo(0, 0);
   }, []);
 
-  // Prevenir scroll durante el splash y restaurar posición al terminar
+  useEffect(() => {
+    const preloadHeroImages = () => {
+      heroImages.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
+    };
+    preloadHeroImages();
+  }, []);
+
   useEffect(() => {
     if (showSplash) {
       document.body.style.overflow = 'hidden';
@@ -83,7 +99,11 @@ export default function Home() {
   return (
     <>
       {showSplash && (
-        <SplashScreen onComplete={handleSplashComplete} duration={2500} />
+        <SplashScreenVideo 
+          videoSrc="/videos/splash.mp4" 
+          videoDuration={5000}
+          onComplete={handleSplashComplete} 
+        />
       )}
       <div 
         className="min-h-screen bg-background"
