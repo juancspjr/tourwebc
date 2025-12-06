@@ -1,6 +1,7 @@
 import { useState, useEffect, useLayoutEffect, lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import SplashScreen from "@/components/SplashScreen";
 import SplashScreenVideo from "@/components/SplashScreenVideo";
 import type { PackageData } from "@/lib/packages";
 
@@ -30,16 +31,20 @@ function SectionSkeleton({ height = "400px" }: { height?: string }) {
   );
 }
 
+type SplashPhase = 'logo' | 'video' | 'complete';
+
 export default function Home() {
-  const [showSplash, setShowSplash] = useState(() => {
+  const [splashPhase, setSplashPhase] = useState<SplashPhase>(() => {
     if (typeof window !== 'undefined') {
-      return !sessionStorage.getItem('splashShown');
+      return sessionStorage.getItem('splashShown') ? 'complete' : 'logo';
     }
-    return true;
+    return 'logo';
   });
   const [selectedPackage, setSelectedPackage] = useState<PackageData | null>(null);
   const [bookingPackage, setBookingPackage] = useState<PackageData | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showSplash = splashPhase !== 'complete';
 
   useLayoutEffect(() => {
     if ('scrollRestoration' in history) {
@@ -70,8 +75,12 @@ export default function Home() {
     };
   }, [showSplash]);
 
-  const handleSplashComplete = () => {
-    setShowSplash(false);
+  const handleLogoSplashComplete = () => {
+    setSplashPhase('video');
+  };
+
+  const handleVideoSplashComplete = () => {
+    setSplashPhase('complete');
     if (typeof window !== 'undefined') {
       sessionStorage.setItem('splashShown', 'true');
     }
@@ -98,11 +107,17 @@ export default function Home() {
 
   return (
     <>
-      {showSplash && (
+      {splashPhase === 'logo' && (
+        <SplashScreen 
+          onComplete={handleLogoSplashComplete}
+          duration={2500}
+        />
+      )}
+      {splashPhase === 'video' && (
         <SplashScreenVideo 
           videoSrc="/videos/splash.mp4" 
           videoDuration={5000}
-          onComplete={handleSplashComplete} 
+          onComplete={handleVideoSplashComplete} 
         />
       )}
       <div 
