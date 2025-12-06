@@ -11,6 +11,12 @@ import rio2 from "@assets/rio_2_1764736349812.webp";
 import rio4 from "@assets/rio_4_1764736349812.webp";
 import rioV1 from "@assets/riov_1-1_1764736349812.webp";
 
+import daytour1 from "@assets/daytour1_1764994799568.webp";
+import daytour2 from "@assets/daytour2_1764994799569.webp";
+import daytour3 from "@assets/daytour3_1764994799580.webp";
+import daytour4 from "@assets/daytour4_1764994799580.webp";
+import daytour5 from "@assets/daytour5_1764994799581.webp";
+
 import favela1 from "@assets/favela1_1764736538872.webp";
 import favela2 from "@assets/favela2_1764736538872.webp";
 import favela2_1 from "@assets/favela2-1_1764736538872.webp";
@@ -171,8 +177,8 @@ export const packages: PackageData[] = [
     titleKey: "tourPackages.dayTour.title",
     descriptionKey: "tourPackages.dayTour.description",
     image: cristoImage,
-    images: [cristoImage, rio1, rio2, rio4, rioV1],
-    gallery: [rio1, rio2, rio4, rioV1],
+    images: [cristoImage, daytour1, daytour2, daytour3, daytour4, daytour5],
+    gallery: [daytour1, daytour2, daytour3, daytour4, daytour5],
     price: 100,
     durationKey: "tourPackages.dayTour.duration",
     locationKeys: [
