@@ -45,6 +45,7 @@ import barco2 from "@assets/PaseosBarco2_1764759429302.webp";
 import barco3 from "@assets/PaseosBarco3_1764759429302.webp";
 import barco4 from "@assets/PaseosBarco4_1764759429302.webp";
 import barco5 from "@assets/PaseosBarco5_1764759429302.webp";
+import barco6 from "@assets/barco6_1764997173256.webp";
 
 import yate1 from "@assets/YateVIP1_1764759541668.webp";
 import yate2 from "@assets/YateVIP2_1764759541668.webp";
@@ -448,8 +449,8 @@ export const packages: PackageData[] = [
     titleKey: "tourPackages.boatTour.title",
     descriptionKey: "tourPackages.boatTour.description",
     image: boatImage,
-    images: [boatImage, barco1, barco2, barco3, barco4, barco5],
-    gallery: [barco1, barco2, barco3, barco4, barco5],
+    images: [boatImage, barco6, barco1, barco2, barco3, barco4, barco5],
+    gallery: [barco6, barco1, barco2, barco3, barco4, barco5],
     price: 70,
     durationKey: "tourPackages.boatTour.duration",
     locationKeys: [
