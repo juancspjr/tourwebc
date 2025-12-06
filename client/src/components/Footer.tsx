@@ -117,6 +117,14 @@ export default function Footer() {
               </li>
               <li>
                 <a 
+                  href="tel:+5521965498171"
+                  className="hover:text-primary transition-colors"
+                >
+                  Tel 2: +55 21 96549-8171
+                </a>
+              </li>
+              <li>
+                <a 
                   href="mailto:info@riotripvibes.com"
                   className="hover:text-primary transition-colors"
                 >

@@ -378,6 +378,7 @@ export default function ContactSection({ selectedPackage, onPackageChange }: Con
                     <div>
                       <p className="font-medium text-foreground">{t('contact.telephone')}</p>
                       <p className="text-sm text-muted-foreground">+55 21 98352-6144</p>
+                      <p className="text-sm text-muted-foreground">+55 21 96549-8171</p>
                     </div>
                   </div>
 
