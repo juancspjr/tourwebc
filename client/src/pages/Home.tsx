@@ -115,7 +115,9 @@ export default function Home() {
       )}
       {splashPhase === 'video' && (
         <SplashScreenVideo 
-          videoSrc="/videos/splash.mp4" 
+          videoSrc="/videos/splash.mp4"
+          audioSrc="/audios/splash-sound.mp3"
+          logoUrl="/images/logo-small.png"
           videoDuration={5000}
           onComplete={handleVideoSplashComplete} 
         />
