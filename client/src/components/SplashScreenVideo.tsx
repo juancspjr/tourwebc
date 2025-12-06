@@ -16,6 +16,7 @@ export default function SplashScreenVideo({
   const [phase, setPhase] = useState<'loading' | 'ready' | 'playing' | 'complete'>('loading');
   const [loadProgress, setLoadProgress] = useState(0);
   const [needsClick, setNeedsClick] = useState(false);
+  const [showContent, setShowContent] = useState(false);
   const hasCompletedRef = useRef(false);
   const autoplayCheckedRef = useRef(false);
   const { t } = useTranslation();
@@ -23,6 +24,8 @@ export default function SplashScreenVideo({
   useEffect(() => {
     const logo = new Image();
     logo.src = logoUrl;
+    
+    setTimeout(() => setShowContent(true), 100);
   }, [logoUrl]);
 
   useEffect(() => {
@@ -154,7 +157,7 @@ export default function SplashScreenVideo({
         className="absolute inset-0 w-full h-full object-cover"
         style={{
           opacity: phase === 'playing' ? 1 : 0,
-          transition: 'opacity 500ms ease-out',
+          transition: 'opacity 800ms ease-out',
           transform: 'translateZ(0)',
           backfaceVisibility: 'hidden',
         }}
@@ -162,25 +165,46 @@ export default function SplashScreenVideo({
       />
 
       {(phase === 'loading' || phase === 'ready') && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[hsl(209,61%,42%)] via-[hsl(192,100%,46%)] to-[hsl(209,61%,35%)]">
-          <div className="relative flex flex-col items-center gap-6">
+        <div 
+          className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[hsl(209,61%,42%)] via-[hsl(192,100%,46%)] to-[hsl(209,61%,35%)]"
+          style={{
+            opacity: showContent ? 1 : 0,
+            transition: 'opacity 600ms ease-out',
+          }}
+        >
+          <div className="relative flex flex-col items-center justify-center text-center">
             <img
               src={logoUrl}
               alt="Rio Trip Vibes"
-              className="w-52 h-auto object-contain"
+              className="w-52 h-auto object-contain mx-auto"
               style={{
-                transform: 'translateZ(0)',
-                backfaceVisibility: 'hidden',
+                opacity: showContent ? 1 : 0,
+                transform: showContent ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)',
+                transition: 'opacity 800ms ease-out, transform 800ms ease-out',
                 filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.3))',
               }}
             />
             
-            <p className="text-white/80 text-lg font-medium">
+            <p 
+              className="text-white/80 text-xl font-medium mt-6"
+              style={{
+                opacity: showContent ? 1 : 0,
+                transform: showContent ? 'translateY(0)' : 'translateY(15px)',
+                transition: 'opacity 800ms ease-out 200ms, transform 800ms ease-out 200ms',
+              }}
+            >
               {t('splash.tagline')}
             </p>
 
-            <div className="mt-2 w-48 flex flex-col items-center gap-4">
-              <div className="w-full h-1 bg-white/20 rounded-full overflow-hidden">
+            <div 
+              className="mt-8 w-56 flex flex-col items-center gap-5"
+              style={{
+                opacity: showContent ? 1 : 0,
+                transform: showContent ? 'translateY(0)' : 'translateY(10px)',
+                transition: 'opacity 800ms ease-out 400ms, transform 800ms ease-out 400ms',
+              }}
+            >
+              <div className="w-full h-1.5 bg-white/20 rounded-full overflow-hidden">
                 <div 
                   className="h-full bg-white rounded-full transition-all duration-150 ease-out"
                   style={{ width: `${loadProgress}%` }}
@@ -190,7 +214,10 @@ export default function SplashScreenVideo({
               {phase === 'ready' && needsClick && (
                 <button
                   onClick={handleManualStart}
-                  className="px-10 py-5 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full text-white font-semibold text-xl transition-all duration-200 flex items-center gap-4 border border-white/30 whitespace-nowrap"
+                  className="px-10 py-5 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full text-white font-semibold text-xl transition-all duration-300 flex items-center justify-center gap-4 border border-white/30 whitespace-nowrap"
+                  style={{
+                    animation: 'fadeInUp 500ms ease-out forwards',
+                  }}
                   data-testid="button-play-video"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
@@ -206,11 +233,24 @@ export default function SplashScreenVideo({
 
       <button
         onClick={handleComplete}
-        className="absolute bottom-6 right-6 text-white/50 hover:text-white/80 text-sm transition-colors"
+        className="absolute bottom-6 right-6 text-white/50 hover:text-white/80 text-sm transition-colors z-10"
         data-testid="button-skip-splash"
       >
         {t('splash.skip', 'Click para saltar')}
       </button>
+
+      <style>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </div>
   );
 }
