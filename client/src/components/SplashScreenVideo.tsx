@@ -176,28 +176,37 @@ export default function SplashScreenVideo({
 
       {(phase === 'loading' || phase === 'ready' || phase === 'transitioning') && (
         <div 
-          className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[hsl(209,61%,42%)] via-[hsl(192,100%,46%)] to-[hsl(209,61%,35%)]"
+          className="absolute inset-0 bg-gradient-to-br from-[hsl(209,61%,42%)] via-[hsl(192,100%,46%)] to-[hsl(209,61%,35%)]"
           style={{
             opacity: fadeOutLoading ? 0 : (showContent ? 1 : 0),
             transition: 'opacity 1000ms ease-out',
             pointerEvents: fadeOutLoading ? 'none' : 'auto',
           }}
         >
-          <div className="relative flex flex-col items-center justify-center text-center">
-            <img
-              src={logoUrl}
-              alt="Rio Trip Vibes"
-              className="w-40 h-auto object-contain mx-auto"
-              style={{
-                opacity: showContent ? 1 : 0,
-                transform: showContent ? 'translateY(-40px) scale(1)' : 'translateY(-20px) scale(0.95)',
-                transition: 'opacity 800ms ease-out, transform 800ms ease-out',
-                filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.3))',
-              }}
-            />
-            
+          <img
+            src={logoUrl}
+            alt="Rio Trip Vibes"
+            className="absolute left-1/2 object-contain"
+            style={{
+              width: '180px',
+              height: 'auto',
+              top: '22%',
+              transform: 'translateX(-50%)',
+              opacity: showContent ? 1 : 0,
+              transition: 'opacity 800ms ease-out',
+              filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.3))',
+            }}
+          />
+          
+          <div 
+            className="absolute left-1/2 flex flex-col items-center text-center"
+            style={{
+              top: '52%',
+              transform: 'translateX(-50%)',
+            }}
+          >
             <p 
-              className="text-white/80 text-xl font-medium mt-6"
+              className="text-white/80 text-xl font-medium"
               style={{
                 opacity: showContent ? 1 : 0,
                 transform: showContent ? 'translateY(0)' : 'translateY(15px)',
