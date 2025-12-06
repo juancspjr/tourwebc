@@ -158,8 +158,9 @@ export default function SplashScreenVideo({
         style={{
           opacity: phase === 'playing' ? 1 : 0,
           transition: 'opacity 800ms ease-out',
-          transform: 'translateZ(0)',
+          transform: 'translateZ(0) scale(1.15)',
           backfaceVisibility: 'hidden',
+          objectPosition: 'center center',
         }}
         data-testid="video-splash"
       />
