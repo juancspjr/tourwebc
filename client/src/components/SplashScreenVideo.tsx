@@ -13,10 +13,11 @@ export default function SplashScreenVideo({
   onComplete,
 }: SplashScreenVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [phase, setPhase] = useState<'loading' | 'ready' | 'playing' | 'complete'>('loading');
+  const [phase, setPhase] = useState<'loading' | 'ready' | 'transitioning' | 'playing' | 'complete'>('loading');
   const [loadProgress, setLoadProgress] = useState(0);
   const [needsClick, setNeedsClick] = useState(false);
   const [showContent, setShowContent] = useState(false);
+  const [fadeOutLoading, setFadeOutLoading] = useState(false);
   const hasCompletedRef = useRef(false);
   const autoplayCheckedRef = useRef(false);
   const { t } = useTranslation();
@@ -80,7 +81,11 @@ export default function SplashScreenVideo({
 
     video.play()
       .then(() => {
-        setPhase('playing');
+        setPhase('transitioning');
+        setFadeOutLoading(true);
+        setTimeout(() => {
+          setPhase('playing');
+        }, 800);
         setNeedsClick(false);
       })
       .catch(() => {
@@ -101,7 +106,11 @@ export default function SplashScreenVideo({
 
     video.play()
       .then(() => {
-        setPhase('playing');
+        setPhase('transitioning');
+        setFadeOutLoading(true);
+        setTimeout(() => {
+          setPhase('playing');
+        }, 800);
         setNeedsClick(false);
       })
       .catch(() => {
@@ -156,28 +165,29 @@ export default function SplashScreenVideo({
         preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
         style={{
-          opacity: phase === 'playing' ? 1 : 0,
-          transition: 'opacity 800ms ease-out',
-          transform: 'translateZ(0) scale(1.15)',
+          opacity: (phase === 'transitioning' || phase === 'playing') ? 1 : 0,
+          transition: 'opacity 1000ms ease-out',
+          transform: 'translateZ(0)',
           backfaceVisibility: 'hidden',
           objectPosition: 'center center',
         }}
         data-testid="video-splash"
       />
 
-      {(phase === 'loading' || phase === 'ready') && (
+      {(phase === 'loading' || phase === 'ready' || phase === 'transitioning') && (
         <div 
           className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[hsl(209,61%,42%)] via-[hsl(192,100%,46%)] to-[hsl(209,61%,35%)]"
           style={{
-            opacity: showContent ? 1 : 0,
-            transition: 'opacity 600ms ease-out',
+            opacity: fadeOutLoading ? 0 : (showContent ? 1 : 0),
+            transition: 'opacity 1000ms ease-out',
+            pointerEvents: fadeOutLoading ? 'none' : 'auto',
           }}
         >
           <div className="relative flex flex-col items-center justify-center text-center">
             <img
               src={logoUrl}
               alt="Rio Trip Vibes"
-              className="w-52 h-auto object-contain mx-auto"
+              className="w-40 h-auto object-contain mx-auto"
               style={{
                 opacity: showContent ? 1 : 0,
                 transform: showContent ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)',
