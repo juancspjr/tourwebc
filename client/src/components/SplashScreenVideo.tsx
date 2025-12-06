@@ -190,7 +190,7 @@ export default function SplashScreenVideo({
             style={{
               width: '180px',
               height: 'auto',
-              top: '22%',
+              top: '17%',
               transform: 'translateX(-50%)',
               opacity: showContent ? 1 : 0,
               transition: 'opacity 800ms ease-out',
