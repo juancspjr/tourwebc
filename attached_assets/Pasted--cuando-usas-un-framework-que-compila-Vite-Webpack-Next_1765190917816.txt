@@ -1,0 +1,125 @@
+**cuando usas un framework que compila (Vite, Webpack, Next, Nuxt, Astro, etc.) el contenido que ven los buscadores y los LLM es el HTML estático que salga del build, no el que escribes en src/.
+Por eso cualquier mejora on-page debe inyectarse ANTES o DURANTE la compilación; después, los archivos “crudos” que ves en dist/ o build/ ya no se tocan a mano. A continuación tienes un mini-guía de cómo hacerlo sin romper tu flujo actual.
+JSON-LD dinámico (reutilizable por idioma)
+Crea un archivo src/data/schema.ts
+TypeScript
+Copy
+export const schemaWebSite = (lang: string, url: string) => ({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "TourWebC",
+  url,
+  abstract: "Agencia de turismo personalizada con IA",
+  inLanguage: lang,
+  potentialAction: {
+    "@type": "SearchAction",
+    target: `${url}/search?q={search_term_string}`,
+    "query-input": "required name=search_term_string"
+  }
+});
+
+export const schemaTouristDestination = (lang: string, url: string) => ({
+  "@context": "https://schema.org",
+  "@type": "TouristDestination",
+  name: lang === "es" ? "Río de Janeiro" : "Rio de Janeiro",
+  description: lang === "es"
+    ? "Destino turístico con playas, cultura y naturaleza."
+    : "Tourist destination with beaches, culture and nature.",
+  url
+});
+En tu componente raíz (App.vue, Layout.astro, _app.tsx, etc.) inyecta:
+tsx
+Copy
+import { schemaWebSite, schemaTouristDestination } from "@/data/schema";
+
+const jsonLd = [
+  schemaWebSite(lang, canonical),
+  schemaTouristDestination(lang, canonical)
+];
+
+useEffect(() => {
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.textContent = JSON.stringify(jsonLd);
+  document.head.appendChild(script);
+  return () => script.remove();
+}, [lang]);
+Al compilar, Vite dejará el <script> literal en el HTML final.
+Canonical + hreflang (evita duplicados)
+Añade en src/pages/_document.tsx (o tu plantilla HTML):
+tsx
+Copy
+<link rel="canonical" href={canonical} />
+<link rel="alternate" hrefLang="x-default" href="https://tourwebc.pages.dev/" />
+<link rel="alternate" hrefLang="es" href="https://tourwebc.pages.dev/es.html" />
+<link rel="alternate" hrefLang="en" href="https://tourwebc.pages.dev/en.html" />
+<link rel="alternate" hrefLang="pt" href="https://tourwebc.pages.dev/pt.html" />
+<link rel="alternate" hrefLang="fr" href="https://tourwebc.pages.dev/fr.html" />
+<link rel="alternate" hrefLang="it" href="https://tourwebc.pages.dev/it.html" />
+Genera canonical con:
+TypeScript
+Copy
+const canonical = `https://tourwebc.pages.dev/${lang === "es" ? "" : `${lang}.html`}`;
+OpenGraph / Twitter Card (preview en redes y LLM)
+En la misma plantilla:
+tsx
+Copy
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={`https://tourwebc.pages.dev${img}`} />
+<meta property="og:url" content={canonical} />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content={ogLocale[lang]} />
+<meta name="twitter:card" content="summary_large_image" />
+Asegúrate de que img sea una ruta absoluta dentro de /assets/ (Vite copiará el hash correcto).
+IDs en títulos para text-fragment
+Componente de ejemplo (Section.vue):
+vue
+Copy
+<template>
+  <section>
+    <h2 :id="slug">Precios</h2>
+  </section>
+</template>
+
+<script setup>
+import { computed } from "vue";
+const props = defineProps({ title: String });
+const slug = computed(() =>
+  props.title
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "-")
+);
+</script>
+Al compilar, el HTML tendrá <h2 id="precios"> y podrás citar:
+https://tourwebc.pages.dev/es.html#precios
+o con text-fragment:
+https://tourwebc.pages.dev/es.html#:~:text=Precios
+dateModified automático
+En Vite puedes leer la fecha de git:
+TypeScript
+Copy
+import { execSync } from "child_process";
+const dateModified = execSync("git log -1 --pretty=%cI").toString().trim();
+Inyecta:
+tsx
+Copy
+<meta property="article:modified_time" content={dateModified} />
+Flujo de build resumido
+npm run build
+Vite:
+Lee plantillas → inyecta JSON-LD, canonical, og, hreflang, ids, fechas
+Genera archivos en dist/public/ con hash para assets
+Cloudflare Pages sube dist/public → los HTML finales ya llevan todo el SEO/LLM inside
+No toques dist/ a mano; si necesitas cambios, editas en src/ y vuelves a compilar.
+CHECKLIST RÁPIDO PARA TU REPO
+[ ] Crear src/data/schema.ts
+[ ] Añadir componente SchemaInjector en root layout
+[ ] Añadir CanonicalHreflang en _document
+[ ] Añadir OpenGraph en _document
+[ ] Pasar todos los <h2> a componente que genere id
+[ ] Leer git log para dateModified
+[ ] Commit → Push → Build → Done
+Con estos pasos el framework no “estropea” el SEO; al contrario, te permite escalarlo a todos los idiomas sin duplicar HTML a mano.
