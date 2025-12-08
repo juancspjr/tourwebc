@@ -183,27 +183,7 @@ export default function FloatingButtons({
           variants={containerVariants}
           className="fixed bottom-6 right-6 z-50"
         >
-          <div className="bg-background/95 backdrop-blur-md rounded-2xl shadow-2xl border border-border/50 p-4 flex flex-col gap-3">
-            <p className="text-sm font-medium text-muted-foreground text-center">
-              {t('floatingButtons.needHelp')}
-            </p>
-            
-            <motion.div
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-            >
-              <Button
-                onClick={handleWhatsAppClick}
-                className="w-full h-12 gap-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold shadow-lg shadow-green-500/25 rounded-full border-0"
-                data-testid="button-whatsapp-floating"
-                aria-label="Contactar por WhatsApp"
-              >
-                <SiWhatsapp className="w-5 h-5" />
-                WhatsApp
-              </Button>
-            </motion.div>
-
+          <div className="flex flex-col gap-3">
             <motion.div
               variants={buttonVariants}
               whileHover="hover"
@@ -211,22 +191,38 @@ export default function FloatingButtons({
             >
               <Button
                 onClick={handleBookClick}
-                className="w-full h-12 gap-3 bg-gradient-to-r from-cta to-cta/90 hover:from-cta/90 hover:to-cta/80 text-cta-foreground font-semibold shadow-lg shadow-cta/25 rounded-full border-0"
+                size="icon"
+                className="w-14 h-14 rounded-full bg-cta/90 hover:bg-cta text-cta-foreground shadow-xl shadow-cta/30 border-0"
                 data-testid="button-reservar-floating"
                 aria-label={t('floatingButtons.bookNow')}
               >
-                <CalendarCheck className="w-5 h-5" />
-                {t('floatingButtons.bookNow')}
+                <CalendarCheck className="w-6 h-6" />
               </Button>
             </motion.div>
-          </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="absolute -top-2 -right-2 w-4 h-4 bg-green-400 rounded-full animate-pulse"
-            aria-hidden="true"
-          />
+            <motion.div
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              className="relative"
+            >
+              <Button
+                onClick={handleWhatsAppClick}
+                size="icon"
+                className="w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-xl shadow-green-500/30 border-0"
+                data-testid="button-whatsapp-floating"
+                aria-label="Contactar por WhatsApp"
+              >
+                <SiWhatsapp className="w-7 h-7" />
+              </Button>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse"
+                aria-hidden="true"
+              />
+            </motion.div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

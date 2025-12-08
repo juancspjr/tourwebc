@@ -151,56 +151,58 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
             </TabsContent>
           </Tabs>
 
-          <div className="hidden sm:flex flex-col gap-4 pt-6 mt-6 border-t border-border">
-            <div className="flex gap-3">
+          <div className="hidden sm:flex items-center justify-between pt-6 mt-6 border-t border-border">
+            <div className="flex items-center gap-3">
               <Button 
-                className="flex-1 h-12 gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold shadow-lg shadow-green-500/25 rounded-full border-0"
+                size="icon"
+                className="w-12 h-12 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-lg shadow-green-500/25 border-0"
                 onClick={() => window.open("https://wa.me/5521983526144?text=" + encodeURIComponent(t('packageModal.whatsappMessage', { title })), "_blank")}
                 data-testid="button-contact-advisor"
+                aria-label="WhatsApp"
               >
-                <SiWhatsapp className="w-5 h-5" />
-                {t('packageModal.contactAdvisor')}
+                <SiWhatsapp className="w-6 h-6" />
               </Button>
               <Button 
-                className="flex-1 h-12 gap-2 bg-gradient-to-r from-cta to-cta/90 hover:from-cta/90 hover:to-cta/80 text-cta-foreground font-semibold shadow-lg shadow-cta/25 rounded-full border-0"
+                size="icon"
+                className="w-12 h-12 rounded-full bg-cta/90 hover:bg-cta text-cta-foreground shadow-lg shadow-cta/25 border-0"
                 onClick={() => {
                   onBook?.(pkg);
                   onClose();
                 }} 
                 data-testid="button-book-modal"
+                aria-label={t('packageModal.bookNow')}
               >
-                <CalendarCheck className="w-5 h-5" />
-                {t('packageModal.bookNow')}
+                <CalendarCheck className="w-6 h-6" />
               </Button>
             </div>
-            <div className="flex items-center justify-end">
-              <Button variant="ghost" onClick={onClose} data-testid="button-close-modal">
-                {t('packageModal.close')}
-              </Button>
-            </div>
+            <Button variant="ghost" onClick={onClose} data-testid="button-close-modal">
+              {t('packageModal.close')}
+            </Button>
           </div>
         </div>
         
         {/* Action Bar - Mobile Only */}
-        <div className="sm:hidden shrink-0 bg-background/95 backdrop-blur-sm border-t border-border p-3 flex gap-2">
+        <div className="sm:hidden shrink-0 bg-background/95 backdrop-blur-sm border-t border-border p-3 flex items-center justify-center gap-4">
           <Button 
-            className="flex-1 h-11 gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold shadow-lg shadow-green-500/25 rounded-full border-0"
+            size="icon"
+            className="w-12 h-12 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-lg shadow-green-500/25 border-0"
             onClick={() => window.open("https://wa.me/5521983526144?text=" + encodeURIComponent(t('packageModal.whatsappMessage', { title })), "_blank")}
             data-testid="button-whatsapp-floating"
+            aria-label="WhatsApp"
           >
-            <SiWhatsapp className="w-5 h-5" />
-            WhatsApp
+            <SiWhatsapp className="w-6 h-6" />
           </Button>
           <Button 
-            className="flex-1 h-11 gap-2 bg-gradient-to-r from-cta to-cta/90 hover:from-cta/90 hover:to-cta/80 text-cta-foreground font-semibold shadow-lg shadow-cta/25 rounded-full border-0"
+            size="icon"
+            className="w-12 h-12 rounded-full bg-cta/90 hover:bg-cta text-cta-foreground shadow-lg shadow-cta/25 border-0"
             onClick={() => {
               onBook?.(pkg);
               onClose();
             }} 
             data-testid="button-book-floating"
+            aria-label={t('packageModal.bookNow')}
           >
-            <CalendarCheck className="w-5 h-5" />
-            {t('packageModal.bookNow')}
+            <CalendarCheck className="w-6 h-6" />
           </Button>
         </div>
       </DialogContent>
