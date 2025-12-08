@@ -40,6 +40,31 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-3xl max-h-[90vh] overflow-hidden p-0 w-[calc(100vw-2rem)] sm:w-full flex flex-col">
+        {/* Floating action buttons - Desktop */}
+        <div className="hidden sm:flex flex-col gap-3 fixed right-8 top-1/2 -translate-y-1/2 z-50">
+          <Button 
+            size="icon"
+            className="w-12 h-12 rounded-full bg-cta/90 hover:bg-cta text-cta-foreground shadow-lg shadow-cta/25 border-0"
+            onClick={() => {
+              onBook?.(pkg);
+              onClose();
+            }} 
+            data-testid="button-book-floating-desktop"
+            aria-label={t('packageModal.bookNow')}
+          >
+            <CalendarCheck className="w-6 h-6" />
+          </Button>
+          <Button 
+            size="icon"
+            className="w-12 h-12 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-lg shadow-green-500/25 border-0"
+            onClick={() => window.open("https://wa.me/5521983526144?text=" + encodeURIComponent(t('packageModal.whatsappMessage', { title })), "_blank")}
+            data-testid="button-whatsapp-floating-desktop"
+            aria-label="WhatsApp"
+          >
+            <SiWhatsapp className="w-6 h-6" />
+          </Button>
+        </div>
+        
         <div className="flex-1 overflow-y-auto p-4 sm:p-6 pb-4 sm:pb-6">
           <DialogHeader className="relative mb-4">
             <ImageCarousel images={pkg.gallery} alt={title} />
@@ -151,34 +176,6 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
             </TabsContent>
           </Tabs>
 
-          <div className="hidden sm:flex items-center justify-between pt-6 mt-6 border-t border-border">
-            <div className="flex items-center gap-3">
-              <Button 
-                size="icon"
-                className="w-12 h-12 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-lg shadow-green-500/25 border-0"
-                onClick={() => window.open("https://wa.me/5521983526144?text=" + encodeURIComponent(t('packageModal.whatsappMessage', { title })), "_blank")}
-                data-testid="button-contact-advisor"
-                aria-label="WhatsApp"
-              >
-                <SiWhatsapp className="w-6 h-6" />
-              </Button>
-              <Button 
-                size="icon"
-                className="w-12 h-12 rounded-full bg-cta/90 hover:bg-cta text-cta-foreground shadow-lg shadow-cta/25 border-0"
-                onClick={() => {
-                  onBook?.(pkg);
-                  onClose();
-                }} 
-                data-testid="button-book-modal"
-                aria-label={t('packageModal.bookNow')}
-              >
-                <CalendarCheck className="w-6 h-6" />
-              </Button>
-            </div>
-            <Button variant="ghost" onClick={onClose} data-testid="button-close-modal">
-              {t('packageModal.close')}
-            </Button>
-          </div>
         </div>
         
         {/* Action Bar - Mobile Only */}
