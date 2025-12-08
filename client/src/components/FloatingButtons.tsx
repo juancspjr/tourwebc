@@ -146,7 +146,7 @@ export default function FloatingButtons({
             >
               <Button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover-elevate active-elevate-2 backdrop-blur-md border-primary-border/50 w-14 h-14 rounded-full shadow-2xl border-0 transition-all duration-300 from-primary via-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground bg-[#94dba9]"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover-elevate active-elevate-2 backdrop-blur-md border-primary-border/50 w-14 h-14 rounded-full shadow-2xl border-0 transition-all duration-300 from-primary via-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground bg-[#22c55e]"
                 size="icon"
                 data-testid="button-floating-toggle-mobile"
                 aria-label={isExpanded ? "Cerrar menú" : "Abrir menú de contacto"}
