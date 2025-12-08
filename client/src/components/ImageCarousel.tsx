@@ -81,7 +81,6 @@ function FullscreenViewer({
   onClose, 
   onPrevious, 
   onNext,
-  onGoToSlide
 }: FullscreenViewerProps) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -101,65 +100,70 @@ function FullscreenViewer({
 
   return (
     <div 
-      className="fixed inset-0 z-[100] bg-black flex items-center justify-center"
+      className="fixed inset-0 z-[100] bg-black flex items-center justify-center sm:flex-row"
+      style={{
+        WebkitTransform: 'rotate(0deg)',
+      }}
       onClick={onClose}
     >
-      <Button
-        variant="ghost"
-        size="icon"
-        className="absolute top-4 right-4 z-10 text-white bg-black/50 hover:bg-black/70"
-        onClick={(e) => { e.stopPropagation(); onClose(); }}
-        data-testid="fullscreen-close"
-      >
-        <X className="w-6 h-6" />
-      </Button>
+      <style>{`
+        @media (max-width: 640px) and (orientation: portrait) {
+          .fullscreen-container {
+            transform: rotate(90deg);
+            transform-origin: center center;
+            width: 100vh !important;
+            height: 100vw !important;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -50vw;
+            margin-left: -50vh;
+          }
+        }
+      `}</style>
       
-      <Button
-        variant="ghost"
-        size="icon"
-        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 text-white bg-black/50 hover:bg-black/70"
-        onClick={(e) => { e.stopPropagation(); onPrevious(); }}
-        data-testid="fullscreen-prev"
-      >
-        <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
-      </Button>
-      
-      <Button
-        variant="ghost"
-        size="icon"
-        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 text-white bg-black/50 hover:bg-black/70"
-        onClick={(e) => { e.stopPropagation(); onNext(); }}
-        data-testid="fullscreen-next"
-      >
-        <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
-      </Button>
-      
-      <img
-        src={images[currentIndex]}
-        alt={`${alt} - ${currentIndex + 1}`}
-        className="max-w-full max-h-full object-contain p-4"
-        onClick={(e) => e.stopPropagation()}
-        data-testid="fullscreen-image"
-      />
-      
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={(e) => { e.stopPropagation(); onGoToSlide(index); }}
-            className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
-              index === currentIndex 
-                ? "bg-white w-4" 
-                : "bg-white/50 hover:bg-white/75"
-            }`}
-            data-testid={`fullscreen-dot-${index}`}
-            aria-label={`Ir a imagen ${index + 1}`}
-          />
-        ))}
-      </div>
-      
-      <div className="absolute bottom-4 right-4 text-white/70 text-sm">
-        {currentIndex + 1} / {images.length}
+      <div className="fullscreen-container fixed inset-0 flex items-center justify-center">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute top-4 right-4 z-10 text-white bg-black/50 hover:bg-black/70"
+          onClick={(e) => { e.stopPropagation(); onClose(); }}
+          data-testid="fullscreen-close"
+        >
+          <X className="w-6 h-6" />
+        </Button>
+        
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-white bg-black/50 hover:bg-black/70"
+          onClick={(e) => { e.stopPropagation(); onPrevious(); }}
+          data-testid="fullscreen-prev"
+        >
+          <ChevronLeft className="w-8 h-8" />
+        </Button>
+        
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 text-white bg-black/50 hover:bg-black/70"
+          onClick={(e) => { e.stopPropagation(); onNext(); }}
+          data-testid="fullscreen-next"
+        >
+          <ChevronRight className="w-8 h-8" />
+        </Button>
+        
+        <img
+          src={images[currentIndex]}
+          alt={`${alt} - ${currentIndex + 1}`}
+          className="max-w-full max-h-full object-contain"
+          onClick={(e) => e.stopPropagation()}
+          data-testid="fullscreen-image"
+        />
+        
+        <div className="absolute bottom-3 right-3 text-white/80 text-sm bg-black/40 px-2 py-1 rounded">
+          {currentIndex + 1} / {images.length}
+        </div>
       </div>
     </div>
   );
@@ -237,21 +241,6 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
                 <ChevronRight className="w-5 h-5" />
               </Button>
               
-              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
-                {images.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={(e) => { e.stopPropagation(); goToSlide(index); }}
-                    className={`h-1 rounded-full transition-all duration-200 ${
-                      index === currentIndex 
-                        ? "bg-white w-3" 
-                        : "bg-white/50 hover:bg-white/75 w-1"
-                    }`}
-                    data-testid={`carousel-dot-${index}`}
-                    aria-label={`Ir a imagen ${index + 1}`}
-                  />
-                ))}
-              </div>
             </>
           )}
         </div>
