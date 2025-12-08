@@ -143,7 +143,21 @@
   },
   "seo": {
     "title": "Rio Trip Vibes - Tu Agencia de Viajes de Confianza",
-    "description": "Descubre experiencias únicas de viaje en Río de Janeiro con guías profesionales. Tours exclusivos, paseos en barco, trilhas y mucho más."
+    "description": "Descubre experiencias únicas de viaje con guías profesionales. Tours exclusivos, paseos en barco, aventuras y mucho más en los destinos más increíbles del mundo."
+  },
+  "parallax": {
+    "packages": {
+      "title": "Explora el Mundo con Nosotros",
+      "subtitle": "Aventuras diseñadas para crear recuerdos que duran toda la vida"
+    },
+    "experience": {
+      "title": "Vive Momentos Inolvidables",
+      "subtitle": "Cada destino es una nueva historia por descubrir"
+    },
+    "adventure": {
+      "title": "Tu Aventura Te Espera",
+      "subtitle": "Reserva ahora y transforma tus sueños de viaje en realidad"
+    }
   },
   "testimonials": {
     "title": "Lo Que Dicen Nuestros Viajeros",

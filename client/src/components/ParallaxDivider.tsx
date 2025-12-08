@@ -5,8 +5,8 @@ import rio3Image from "@assets/rio3_1764724064822.webp";
 
 interface ParallaxDividerProps {
   image?: string;
-  title?: string;
-  subtitle?: string;
+  titleKey?: string;
+  subtitleKey?: string;
   height?: string;
   overlay?: "light" | "dark" | "gradient";
   showCta?: boolean;
@@ -14,8 +14,8 @@ interface ParallaxDividerProps {
 
 export default function ParallaxDivider({
   image = rio3Image,
-  title,
-  subtitle,
+  titleKey,
+  subtitleKey,
   height = "50vh",
   overlay = "gradient",
   showCta = false,
@@ -48,14 +48,14 @@ export default function ParallaxDivider({
       <div className={`absolute inset-0 ${overlayStyles[overlay]}`} />
       
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 py-16" style={{ minHeight: height }}>
-        {title && (
+        {titleKey && (
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 max-w-4xl drop-shadow-lg">
-            {title}
+            {t(titleKey)}
           </h2>
         )}
-        {subtitle && (
+        {subtitleKey && (
           <p className="text-lg sm:text-xl text-white/90 max-w-2xl drop-shadow-md">
-            {subtitle}
+            {t(subtitleKey)}
           </p>
         )}
         {showCta && (

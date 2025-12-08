@@ -132,8 +132,8 @@ export default function Home() {
         <Suspense fallback={<SectionSkeleton height="250px" />}>
           <ParallaxDivider 
             image={boatTourParallax}
-            title="Nuestros Paquetes Turísticos"
-            subtitle="Encuentra la aventura perfecta para ti. Desde city tours hasta experiencias exclusivas en helicóptero."
+            titleKey="parallax.packages.title"
+            subtitleKey="parallax.packages.subtitle"
             height="40vh"
             overlay="gradient"
             showCta={false}
@@ -150,8 +150,8 @@ export default function Home() {
         <Suspense fallback={<SectionSkeleton height="250px" />}>
           <ParallaxDivider 
             image={cristoParallax}
-            title="Descubre la magia de Río"
-            subtitle="Vive experiencias únicas con vistas que te quitarán el aliento"
+            titleKey="parallax.experience.title"
+            subtitleKey="parallax.experience.subtitle"
             height="40vh"
             overlay="gradient"
             showCta={false}
@@ -169,8 +169,8 @@ export default function Home() {
         <Suspense fallback={<SectionSkeleton height="300px" />}>
           <ParallaxDivider 
             image={sunsetParallax}
-            title="Tu aventura te espera"
-            subtitle="Reserva ahora y vive experiencias inolvidables en los destinos más increíbles del mundo"
+            titleKey="parallax.adventure.title"
+            subtitleKey="parallax.adventure.subtitle"
             height="45vh"
             overlay="gradient"
             showCta={true}
