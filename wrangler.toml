@@ -1,0 +1,17 @@
+# Cloudflare Pages Configuration for Rio Trip Vibes
+# This is configured for Cloudflare Pages (static site), not Workers
+
+name = "riotripvibes"
+compatibility_date = "2024-12-08"
+
+# Pages specific settings
+[site]
+bucket = "./dist/public"
+
+# Build configuration
+[build]
+command = "npm run build:static"
+
+# Environment variables for production
+[env.production]
+vars = { ENVIRONMENT = "production" }

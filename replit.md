@@ -90,3 +90,38 @@ The project uses clean language routes instead of query parameters for better SE
 - Updated seo-manifest.ts with new URL structure
 - Added server routes to serve static HTML for each language
 - Fixed hreflang tags across all static HTML files and sitemap.xml
+- Added Cloudflare Pages deployment configuration
+
+## Cloudflare Pages Deployment
+
+### Static Build for Cloudflare
+The project includes a complete static build pipeline for deploying to Cloudflare Pages:
+
+**Build Script** (`script/build-static.ts`):
+1. Compiles React frontend with Vite
+2. Processes HTML for multi-language SEO
+3. Copies static SEO assets (sitemap, robots.txt, ai.txt)
+4. Copies pre-rendered about/privacy pages
+5. Generates Cloudflare `_redirects` and `_headers` files
+
+**Configuration Files**:
+- `wrangler.toml` - Cloudflare Pages configuration
+- `deploy.sh` - Automated deployment script
+- `dist/public/_redirects` - URL rewriting for language routes
+- `dist/public/_headers` - Caching and security headers
+
+**Commands**:
+```bash
+npm run build:static   # Build static site for Cloudflare
+npm run deploy         # Deploy to Cloudflare Pages
+```
+
+**Output Directory**: `dist/public/`
+
+**Cloudflare Routing**:
+- `/es` -> `/es.html` (Spanish)
+- `/en` -> `/en.html` (English)
+- `/pt` -> `/pt.html` (Portuguese)
+- `/fr` -> `/fr.html` (French)
+- `/it` -> `/it.html` (Italian)
+- `/*` -> `/index.html` (SPA fallback)
