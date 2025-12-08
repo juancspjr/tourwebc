@@ -153,8 +153,8 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
 
           <div className="hidden sm:flex flex-col gap-4 pt-6 mt-6 border-t border-border">
             <Button 
-              variant="outline"
-              className="w-full gap-2"
+              variant="glass"
+              className="w-full gap-2 bg-[#22c55e]"
               onClick={() => window.open("https://wa.me/5521983526144?text=" + encodeURIComponent(t('packageModal.whatsappMessage', { title })), "_blank")}
               data-testid="button-contact-advisor"
             >
