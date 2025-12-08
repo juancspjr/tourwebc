@@ -13,6 +13,7 @@ import egipt2Image from "@assets/egipt2_1764724064822.webp";
 import barcoImage from "@assets/barco6_1764997173256.webp";
 import cristoParallax from "@assets/cristo_parallax.webp";
 import sunsetParallax from "@assets/sunset_parallax.webp";
+import boatTourParallax from "@assets/boat_tour_parallax.webp";
 
 const PackageGrid = lazy(() => import("@/components/PackageGrid"));
 const InfiniteTestimonialCarousel = lazy(() => import("@/components/InfiniteTestimonialCarousel"));
@@ -127,6 +128,17 @@ export default function Home() {
       
       <main>
         <HeroSection onExploreClick={() => handleNavigate("#packages")} />
+        
+        <Suspense fallback={<SectionSkeleton height="250px" />}>
+          <ParallaxDivider 
+            image={boatTourParallax}
+            title="Nuestros Paquetes Turísticos"
+            subtitle="Encuentra la aventura perfecta para ti. Desde city tours hasta experiencias exclusivas en helicóptero."
+            height="40vh"
+            overlay="gradient"
+            showCta={false}
+          />
+        </Suspense>
         
         <Suspense fallback={<SectionSkeleton height="600px" />}>
           <PackageGrid
