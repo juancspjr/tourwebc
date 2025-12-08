@@ -16,7 +16,7 @@ export default function SplashScreenVideo({
   const [phase, setPhase] = useState<'loading' | 'ready' | 'transitioning' | 'playing' | 'ending' | 'complete'>('loading');
   const [loadProgress, setLoadProgress] = useState(0);
   const [needsClick, setNeedsClick] = useState(false);
-  const [showContent, setShowContent] = useState(false);
+  const [showContent, setShowContent] = useState(true);
   const [fadeOutLoading, setFadeOutLoading] = useState(false);
   const [showEndingLogo, setShowEndingLogo] = useState(false);
   const hasCompletedRef = useRef(false);
@@ -26,8 +26,6 @@ export default function SplashScreenVideo({
   useEffect(() => {
     const logo = new Image();
     logo.src = logoUrl;
-    
-    setTimeout(() => setShowContent(true), 100);
   }, [logoUrl]);
 
   useEffect(() => {
