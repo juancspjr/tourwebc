@@ -194,32 +194,33 @@ function FullscreenViewer({
           <ChevronRight className="w-8 h-8" />
         </button>
 
-        {/* Mobile portrait navigation buttons - positioned at top/bottom of rotated view */}
-        {/* After 90deg rotation: top becomes left, bottom becomes right */}
+        {/* Mobile portrait navigation buttons - bottom corners */}
+        {/* After 90deg rotation: bottom-left appears on left side, bottom-right appears on right side */}
         <button
-          className="fullscreen-nav-mobile hidden absolute top-4 left-1/2 -translate-x-1/2 z-20 p-3 text-white bg-black/60 hover:bg-black/70 rounded-full transition-colors items-center justify-center"
+          className="fullscreen-nav-mobile hidden absolute bottom-6 left-6 z-20 p-3 text-white bg-black/60 hover:bg-black/70 rounded-full transition-colors items-center justify-center"
           onClick={(e) => { e.stopPropagation(); onPrevious(); }}
           data-testid="fullscreen-prev-mobile"
           aria-label="Previous image"
         >
-          <ChevronLeft className="w-8 h-8" />
+          <ChevronLeft className="w-8 h-8 rotate-[-90deg]" />
         </button>
         
         <button
-          className="fullscreen-nav-mobile hidden absolute bottom-4 left-1/2 -translate-x-1/2 z-20 p-3 text-white bg-black/60 hover:bg-black/70 rounded-full transition-colors items-center justify-center"
+          className="fullscreen-nav-mobile hidden absolute bottom-6 right-6 z-20 p-3 text-white bg-black/60 hover:bg-black/70 rounded-full transition-colors items-center justify-center"
           onClick={(e) => { e.stopPropagation(); onNext(); }}
           data-testid="fullscreen-next-mobile"
           aria-label="Next image"
         >
-          <ChevronRight className="w-8 h-8" />
+          <ChevronRight className="w-8 h-8 rotate-[-90deg]" />
         </button>
         
+        {/* Desktop counter - bottom center */}
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 text-white text-sm bg-black/50 px-3 py-1.5 rounded-full fullscreen-nav-desktop">
           {currentIndex + 1} / {images.length}
         </div>
         
-        {/* Mobile counter - positioned on the right side after rotation */}
-        <div className="fullscreen-nav-mobile hidden absolute right-4 top-1/2 -translate-y-1/2 z-20 text-white text-sm bg-black/50 px-3 py-1.5 rounded-full items-center justify-center">
+        {/* Mobile counter - top center (appears at top after rotation) */}
+        <div className="fullscreen-nav-mobile hidden absolute top-4 left-1/2 -translate-x-1/2 z-20 text-white text-sm bg-black/50 px-3 py-1.5 rounded-full items-center justify-center">
           {currentIndex + 1} / {images.length}
         </div>
       </div>
