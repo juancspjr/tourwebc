@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, memo, useMemo, useCallback } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getLqipUrl } from "@/lib/lqip";
 
@@ -64,6 +64,107 @@ const ProgressiveCarouselMainImage = memo(function ProgressiveCarouselMainImage(
   );
 });
 
+interface FullscreenViewerProps {
+  images: string[];
+  currentIndex: number;
+  alt: string;
+  onClose: () => void;
+  onPrevious: () => void;
+  onNext: () => void;
+  onGoToSlide: (index: number) => void;
+}
+
+function FullscreenViewer({ 
+  images, 
+  currentIndex, 
+  alt, 
+  onClose, 
+  onPrevious, 
+  onNext,
+  onGoToSlide
+}: FullscreenViewerProps) {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowLeft') onPrevious();
+      if (e.key === 'ArrowRight') onNext();
+    };
+    
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+    
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onClose, onPrevious, onNext]);
+
+  return (
+    <div 
+      className="fixed inset-0 z-[100] bg-black flex items-center justify-center"
+      onClick={onClose}
+    >
+      <Button
+        variant="ghost"
+        size="icon"
+        className="absolute top-4 right-4 z-10 text-white bg-black/50 hover:bg-black/70"
+        onClick={(e) => { e.stopPropagation(); onClose(); }}
+        data-testid="fullscreen-close"
+      >
+        <X className="w-6 h-6" />
+      </Button>
+      
+      <Button
+        variant="ghost"
+        size="icon"
+        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 text-white bg-black/50 hover:bg-black/70"
+        onClick={(e) => { e.stopPropagation(); onPrevious(); }}
+        data-testid="fullscreen-prev"
+      >
+        <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
+      </Button>
+      
+      <Button
+        variant="ghost"
+        size="icon"
+        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 text-white bg-black/50 hover:bg-black/70"
+        onClick={(e) => { e.stopPropagation(); onNext(); }}
+        data-testid="fullscreen-next"
+      >
+        <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
+      </Button>
+      
+      <img
+        src={images[currentIndex]}
+        alt={`${alt} - ${currentIndex + 1}`}
+        className="max-w-full max-h-full object-contain p-4"
+        onClick={(e) => e.stopPropagation()}
+        data-testid="fullscreen-image"
+      />
+      
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            onClick={(e) => { e.stopPropagation(); onGoToSlide(index); }}
+            className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
+              index === currentIndex 
+                ? "bg-white w-4" 
+                : "bg-white/50 hover:bg-white/75"
+            }`}
+            data-testid={`fullscreen-dot-${index}`}
+            aria-label={`Ir a imagen ${index + 1}`}
+          />
+        ))}
+      </div>
+      
+      <div className="absolute bottom-4 right-4 text-white/70 text-sm">
+        {currentIndex + 1} / {images.length}
+      </div>
+    </div>
+  );
+}
+
 interface ImageCarouselProps {
   images: string[];
   alt: string;
@@ -71,6 +172,7 @@ interface ImageCarouselProps {
 
 export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   const goToPrevious = useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
@@ -84,82 +186,111 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
     setCurrentIndex(index);
   }, []);
 
+  const openFullscreen = useCallback(() => {
+    setIsFullscreen(true);
+  }, []);
+
+  const closeFullscreen = useCallback(() => {
+    setIsFullscreen(false);
+  }, []);
+
   if (!images || images.length === 0) {
     return null;
   }
 
   return (
-    <div className="relative w-full">
-      <div className="relative aspect-video w-full overflow-hidden rounded-lg">
-        <ProgressiveCarouselMainImage
-          src={images[currentIndex]}
-          alt={`${alt} - ${currentIndex + 1}`}
-          testId={`carousel-image-${currentIndex}`}
-        />
+    <>
+      <div className="relative w-full">
+        <div 
+          className="relative aspect-video w-full overflow-hidden rounded-lg cursor-pointer group"
+          onClick={openFullscreen}
+        >
+          <ProgressiveCarouselMainImage
+            src={images[currentIndex]}
+            alt={`${alt} - ${currentIndex + 1}`}
+            testId={`carousel-image-${currentIndex}`}
+          />
+          
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+            <ZoomIn className="w-10 h-10 text-white opacity-0 group-hover:opacity-80 transition-opacity" />
+          </div>
+          
+          {images.length > 1 && (
+            <>
+              <Button
+                variant="secondary"
+                size="icon"
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 text-white rounded-full"
+                onClick={(e) => { e.stopPropagation(); goToPrevious(); }}
+                data-testid="carousel-prev"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </Button>
+              
+              <Button
+                variant="secondary"
+                size="icon"
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 text-white rounded-full"
+                onClick={(e) => { e.stopPropagation(); goToNext(); }}
+                data-testid="carousel-next"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </Button>
+              
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+                {images.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={(e) => { e.stopPropagation(); goToSlide(index); }}
+                    className={`h-1 rounded-full transition-all duration-200 ${
+                      index === currentIndex 
+                        ? "bg-white w-3" 
+                        : "bg-white/50 hover:bg-white/75 w-1"
+                    }`}
+                    data-testid={`carousel-dot-${index}`}
+                    aria-label={`Ir a imagen ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+        </div>
         
         {images.length > 1 && (
-          <>
-            <Button
-              variant="secondary"
-              size="icon"
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 text-white rounded-full"
-              onClick={goToPrevious}
-              data-testid="carousel-prev"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </Button>
-            
-            <Button
-              variant="secondary"
-              size="icon"
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 text-white rounded-full"
-              onClick={goToNext}
-              data-testid="carousel-next"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </Button>
-            
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
-              {images.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                    index === currentIndex 
-                      ? "bg-white w-6" 
-                      : "bg-white/50 hover:bg-white/75"
-                  }`}
-                  data-testid={`carousel-dot-${index}`}
-                  aria-label={`Ir a imagen ${index + 1}`}
+          <div className="hidden sm:flex gap-2 mt-3 overflow-x-auto pb-2 max-w-full scrollbar-thin">
+            {images.map((image, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`flex-shrink-0 w-16 h-12 rounded-md overflow-hidden border-2 transition-all duration-200 ${
+                  index === currentIndex 
+                    ? "border-primary ring-2 ring-primary/30" 
+                    : "border-transparent opacity-60 hover:opacity-100"
+                }`}
+                data-testid={`carousel-thumbnail-${index}`}
+              >
+                <img
+                  src={image}
+                  alt={`Miniatura ${index + 1}`}
+                  className="w-full h-full object-cover"
                 />
-              ))}
-            </div>
-          </>
+              </button>
+            ))}
+          </div>
         )}
       </div>
       
-      {images.length > 1 && (
-        <div className="hidden sm:flex gap-2 mt-3 overflow-x-auto pb-2 max-w-full scrollbar-thin">
-          {images.map((image, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`flex-shrink-0 w-16 h-12 rounded-md overflow-hidden border-2 transition-all duration-200 ${
-                index === currentIndex 
-                  ? "border-primary ring-2 ring-primary/30" 
-                  : "border-transparent opacity-60 hover:opacity-100"
-              }`}
-              data-testid={`carousel-thumbnail-${index}`}
-            >
-              <img
-                src={image}
-                alt={`Miniatura ${index + 1}`}
-                className="w-full h-full object-cover"
-              />
-            </button>
-          ))}
-        </div>
+      {isFullscreen && (
+        <FullscreenViewer
+          images={images}
+          currentIndex={currentIndex}
+          alt={alt}
+          onClose={closeFullscreen}
+          onPrevious={goToPrevious}
+          onNext={goToNext}
+          onGoToSlide={goToSlide}
+        />
       )}
-    </div>
+    </>
   );
 }
