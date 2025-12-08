@@ -10,6 +10,7 @@ import rio3Image from "@assets/rio3_1764724064822.webp";
 import rio4Image from "@assets/rio4_1764724064822.webp";
 import egipto1Image from "@assets/egipto1_1764724064822.webp";
 import egipt2Image from "@assets/egipt2_1764724064822.webp";
+import barcoImage from "@assets/barco6_1764997173256.webp";
 
 const PackageGrid = lazy(() => import("@/components/PackageGrid"));
 const InfiniteTestimonialCarousel = lazy(() => import("@/components/InfiniteTestimonialCarousel"));
@@ -18,6 +19,7 @@ const ContactSection = lazy(() => import("@/components/ContactSection"));
 const Footer = lazy(() => import("@/components/Footer"));
 const FloatingButtons = lazy(() => import("@/components/FloatingButtons"));
 const PackageModal = lazy(() => import("@/components/PackageModal"));
+const ParallaxDivider = lazy(() => import("@/components/ParallaxDivider"));
 
 const heroImages = [rio1Image, rio3Image, rio4Image, egipt2Image, egipto1Image];
 
@@ -137,6 +139,17 @@ export default function Home() {
         
         <Suspense fallback={<SectionSkeleton height="300px" />}>
           <InfiniteTestimonialCarousel />
+        </Suspense>
+        
+        <Suspense fallback={<SectionSkeleton height="300px" />}>
+          <ParallaxDivider 
+            image={barcoImage}
+            title="Tu aventura te espera"
+            subtitle="Reserva ahora y vive experiencias inolvidables en los destinos más increíbles del mundo"
+            height="45vh"
+            overlay="gradient"
+            showCta={true}
+          />
         </Suspense>
         
         <Suspense fallback={<SectionSkeleton height="500px" />}>
