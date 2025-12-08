@@ -26,7 +26,8 @@
   "splash": {
     "tagline": "Scopri la tua prossima avventura",
     "skipHint": "Clicca per saltare",
-    "tapToPlay": "Tocca per riprodurre con audio",
+    "tapToPlay": "Intro",
+    "clickToSkip": "Clicca per saltare",
     "ariaLabel": "Schermata di benvenuto - Clicca per saltare"
   },
   "packages": {

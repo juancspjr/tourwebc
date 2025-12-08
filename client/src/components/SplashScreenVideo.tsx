@@ -232,32 +232,47 @@ export default function SplashScreenVideo({
               </div>
 
               {phase === 'ready' && needsClick && (
-                <button
-                  onClick={handleManualStart}
-                  className="px-10 py-5 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full text-white font-semibold text-xl transition-all duration-300 flex items-center justify-center gap-4 border border-white/30 whitespace-nowrap"
-                  style={{
-                    animation: 'fadeInUp 500ms ease-out forwards',
-                  }}
-                  data-testid="button-play-video"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                  {t('splash.tapToPlay')}
-                </button>
+                <div className="flex flex-col items-center gap-3">
+                  <button
+                    onClick={handleManualStart}
+                    className="px-10 py-5 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full text-white font-semibold text-xl transition-all duration-300 flex items-center justify-center gap-4 border border-white/30 whitespace-nowrap"
+                    style={{
+                      animation: 'fadeInUp 500ms ease-out forwards',
+                    }}
+                    data-testid="button-play-video"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    {t('splash.tapToPlay')}
+                  </button>
+                  <button
+                    onClick={handleComplete}
+                    className="text-white/60 hover:text-white/90 text-sm transition-colors"
+                    style={{
+                      animation: 'fadeInUp 500ms ease-out 200ms forwards',
+                      opacity: 0,
+                    }}
+                    data-testid="button-skip-below"
+                  >
+                    {t('splash.clickToSkip')}
+                  </button>
+                </div>
               )}
             </div>
           </div>
         </div>
       )}
 
-      <button
-        onClick={handleComplete}
-        className="absolute bottom-6 right-6 text-white/50 hover:text-white/80 text-sm transition-colors z-10"
-        data-testid="button-skip-splash"
-      >
-        {t('splash.skip', 'Click para saltar')}
-      </button>
+      {phase === 'playing' && (
+        <button
+          onClick={handleComplete}
+          className="absolute bottom-6 right-6 text-white/50 hover:text-white/80 text-sm transition-colors z-10"
+          data-testid="button-skip-splash"
+        >
+          {t('splash.clickToSkip')}
+        </button>
+      )}
 
       <style>{`
         @keyframes fadeInUp {
