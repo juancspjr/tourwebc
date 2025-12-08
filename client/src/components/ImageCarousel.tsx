@@ -82,6 +82,8 @@ function FullscreenViewer({
   onPrevious, 
   onNext,
 }: FullscreenViewerProps) {
+  const [startX, setStartX] = useState<number | null>(null);
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -98,72 +100,70 @@ function FullscreenViewer({
     };
   }, [onClose, onPrevious, onNext]);
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (startX === null) return;
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        onNext();
+      } else {
+        onPrevious();
+      }
+    }
+    setStartX(null);
+  };
+
   return (
     <div 
-      className="fixed inset-0 z-[100] bg-black flex items-center justify-center sm:flex-row"
-      style={{
-        WebkitTransform: 'rotate(0deg)',
-      }}
+      className="fixed inset-0 z-[100] bg-black"
       onClick={onClose}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
-      <style>{`
-        @media (max-width: 640px) and (orientation: portrait) {
-          .fullscreen-container {
-            transform: rotate(90deg);
-            transform-origin: center center;
-            width: 100vh !important;
-            height: 100vw !important;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            margin-top: -50vw;
-            margin-left: -50vh;
-          }
-        }
-      `}</style>
+      <Button
+        variant="ghost"
+        size="icon"
+        className="absolute top-3 right-3 z-20 text-white bg-black/60 hover:bg-black/80 rounded-full"
+        onClick={(e) => { e.stopPropagation(); onClose(); }}
+        data-testid="fullscreen-close"
+      >
+        <X className="w-6 h-6" />
+      </Button>
       
-      <div className="fullscreen-container fixed inset-0 flex items-center justify-center">
-        <Button
-          variant="ghost"
-          size="icon"
-          className="absolute top-4 right-4 z-10 text-white bg-black/50 hover:bg-black/70"
-          onClick={(e) => { e.stopPropagation(); onClose(); }}
-          data-testid="fullscreen-close"
-        >
-          <X className="w-6 h-6" />
-        </Button>
-        
-        <Button
-          variant="ghost"
-          size="icon"
-          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 text-white bg-black/50 hover:bg-black/70"
-          onClick={(e) => { e.stopPropagation(); onPrevious(); }}
-          data-testid="fullscreen-prev"
-        >
-          <ChevronLeft className="w-8 h-8" />
-        </Button>
-        
-        <Button
-          variant="ghost"
-          size="icon"
-          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 text-white bg-black/50 hover:bg-black/70"
-          onClick={(e) => { e.stopPropagation(); onNext(); }}
-          data-testid="fullscreen-next"
-        >
-          <ChevronRight className="w-8 h-8" />
-        </Button>
-        
+      <div className="absolute inset-0 flex items-center justify-center p-4">
         <img
           src={images[currentIndex]}
           alt={`${alt} - ${currentIndex + 1}`}
-          className="max-w-full max-h-full object-contain"
+          className="max-w-full max-h-full object-contain select-none"
           onClick={(e) => e.stopPropagation()}
+          draggable={false}
           data-testid="fullscreen-image"
         />
-        
-        <div className="absolute bottom-3 right-3 text-white/80 text-sm bg-black/40 px-2 py-1 rounded">
-          {currentIndex + 1} / {images.length}
-        </div>
+      </div>
+      
+      <button
+        className="absolute left-2 top-1/2 -translate-y-1/2 z-20 p-3 text-white bg-black/50 hover:bg-black/70 rounded-full transition-colors"
+        onClick={(e) => { e.stopPropagation(); onPrevious(); }}
+        data-testid="fullscreen-prev"
+      >
+        <ChevronLeft className="w-8 h-8" />
+      </button>
+      
+      <button
+        className="absolute right-2 top-1/2 -translate-y-1/2 z-20 p-3 text-white bg-black/50 hover:bg-black/70 rounded-full transition-colors"
+        onClick={(e) => { e.stopPropagation(); onNext(); }}
+        data-testid="fullscreen-next"
+      >
+        <ChevronRight className="w-8 h-8" />
+      </button>
+      
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 text-white text-sm bg-black/50 px-3 py-1.5 rounded-full">
+        {currentIndex + 1} / {images.length}
       </div>
     </div>
   );
