@@ -70,16 +70,20 @@ export default function Header({ onNavigate }: HeaderProps) {
             />
           </button>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8" role="navigation" aria-label="Navegación principal">
             {navItems.map((item) => (
-              <button
+              <a
                 key={item.label}
-                onClick={() => handleNavClick(item.href)}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(item.href);
+                }}
                 className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
                 data-testid={`nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
               >
                 {item.label}
-              </button>
+              </a>
             ))}
           </nav>
 
@@ -125,9 +129,11 @@ export default function Header({ onNavigate }: HeaderProps) {
                   className="h-16 w-auto object-contain self-start mb-4"
                 />
                 {navItems.map((item) => (
-                  <button
+                  <a
                     key={item.label}
-                    onClick={() => {
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
                       const targetId = item.href;
                       setIsOpen(false);
                       setTimeout(() => {
@@ -152,7 +158,7 @@ export default function Header({ onNavigate }: HeaderProps) {
                     data-testid={`nav-mobile-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
                   >
                     {item.label}
-                  </button>
+                  </a>
                 ))}
                 <div className="flex flex-col gap-3 mt-4">
                   <LanguageSwitcher />
