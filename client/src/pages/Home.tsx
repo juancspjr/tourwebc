@@ -11,6 +11,8 @@ import rio4Image from "@assets/rio4_1764724064822.webp";
 import egipto1Image from "@assets/egipto1_1764724064822.webp";
 import egipt2Image from "@assets/egipt2_1764724064822.webp";
 import barcoImage from "@assets/barco6_1764997173256.webp";
+import cristoParallax from "@assets/cristo_parallax.webp";
+import sunsetParallax from "@assets/sunset_parallax.webp";
 
 const PackageGrid = lazy(() => import("@/components/PackageGrid"));
 const InfiniteTestimonialCarousel = lazy(() => import("@/components/InfiniteTestimonialCarousel"));
@@ -133,6 +135,17 @@ export default function Home() {
           />
         </Suspense>
         
+        <Suspense fallback={<SectionSkeleton height="250px" />}>
+          <ParallaxDivider 
+            image={cristoParallax}
+            title="Descubre la magia de Río"
+            subtitle="Vive experiencias únicas con vistas que te quitarán el aliento"
+            height="40vh"
+            overlay="gradient"
+            showCta={false}
+          />
+        </Suspense>
+        
         <Suspense fallback={<SectionSkeleton height="400px" />}>
           <GeneralInfoSection />
         </Suspense>
@@ -143,7 +156,7 @@ export default function Home() {
         
         <Suspense fallback={<SectionSkeleton height="300px" />}>
           <ParallaxDivider 
-            image={barcoImage}
+            image={sunsetParallax}
             title="Tu aventura te espera"
             subtitle="Reserva ahora y vive experiencias inolvidables en los destinos más increíbles del mundo"
             height="45vh"
