@@ -166,7 +166,7 @@
   },
   "travelGuides": {
     "title": "Conseils de Voyage et Guides Essentiels",
-    "subtitle": "Découvrez les secrets les mieux gardés et les conseils de nos spécialistes pour profiter au maximum de votre aventure à Rio.",
+    "subtitle": "Découvrez les secrets les mieux gardés et les conseils de nos spécialistes pour profiter au maximum de votre aventure à Rio, aux Caraïbes, en Égypte et dans le monde.",
     "byOurExperts": "Par Nos Spécialistes",
     "comingSoon": "Bientôt Disponible",
     "comingSoonText": "Nous préparons du contenu exclusif avec des conseils de voyage, des guides détaillés et des recommandations de nos experts locaux. Revenez bientôt pour découvrir tout ce que Rio a à offrir.",
@@ -179,9 +179,66 @@
       "safety": "Sécurité",
       "nature": "Nature"
     },
+    "articleCategories": {
+      "carnival": "Carnaval",
+      "world": "Voyages Mondiaux",
+      "caribbean": "Caraïbes",
+      "rio": "Rio de Janeiro",
+      "agency": "Agence"
+    },
     "readMore": "Lire la Suite",
     "readTime": "min de lecture",
-    "author": "Par"
+    "author": "Par",
+    "contactAdvisor": "Contacter un Conseiller",
+    "ctaText": "Prêt à vivre cette expérience? Nos conseillers sont disponibles pour vous aider.",
+    "whatsappMessage": "Bonjour, j'ai lu l'article \"{title}\" et j'aimerais plus d'informations sur la planification de mon voyage.",
+    "articles": {
+      "carnival-rio": {
+        "title": "Décrypter le Code du Carnaval de Rio: Logistique, Culture et la Valeur Stratégique d'un Tour Professionnel",
+        "excerpt": "Le Carnaval de Rio est l'événement culturel le plus logistiquement exigeant de la planète. Découvrez comment le vivre sans stress avec nos experts.",
+        "author": "Javier",
+        "role": "Spécialiste Culturel et Logistique au Brésil",
+        "intro": "L'idée générale du <strong>Carnaval de Rio de Janeiro</strong> évoque des images de <strong>samba effrénée</strong>, de plumes brillantes et d'<strong>émotions intenses</strong>.",
+        "sections": [{"title": "Le Sambodrome: Un Monument à la Précision", "content": "Le Défilé des <strong>Écoles de Samba</strong> est un spectacle de précision militaire et de <strong>passion artistique</strong>."},{"title": "Le Piège Logistique du Touriste Solitaire", "content": "Pendant les jours clés du <strong>Carnaval du Brésil</strong>, les transports publics dans les zones touristiques de <strong>Rio de Janeiro</strong> s'effondrent."},{"title": "L'Expérience du Bloco (Carnaval de Rue)", "content": "Au-delà du <strong>Sambodrome</strong>, le cœur du Carnaval bat dans les <strong>blocos</strong> (fêtes de rue)."}],
+        "conclusion": {"title": "Conclusion Stratégique pour le Voyageur", "content": "L'<strong>investissement dans un tour professionnel</strong> est un investissement dans l'immersion culturelle et la tranquillité d'esprit."}
+      },
+      "world-travel": {
+        "title": "Voyages dans le Monde sans Stress? Le Filet de Sécurité et la Valeur Irremplaçable d'une Agence de Voyages",
+        "excerpt": "Dans un monde plein d'apps de réservation, découvrez pourquoi une agence professionnelle reste votre meilleur investissement.",
+        "author": "Ana",
+        "role": "Voyageuse Fréquente et Défenseure de la Planification Intelligente",
+        "intro": "Dans un monde plein d'applications de réservation et de méta-moteurs de recherche, vous pouvez vous demander: \"Ai-je vraiment besoin d'une <strong>agence de voyages</strong>?\"",
+        "sections": [{"title": "La Fatigue de la Recherche et le Coût Caché du Temps", "content": "La planification d'un voyage complexe, comme un <strong>safari en Afrique</strong>, un itinéraire à travers l'<strong>Asie du Sud-Est</strong>, ou des vacances incluant notre vibrant <strong>Rio de Janeiro</strong> et les merveilles de l'<strong>Égypte</strong>, consomme des dizaines d'heures."},{"title": "Le Facteur Critique: Gestion des Crises Mondiales", "content": "La vraie valeur d'une agence comme Rio Trip Vibes se révèle quand les choses tournent mal."},{"title": "Les Forfaits Touristiques: L'Architecture d'un Voyage Parfait", "content": "Les <strong>forfaits touristiques</strong> personnalisés ne sont pas qu'une collection de billets."}],
+        "conclusion": {"title": "Comment Choisir Votre Agence pour les Voyages Internationaux?", "content": "En cherchant une agence pour vos <strong>voyages dans le monde</strong>, privilégiez celles qui démontrent: 1) <strong>Spécialisation locale approfondie</strong> et 2) <strong>Portée mondiale prouvée</strong>."}
+      },
+      "caribbean-budget": {
+        "title": "Les Caraïbes: Luxe Inaccessible ou la Stratégie pour des Vacances Intelligentes?",
+        "excerpt": "Nous démystifions le budget au paradis. Découvrez comment profiter des Caraïbes avec des stratégies de planification intelligentes.",
+        "author": "Ricardo",
+        "role": "Analyste des Coûts de Voyage et Planificateur de Budget",
+        "intro": "Le nom \"<strong>Caraïbes</strong>\" apporte avec lui une étiquette de prix mentale. La réalité, cependant, est beaucoup plus nuancée.",
+        "sections": [{"title": "La Géographie du Prix: Où Économiser de l'Argent", "content": "Il existe une différence abyssale dans les coûts entre, disons, les îles Caïmans et des destinations comme la <strong>Riviera Maya</strong> ou la <strong>République Dominicaine</strong>."},{"title": "Le Pouvoir du Timing: Saison Intermédiaire et Stratégies", "content": "La haute saison (décembre à mars) fait monter les prix en flèche. La <strong>saison intermédiaire</strong> (mai/juin et septembre/octobre) est votre meilleure alliée financière."},{"title": "Au-delà du Resort: Le Secret des Excursions", "content": "Une autre erreur courante est de se laisser piéger par les prix gonflés des excursions vendues directement dans les hôtels."}],
+        "conclusion": {"title": "Conclusion: Le Luxe c'est le Service, Pas Seulement le Coût", "content": "Le <strong>vrai luxe</strong> dans des <strong>vacances caribéennes</strong> n'est pas le prix, mais la certitude que tout fonctionnera sans accroc."}
+      },
+      "rio-soul": {
+        "title": "L'Âme de Rio de Janeiro: Une Perspective Intime que Vous Ne Trouverez dans Aucun Guide Touristique",
+        "excerpt": "Au-delà du Christ Rédempteur, découvrez la vraie essence de la Ville Merveilleuse à travers les yeux d'un guide local.",
+        "author": "Sofia",
+        "role": "Guide Touristique Local et Carioca de Cœur",
+        "intro": "Il y a un moment précis, juste quand le soleil commence à se coucher derrière les pics des \"Dois Irmãos\", où la lumière de <strong>Rio de Janeiro</strong> change.",
+        "sections": [{"title": "Au-delà du Christ: La Géographie de l'Émotion", "content": "Personne ne nie la majesté du <strong>Christ Rédempteur</strong>. C'est l'icône incontestée du <strong>Brésil</strong>."},{"title": "Le Cœur qui Bat: La Vérité sur les Favelas", "content": "Il existe un stigmate mondial sur les communautés de <strong>Rio</strong>. Briser ce préjugé est ma mission personnelle."},{"title": "Le Silence de l'Eau: Un Contraste Nécessaire", "content": "<strong>Rio</strong> est bruyant. C'est une cacophonie de <strong>samba</strong>, de trafic et de vagues qui se brisent."}],
+        "conclusion": {"title": "Ne Venez Pas Seulement pour Regarder, Venez pour Ressentir", "content": "Mon conseil final pour quiconque planifie ses <strong>voyages dans le monde</strong> vers le <strong>Brésil</strong> est simple: laissez la montre à l'hôtel."}
+      },
+      "agency-value": {
+        "title": "La Différence Rio Trip Vibes: Pourquoi Choisir un Tour Privé est l'Investissement le Plus Intelligent en 2025",
+        "excerpt": "Découvrez pourquoi les voyageurs les plus exigeants choisissent les tours privés et comment nous maximisons votre investissement.",
+        "author": "Brian",
+        "role": "PDG et Fondateur de Rio Trip Vibes",
+        "intro": "J'ai passé des années à observer comment les gens voyagent. J'ai vu la frustration sur les visages de familles entières attendant sous le soleil un bus touristique bondé.",
+        "sections": [{"title": "Le Nouveau Luxe: Temps et Personnalisation", "content": "Dans le <strong>tourisme moderne</strong>, le vrai luxe n'est pas seulement le nombre de fils des draps d'hôtel; c'est la <strong>gestion de votre temps</strong>."},{"title": "Transparence et Sécurité: Sans Petits Caractères", "content": "La confiance est la monnaie la plus précieuse dans les <strong>voyages dans le monde</strong>. Contrairement aux grandes plateformes anonymes, nous ne nous cachons pas."}],
+        "conclusion": {"title": "Mon Engagement Personnel", "content": "Que vous planifiez une escapade rapide de week-end, une immersion profonde dans le <strong>Carnaval du Brésil</strong>, ou un voyage complexe combinant l'<strong>Amérique du Sud</strong>, les <strong>Caraïbes</strong> et l'<strong>Égypte</strong>, ma promesse est la même: <strong>excellence dans l'exécution</strong>."}
+      }
+    }
   },
   "testimonials": {
     "title": "Ce Que Disent Nos Voyageurs",

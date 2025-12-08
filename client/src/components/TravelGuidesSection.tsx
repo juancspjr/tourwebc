@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { useTranslation } from "react-i18next";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -6,27 +6,20 @@ import {
   Compass,
   Clock,
   ArrowRight,
-  Sparkles
+  User,
+  PartyPopper,
+  Globe,
+  Palmtree,
+  Heart,
+  Building2
 } from "lucide-react";
 import { useIntersectionTrigger } from "@/hooks/useScrollTrigger";
 import "@/styles/scroll-animations.css";
+import { travelGuidesData, type TravelGuideArticle } from "@/lib/travelGuidesData";
 
-export interface TravelGuide {
-  id: string;
-  titleKey: string;
-  excerptKey: string;
-  category: string;
-  readTime: number;
-  author: string;
-  imageUrl?: string;
-  slug: string;
-}
+const TravelGuideModal = lazy(() => import("@/components/TravelGuideModal"));
 
-interface TravelGuidesSectionProps {
-  guides?: TravelGuide[];
-}
-
-function useSEOStructuredData(title: string, description: string, language: string) {
+function useSEOStructuredData(title: string, description: string, language: string, articles: TravelGuideArticle[]) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -54,10 +47,15 @@ function useSEOStructuredData(title: string, description: string, language: stri
         "name": "Rio Trip Vibes",
         "url": origin
       },
-      "about": {
-        "@type": "Thing",
-        "name": "Travel Guides for Rio de Janeiro"
-      },
+      "hasPart": articles.map(article => ({
+        "@type": "Article",
+        "name": article.id,
+        "author": {
+          "@type": "Person",
+          "name": article.author
+        },
+        "articleSection": article.category
+      })),
       "publisher": {
         "@type": "Organization",
         "name": "Rio Trip Vibes",
@@ -80,24 +78,46 @@ function useSEOStructuredData(title: string, description: string, language: stri
         scriptToRemove.remove();
       }
     };
-  }, [mounted, title, description, language]);
+  }, [mounted, title, description, language, articles]);
 }
 
-export default function TravelGuidesSection({ guides = [] }: TravelGuidesSectionProps) {
+const categoryIcons: Record<string, typeof Compass> = {
+  carnival: PartyPopper,
+  world: Globe,
+  caribbean: Palmtree,
+  rio: Heart,
+  agency: Building2
+};
+
+export default function TravelGuidesSection() {
   const { t, i18n } = useTranslation();
   const [headerRef, headerVisible] = useIntersectionTrigger({ threshold: 0.2 });
   const [contentRef, contentVisible] = useIntersectionTrigger({ threshold: 0.1, delay: 150 });
+  const [selectedGuideId, setSelectedGuideId] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const hasGuides = guides.length > 0;
+  const guides = travelGuidesData;
 
   useSEOStructuredData(
     t('travelGuides.title'),
     t('travelGuides.subtitle'),
-    i18n.language
+    i18n.language,
+    guides
   );
 
+  const handleOpenGuide = (guideId: string) => {
+    setSelectedGuideId(guideId);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedGuideId(null);
+  };
+
   return (
-    <section 
+    <>
+      <section 
         id="guides" 
         className="py-16 md:py-24 bg-background"
         aria-labelledby="guides-title"
@@ -130,43 +150,55 @@ export default function TravelGuidesSection({ guides = [] }: TravelGuidesSection
             ref={contentRef}
             className={`motion-scale-in ${contentVisible ? 'visible' : ''}`}
           >
-            {hasGuides ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {guides.map((guide) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {guides.map((guide, index) => {
+                const articleData = t(`travelGuides.articles.${guide.id}`, { returnObjects: true }) as {
+                  title: string;
+                  excerpt: string;
+                  author: string;
+                  role: string;
+                };
+                const CategoryIcon = categoryIcons[guide.category] || Compass;
+                
+                return (
                   <Card 
-                    key={guide.id} 
-                    className="overflow-hidden hover-elevate cursor-pointer group"
+                    key={guide.id}
+                    onClick={() => handleOpenGuide(guide.id)}
+                    className="overflow-visible hover-elevate cursor-pointer group transition-all duration-300"
+                    style={{ animationDelay: `${index * 100}ms` }}
                     data-testid={`card-guide-${guide.id}`}
                   >
-                    {guide.imageUrl && (
-                      <div className="aspect-video overflow-hidden">
-                        <img 
-                          src={guide.imageUrl} 
-                          alt={t(guide.titleKey)}
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
-                      </div>
-                    )}
-                    <CardContent className="p-5">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Badge variant="secondary" className="text-xs">
-                          {t(`travelGuides.categories.${guide.category}`)}
+                    <CardContent className="p-6">
+                      <div className="flex items-center gap-2 mb-4 flex-wrap">
+                        <Badge variant="secondary" className="text-xs gap-1">
+                          <CategoryIcon className="w-3 h-3" />
+                          {t(`travelGuides.articleCategories.${guide.category}`)}
                         </Badge>
                         <span className="text-xs text-muted-foreground flex items-center gap-1">
                           <Clock className="w-3 h-3" />
                           {guide.readTime} {t('travelGuides.readTime')}
                         </span>
                       </div>
-                      <h3 className="font-semibold text-lg mb-2 line-clamp-2">
-                        {t(guide.titleKey)}
+                      
+                      <h3 
+                        className="font-semibold text-lg mb-3 line-clamp-2 text-foreground group-hover:text-primary transition-colors"
+                        data-testid={`text-guide-card-title-${guide.id}`}
+                      >
+                        {articleData.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
-                        {t(guide.excerptKey)}
+                      
+                      <p 
+                        className="text-sm text-muted-foreground mb-4 line-clamp-3"
+                        data-testid={`text-guide-excerpt-${guide.id}`}
+                      >
+                        {articleData.excerpt}
                       </p>
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="text-xs text-muted-foreground" data-testid={`text-author-${guide.id}`}>
-                          {t('travelGuides.author')} {guide.author}
-                        </span>
+                      
+                      <div className="flex items-center justify-between gap-2 pt-4 border-t border-border/50">
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                          <User className="w-3 h-3" />
+                          <span>{t('travelGuides.author')} <strong>{articleData.author}</strong></span>
+                        </div>
                         <span 
                           className="text-primary text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all"
                           data-testid={`link-readmore-${guide.id}`}
@@ -177,45 +209,20 @@ export default function TravelGuidesSection({ guides = [] }: TravelGuidesSection
                       </div>
                     </CardContent>
                   </Card>
-                ))}
-              </div>
-            ) : (
-              <Card className="border-dashed border-2 bg-muted/20" data-testid="card-guides-coming-soon">
-                <CardContent className="py-16 px-8">
-                  <div className="text-center max-w-md mx-auto">
-                    <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Sparkles className="w-10 h-10 text-primary" />
-                    </div>
-                    <Badge variant="secondary" className="mb-4" data-testid="badge-coming-soon">
-                      {t('travelGuides.comingSoon')}
-                    </Badge>
-                    <h3 className="text-2xl font-semibold text-foreground mb-4">
-                      {t('travelGuides.stayTuned')}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {t('travelGuides.comingSoonText')}
-                    </p>
-                    <div className="mt-8 flex flex-wrap justify-center gap-2">
-                      {Object.entries(t('travelGuides.categories', { returnObjects: true }) as Record<string, string>)
-                        .filter(([key]) => key !== 'all')
-                        .map(([key, value]) => (
-                          <Badge 
-                            key={key} 
-                            variant="outline" 
-                            className="text-xs"
-                            data-testid={`badge-category-${key}`}
-                          >
-                            {value}
-                          </Badge>
-                        ))
-                      }
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            )}
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
+
+      <Suspense fallback={null}>
+        <TravelGuideModal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          guideId={selectedGuideId}
+        />
+      </Suspense>
+    </>
   );
 }
