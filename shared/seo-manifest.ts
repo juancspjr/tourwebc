@@ -19,29 +19,29 @@ export interface SEOData {
 
 export const SEO_BY_LANGUAGE: Record<SupportedLanguage, SEOData> = {
   es: {
-    title: 'Rio Trip Vibes - Tours Profesionales | Rio de Janeiro, Egipto y Mundiales',
-    description: 'Agencia de viajes profesional. Tours en Rio de Janeiro, Egipto y destinos mundiales. +1000 clientes satisfechos. Descuentos grupos 15%. Day Tours, Favelas, Playas, Trekking, Yate VIP y Helicoptero.',
-    keywords: 'tours rio de janeiro, viajes egipto, agencia de viajes, tours profesionales, paquetes turisticos, excursiones brasil',
+    title: 'Rio Trip Vibes | Tours Privados en Rio de Janeiro - Yate VIP, Helicoptero, Favelas',
+    description: 'Agencia de viajes con +1000 clientes satisfechos. Tours privados y exclusivos en Rio de Janeiro: helicoptero privado, yate VIP con tripulacion, favelas autenticas, trekking Pedra da Gavea. Guias bilingues certificados. Solicita tu experiencia personalizada.',
+    keywords: 'helicoptero privado rio de janeiro, yate vip rio, tour privado rio, favela tour autentico, trekking pedra da gavea, guia privado rio, experiencia exclusiva rio, tour personalizado brasil',
   },
   en: {
-    title: 'Rio Trip Vibes - Professional Tours | Rio de Janeiro, Egypt & Worldwide',
-    description: 'Professional travel agency. Tours in Rio de Janeiro, Egypt and worldwide destinations. +1000 satisfied customers. 15% group discounts. Day Tours, Favelas, Beaches, Trekking, VIP Yacht and Helicopter.',
-    keywords: 'rio de janeiro tours, egypt travel, travel agency, professional tours, tour packages, brazil excursions',
+    title: 'Rio Trip Vibes | Private Tours Rio de Janeiro - VIP Yacht, Helicopter, Favelas',
+    description: 'Travel agency with +1000 satisfied customers. Private and exclusive tours in Rio de Janeiro: private helicopter, VIP yacht with crew, authentic favelas, Pedra da Gavea trekking. Certified bilingual guides. Request your personalized experience.',
+    keywords: 'private helicopter rio de janeiro, vip yacht rio, private tour rio, authentic favela tour, pedra da gavea trekking, private guide rio, exclusive rio experience, custom brazil tour',
   },
   pt: {
-    title: 'Rio Trip Vibes - Tours Profissionais | Rio de Janeiro, Egito e Mundiais',
-    description: 'Agencia de viagens profissional. Tours no Rio de Janeiro, Egito e destinos mundiais. +1000 clientes satisfeitos. Descontos grupos 15%. Day Tours, Favelas, Praias, Trekking, Iate VIP e Helicoptero.',
-    keywords: 'passeios rio de janeiro, viagens egito, agencia de viagens, tours profissionais, pacotes turisticos, excursoes brasil',
+    title: 'Rio Trip Vibes | Passeios Privados Rio de Janeiro - Iate VIP, Helicoptero, Favelas',
+    description: 'Agencia de viagens com +1000 clientes satisfeitos. Passeios privados e exclusivos no Rio de Janeiro: helicoptero privado, iate VIP com tripulacao, favelas autenticas, trilha Pedra da Gavea. Guias bilingues certificados. Solicite sua experiencia personalizada.',
+    keywords: 'helicoptero privado rio de janeiro, iate vip rio, passeio privado rio, tour favela autentico, trilha pedra da gavea, guia privado rio, experiencia exclusiva rio, tour personalizado brasil',
   },
   fr: {
-    title: 'Rio Trip Vibes - Tours Professionnels | Rio de Janeiro, Egypte et Monde',
-    description: 'Agence de voyage professionnelle. Tours a Rio de Janeiro, Egypte et destinations mondiales. +1000 clients satisfaits. Reductions groupes 15%. Day Tours, Favelas, Plages, Trekking, Yacht VIP et Helicoptere.',
-    keywords: 'tours rio de janeiro, voyages egypte, agence de voyage, tours professionnels, forfaits touristiques, excursions bresil',
+    title: 'Rio Trip Vibes | Tours Prives Rio de Janeiro - Yacht VIP, Helicoptere, Favelas',
+    description: 'Agence de voyage avec +1000 clients satisfaits. Tours prives et exclusifs a Rio de Janeiro: helicoptere prive, yacht VIP avec equipage, favelas authentiques, trekking Pedra da Gavea. Guides bilingues certifies. Demandez votre experience personnalisee.',
+    keywords: 'helicoptere prive rio de janeiro, yacht vip rio, tour prive rio, tour favela authentique, trekking pedra da gavea, guide prive rio, experience exclusive rio, tour personnalise bresil',
   },
   it: {
-    title: 'Rio Trip Vibes - Tour Professionali | Rio de Janeiro, Egitto e Mondiali',
-    description: 'Agenzia di viaggi professionale. Tour a Rio de Janeiro, Egitto e destinazioni mondiali. +1000 clienti soddisfatti. Sconti gruppi 15%. Day Tours, Favelas, Spiagge, Trekking, Yacht VIP ed Elicottero.',
-    keywords: 'tour rio de janeiro, viaggi egitto, agenzia viaggi, tour professionali, pacchetti turistici, escursioni brasile',
+    title: 'Rio Trip Vibes | Tour Privati Rio de Janeiro - Yacht VIP, Elicottero, Favelas',
+    description: 'Agenzia di viaggi con +1000 clienti soddisfatti. Tour privati ed esclusivi a Rio de Janeiro: elicottero privato, yacht VIP con equipaggio, favelas autentiche, trekking Pedra da Gavea. Guide bilingue certificate. Richiedi la tua esperienza personalizzata.',
+    keywords: 'elicottero privato rio de janeiro, yacht vip rio, tour privato rio, tour favela autentico, trekking pedra da gavea, guida privata rio, esperienza esclusiva rio, tour personalizzato brasile',
   },
 };
 
@@ -61,19 +61,19 @@ export function getHreflangLinks(): Array<{ lang: string; url: string }> {
 
 export function getSchemaTravelAgency(lang: SupportedLanguage) {
   const descriptions: Record<SupportedLanguage, string> = {
-    es: 'Agencia de viajes especializada en tours personalizados en Rio de Janeiro. Experiencias unicas con guias profesionales bilingues.',
-    en: 'Travel agency specialized in personalized tours in Rio de Janeiro. Unique experiences with professional bilingual guides.',
-    pt: 'Agencia de viagens especializada em tours personalizados no Rio de Janeiro. Experiencias unicas com guias profissionais bilingues.',
-    fr: 'Agence de voyage specialisee dans les circuits personnalises a Rio de Janeiro. Experiences uniques avec des guides professionnels bilingues.',
-    it: 'Agenzia di viaggi specializzata in tour personalizzati a Rio de Janeiro. Esperienze uniche con guide professionali bilingue.',
+    es: 'Agencia de viajes especializada en tours privados y personalizados en Rio de Janeiro. Experiencias exclusivas con guias profesionales bilingues certificados. Mas de 1000 clientes satisfechos desde 2018.',
+    en: 'Travel agency specialized in private and personalized tours in Rio de Janeiro. Exclusive experiences with certified professional bilingual guides. Over 1000 satisfied customers since 2018.',
+    pt: 'Agencia de viagens especializada em tours privados e personalizados no Rio de Janeiro. Experiencias exclusivas com guias profissionais bilingues certificados. Mais de 1000 clientes satisfeitos desde 2018.',
+    fr: 'Agence de voyage specialisee dans les circuits prives et personnalises a Rio de Janeiro. Experiences exclusives avec des guides professionnels bilingues certifies. Plus de 1000 clients satisfaits depuis 2018.',
+    it: 'Agenzia di viaggi specializzata in tour privati e personalizzati a Rio de Janeiro. Esperienze esclusive con guide professionali bilingue certificate. Oltre 1000 clienti soddisfatti dal 2018.',
   };
 
   const slogans: Record<SupportedLanguage, string> = {
-    es: 'Descubre tu proxima aventura en Rio de Janeiro',
-    en: 'Discover your next adventure in Rio de Janeiro',
-    pt: 'Descubra sua proxima aventura no Rio de Janeiro',
-    fr: 'Decouvrez votre prochaine aventure a Rio de Janeiro',
-    it: 'Scopri la tua prossima avventura a Rio de Janeiro',
+    es: 'Tu experiencia exclusiva en Rio de Janeiro comienza aqui',
+    en: 'Your exclusive Rio de Janeiro experience starts here',
+    pt: 'Sua experiencia exclusiva no Rio de Janeiro comeca aqui',
+    fr: 'Votre experience exclusive a Rio de Janeiro commence ici',
+    it: 'La tua esperienza esclusiva a Rio de Janeiro inizia qui',
   };
 
   return {
@@ -106,7 +106,6 @@ export function getSchemaTravelAgency(lang: SupportedLanguage) {
       latitude: -22.9068,
       longitude: -43.1729,
     },
-    priceRange: '$$$',
     currenciesAccepted: 'USD, BRL, EUR',
     paymentAccepted: 'Credit Card, Cash, Bank Transfer, PayPal, Pix, Crypto',
     areaServed: [
@@ -128,6 +127,28 @@ export function getSchemaTravelAgency(lang: SupportedLanguage) {
       bestRating: '5',
       worstRating: '1',
     },
+    foundingDate: '2018',
+    numberOfEmployees: {
+      '@type': 'QuantitativeValue',
+      minValue: 5,
+      maxValue: 10,
+    },
+    hasCredential: [
+      {
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'Professional Certification',
+        name: 'Cadastur - Ministry of Tourism Brazil',
+      },
+    ],
+    knowsAbout: [
+      'Rio de Janeiro Tourism',
+      'Private Tours',
+      'VIP Experiences',
+      'Helicopter Tours',
+      'Yacht Charters',
+      'Cultural Experiences',
+      'Adventure Tourism',
+    ],
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -161,11 +182,11 @@ export function getSchemaTravelAgency(lang: SupportedLanguage) {
 
 export function getSchemaWebSite(lang: SupportedLanguage) {
   const names: Record<SupportedLanguage, string> = {
-    es: 'Rio Trip Vibes - Agencia de Viajes',
-    en: 'Rio Trip Vibes - Travel Agency',
-    pt: 'Rio Trip Vibes - Agencia de Viagens',
-    fr: 'Rio Trip Vibes - Agence de Voyage',
-    it: 'Rio Trip Vibes - Agenzia di Viaggi',
+    es: 'Rio Trip Vibes - Tours Privados y Exclusivos',
+    en: 'Rio Trip Vibes - Private and Exclusive Tours',
+    pt: 'Rio Trip Vibes - Passeios Privados e Exclusivos',
+    fr: 'Rio Trip Vibes - Tours Prives et Exclusifs',
+    it: 'Rio Trip Vibes - Tour Privati ed Esclusivi',
   };
 
   return {
@@ -179,34 +200,34 @@ export function getSchemaWebSite(lang: SupportedLanguage) {
       '@id': `${BASE_URL}/#organization`,
     },
     potentialAction: {
-      '@type': 'SearchAction',
-      target: `${BASE_URL}/search?q={search_term_string}`,
-      'query-input': 'required name=search_term_string',
+      '@type': 'CommunicateAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://wa.me/5521983526144',
+        actionPlatform: 'https://schema.org/MobileWebPlatform',
+      },
+      name: lang === 'es' ? 'Solicitar Presupuesto' :
+            lang === 'en' ? 'Request Quote' :
+            lang === 'pt' ? 'Solicitar Orcamento' :
+            lang === 'fr' ? 'Demander un Devis' :
+            'Richiedi Preventivo',
     },
   };
 }
 
 export function getSchemaTouristDestination(lang: SupportedLanguage) {
-  const names: Record<SupportedLanguage, string> = {
-    es: 'Rio de Janeiro',
-    en: 'Rio de Janeiro',
-    pt: 'Rio de Janeiro',
-    fr: 'Rio de Janeiro',
-    it: 'Rio de Janeiro',
-  };
-
   const descriptions: Record<SupportedLanguage, string> = {
-    es: 'Destino turistico con playas iconicas, cultura vibrante, naturaleza exuberante y monumentos mundialmente famosos como el Cristo Redentor.',
-    en: 'Tourist destination with iconic beaches, vibrant culture, lush nature and world-famous monuments like Christ the Redeemer.',
-    pt: 'Destino turistico com praias iconicas, cultura vibrante, natureza exuberante e monumentos mundialmente famosos como o Cristo Redentor.',
-    fr: 'Destination touristique avec des plages iconiques, une culture vibrante, une nature luxuriante et des monuments celebres comme le Christ Redempteur.',
-    it: 'Destinazione turistica con spiagge iconiche, cultura vibrante, natura lussureggiante e monumenti famosi come il Cristo Redentore.',
+    es: 'Rio de Janeiro: destino turistico con playas iconicas, cultura vibrante, naturaleza exuberante y monumentos mundialmente famosos. Experiencias privadas disponibles con guias locales expertos.',
+    en: 'Rio de Janeiro: tourist destination with iconic beaches, vibrant culture, lush nature and world-famous monuments. Private experiences available with expert local guides.',
+    pt: 'Rio de Janeiro: destino turistico com praias iconicas, cultura vibrante, natureza exuberante e monumentos mundialmente famosos. Experiencias privadas disponiveis com guias locais especialistas.',
+    fr: 'Rio de Janeiro: destination touristique avec des plages iconiques, une culture vibrante, une nature luxuriante et des monuments celebres. Experiences privees disponibles avec des guides locaux experts.',
+    it: 'Rio de Janeiro: destinazione turistica con spiagge iconiche, cultura vibrante, natura lussureggiante e monumenti famosi. Esperienze private disponibili con guide locali esperte.',
   };
 
   return {
     '@context': 'https://schema.org',
     '@type': 'TouristDestination',
-    name: names[lang],
+    name: 'Rio de Janeiro',
     description: descriptions[lang],
     url: BASE_URL,
     containedInPlace: {
@@ -214,10 +235,34 @@ export function getSchemaTouristDestination(lang: SupportedLanguage) {
       name: 'Brazil',
     },
     touristType: [
+      'Luxury tourism',
+      'Private tours',
+      'VIP experiences',
       'Cultural tourism',
       'Beach tourism',
       'Adventure tourism',
-      'Ecotourism',
+    ],
+    includesAttraction: [
+      {
+        '@type': 'TouristAttraction',
+        name: 'Christ the Redeemer',
+        sameAs: 'https://en.wikipedia.org/wiki/Christ_the_Redeemer_(statue)',
+      },
+      {
+        '@type': 'TouristAttraction',
+        name: 'Sugarloaf Mountain',
+        sameAs: 'https://en.wikipedia.org/wiki/Sugarloaf_Mountain',
+      },
+      {
+        '@type': 'TouristAttraction',
+        name: 'Copacabana Beach',
+        sameAs: 'https://en.wikipedia.org/wiki/Copacabana,_Rio_de_Janeiro',
+      },
+      {
+        '@type': 'TouristAttraction',
+        name: 'Ipanema Beach',
+        sameAs: 'https://en.wikipedia.org/wiki/Ipanema',
+      },
     ],
   };
 }
@@ -225,60 +270,64 @@ export function getSchemaTouristDestination(lang: SupportedLanguage) {
 export function getTourSchemas(lang: SupportedLanguage) {
   const tours = {
     es: [
-      { name: 'City Tour Clasico', description: 'Recorrido completo por los principales puntos turisticos de Rio de Janeiro', duration: 'PT8H', type: 'Cultural tourism' },
-      { name: 'Tour de Favelas', description: 'Experiencia cultural autentica visitando comunidades locales', duration: 'PT4H', type: 'Cultural tourism' },
-      { name: 'Tour de Playas', description: 'Visita las playas mas hermosas de Rio: Copacabana, Ipanema, Leblon', duration: 'PT6H', type: 'Beach tourism' },
-      { name: 'Trekking y Aventura', description: 'Senderismo en Pedra da Gavea y trilhas con vistas panoramicas', duration: 'PT5H', type: 'Adventure tourism' },
-      { name: 'Paseos en Barco', description: 'Navegacion por la Bahia de Guanabara con vistas unicas', duration: 'PT4H', type: 'Water tourism' },
-      { name: 'Yate VIP Exclusivo', description: 'Experiencia de lujo en yate privado con tripulacion y catering', duration: 'PT6H', type: 'Luxury tourism' },
-      { name: 'Tour en Helicoptero', description: 'Sobrevuelo panoramico por Rio de Janeiro con vistas aereas', duration: 'PT1H', type: 'Adventure tourism' },
+      { name: 'City Tour Privado', description: 'Recorrido exclusivo por los principales puntos de Rio con guia privado y vehiculo dedicado', duration: 'PT8H', type: 'Private tour', cta: 'Solicitar experiencia' },
+      { name: 'Favela Tour Autentico', description: 'Experiencia cultural inmersiva en comunidades locales con guia residente certificado', duration: 'PT4H', type: 'Cultural immersion', cta: 'Reservar visita' },
+      { name: 'Tour de Playas VIP', description: 'Circuito privado por Copacabana, Ipanema y Leblon con servicio personalizado', duration: 'PT6H', type: 'Beach experience', cta: 'Consultar disponibilidad' },
+      { name: 'Trekking Pedra da Gavea', description: 'Aventura guiada con equipo profesional y vistas panoramicas de 360 grados', duration: 'PT5H', type: 'Adventure expedition', cta: 'Solicitar expedicion' },
+      { name: 'Navegacion Privada', description: 'Experiencia nautica exclusiva por la Bahia de Guanabara con capitan privado', duration: 'PT4H', type: 'Maritime experience', cta: 'Consultar embarcacion' },
+      { name: 'Yate VIP con Tripulacion', description: 'Experiencia de lujo en yate privado con tripulacion profesional, chef y servicio a bordo', duration: 'PT6H', type: 'Luxury yacht', cta: 'Solicitar cotizacion VIP' },
+      { name: 'Helicoptero Privado Rio', description: 'Sobrevuelo panoramico exclusivo con piloto certificado y rutas personalizadas', duration: 'PT1H', type: 'Aerial experience', cta: 'Reservar vuelo privado' },
     ],
     en: [
-      { name: 'Classic City Tour', description: 'Complete tour of the main tourist spots in Rio de Janeiro', duration: 'PT8H', type: 'Cultural tourism' },
-      { name: 'Favela Tour', description: 'Authentic cultural experience visiting local communities', duration: 'PT4H', type: 'Cultural tourism' },
-      { name: 'Beach Tour', description: 'Visit the most beautiful beaches of Rio: Copacabana, Ipanema, Leblon', duration: 'PT6H', type: 'Beach tourism' },
-      { name: 'Trekking and Adventure', description: 'Hiking at Pedra da Gavea and trails with panoramic views', duration: 'PT5H', type: 'Adventure tourism' },
-      { name: 'Boat Rides', description: 'Navigation through Guanabara Bay with unique views', duration: 'PT4H', type: 'Water tourism' },
-      { name: 'Exclusive VIP Yacht', description: 'Luxury experience on private yacht with crew and catering', duration: 'PT6H', type: 'Luxury tourism' },
-      { name: 'Helicopter Tour', description: 'Panoramic flight over Rio de Janeiro with aerial views', duration: 'PT1H', type: 'Adventure tourism' },
+      { name: 'Private City Tour', description: 'Exclusive tour of Rio main attractions with private guide and dedicated vehicle', duration: 'PT8H', type: 'Private tour', cta: 'Request experience' },
+      { name: 'Authentic Favela Tour', description: 'Immersive cultural experience in local communities with certified resident guide', duration: 'PT4H', type: 'Cultural immersion', cta: 'Book visit' },
+      { name: 'VIP Beach Tour', description: 'Private circuit through Copacabana, Ipanema and Leblon with personalized service', duration: 'PT6H', type: 'Beach experience', cta: 'Check availability' },
+      { name: 'Pedra da Gavea Trekking', description: 'Guided adventure with professional equipment and 360-degree panoramic views', duration: 'PT5H', type: 'Adventure expedition', cta: 'Request expedition' },
+      { name: 'Private Navigation', description: 'Exclusive nautical experience through Guanabara Bay with private captain', duration: 'PT4H', type: 'Maritime experience', cta: 'Inquire about boat' },
+      { name: 'VIP Yacht with Crew', description: 'Luxury experience on private yacht with professional crew, chef and onboard service', duration: 'PT6H', type: 'Luxury yacht', cta: 'Request VIP quote' },
+      { name: 'Private Helicopter Rio', description: 'Exclusive panoramic flight with certified pilot and customized routes', duration: 'PT1H', type: 'Aerial experience', cta: 'Book private flight' },
     ],
     pt: [
-      { name: 'City Tour Classico', description: 'Passeio completo pelos principais pontos turisticos do Rio de Janeiro', duration: 'PT8H', type: 'Cultural tourism' },
-      { name: 'Tour de Favelas', description: 'Experiencia cultural autentica visitando comunidades locais', duration: 'PT4H', type: 'Cultural tourism' },
-      { name: 'Tour de Praias', description: 'Visite as praias mais bonitas do Rio: Copacabana, Ipanema, Leblon', duration: 'PT6H', type: 'Beach tourism' },
-      { name: 'Trekking e Aventura', description: 'Trilhas na Pedra da Gavea com vistas panoramicas', duration: 'PT5H', type: 'Adventure tourism' },
-      { name: 'Passeios de Barco', description: 'Navegacao pela Baia de Guanabara com vistas unicas', duration: 'PT4H', type: 'Water tourism' },
-      { name: 'Iate VIP Exclusivo', description: 'Experiencia de luxo em iate privado com tripulacao e catering', duration: 'PT6H', type: 'Luxury tourism' },
-      { name: 'Tour de Helicoptero', description: 'Sobrevoo panoramico pelo Rio de Janeiro com vistas aereas', duration: 'PT1H', type: 'Adventure tourism' },
+      { name: 'City Tour Privado', description: 'Passeio exclusivo pelos principais pontos do Rio com guia privado e veiculo dedicado', duration: 'PT8H', type: 'Private tour', cta: 'Solicitar experiencia' },
+      { name: 'Favela Tour Autentico', description: 'Experiencia cultural imersiva em comunidades locais com guia residente certificado', duration: 'PT4H', type: 'Cultural immersion', cta: 'Reservar visita' },
+      { name: 'Tour de Praias VIP', description: 'Circuito privado por Copacabana, Ipanema e Leblon com servico personalizado', duration: 'PT6H', type: 'Beach experience', cta: 'Consultar disponibilidade' },
+      { name: 'Trilha Pedra da Gavea', description: 'Aventura guiada com equipamento profissional e vistas panoramicas de 360 graus', duration: 'PT5H', type: 'Adventure expedition', cta: 'Solicitar expedicao' },
+      { name: 'Navegacao Privada', description: 'Experiencia nautica exclusiva pela Baia de Guanabara com capitao privado', duration: 'PT4H', type: 'Maritime experience', cta: 'Consultar embarcacao' },
+      { name: 'Iate VIP com Tripulacao', description: 'Experiencia de luxo em iate privado com tripulacao profissional, chef e servico a bordo', duration: 'PT6H', type: 'Luxury yacht', cta: 'Solicitar cotacao VIP' },
+      { name: 'Helicoptero Privado Rio', description: 'Sobrevoo panoramico exclusivo com piloto certificado e rotas personalizadas', duration: 'PT1H', type: 'Aerial experience', cta: 'Reservar voo privado' },
     ],
     fr: [
-      { name: 'City Tour Classique', description: 'Visite complete des principaux sites touristiques de Rio de Janeiro', duration: 'PT8H', type: 'Cultural tourism' },
-      { name: 'Tour des Favelas', description: 'Experience culturelle authentique visitant les communautes locales', duration: 'PT4H', type: 'Cultural tourism' },
-      { name: 'Tour des Plages', description: 'Visitez les plus belles plages de Rio: Copacabana, Ipanema, Leblon', duration: 'PT6H', type: 'Beach tourism' },
-      { name: 'Trekking et Aventure', description: 'Randonnee a Pedra da Gavea avec vues panoramiques', duration: 'PT5H', type: 'Adventure tourism' },
-      { name: 'Promenades en Bateau', description: 'Navigation dans la baie de Guanabara avec vues uniques', duration: 'PT4H', type: 'Water tourism' },
-      { name: 'Yacht VIP Exclusif', description: 'Experience de luxe sur yacht prive avec equipage et restauration', duration: 'PT6H', type: 'Luxury tourism' },
-      { name: 'Tour en Helicoptere', description: 'Survol panoramique de Rio de Janeiro avec vues aeriennes', duration: 'PT1H', type: 'Adventure tourism' },
+      { name: 'City Tour Prive', description: 'Visite exclusive des principales attractions de Rio avec guide prive et vehicule dedie', duration: 'PT8H', type: 'Private tour', cta: 'Demander experience' },
+      { name: 'Tour Favela Authentique', description: 'Experience culturelle immersive dans les communautes locales avec guide resident certifie', duration: 'PT4H', type: 'Cultural immersion', cta: 'Reserver visite' },
+      { name: 'Tour Plages VIP', description: 'Circuit prive par Copacabana, Ipanema et Leblon avec service personnalise', duration: 'PT6H', type: 'Beach experience', cta: 'Verifier disponibilite' },
+      { name: 'Trekking Pedra da Gavea', description: 'Aventure guidee avec equipement professionnel et vues panoramiques a 360 degres', duration: 'PT5H', type: 'Adventure expedition', cta: 'Demander expedition' },
+      { name: 'Navigation Privee', description: 'Experience nautique exclusive dans la baie de Guanabara avec capitaine prive', duration: 'PT4H', type: 'Maritime experience', cta: 'Renseigner sur bateau' },
+      { name: 'Yacht VIP avec Equipage', description: 'Experience de luxe sur yacht prive avec equipage professionnel, chef et service a bord', duration: 'PT6H', type: 'Luxury yacht', cta: 'Demander devis VIP' },
+      { name: 'Helicoptere Prive Rio', description: 'Survol panoramique exclusif avec pilote certifie et itineraires personnalises', duration: 'PT1H', type: 'Aerial experience', cta: 'Reserver vol prive' },
     ],
     it: [
-      { name: 'City Tour Classico', description: 'Tour completo dei principali luoghi turistici di Rio de Janeiro', duration: 'PT8H', type: 'Cultural tourism' },
-      { name: 'Tour delle Favelas', description: 'Esperienza culturale autentica visitando le comunita locali', duration: 'PT4H', type: 'Cultural tourism' },
-      { name: 'Tour delle Spiagge', description: 'Visita le spiagge piu belle di Rio: Copacabana, Ipanema, Leblon', duration: 'PT6H', type: 'Beach tourism' },
-      { name: 'Trekking e Avventura', description: 'Escursioni a Pedra da Gavea con viste panoramiche', duration: 'PT5H', type: 'Adventure tourism' },
-      { name: 'Gite in Barca', description: 'Navigazione nella baia di Guanabara con viste uniche', duration: 'PT4H', type: 'Water tourism' },
-      { name: 'Yacht VIP Esclusivo', description: 'Esperienza di lusso su yacht privato con equipaggio e catering', duration: 'PT6H', type: 'Luxury tourism' },
-      { name: 'Tour in Elicottero', description: 'Sorvolo panoramico su Rio de Janeiro con viste aeree', duration: 'PT1H', type: 'Adventure tourism' },
+      { name: 'City Tour Privato', description: 'Tour esclusivo delle principali attrazioni di Rio con guida privata e veicolo dedicato', duration: 'PT8H', type: 'Private tour', cta: 'Richiedi esperienza' },
+      { name: 'Favela Tour Autentico', description: 'Esperienza culturale immersiva nelle comunita locali con guida residente certificata', duration: 'PT4H', type: 'Cultural immersion', cta: 'Prenota visita' },
+      { name: 'Tour Spiagge VIP', description: 'Circuito privato per Copacabana, Ipanema e Leblon con servizio personalizzato', duration: 'PT6H', type: 'Beach experience', cta: 'Verifica disponibilita' },
+      { name: 'Trekking Pedra da Gavea', description: 'Avventura guidata con attrezzatura professionale e viste panoramiche a 360 gradi', duration: 'PT5H', type: 'Adventure expedition', cta: 'Richiedi spedizione' },
+      { name: 'Navigazione Privata', description: 'Esperienza nautica esclusiva nella baia di Guanabara con capitano privato', duration: 'PT4H', type: 'Maritime experience', cta: 'Informazioni barca' },
+      { name: 'Yacht VIP con Equipaggio', description: 'Esperienza di lusso su yacht privato con equipaggio professionale, chef e servizio a bordo', duration: 'PT6H', type: 'Luxury yacht', cta: 'Richiedi preventivo VIP' },
+      { name: 'Elicottero Privato Rio', description: 'Sorvolo panoramico esclusivo con pilota certificato e percorsi personalizzati', duration: 'PT1H', type: 'Aerial experience', cta: 'Prenota volo privato' },
     ],
+  };
+
+  const listName = {
+    es: 'Experiencias Privadas Disponibles en Rio de Janeiro',
+    en: 'Private Experiences Available in Rio de Janeiro',
+    pt: 'Experiencias Privadas Disponiveis no Rio de Janeiro',
+    fr: 'Experiences Privees Disponibles a Rio de Janeiro',
+    it: 'Esperienze Private Disponibili a Rio de Janeiro',
   };
 
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: lang === 'es' ? 'Tours Disponibles en Rio de Janeiro' :
-          lang === 'en' ? 'Available Tours in Rio de Janeiro' :
-          lang === 'pt' ? 'Tours Disponiveis no Rio de Janeiro' :
-          lang === 'fr' ? 'Tours Disponibles a Rio de Janeiro' :
-          'Tour Disponibili a Rio de Janeiro',
+    name: listName[lang],
     numberOfItems: tours[lang].length,
     itemListElement: tours[lang].map((tour, index) => ({
       '@type': 'ListItem',
@@ -291,6 +340,15 @@ export function getTourSchemas(lang: SupportedLanguage) {
         duration: tour.duration,
         provider: {
           '@id': `${BASE_URL}/#organization`,
+        },
+        potentialAction: {
+          '@type': 'ReserveAction',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: 'https://wa.me/5521983526144',
+            actionPlatform: 'https://schema.org/MobileWebPlatform',
+          },
+          name: tour.cta,
         },
       },
     })),
@@ -319,7 +377,7 @@ export function generateSlug(text: string): string {
 
 export const SECTION_IDS = {
   hero: 'hero',
-  packages: 'paquetes',
+  packages: 'experiencias',
   destinations: 'destinos',
   travelInfo: 'info-viaje',
   guides: 'guias',
