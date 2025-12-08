@@ -13,11 +13,12 @@ export default function SplashScreenVideo({
   onComplete,
 }: SplashScreenVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [phase, setPhase] = useState<'loading' | 'ready' | 'transitioning' | 'playing' | 'complete'>('loading');
+  const [phase, setPhase] = useState<'loading' | 'ready' | 'transitioning' | 'playing' | 'ending' | 'complete'>('loading');
   const [loadProgress, setLoadProgress] = useState(0);
   const [needsClick, setNeedsClick] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const [fadeOutLoading, setFadeOutLoading] = useState(false);
+  const [showEndingLogo, setShowEndingLogo] = useState(false);
   const hasCompletedRef = useRef(false);
   const autoplayCheckedRef = useRef(false);
   const { t } = useTranslation();
@@ -122,16 +123,21 @@ export default function SplashScreenVideo({
     if (hasCompletedRef.current) return;
     hasCompletedRef.current = true;
 
-    setPhase('complete');
-
     const video = videoRef.current;
     if (video) {
       video.pause();
     }
 
+    setPhase('ending');
+    
     setTimeout(() => {
+      setShowEndingLogo(true);
+    }, 100);
+
+    setTimeout(() => {
+      setPhase('complete');
       onComplete();
-    }, 400);
+    }, 1200);
   }, [onComplete]);
 
   useEffect(() => {
@@ -272,6 +278,39 @@ export default function SplashScreenVideo({
         >
           {t('splash.clickToSkip')}
         </button>
+      )}
+
+      {phase === 'ending' && (
+        <div 
+          className="absolute inset-0 bg-gradient-to-br from-[hsl(209,61%,42%)] via-[hsl(192,100%,46%)] to-[hsl(209,61%,35%)] flex items-center justify-center"
+          style={{
+            opacity: showEndingLogo ? 1 : 0,
+            transition: 'opacity 600ms ease-out',
+          }}
+        >
+          <div 
+            className="flex flex-col items-center gap-6"
+            style={{
+              opacity: showEndingLogo ? 1 : 0,
+              transform: showEndingLogo ? 'scale(1)' : 'scale(0.9)',
+              transition: 'opacity 600ms ease-out 200ms, transform 600ms ease-out 200ms',
+            }}
+          >
+            <img
+              src={logoUrl}
+              alt="Rio Trip Vibes"
+              className="object-contain"
+              style={{
+                width: '280px',
+                height: 'auto',
+                filter: 'drop-shadow(0 12px 32px rgba(0, 0, 0, 0.4))',
+              }}
+            />
+            <p className="text-white/80 text-xl font-medium text-center">
+              {t('splash.tagline')}
+            </p>
+          </div>
+        </div>
       )}
 
       <style>{`
