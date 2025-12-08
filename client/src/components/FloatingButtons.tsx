@@ -215,12 +215,6 @@ export default function FloatingButtons({
               >
                 <SiWhatsapp className="w-7 h-7" />
               </Button>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse"
-                aria-hidden="true"
-              />
             </motion.div>
           </div>
         </motion.div>
