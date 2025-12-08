@@ -27,6 +27,10 @@ export default function BreadcrumbNav({ currentSection }: BreadcrumbNavProps) {
 
   const currentLabel = currentSection ? sectionLabels[currentSection] : null;
 
+  if (!currentLabel) {
+    return null;
+  }
+
   return (
     <nav 
       aria-label="breadcrumb" 
@@ -46,21 +50,17 @@ export default function BreadcrumbNav({ currentSection }: BreadcrumbNavProps) {
               </BreadcrumbLink>
             </BreadcrumbItem>
             
-            {currentLabel && (
-              <>
-                <BreadcrumbSeparator>
-                  <ChevronRight className="w-3.5 h-3.5 text-muted-foreground" />
-                </BreadcrumbSeparator>
-                <BreadcrumbItem>
-                  <BreadcrumbPage 
-                    className="text-foreground font-medium"
-                    data-testid="breadcrumb-current"
-                  >
-                    {currentLabel}
-                  </BreadcrumbPage>
-                </BreadcrumbItem>
-              </>
-            )}
+            <BreadcrumbSeparator>
+              <ChevronRight className="w-3.5 h-3.5 text-muted-foreground" />
+            </BreadcrumbSeparator>
+            <BreadcrumbItem>
+              <BreadcrumbPage 
+                className="text-foreground font-medium"
+                data-testid="breadcrumb-current"
+              >
+                {currentLabel}
+              </BreadcrumbPage>
+            </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
       </div>
