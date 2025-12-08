@@ -32,14 +32,7 @@ export default function FloatingButtons({
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      setShowButtons(scrollY > 300);
-    };
-    
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    setShowButtons(true);
   }, []);
 
   const handleWhatsAppClick = () => {
@@ -181,9 +174,9 @@ export default function FloatingButtons({
           animate="visible"
           exit="exit"
           variants={containerVariants}
-          className="fixed bottom-6 right-6 z-50"
+          className="fixed right-4 top-1/2 -translate-y-1/2 z-50"
         >
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-4">
             <motion.div
               variants={buttonVariants}
               whileHover="hover"
@@ -192,11 +185,11 @@ export default function FloatingButtons({
               <Button
                 onClick={handleBookClick}
                 size="icon"
-                className="w-14 h-14 rounded-full bg-cta/90 hover:bg-cta text-cta-foreground shadow-xl shadow-cta/30 border-0"
+                className="w-14 h-14 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-2xl shadow-orange-500/40 border-0"
                 data-testid="button-reservar-floating"
                 aria-label={t('floatingButtons.bookNow')}
               >
-                <CalendarCheck className="w-6 h-6" />
+                <CalendarCheck className="w-7 h-7" />
               </Button>
             </motion.div>
 
@@ -209,7 +202,7 @@ export default function FloatingButtons({
               <Button
                 onClick={handleWhatsAppClick}
                 size="icon"
-                className="w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-xl shadow-green-500/30 border-0"
+                className="w-14 h-14 rounded-full bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-2xl shadow-green-500/40 border-0"
                 data-testid="button-whatsapp-floating"
                 aria-label="Contactar por WhatsApp"
               >
@@ -218,7 +211,7 @@ export default function FloatingButtons({
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse"
+                className="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full animate-pulse border-2 border-white"
                 aria-hidden="true"
               />
             </motion.div>
