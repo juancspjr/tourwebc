@@ -223,7 +223,7 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
 
       <button
         onClick={prevSlide}
-        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-white/10 md:bg-white/20 backdrop-blur-sm text-white transition-all duration-200 hover:bg-white/30 hover:scale-110 hidden sm:flex"
+        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-black/20 backdrop-blur-sm text-white/70 transition-all duration-200 hover:bg-white/30 hover:text-white flex items-center justify-center"
         aria-label={t('hero.prevSlide')}
         data-testid="button-carousel-prev"
       >
@@ -231,20 +231,20 @@ export default function HeroSection({ onExploreClick }: HeroSectionProps) {
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-white/10 md:bg-white/20 backdrop-blur-sm text-white transition-all duration-200 hover:bg-white/30 hover:scale-110 hidden sm:flex"
+        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-black/20 backdrop-blur-sm text-white/70 transition-all duration-200 hover:bg-white/30 hover:text-white flex items-center justify-center"
         aria-label={t('hero.nextSlide')}
         data-testid="button-carousel-next"
       >
         <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
       </button>
 
-      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex gap-1.5">
+      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 hidden sm:flex gap-1.5">
         {heroImages.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`h-1 rounded-full transition-all duration-300 ${
-              index === currentSlide ? "w-4 bg-white/60" : "w-1 bg-white/25 hover:bg-white/40"
+            className={`h-0.5 rounded-full transition-all duration-300 inline-touch-target ${
+              index === currentSlide ? "w-3 bg-white/60" : "w-1.5 bg-white/25 hover:bg-white/40"
             }`}
             aria-label={`${t('hero.goToSlide')} ${index + 1}`}
             data-testid={`button-carousel-indicator-${index}`}
