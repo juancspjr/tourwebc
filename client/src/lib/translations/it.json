@@ -242,8 +242,8 @@
   },
   "testimonials": {
     "title": "Cosa Dicono i Nostri Viaggiatori",
-    "subtitle": "Storie vere di persone che hanno esplorato Rio con noi. Più di 1.000 viaggiatori felici ci supportano.",
-    "satisfied": "+1.000 viaggiatori soddisfatti",
+    "subtitle": "Storie vere di persone che hanno esplorato Rio con noi. I viaggiatori felici continuano ad aumentare.",
+    "satisfied": "I viaggiatori felici continuano ad aumentare",
     "items": {
       "1": { "name": "Maria Garcia", "date": "Novembre 2024", "text": "Un'esperienza incredibile! La guida era molto professionale e competente. Il tour al Cristo Redentore e al Pan di Zucchero ha superato tutte le mie aspettative. 100% consigliato.", "tour": "Day Tour Rio de Janeiro" },
       "2": { "name": "Carlos Rodriguez", "date": "Ottobre 2024", "text": "Il trekking a Pedra da Gávea era impegnativo ma le viste sono impressionanti. La guida si è presa cura di noi tutto il tempo e ci ha insegnato sulla flora locale. Tornerò per altre avventure!", "tour": "Sentieri & Trekking" },

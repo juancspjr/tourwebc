@@ -8,7 +8,7 @@ import logo_11zon from "@assets/logo_11zon.webp";
 import logo1 from "@assets/logo1.webp";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const yearRange = "2005-2026";
   const { t } = useTranslation();
 
   const tourPackages = [
@@ -150,7 +150,7 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-background/20">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-background/60">
-              {currentYear} Rio Trip Vibes. {t('footer.allRightsReserved')}
+              {yearRange} Rio Trip Vibes. {t('footer.allRightsReserved')}
             </p>
             <div className="flex gap-6">
               <button className="text-sm text-background/60 hover:text-background transition-colors">

@@ -242,8 +242,8 @@
   },
   "testimonials": {
     "title": "O Que Nossos Viajantes Dizem",
-    "subtitle": "Histórias reais de pessoas que exploraram o Rio conosco. Mais de 1.000 viajantes felizes nos apoiam.",
-    "satisfied": "+1.000 viajantes satisfeitos",
+    "subtitle": "Histórias reais de pessoas que exploraram o Rio conosco. Viajantes felizes não param de crescer.",
+    "satisfied": "Viajantes felizes não param de crescer",
     "items": {
       "1": { "name": "Maria Garcia", "date": "Novembro 2024", "text": "Uma experiência incrível! O guia foi muito profissional e conhecedor. O passeio ao Cristo Redentor e Pão de Açúcar superou todas as minhas expectativas. 100% recomendado.", "tour": "Day Tour Rio de Janeiro" },
       "2": { "name": "Carlos Rodriguez", "date": "Outubro 2024", "text": "A trilha para Pedra da Gávea foi desafiadora mas as vistas são impressionantes. O guia cuidou de nós o tempo todo e nos ensinou sobre a flora local. Voltarei para mais aventuras!", "tour": "Trilhas & Trekking" },

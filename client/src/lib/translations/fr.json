@@ -242,8 +242,8 @@
   },
   "testimonials": {
     "title": "Ce Que Disent Nos Voyageurs",
-    "subtitle": "Histoires vraies de personnes qui ont exploré Rio avec nous. Plus de 1 000 voyageurs heureux nous soutiennent.",
-    "satisfied": "+1 000 voyageurs satisfaits",
+    "subtitle": "Histoires vraies de personnes qui ont exploré Rio avec nous. Les voyageurs heureux ne cessent de s'ajouter.",
+    "satisfied": "Les voyageurs heureux ne cessent de s'ajouter",
     "items": {
       "1": { "name": "Maria Garcia", "date": "Novembre 2024", "text": "Une expérience incroyable! Le guide était très professionnel et compétent. La visite du Christ Rédempteur et du Pain de Sucre a dépassé toutes mes attentes. 100% recommandé.", "tour": "Day Tour Rio de Janeiro" },
       "2": { "name": "Carlos Rodriguez", "date": "Octobre 2024", "text": "Le trekking à Pedra da Gávea était difficile mais les vues sont impressionnantes. Le guide a pris soin de nous tout le temps et nous a appris sur la flore locale. Je reviendrai pour plus d'aventures!", "tour": "Randonnées & Trekking" },

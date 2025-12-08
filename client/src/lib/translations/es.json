@@ -318,8 +318,8 @@
   },
   "testimonials": {
     "title": "Lo Que Dicen Nuestros Viajeros",
-    "subtitle": "Historias reales de personas que exploraron Rio con nosotros. Más de 1,000 viajeros felices nos respaldan.",
-    "satisfied": "+1,000 viajeros satisfechos",
+    "subtitle": "Historias reales de personas que exploraron Rio con nosotros. Siguen sumando viajeros felices.",
+    "satisfied": "Siguen sumando viajeros felices",
     "items": {
       "1": {
         "name": "María García",
