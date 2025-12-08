@@ -152,28 +152,30 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
           </Tabs>
 
           <div className="hidden sm:flex flex-col gap-4 pt-6 mt-6 border-t border-border">
-            <Button 
-              variant="glass"
-              className="w-full gap-2 bg-[#22c55e]"
-              onClick={() => window.open("https://wa.me/5521983526144?text=" + encodeURIComponent(t('packageModal.whatsappMessage', { title })), "_blank")}
-              data-testid="button-contact-advisor"
-            >
-              <MessageCircle className="w-4 h-4" />
-              {t('packageModal.contactAdvisor')}
-            </Button>
-            <div className="flex items-center justify-end gap-3">
-              <Button variant="outline" onClick={onClose} data-testid="button-close-modal">
-                {t('packageModal.close')}
+            <div className="flex gap-3">
+              <Button 
+                className="flex-1 h-12 gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold shadow-lg shadow-green-500/25 rounded-full border-0"
+                onClick={() => window.open("https://wa.me/5521983526144?text=" + encodeURIComponent(t('packageModal.whatsappMessage', { title })), "_blank")}
+                data-testid="button-contact-advisor"
+              >
+                <SiWhatsapp className="w-5 h-5" />
+                {t('packageModal.contactAdvisor')}
               </Button>
               <Button 
-                className="bg-cta hover:bg-cta/90 text-cta-foreground"
+                className="flex-1 h-12 gap-2 bg-gradient-to-r from-cta to-cta/90 hover:from-cta/90 hover:to-cta/80 text-cta-foreground font-semibold shadow-lg shadow-cta/25 rounded-full border-0"
                 onClick={() => {
                   onBook?.(pkg);
                   onClose();
                 }} 
                 data-testid="button-book-modal"
               >
+                <CalendarCheck className="w-5 h-5" />
                 {t('packageModal.bookNow')}
+              </Button>
+            </div>
+            <div className="flex items-center justify-end">
+              <Button variant="ghost" onClick={onClose} data-testid="button-close-modal">
+                {t('packageModal.close')}
               </Button>
             </div>
           </div>
@@ -182,25 +184,22 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
         {/* Action Bar - Mobile Only */}
         <div className="sm:hidden shrink-0 bg-background/95 backdrop-blur-sm border-t border-border p-3 flex gap-2">
           <Button 
-            variant="outline"
-            size="default"
-            className="flex-1 gap-2"
+            className="flex-1 h-11 gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold shadow-lg shadow-green-500/25 rounded-full border-0"
             onClick={() => window.open("https://wa.me/5521983526144?text=" + encodeURIComponent(t('packageModal.whatsappMessage', { title })), "_blank")}
             data-testid="button-whatsapp-floating"
           >
-            <SiWhatsapp className="w-4 h-4" />
+            <SiWhatsapp className="w-5 h-5" />
             WhatsApp
           </Button>
           <Button 
-            size="default"
-            className="flex-1 gap-2 bg-cta hover:bg-cta/90 text-cta-foreground"
+            className="flex-1 h-11 gap-2 bg-gradient-to-r from-cta to-cta/90 hover:from-cta/90 hover:to-cta/80 text-cta-foreground font-semibold shadow-lg shadow-cta/25 rounded-full border-0"
             onClick={() => {
               onBook?.(pkg);
               onClose();
             }} 
             data-testid="button-book-floating"
           >
-            <CalendarCheck className="w-4 h-4" />
+            <CalendarCheck className="w-5 h-5" />
             {t('packageModal.bookNow')}
           </Button>
         </div>
