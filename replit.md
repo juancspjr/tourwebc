@@ -64,8 +64,15 @@ The project implements a comprehensive SEO system for optimal search engine and 
 - Manages React Helmet for meta tag injection
 
 ### JSON-LD Schemas
-Each language version includes 4 structured data schemas:
+Each language version includes 7 structured data schemas:
 1. **TravelAgency** - Organization info, ratings, contact details
 2. **WebSite** - Site name, search action, publisher
 3. **TouristDestination** - Rio de Janeiro as destination
 4. **ItemList** - Available tours with durations and types
+5. **FAQPage** - 8 frequently asked questions with answers (translated per language)
+6. **BreadcrumbList** - Navigation hierarchy for enhanced search appearance
+7. **LocalBusiness with Reviews** - AggregateRating (4.9/5, 127 reviews) and individual Review items
+
+### Visual SEO Components
+- **BreadcrumbNav** (`client/src/components/BreadcrumbNav.tsx`): Visual breadcrumb navigation below header using shadcn/ui components
+- **TestimonialCard** (`client/src/components/TestimonialCard.tsx`): Includes Schema.org microdata (itemscope, itemtype, itemprop) for Review structured data
