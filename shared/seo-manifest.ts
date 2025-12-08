@@ -163,20 +163,12 @@ export function getSchemaTravelAgency(lang: SupportedLanguage) {
         closes: '17:00',
       },
     ],
-    availableLanguage: [
-      { '@type': 'Language', name: 'Spanish', alternateName: 'es' },
-      { '@type': 'Language', name: 'English', alternateName: 'en' },
-      { '@type': 'Language', name: 'Portuguese', alternateName: 'pt' },
-      { '@type': 'Language', name: 'French', alternateName: 'fr' },
-      { '@type': 'Language', name: 'Italian', alternateName: 'it' },
-    ],
     sameAs: [
       'https://www.instagram.com/brianmachinee/',
       'https://www.youtube.com/@BrianMachinee',
       'https://www.tiktok.com/@brianmachinne',
     ],
     slogan: slogans[lang],
-    inLanguage: lang,
   };
 }
 
@@ -337,9 +329,13 @@ export function getTourSchemas(lang: SupportedLanguage) {
         name: tour.name,
         description: tour.description,
         touristType: tour.type,
-        duration: tour.duration,
         provider: {
           '@id': `${BASE_URL}/#organization`,
+        },
+        offers: {
+          '@type': 'Offer',
+          availability: 'https://schema.org/InStock',
+          validFrom: new Date().toISOString().split('T')[0],
         },
         potentialAction: {
           '@type': 'ReserveAction',
