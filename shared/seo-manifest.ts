@@ -46,7 +46,7 @@ export const SEO_BY_LANGUAGE: Record<SupportedLanguage, SEOData> = {
 };
 
 export function getCanonicalUrl(lang: SupportedLanguage): string {
-  return lang === 'es' ? BASE_URL : `${BASE_URL}/?lang=${lang}`;
+  return lang === 'es' ? BASE_URL : `${BASE_URL}/${lang}`;
 }
 
 export function getHreflangLinks(): Array<{ lang: string; url: string }> {
@@ -54,7 +54,7 @@ export function getHreflangLinks(): Array<{ lang: string; url: string }> {
     { lang: 'x-default', url: BASE_URL },
     ...SUPPORTED_LANGUAGES.map(lang => ({
       lang,
-      url: lang === 'es' ? BASE_URL : `${BASE_URL}/?lang=${lang}`,
+      url: lang === 'es' ? BASE_URL : `${BASE_URL}/${lang}`,
     })),
   ];
 }

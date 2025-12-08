@@ -1,0 +1,165 @@
+https://riotripvibes.com/  este va a sr el dominio que se va a comprar 
+
+Nombre de archivo
+about-en.html
+about-es.html
+about-fr.html
+about-it.html
+about-pt.html
+ai.txt
+en.html
+es.html
+favicon.png
+fr.html
+index.html
+it.html
+logo.png
+privacy-en.html
+privacy-es.html
+privacy-fr.html
+privacy-it.html
+privacy-pt.html
+pt.html
+robots.txt
+sitemap.xml
+
+assets
+ContactSection-RRnOud8W.js
+FloatingButtons-B-DfJrg4.js
+Footer-tuwJT25s.js
+GeneralInfoSection-Bte5YqZW.js
+Helicóptero1_1764759625353-Bc48pWU6.webp
+Helicóptero2_1764759625353-BvRknSm9.webp
+Helicóptero3_1764759625353-BarEj4FH.webp
+Helicóptero4_1764759625353-B8KrZ1mS.webp
+Helicóptero5_1764759625353-CwVTAM6u.webp
+InfiniteTestimonialCarousel-D4rYVJp-.js
+PackageGrid-1nflWnyM.js
+PackageGrid-DOfe2hmq.css
+PackageModal-F7PF6x-0.js
+ParallaxDivider-CO09AZSi.js
+PaseosBarco1_1764759429302-pOQgNi02.webp
+PaseosBarco2_1764759429302-DztfXUtu.webp
+PaseosBarco3_1764759429302-D_6lah3S.webp
+PaseosBarco4_1764759429302-DwQA-L2V.webp
+PaseosBarco5_1764759429302-BsgnUNRh.webp
+TravelGuideModal-Z7nGeYhA.js
+TravelGuidesSection-DKRX0ZqP.js
+YateVIP1_1764759541668-Dmxa23hV.webp
+YateVIP2_1764759541668-B76vjNM2.webp
+YateVIP3_1764759541668-4dAV7sxw.webp
+YateVIP4_1764759541668-6jcoPLKw.webp
+YateVIP5_1764759541668-Dj9aIZY3.webp
+accordion-D522xjRe.js
+badge-C59sBwBA.js
+barco6_1764997173256-CTxxeg4C.webp
+boat_tour_parallax-DHyD4rQd.webp
+building-2-yDyoJo1l.js
+calendar-check-B0cILFuk.js
+clock-gjx6vg6G.js
+colorful_rio_favela-BTZ9sB6n.webp
+copacabana_beach_rio-DMUbRNus.webp
+cristo_parallax-WjGXXsl9.webp
+cristo_redentor_statue-D8pyEM6L.webp
+daytour1_1764994799568-DnXJp0BK.webp
+daytour2_1764994799569-DNyfXjcv.webp
+daytour3_1764994799580-BIddumWE.webp
+daytour4_1764994799580-B32qq5F4.webp
+daytour5_1764994799581-DO6o0xAr.webp
+dialog-CDhedc2Z.js
+dois_irmaos_trekking-P4da68C6.webp
+egipt2_1764724064822-CPRUCFRo.webp
+egipto1_1764724064822-BCTfeWbb.webp
+favela1_1764736538872-oyEm98kJ.webp
+favela3_1764736538872-yfUIdpSx.webp
+favela4_1764736538872-z0bFfZUx.webp
+favela5_1764995992345-BzK6s4jn.webp
+favela6_1764995992347-D188OGQu.webp
+framer-CrFHeY39.js
+helicopter_tour_rio-DJriEdBu.webp
+ilha_grande_paradise-xOzySTT_.webp
+index-CIPUn8Rn.css
+index-DWRuRm3P.js
+logo1-DB14Cs7C.webp
+map-pin-BtZ9qPlx.js
+message-circle-Cv63A3HC.js
+packages-CxZruAId.js
+playa1_1764991730825-C99oe94W.webp
+playa2_1764991730825-CFMWcr92.webp
+playa3_1764991730825-CcvnmC4l.webp
+playa4_1764991730825-C7ToEL6O.webp
+playa5_1764992092315-BlZX06rq.webp
+playa6_1764992092315-DYtWOnBR.webp
+query-tWhV9Ko-.js
+rio1_1764724064822-DQJvO0bs.webp
+rio1_1764995487149-JzO1VlwR.webp
+rio3_1764724064822-Bq_OJf_N.webp
+rio4_1764724064822-CuHcXyQu.webp
+rio_2_1764995487150-wiYB3bKf.webp
+rio_4_1764995487152-C_AMXkJ6.webp
+star-Q4C3C6Ml.js
+sunset_parallax-b-fN9UFN.webp
+travel_map_compass_v_af9c5a22-1pwQA6xj.jpg
+trekking1_1764989191591-B9yoF8aD.webp
+trekking2_1764989191591-DIOtDOvT.webp
+trekking3_1764989191591-CbJb8qsz.webp
+trekking4_1764989191591-BwozwaBs.webp
+trekking5_1764989191591-D9VJw5gd.webp
+ui-CheygFse.js
+useScrollTrigger-B4sg2bc8.js
+vendor-DNByQVlb.js
+vip_yacht_rio-Cni4V1Ni.webp
+
+images
+logo-small.png
+
+videos
+splash.mp4
+
+Next.js	✅ SSR/SSG	Ideal para React. Soporta i18n.
+/es/index.html
+/en/index.html
+/pt/index.html
+/fr/index.html
+/it/index.html
+Contenido real y estático
+Meta tags (<title>, <meta name="description">, <meta property="og:*">)
+JSON-LD completo (ya lo tienes, pero debe estar en el HTML final, no en JS)
+hreflang correcto
+
+Generar una página estática por idioma
+✅ 3. Actualizar sitemap.xml y robots.txt
+<!-- sitemap.xml -->
+<url>
+  <loc>https://tourwebc.pages.dev/es </loc>
+  <xhtml:link rel="alternate" hreflang="es" href="https://tourwebc.pages.dev/es "/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://tourwebc.pages.dev/en "/>
+  ...
+</url>
+# robots.txt
+Sitemap: https://tourwebc.pages.dev/sitemap.xml 
+✅ 4. Usar rendertron o puppeteer como solución temporal
+Si no puedes migrar a SSR/SSG ahora, puedes servir una versión pre-renderizada a bots.
+🔧 Comando para pre-renderizar:
+bash
+Copy
+npm install -g rendertron-cli
+rendertron-cli render https://tourwebc.pages.dev/  > index-rendered.html
+Luego, en tu servidor (o Cloudflare Pages), sirve esa versión a bots:
+JavaScript
+Copy
+// middleware.js (ejemplo para Cloudflare Workers)
+const BOT_AGENTS = ['googlebot', 'bingbot', 'chatgpt', 'claude'];
+
+export default {
+  async fetch(request) {
+    const userAgent = request.headers.get('user-agent')?.toLowerCase();
+    const isBot = BOT_AGENTS.some(bot => userAgent.includes(bot));
+
+    if (isBot) {
+      return fetch('https://tourwebc.pages.dev/index-rendered.html ');
+    }
+
+    return fetch(request);
+  }
+}

@@ -76,3 +76,17 @@ Each language version includes 7 structured data schemas:
 ### Visual SEO Components
 - **BreadcrumbNav** (`client/src/components/BreadcrumbNav.tsx`): Visual breadcrumb navigation below header using shadcn/ui components
 - **TestimonialCard** (`client/src/components/TestimonialCard.tsx`): Includes Schema.org microdata (itemscope, itemtype, itemprop) for Review structured data
+
+### Clean URL Structure for SEO
+The project uses clean language routes instead of query parameters for better SEO:
+- **Language Routes**: `/es`, `/en`, `/pt`, `/fr`, `/it` - Each serves static pre-rendered HTML
+- **Static HTML Pages**: Located in `client/public/` (es.html, en.html, pt.html, fr.html, it.html)
+- **Server Routes** (`server/routes.ts`): Serves static HTML for search engine bots
+- **Hreflang Implementation**: All pages include proper hreflang tags pointing to clean URLs
+- **Sitemap**: `client/public/sitemap.xml` includes all language URLs with xhtml:link alternates
+
+### Recent Changes (December 2024)
+- Migrated from query parameter URLs (?lang=en) to clean path-based URLs (/en)
+- Updated seo-manifest.ts with new URL structure
+- Added server routes to serve static HTML for each language
+- Fixed hreflang tags across all static HTML files and sitemap.xml
