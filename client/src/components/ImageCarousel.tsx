@@ -153,35 +153,37 @@ function FullscreenViewer({
         </Button>
         
         <div className="absolute inset-0 flex items-center justify-center p-4">
-          <img
-            src={images[currentIndex]}
-            alt={`${alt} - ${currentIndex + 1}`}
-            className="max-w-full max-h-full object-contain select-none"
-            onClick={(e) => e.stopPropagation()}
-            draggable={false}
-            data-testid="fullscreen-image"
-          />
+          <div className="relative flex items-center">
+            <Button
+              variant="secondary"
+              size="icon"
+              className="absolute -left-14 sm:-left-16 top-1/2 -translate-y-1/2 z-[110] w-10 h-10 sm:w-11 sm:h-11 bg-white/35 hover:bg-white/55 text-black/60 hover:text-black/80 rounded-full shadow-md backdrop-blur-sm border border-white/25"
+              onClick={(e) => { e.stopPropagation(); onPrevious(); }}
+              data-testid="fullscreen-prev"
+            >
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+            </Button>
+            
+            <img
+              src={images[currentIndex]}
+              alt={`${alt} - ${currentIndex + 1}`}
+              className="max-w-full max-h-full object-contain select-none"
+              onClick={(e) => e.stopPropagation()}
+              draggable={false}
+              data-testid="fullscreen-image"
+            />
+            
+            <Button
+              variant="secondary"
+              size="icon"
+              className="absolute -right-14 sm:-right-16 top-1/2 -translate-y-1/2 z-[110] w-10 h-10 sm:w-11 sm:h-11 bg-white/35 hover:bg-white/55 text-black/60 hover:text-black/80 rounded-full shadow-md backdrop-blur-sm border border-white/25"
+              onClick={(e) => { e.stopPropagation(); onNext(); }}
+              data-testid="fullscreen-next"
+            >
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+            </Button>
+          </div>
         </div>
-        
-        <Button
-          variant="secondary"
-          size="icon"
-          className="fixed left-4 sm:left-6 top-1/2 -translate-y-1/2 z-[110] w-11 h-11 sm:w-12 sm:h-12 bg-white/50 hover:bg-white/70 text-black/80 hover:text-black rounded-full shadow-lg backdrop-blur-md border border-white/40"
-          onClick={(e) => { e.stopPropagation(); onPrevious(); }}
-          data-testid="fullscreen-prev"
-        >
-          <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7" />
-        </Button>
-        
-        <Button
-          variant="secondary"
-          size="icon"
-          className="fixed right-4 sm:right-6 top-1/2 -translate-y-1/2 z-[110] w-11 h-11 sm:w-12 sm:h-12 bg-white/50 hover:bg-white/70 text-black/80 hover:text-black rounded-full shadow-lg backdrop-blur-md border border-white/40 ml-[280px] mr-[280px] mt-[0px] mb-[0px] pl-[0px] pr-[0px]"
-          onClick={(e) => { e.stopPropagation(); onNext(); }}
-          data-testid="fullscreen-next"
-        >
-          <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7" />
-        </Button>
         
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 text-white text-sm bg-black/50 px-3 py-1.5 rounded-full">
           {currentIndex + 1} / {images.length}
