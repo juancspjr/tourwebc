@@ -83,20 +83,6 @@ function FullscreenViewer({
   onNext,
 }: FullscreenViewerProps) {
   const [startX, setStartX] = useState<number | null>(null);
-  const [imageRect, setImageRect] = useState<{ left: number; right: number; top: number; height: number } | null>(null);
-  const imgRef = useRef<HTMLImageElement>(null);
-
-  const updateImageRect = useCallback(() => {
-    if (imgRef.current) {
-      const rect = imgRef.current.getBoundingClientRect();
-      setImageRect({
-        left: rect.left,
-        right: rect.right,
-        top: rect.top,
-        height: rect.height,
-      });
-    }
-  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -107,20 +93,12 @@ function FullscreenViewer({
     
     document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('resize', updateImageRect);
-    window.addEventListener('orientationchange', updateImageRect);
     
     return () => {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('resize', updateImageRect);
-      window.removeEventListener('orientationchange', updateImageRect);
     };
-  }, [onClose, onPrevious, onNext, updateImageRect]);
-
-  useEffect(() => {
-    updateImageRect();
-  }, [currentIndex, updateImageRect]);
+  }, [onClose, onPrevious, onNext]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setStartX(e.touches[0].clientX);
@@ -140,80 +118,70 @@ function FullscreenViewer({
     setStartX(null);
   };
 
-  const handleImageLoad = () => {
-    updateImageRect();
-  };
-
-  const buttonSize = 44;
-  const buttonOffset = 8;
-
   return (
     <div 
       className="fixed inset-0 z-[100] bg-black"
       onClick={onClose}
     >
-      <Button
-        variant="ghost"
-        size="icon"
-        className="fixed top-3 right-3 z-[110] text-white bg-black/60 hover:bg-black/80 rounded-full"
-        onClick={(e) => { e.stopPropagation(); onClose(); }}
-        data-testid="fullscreen-close"
-      >
-        <X className="w-6 h-6" />
-      </Button>
+      <style>{`
+        @media (max-width: 640px) and (orientation: portrait) {
+          .fullscreen-rotated {
+            transform: rotate(90deg);
+            transform-origin: center center;
+            width: 100vh;
+            height: 100vw;
+            position: fixed;
+            top: calc(50% - 50vw);
+            left: calc(50% - 50vh);
+          }
+        }
+      `}</style>
       
-      <div className="w-full h-full flex items-center justify-center p-4"
+      <div 
+        className="fullscreen-rotated w-full h-full flex items-center justify-center"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        <img
-          ref={imgRef}
-          src={images[currentIndex]}
-          alt={`${alt} - ${currentIndex + 1}`}
-          className="max-w-full max-h-full object-contain select-none"
-          onClick={(e) => e.stopPropagation()}
-          onLoad={handleImageLoad}
-          draggable={false}
-          data-testid="fullscreen-image"
-        />
-      </div>
-      
-      {imageRect && (
-        <>
-          <Button
-            variant="secondary"
-            size="icon"
-            className="fixed z-[110] w-11 h-11 bg-white/40 hover:bg-white/60 text-gray-700 hover:text-gray-900 rounded-full shadow-lg backdrop-blur-sm border border-white/30"
-            style={{
-              left: imageRect.left + buttonOffset,
-              top: imageRect.top + imageRect.height / 2,
-              transform: 'translateY(-50%)',
-            }}
-            onClick={(e) => { e.stopPropagation(); onPrevious(); }}
-            data-testid="fullscreen-prev"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </Button>
-          
-          <Button
-            variant="secondary"
-            size="icon"
-            className="fixed z-[110] w-11 h-11 bg-white/40 hover:bg-white/60 text-gray-700 hover:text-gray-900 rounded-full shadow-lg backdrop-blur-sm border border-white/30"
-            style={{
-              left: imageRect.right - buttonSize - buttonOffset,
-              top: imageRect.top + imageRect.height / 2,
-              transform: 'translateY(-50%)',
-            }}
-            onClick={(e) => { e.stopPropagation(); onNext(); }}
-            data-testid="fullscreen-next"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </Button>
-        </>
-      )}
-      
-      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[110] text-white text-sm bg-black/50 px-3 py-1.5 rounded-full">
-        {currentIndex + 1} / {images.length}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute top-3 right-3 z-20 text-white bg-black/60 hover:bg-black/80 rounded-full"
+          onClick={(e) => { e.stopPropagation(); onClose(); }}
+          data-testid="fullscreen-close"
+        >
+          <X className="w-6 h-6" />
+        </Button>
+        
+        <div className="absolute inset-0 flex items-center justify-center p-4">
+          <img
+            src={images[currentIndex]}
+            alt={`${alt} - ${currentIndex + 1}`}
+            className="max-w-full max-h-full object-contain select-none"
+            onClick={(e) => e.stopPropagation()}
+            draggable={false}
+            data-testid="fullscreen-image"
+          />
+        </div>
+        
+        <button
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 p-3 text-white bg-black/50 hover:bg-black/70 rounded-full transition-colors"
+          onClick={(e) => { e.stopPropagation(); onPrevious(); }}
+          data-testid="fullscreen-prev"
+        >
+          <ChevronLeft className="w-8 h-8" />
+        </button>
+        
+        <button
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 p-3 text-white bg-black/50 hover:bg-black/70 rounded-full transition-colors"
+          onClick={(e) => { e.stopPropagation(); onNext(); }}
+          data-testid="fullscreen-next"
+        >
+          <ChevronRight className="w-8 h-8" />
+        </button>
+        
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 text-white text-sm bg-black/50 px-3 py-1.5 rounded-full">
+          {currentIndex + 1} / {images.length}
+        </div>
       </div>
     </div>
   );
