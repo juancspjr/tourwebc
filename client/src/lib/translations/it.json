@@ -13,7 +13,8 @@
     "whatsapp": "WhatsApp"
   },
   "floatingButtons": {
-    "bookNow": "Prenota"
+    "bookNow": "Prenota",
+    "needHelp": "Hai bisogno di aiuto?"
   },
   "hero": {
     "title1": "Scopri la tua prossima",
