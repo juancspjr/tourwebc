@@ -41,7 +41,7 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-3xl max-h-[90vh] overflow-hidden p-0 w-[calc(100vw-2rem)] sm:w-full flex flex-col">
         {/* Floating action buttons - Desktop */}
-        <div className="hidden sm:flex flex-col gap-3 fixed right-8 top-1/2 -translate-y-1/2 z-50">
+        <div className="hidden sm:flex flex-col gap-3 fixed right-8 top-1/2 -translate-y-1/2 z-50 ml-[0px] mr-[0px] mt-[180px] mb-[180px]">
           <Button 
             size="icon"
             className="w-12 h-12 rounded-full bg-cta/90 hover:bg-cta text-cta-foreground shadow-lg shadow-cta/25 border-0"
