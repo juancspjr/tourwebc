@@ -134,6 +134,20 @@ function FullscreenViewer({
             top: calc(50% - 50vw);
             left: calc(50% - 50vh);
           }
+          .fullscreen-nav-desktop {
+            display: none !important;
+          }
+          .fullscreen-nav-mobile {
+            display: flex !important;
+          }
+        }
+        @media (min-width: 641px), (orientation: landscape) {
+          .fullscreen-nav-desktop {
+            display: flex !important;
+          }
+          .fullscreen-nav-mobile {
+            display: none !important;
+          }
         }
       `}</style>
       
@@ -163,8 +177,9 @@ function FullscreenViewer({
           />
         </div>
         
+        {/* Desktop navigation buttons - left/right sides */}
         <button
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 p-3 text-white bg-black/50 hover:bg-black/70 rounded-full transition-colors"
+          className="fullscreen-nav-desktop absolute left-2 top-1/2 -translate-y-1/2 z-20 p-3 text-white bg-black/50 hover:bg-black/70 rounded-full transition-colors"
           onClick={(e) => { e.stopPropagation(); onPrevious(); }}
           data-testid="fullscreen-prev"
         >
@@ -172,14 +187,39 @@ function FullscreenViewer({
         </button>
         
         <button
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 p-3 text-white bg-black/50 hover:bg-black/70 rounded-full transition-colors"
+          className="fullscreen-nav-desktop absolute right-2 top-1/2 -translate-y-1/2 z-20 p-3 text-white bg-black/50 hover:bg-black/70 rounded-full transition-colors"
           onClick={(e) => { e.stopPropagation(); onNext(); }}
           data-testid="fullscreen-next"
         >
           <ChevronRight className="w-8 h-8" />
         </button>
+
+        {/* Mobile portrait navigation buttons - positioned at top/bottom of rotated view */}
+        {/* After 90deg rotation: top becomes left, bottom becomes right */}
+        <button
+          className="fullscreen-nav-mobile hidden absolute top-4 left-1/2 -translate-x-1/2 z-20 p-3 text-white bg-black/60 hover:bg-black/70 rounded-full transition-colors items-center justify-center"
+          onClick={(e) => { e.stopPropagation(); onPrevious(); }}
+          data-testid="fullscreen-prev-mobile"
+          aria-label="Previous image"
+        >
+          <ChevronLeft className="w-8 h-8" />
+        </button>
         
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 text-white text-sm bg-black/50 px-3 py-1.5 rounded-full">
+        <button
+          className="fullscreen-nav-mobile hidden absolute bottom-4 left-1/2 -translate-x-1/2 z-20 p-3 text-white bg-black/60 hover:bg-black/70 rounded-full transition-colors items-center justify-center"
+          onClick={(e) => { e.stopPropagation(); onNext(); }}
+          data-testid="fullscreen-next-mobile"
+          aria-label="Next image"
+        >
+          <ChevronRight className="w-8 h-8" />
+        </button>
+        
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 text-white text-sm bg-black/50 px-3 py-1.5 rounded-full fullscreen-nav-desktop">
+          {currentIndex + 1} / {images.length}
+        </div>
+        
+        {/* Mobile counter - positioned on the right side after rotation */}
+        <div className="fullscreen-nav-mobile hidden absolute right-4 top-1/2 -translate-y-1/2 z-20 text-white text-sm bg-black/50 px-3 py-1.5 rounded-full items-center justify-center">
           {currentIndex + 1} / {images.length}
         </div>
       </div>
