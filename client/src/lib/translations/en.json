@@ -3,6 +3,7 @@
     "home": "Home",
     "destinations": "Destinations",
     "travelInfo": "Travel Info",
+    "guides": "Guides",
     "testimonials": "Testimonials",
     "contact": "Contact",
     "menuTitle": "Navigation menu",
@@ -157,7 +158,30 @@
     "adventure": {
       "title": "Your Adventure Awaits",
       "subtitle": "Book now and turn your travel dreams into reality"
+    },
+    "guides": {
+      "title": "Travel with Knowledge",
+      "subtitle": "Essential tips from our specialists for a perfect experience"
     }
+  },
+  "travelGuides": {
+    "title": "Travel Tips & Essential Guides",
+    "subtitle": "Discover the best-kept secrets and tips from our specialists to make the most of your Rio adventure.",
+    "byOurExperts": "By Our Specialists",
+    "comingSoon": "Coming Soon",
+    "comingSoonText": "We're preparing exclusive content with travel tips, detailed guides, and recommendations from our local experts. Come back soon to discover everything Rio has to offer.",
+    "stayTuned": "Stay Tuned",
+    "categories": {
+      "all": "All",
+      "tips": "Tips",
+      "culture": "Culture",
+      "food": "Food",
+      "safety": "Safety",
+      "nature": "Nature"
+    },
+    "readMore": "Read More",
+    "readTime": "min read",
+    "author": "By"
   },
   "testimonials": {
     "title": "What Our Travelers Say",

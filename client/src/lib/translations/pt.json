@@ -3,6 +3,7 @@
     "home": "Início",
     "destinations": "Destinos",
     "travelInfo": "Info Viagem",
+    "guides": "Guias",
     "testimonials": "Depoimentos",
     "contact": "Contato",
     "menuTitle": "Menu de navegação",
@@ -157,7 +158,30 @@
     "adventure": {
       "title": "Sua Aventura Te Espera",
       "subtitle": "Reserve agora e transforme seus sonhos de viagem em realidade"
+    },
+    "guides": {
+      "title": "Viaje com Conhecimento",
+      "subtitle": "Dicas essenciais dos nossos especialistas para uma experiência perfeita"
     }
+  },
+  "travelGuides": {
+    "title": "Dicas de Viagem e Guias Essenciais",
+    "subtitle": "Descubra os segredos mais bem guardados e dicas dos nossos especialistas para aproveitar ao máximo sua aventura no Rio.",
+    "byOurExperts": "Pelos Nossos Especialistas",
+    "comingSoon": "Em Breve",
+    "comingSoonText": "Estamos preparando conteúdo exclusivo com dicas de viagem, guias detalhados e recomendações dos nossos especialistas locais. Volte em breve para descobrir tudo o que o Rio tem a oferecer.",
+    "stayTuned": "Fique Ligado",
+    "categories": {
+      "all": "Todos",
+      "tips": "Dicas",
+      "culture": "Cultura",
+      "food": "Gastronomia",
+      "safety": "Segurança",
+      "nature": "Natureza"
+    },
+    "readMore": "Leia Mais",
+    "readTime": "min de leitura",
+    "author": "Por"
   },
   "testimonials": {
     "title": "O Que Nossos Viajantes Dizem",

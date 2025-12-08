@@ -29,6 +29,7 @@ export default function Header({ onNavigate }: HeaderProps) {
     { label: t('nav.home'), href: "#home" },
     { label: t('nav.destinations'), href: "#packages" },
     { label: t('nav.travelInfo'), href: "#info" },
+    { label: t('nav.guides'), href: "#guides" },
     { label: t('nav.testimonials'), href: "#testimonials" },
     { label: t('nav.contact'), href: "#contact" },
   ];

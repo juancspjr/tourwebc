@@ -14,10 +14,12 @@ import barcoImage from "@assets/barco6_1764997173256.webp";
 import cristoParallax from "@assets/cristo_parallax.webp";
 import sunsetParallax from "@assets/sunset_parallax.webp";
 import boatTourParallax from "@assets/boat_tour_parallax.webp";
+import guidesParallax from "@assets/stock_images/travel_map_compass_v_af9c5a22.jpg";
 
 const PackageGrid = lazy(() => import("@/components/PackageGrid"));
 const InfiniteTestimonialCarousel = lazy(() => import("@/components/InfiniteTestimonialCarousel"));
 const GeneralInfoSection = lazy(() => import("@/components/GeneralInfoSection"));
+const TravelGuidesSection = lazy(() => import("@/components/TravelGuidesSection"));
 const ContactSection = lazy(() => import("@/components/ContactSection"));
 const Footer = lazy(() => import("@/components/Footer"));
 const FloatingButtons = lazy(() => import("@/components/FloatingButtons"));
@@ -160,6 +162,21 @@ export default function Home() {
         
         <Suspense fallback={<SectionSkeleton height="400px" />}>
           <GeneralInfoSection />
+        </Suspense>
+        
+        <Suspense fallback={<SectionSkeleton height="250px" />}>
+          <ParallaxDivider 
+            image={guidesParallax}
+            titleKey="parallax.guides.title"
+            subtitleKey="parallax.guides.subtitle"
+            height="40vh"
+            overlay="gradient"
+            showCta={false}
+          />
+        </Suspense>
+        
+        <Suspense fallback={<SectionSkeleton height="400px" />}>
+          <TravelGuidesSection />
         </Suspense>
         
         <Suspense fallback={<SectionSkeleton height="300px" />}>
