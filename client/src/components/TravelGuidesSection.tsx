@@ -11,7 +11,7 @@ import {
 import { useIntersectionTrigger } from "@/hooks/useScrollTrigger";
 import "@/styles/scroll-animations.css";
 
-interface TravelGuide {
+export interface TravelGuide {
   id: string;
   titleKey: string;
   excerptKey: string;
@@ -22,7 +22,9 @@ interface TravelGuide {
   slug: string;
 }
 
-const guides: TravelGuide[] = [];
+interface TravelGuidesSectionProps {
+  guides?: TravelGuide[];
+}
 
 function useSEOStructuredData(title: string, description: string, language: string) {
   const [mounted, setMounted] = useState(false);
@@ -81,7 +83,7 @@ function useSEOStructuredData(title: string, description: string, language: stri
   }, [mounted, title, description, language]);
 }
 
-export default function TravelGuidesSection() {
+export default function TravelGuidesSection({ guides = [] }: TravelGuidesSectionProps) {
   const { t, i18n } = useTranslation();
   const [headerRef, headerVisible] = useIntersectionTrigger({ threshold: 0.2 });
   const [contentRef, contentVisible] = useIntersectionTrigger({ threshold: 0.1, delay: 150 });
