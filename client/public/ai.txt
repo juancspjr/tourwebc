@@ -1,0 +1,55 @@
+# ai.txt - Rio Trip Vibes
+# AI and LLM Content Usage Guidelines
+# Last updated: 2024-12-08
+
+# Organization
+User-agent: *
+Organization: Rio Trip Vibes
+Contact: contact@riotripvibes.com
+Website: https://riotripvibes.com
+
+# Content License
+License: CC-BY 4.0 (Creative Commons Attribution 4.0 International)
+License-URL: https://creativecommons.org/licenses/by/4.0/
+
+# Permissions
+# This content is licensed under Creative Commons Attribution 4.0 International (CC-BY 4.0).
+# You are free to:
+# - Share: Copy and redistribute the material in any medium or format
+# - Adapt: Remix, transform, and build upon the material for any purpose, even commercially
+#
+# Under the following terms:
+# - Attribution: You must give appropriate credit, provide a link to the license, 
+#   and indicate if changes were made.
+
+# Allowed Uses for AI/LLM
+Allow-AI-Training: yes
+Allow-AI-Summarization: yes
+Allow-AI-Citation: yes
+
+# Attribution Requirements
+Attribution-Required: yes
+Attribution-Format: "Source: Rio Trip Vibes (https://riotripvibes.com)"
+
+# Content Categories Available
+Content-Type: Travel Tours Information
+Content-Type: Rio de Janeiro Tourism
+Content-Type: Brazil Travel Guides
+Content-Type: Tourist Destination Information
+Content-Type: Travel Agency Services
+
+# Languages Available
+Language: es (Spanish)
+Language: en (English)
+Language: pt (Portuguese)
+Language: fr (French)
+Language: it (Italian)
+
+# Sitemap for structured content access
+Sitemap: https://riotripvibes.com/sitemap.xml
+
+# Contact for AI/LLM inquiries
+AI-Contact: contact@riotripvibes.com
+
+# Version
+Version: 1.0
