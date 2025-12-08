@@ -1,0 +1,7666 @@
+ItemList
+
+    ItemList0 ERRORES84 ADVERTENCIASexpand_less
+    @type
+    	
+    ItemList
+    name
+    	
+    Experiencias Privadas Disponibles en Rio de Janeiro
+    numberOfItems
+    	
+    7
+    itemListElement
+    	
+    @type
+    	
+    ListItem
+    position
+    	
+    1
+    item
+    	
+    @type
+    	
+    TouristTrip
+    name
+    	
+    City Tour Privado
+    description
+    	
+    Recorrido exclusivo por los principales puntos de Rio con guia privado y vehiculo dedicado
+    touristType
+    	
+    Private tour
+    warningduration
+    	
+    PT8H (La propiedad duration no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TouristTrip.)
+    provider
+    	
+    @type
+    	
+    TravelAgency
+    @id
+    	
+    https://riotripvibes.com/#organization
+    name
+    	
+    Rio Trip Vibes
+    alternateName
+    	
+    RTV Tours
+    description
+    	
+    Agencia de viajes especializada en tours privados y personalizados en Rio de Janeiro. Experiencias exclusivas con guias profesionales bilingues certificados. Mas de 1000 clientes satisfechos desde 2018.
+    url
+    	
+    https://riotripvibes.com/
+    image
+    	
+    https://riotripvibes.com/logo.png
+    telephone
+    	
+    +5521983526144
+    email
+    	
+    contact@riotripvibes.com
+    currenciesAccepted
+    	
+    USD, BRL, EUR
+    paymentAccepted
+    	
+    Credit Card, Cash, Bank Transfer, PayPal, Pix, Crypto
+    foundingDate
+    	
+    2018
+    knowsAbout
+    	
+    Rio de Janeiro Tourism
+    knowsAbout
+    	
+    Private Tours
+    knowsAbout
+    	
+    VIP Experiences
+    knowsAbout
+    	
+    Helicopter Tours
+    knowsAbout
+    	
+    Yacht Charters
+    knowsAbout
+    	
+    Cultural Experiences
+    knowsAbout
+    	
+    Adventure Tourism
+    sameAs
+    	
+    https://www.instagram.com/brianmachinee/
+    sameAs
+    	
+    https://www.youtube.com/@BrianMachinee
+    sameAs
+    	
+    https://www.tiktok.com/@brianmachinne
+    slogan
+    	
+    Tu experiencia exclusiva en Rio de Janeiro comienza aqui
+    warninginLanguage
+    	
+    es (La propiedad inLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.)
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    potentialAction
+    	
+    @type
+    	
+    ReserveAction
+    name
+    	
+    Solicitar experiencia
+    target
+    	
+    @type
+    	
+    EntryPoint
+    urlTemplate
+    	
+    https://wa.me/5521983526144
+    actionPlatform
+    	
+    http://schema.org/MobileWebPlatform
+    itemListElement
+    	
+    @type
+    	
+    ListItem
+    position
+    	
+    2
+    item
+    	
+    @type
+    	
+    TouristTrip
+    name
+    	
+    Favela Tour Autentico
+    description
+    	
+    Experiencia cultural inmersiva en comunidades locales con guia residente certificado
+    touristType
+    	
+    Cultural immersion
+    warningduration
+    	
+    PT4H (La propiedad duration no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TouristTrip.)
+    provider
+    	
+    @type
+    	
+    TravelAgency
+    @id
+    	
+    https://riotripvibes.com/#organization
+    name
+    	
+    Rio Trip Vibes
+    alternateName
+    	
+    RTV Tours
+    description
+    	
+    Agencia de viajes especializada en tours privados y personalizados en Rio de Janeiro. Experiencias exclusivas con guias profesionales bilingues certificados. Mas de 1000 clientes satisfechos desde 2018.
+    url
+    	
+    https://riotripvibes.com/
+    image
+    	
+    https://riotripvibes.com/logo.png
+    telephone
+    	
+    +5521983526144
+    email
+    	
+    contact@riotripvibes.com
+    currenciesAccepted
+    	
+    USD, BRL, EUR
+    paymentAccepted
+    	
+    Credit Card, Cash, Bank Transfer, PayPal, Pix, Crypto
+    foundingDate
+    	
+    2018
+    knowsAbout
+    	
+    Rio de Janeiro Tourism
+    knowsAbout
+    	
+    Private Tours
+    knowsAbout
+    	
+    VIP Experiences
+    knowsAbout
+    	
+    Helicopter Tours
+    knowsAbout
+    	
+    Yacht Charters
+    knowsAbout
+    	
+    Cultural Experiences
+    knowsAbout
+    	
+    Adventure Tourism
+    sameAs
+    	
+    https://www.instagram.com/brianmachinee/
+    sameAs
+    	
+    https://www.youtube.com/@BrianMachinee
+    sameAs
+    	
+    https://www.tiktok.com/@brianmachinne
+    slogan
+    	
+    Tu experiencia exclusiva en Rio de Janeiro comienza aqui
+    warninginLanguage
+    	
+    es (La propiedad inLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.)
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    potentialAction
+    	
+    @type
+    	
+    ReserveAction
+    name
+    	
+    Reservar visita
+    target
+    	
+    @type
+    	
+    EntryPoint
+    urlTemplate
+    	
+    https://wa.me/5521983526144
+    actionPlatform
+    	
+    http://schema.org/MobileWebPlatform
+    itemListElement
+    	
+    @type
+    	
+    ListItem
+    position
+    	
+    3
+    item
+    	
+    @type
+    	
+    TouristTrip
+    name
+    	
+    Tour de Playas VIP
+    description
+    	
+    Circuito privado por Copacabana, Ipanema y Leblon con servicio personalizado
+    touristType
+    	
+    Beach experience
+    warningduration
+    	
+    PT6H (La propiedad duration no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TouristTrip.)
+    provider
+    	
+    @type
+    	
+    TravelAgency
+    @id
+    	
+    https://riotripvibes.com/#organization
+    name
+    	
+    Rio Trip Vibes
+    alternateName
+    	
+    RTV Tours
+    description
+    	
+    Agencia de viajes especializada en tours privados y personalizados en Rio de Janeiro. Experiencias exclusivas con guias profesionales bilingues certificados. Mas de 1000 clientes satisfechos desde 2018.
+    url
+    	
+    https://riotripvibes.com/
+    image
+    	
+    https://riotripvibes.com/logo.png
+    telephone
+    	
+    +5521983526144
+    email
+    	
+    contact@riotripvibes.com
+    currenciesAccepted
+    	
+    USD, BRL, EUR
+    paymentAccepted
+    	
+    Credit Card, Cash, Bank Transfer, PayPal, Pix, Crypto
+    foundingDate
+    	
+    2018
+    knowsAbout
+    	
+    Rio de Janeiro Tourism
+    knowsAbout
+    	
+    Private Tours
+    knowsAbout
+    	
+    VIP Experiences
+    knowsAbout
+    	
+    Helicopter Tours
+    knowsAbout
+    	
+    Yacht Charters
+    knowsAbout
+    	
+    Cultural Experiences
+    knowsAbout
+    	
+    Adventure Tourism
+    sameAs
+    	
+    https://www.instagram.com/brianmachinee/
+    sameAs
+    	
+    https://www.youtube.com/@BrianMachinee
+    sameAs
+    	
+    https://www.tiktok.com/@brianmachinne
+    slogan
+    	
+    Tu experiencia exclusiva en Rio de Janeiro comienza aqui
+    warninginLanguage
+    	
+    es (La propiedad inLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.)
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    potentialAction
+    	
+    @type
+    	
+    ReserveAction
+    name
+    	
+    Consultar disponibilidad
+    target
+    	
+    @type
+    	
+    EntryPoint
+    urlTemplate
+    	
+    https://wa.me/5521983526144
+    actionPlatform
+    	
+    http://schema.org/MobileWebPlatform
+    itemListElement
+    	
+    @type
+    	
+    ListItem
+    position
+    	
+    4
+    item
+    	
+    @type
+    	
+    TouristTrip
+    name
+    	
+    Trekking Pedra da Gavea
+    description
+    	
+    Aventura guiada con equipo profesional y vistas panoramicas de 360 grados
+    touristType
+    	
+    Adventure expedition
+    warningduration
+    	
+    PT5H (La propiedad duration no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TouristTrip.)
+    provider
+    	
+    @type
+    	
+    TravelAgency
+    @id
+    	
+    https://riotripvibes.com/#organization
+    name
+    	
+    Rio Trip Vibes
+    alternateName
+    	
+    RTV Tours
+    description
+    	
+    Agencia de viajes especializada en tours privados y personalizados en Rio de Janeiro. Experiencias exclusivas con guias profesionales bilingues certificados. Mas de 1000 clientes satisfechos desde 2018.
+    url
+    	
+    https://riotripvibes.com/
+    image
+    	
+    https://riotripvibes.com/logo.png
+    telephone
+    	
+    +5521983526144
+    email
+    	
+    contact@riotripvibes.com
+    currenciesAccepted
+    	
+    USD, BRL, EUR
+    paymentAccepted
+    	
+    Credit Card, Cash, Bank Transfer, PayPal, Pix, Crypto
+    foundingDate
+    	
+    2018
+    knowsAbout
+    	
+    Rio de Janeiro Tourism
+    knowsAbout
+    	
+    Private Tours
+    knowsAbout
+    	
+    VIP Experiences
+    knowsAbout
+    	
+    Helicopter Tours
+    knowsAbout
+    	
+    Yacht Charters
+    knowsAbout
+    	
+    Cultural Experiences
+    knowsAbout
+    	
+    Adventure Tourism
+    sameAs
+    	
+    https://www.instagram.com/brianmachinee/
+    sameAs
+    	
+    https://www.youtube.com/@BrianMachinee
+    sameAs
+    	
+    https://www.tiktok.com/@brianmachinne
+    slogan
+    	
+    Tu experiencia exclusiva en Rio de Janeiro comienza aqui
+    warninginLanguage
+    	
+    es (La propiedad inLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.)
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    potentialAction
+    	
+    @type
+    	
+    ReserveAction
+    name
+    	
+    Solicitar expedicion
+    target
+    	
+    @type
+    	
+    EntryPoint
+    urlTemplate
+    	
+    https://wa.me/5521983526144
+    actionPlatform
+    	
+    http://schema.org/MobileWebPlatform
+    itemListElement
+    	
+    @type
+    	
+    ListItem
+    position
+    	
+    5
+    item
+    	
+    @type
+    	
+    TouristTrip
+    name
+    	
+    Navegacion Privada
+    description
+    	
+    Experiencia nautica exclusiva por la Bahia de Guanabara con capitan privado
+    touristType
+    	
+    Maritime experience
+    warningduration
+    	
+    PT4H (La propiedad duration no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TouristTrip.)
+    provider
+    	
+    @type
+    	
+    TravelAgency
+    @id
+    	
+    https://riotripvibes.com/#organization
+    name
+    	
+    Rio Trip Vibes
+    alternateName
+    	
+    RTV Tours
+    description
+    	
+    Agencia de viajes especializada en tours privados y personalizados en Rio de Janeiro. Experiencias exclusivas con guias profesionales bilingues certificados. Mas de 1000 clientes satisfechos desde 2018.
+    url
+    	
+    https://riotripvibes.com/
+    image
+    	
+    https://riotripvibes.com/logo.png
+    telephone
+    	
+    +5521983526144
+    email
+    	
+    contact@riotripvibes.com
+    currenciesAccepted
+    	
+    USD, BRL, EUR
+    paymentAccepted
+    	
+    Credit Card, Cash, Bank Transfer, PayPal, Pix, Crypto
+    foundingDate
+    	
+    2018
+    knowsAbout
+    	
+    Rio de Janeiro Tourism
+    knowsAbout
+    	
+    Private Tours
+    knowsAbout
+    	
+    VIP Experiences
+    knowsAbout
+    	
+    Helicopter Tours
+    knowsAbout
+    	
+    Yacht Charters
+    knowsAbout
+    	
+    Cultural Experiences
+    knowsAbout
+    	
+    Adventure Tourism
+    sameAs
+    	
+    https://www.instagram.com/brianmachinee/
+    sameAs
+    	
+    https://www.youtube.com/@BrianMachinee
+    sameAs
+    	
+    https://www.tiktok.com/@brianmachinne
+    slogan
+    	
+    Tu experiencia exclusiva en Rio de Janeiro comienza aqui
+    warninginLanguage
+    	
+    es (La propiedad inLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.)
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    potentialAction
+    	
+    @type
+    	
+    ReserveAction
+    name
+    	
+    Consultar embarcacion
+    target
+    	
+    @type
+    	
+    EntryPoint
+    urlTemplate
+    	
+    https://wa.me/5521983526144
+    actionPlatform
+    	
+    http://schema.org/MobileWebPlatform
+    itemListElement
+    	
+    @type
+    	
+    ListItem
+    position
+    	
+    6
+    item
+    	
+    @type
+    	
+    TouristTrip
+    name
+    	
+    Yate VIP con Tripulacion
+    description
+    	
+    Experiencia de lujo en yate privado con tripulacion profesional, chef y servicio a bordo
+    touristType
+    	
+    Luxury yacht
+    warningduration
+    	
+    PT6H (La propiedad duration no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TouristTrip.)
+    provider
+    	
+    @type
+    	
+    TravelAgency
+    @id
+    	
+    https://riotripvibes.com/#organization
+    name
+    	
+    Rio Trip Vibes
+    alternateName
+    	
+    RTV Tours
+    description
+    	
+    Agencia de viajes especializada en tours privados y personalizados en Rio de Janeiro. Experiencias exclusivas con guias profesionales bilingues certificados. Mas de 1000 clientes satisfechos desde 2018.
+    url
+    	
+    https://riotripvibes.com/
+    image
+    	
+    https://riotripvibes.com/logo.png
+    telephone
+    	
+    +5521983526144
+    email
+    	
+    contact@riotripvibes.com
+    currenciesAccepted
+    	
+    USD, BRL, EUR
+    paymentAccepted
+    	
+    Credit Card, Cash, Bank Transfer, PayPal, Pix, Crypto
+    foundingDate
+    	
+    2018
+    knowsAbout
+    	
+    Rio de Janeiro Tourism
+    knowsAbout
+    	
+    Private Tours
+    knowsAbout
+    	
+    VIP Experiences
+    knowsAbout
+    	
+    Helicopter Tours
+    knowsAbout
+    	
+    Yacht Charters
+    knowsAbout
+    	
+    Cultural Experiences
+    knowsAbout
+    	
+    Adventure Tourism
+    sameAs
+    	
+    https://www.instagram.com/brianmachinee/
+    sameAs
+    	
+    https://www.youtube.com/@BrianMachinee
+    sameAs
+    	
+    https://www.tiktok.com/@brianmachinne
+    slogan
+    	
+    Tu experiencia exclusiva en Rio de Janeiro comienza aqui
+    warninginLanguage
+    	
+    es (La propiedad inLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.)
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    potentialAction
+    	
+    @type
+    	
+    ReserveAction
+    name
+    	
+    Solicitar cotizacion VIP
+    target
+    	
+    @type
+    	
+    EntryPoint
+    urlTemplate
+    	
+    https://wa.me/5521983526144
+    actionPlatform
+    	
+    http://schema.org/MobileWebPlatform
+    itemListElement
+    	
+    @type
+    	
+    ListItem
+    position
+    	
+    7
+    item
+    	
+    @type
+    	
+    TouristTrip
+    name
+    	
+    Helicoptero Privado Rio
+    description
+    	
+    Sobrevuelo panoramico exclusivo con piloto certificado y rutas personalizadas
+    touristType
+    	
+    Aerial experience
+    warningduration
+    	
+    PT1H (La propiedad duration no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TouristTrip.)
+    provider
+    	
+    @type
+    	
+    TravelAgency
+    @id
+    	
+    https://riotripvibes.com/#organization
+    name
+    	
+    Rio Trip Vibes
+    alternateName
+    	
+    RTV Tours
+    description
+    	
+    Agencia de viajes especializada en tours privados y personalizados en Rio de Janeiro. Experiencias exclusivas con guias profesionales bilingues certificados. Mas de 1000 clientes satisfechos desde 2018.
+    url
+    	
+    https://riotripvibes.com/
+    image
+    	
+    https://riotripvibes.com/logo.png
+    telephone
+    	
+    +5521983526144
+    email
+    	
+    contact@riotripvibes.com
+    currenciesAccepted
+    	
+    USD, BRL, EUR
+    paymentAccepted
+    	
+    Credit Card, Cash, Bank Transfer, PayPal, Pix, Crypto
+    foundingDate
+    	
+    2018
+    knowsAbout
+    	
+    Rio de Janeiro Tourism
+    knowsAbout
+    	
+    Private Tours
+    knowsAbout
+    	
+    VIP Experiences
+    knowsAbout
+    	
+    Helicopter Tours
+    knowsAbout
+    	
+    Yacht Charters
+    knowsAbout
+    	
+    Cultural Experiences
+    knowsAbout
+    	
+    Adventure Tourism
+    sameAs
+    	
+    https://www.instagram.com/brianmachinee/
+    sameAs
+    	
+    https://www.youtube.com/@BrianMachinee
+    sameAs
+    	
+    https://www.tiktok.com/@brianmachinne
+    slogan
+    	
+    Tu experiencia exclusiva en Rio de Janeiro comienza aqui
+    warninginLanguage
+    	
+    es (La propiedad inLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.)
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    potentialAction
+    	
+    @type
+    	
+    ReserveAction
+    name
+    	
+    Reservar vuelo privado
+    target
+    	
+    @type
+    	
+    EntryPoint
+    urlTemplate
+    	
+    https://wa.me/5521983526144
+    actionPlatform
+    	
+    http://schema.org/MobileWebPlatform
+    ItemList0 ERRORES84 ADVERTENCIASexpand_less
+    @type
+    	
+    ItemList
+    name
+    	
+    Experiencias Privadas Disponibles en Rio de Janeiro
+    numberOfItems
+    	
+    7
+    itemListElement
+    	
+    @type
+    	
+    ListItem
+    position
+    	
+    1
+    item
+    	
+    @type
+    	
+    TouristTrip
+    name
+    	
+    City Tour Privado
+    description
+    	
+    Recorrido exclusivo por los principales puntos de Rio con guia privado y vehiculo dedicado
+    touristType
+    	
+    Private tour
+    warningduration
+    	
+    PT8H (La propiedad duration no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TouristTrip.)
+    provider
+    	
+    @type
+    	
+    TravelAgency
+    @id
+    	
+    https://riotripvibes.com/#organization
+    name
+    	
+    Rio Trip Vibes
+    alternateName
+    	
+    RTV Tours
+    description
+    	
+    Agencia de viajes especializada en tours privados y personalizados en Rio de Janeiro. Experiencias exclusivas con guias profesionales bilingues certificados. Mas de 1000 clientes satisfechos desde 2018.
+    url
+    	
+    https://riotripvibes.com/
+    image
+    	
+    https://riotripvibes.com/logo.png
+    telephone
+    	
+    +5521983526144
+    email
+    	
+    contact@riotripvibes.com
+    currenciesAccepted
+    	
+    USD, BRL, EUR
+    paymentAccepted
+    	
+    Credit Card, Cash, Bank Transfer, PayPal, Pix, Crypto
+    foundingDate
+    	
+    2018
+    knowsAbout
+    	
+    Rio de Janeiro Tourism
+    knowsAbout
+    	
+    Private Tours
+    knowsAbout
+    	
+    VIP Experiences
+    knowsAbout
+    	
+    Helicopter Tours
+    knowsAbout
+    	
+    Yacht Charters
+    knowsAbout
+    	
+    Cultural Experiences
+    knowsAbout
+    	
+    Adventure Tourism
+    sameAs
+    	
+    https://www.instagram.com/brianmachinee/
+    sameAs
+    	
+    https://www.youtube.com/@BrianMachinee
+    sameAs
+    	
+    https://www.tiktok.com/@brianmachinne
+    slogan
+    	
+    Tu experiencia exclusiva en Rio de Janeiro comienza aqui
+    warninginLanguage
+    	
+    es (La propiedad inLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.)
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    potentialAction
+    	
+    @type
+    	
+    ReserveAction
+    name
+    	
+    Solicitar experiencia
+    target
+    	
+    @type
+    	
+    EntryPoint
+    urlTemplate
+    	
+    https://wa.me/5521983526144
+    actionPlatform
+    	
+    http://schema.org/MobileWebPlatform
+    itemListElement
+    	
+    @type
+    	
+    ListItem
+    position
+    	
+    2
+    item
+    	
+    @type
+    	
+    TouristTrip
+    name
+    	
+    Favela Tour Autentico
+    description
+    	
+    Experiencia cultural inmersiva en comunidades locales con guia residente certificado
+    touristType
+    	
+    Cultural immersion
+    warningduration
+    	
+    PT4H (La propiedad duration no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TouristTrip.)
+    provider
+    	
+    @type
+    	
+    TravelAgency
+    @id
+    	
+    https://riotripvibes.com/#organization
+    name
+    	
+    Rio Trip Vibes
+    alternateName
+    	
+    RTV Tours
+    description
+    	
+    Agencia de viajes especializada en tours privados y personalizados en Rio de Janeiro. Experiencias exclusivas con guias profesionales bilingues certificados. Mas de 1000 clientes satisfechos desde 2018.
+    url
+    	
+    https://riotripvibes.com/
+    image
+    	
+    https://riotripvibes.com/logo.png
+    telephone
+    	
+    +5521983526144
+    email
+    	
+    contact@riotripvibes.com
+    currenciesAccepted
+    	
+    USD, BRL, EUR
+    paymentAccepted
+    	
+    Credit Card, Cash, Bank Transfer, PayPal, Pix, Crypto
+    foundingDate
+    	
+    2018
+    knowsAbout
+    	
+    Rio de Janeiro Tourism
+    knowsAbout
+    	
+    Private Tours
+    knowsAbout
+    	
+    VIP Experiences
+    knowsAbout
+    	
+    Helicopter Tours
+    knowsAbout
+    	
+    Yacht Charters
+    knowsAbout
+    	
+    Cultural Experiences
+    knowsAbout
+    	
+    Adventure Tourism
+    sameAs
+    	
+    https://www.instagram.com/brianmachinee/
+    sameAs
+    	
+    https://www.youtube.com/@BrianMachinee
+    sameAs
+    	
+    https://www.tiktok.com/@brianmachinne
+    slogan
+    	
+    Tu experiencia exclusiva en Rio de Janeiro comienza aqui
+    warninginLanguage
+    	
+    es (La propiedad inLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.)
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    potentialAction
+    	
+    @type
+    	
+    ReserveAction
+    name
+    	
+    Reservar visita
+    target
+    	
+    @type
+    	
+    EntryPoint
+    urlTemplate
+    	
+    https://wa.me/5521983526144
+    actionPlatform
+    	
+    http://schema.org/MobileWebPlatform
+    itemListElement
+    	
+    @type
+    	
+    ListItem
+    position
+    	
+    3
+    item
+    	
+    @type
+    	
+    TouristTrip
+    name
+    	
+    Tour de Playas VIP
+    description
+    	
+    Circuito privado por Copacabana, Ipanema y Leblon con servicio personalizado
+    touristType
+    	
+    Beach experience
+    warningduration
+    	
+    PT6H (La propiedad duration no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TouristTrip.)
+    provider
+    	
+    @type
+    	
+    TravelAgency
+    @id
+    	
+    https://riotripvibes.com/#organization
+    name
+    	
+    Rio Trip Vibes
+    alternateName
+    	
+    RTV Tours
+    description
+    	
+    Agencia de viajes especializada en tours privados y personalizados en Rio de Janeiro. Experiencias exclusivas con guias profesionales bilingues certificados. Mas de 1000 clientes satisfechos desde 2018.
+    url
+    	
+    https://riotripvibes.com/
+    image
+    	
+    https://riotripvibes.com/logo.png
+    telephone
+    	
+    +5521983526144
+    email
+    	
+    contact@riotripvibes.com
+    currenciesAccepted
+    	
+    USD, BRL, EUR
+    paymentAccepted
+    	
+    Credit Card, Cash, Bank Transfer, PayPal, Pix, Crypto
+    foundingDate
+    	
+    2018
+    knowsAbout
+    	
+    Rio de Janeiro Tourism
+    knowsAbout
+    	
+    Private Tours
+    knowsAbout
+    	
+    VIP Experiences
+    knowsAbout
+    	
+    Helicopter Tours
+    knowsAbout
+    	
+    Yacht Charters
+    knowsAbout
+    	
+    Cultural Experiences
+    knowsAbout
+    	
+    Adventure Tourism
+    sameAs
+    	
+    https://www.instagram.com/brianmachinee/
+    sameAs
+    	
+    https://www.youtube.com/@BrianMachinee
+    sameAs
+    	
+    https://www.tiktok.com/@brianmachinne
+    slogan
+    	
+    Tu experiencia exclusiva en Rio de Janeiro comienza aqui
+    warninginLanguage
+    	
+    es (La propiedad inLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.)
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    potentialAction
+    	
+    @type
+    	
+    ReserveAction
+    name
+    	
+    Consultar disponibilidad
+    target
+    	
+    @type
+    	
+    EntryPoint
+    urlTemplate
+    	
+    https://wa.me/5521983526144
+    actionPlatform
+    	
+    http://schema.org/MobileWebPlatform
+    itemListElement
+    	
+    @type
+    	
+    ListItem
+    position
+    	
+    4
+    item
+    	
+    @type
+    	
+    TouristTrip
+    name
+    	
+    Trekking Pedra da Gavea
+    description
+    	
+    Aventura guiada con equipo profesional y vistas panoramicas de 360 grados
+    touristType
+    	
+    Adventure expedition
+    warningduration
+    	
+    PT5H (La propiedad duration no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TouristTrip.)
+    provider
+    	
+    @type
+    	
+    TravelAgency
+    @id
+    	
+    https://riotripvibes.com/#organization
+    name
+    	
+    Rio Trip Vibes
+    alternateName
+    	
+    RTV Tours
+    description
+    	
+    Agencia de viajes especializada en tours privados y personalizados en Rio de Janeiro. Experiencias exclusivas con guias profesionales bilingues certificados. Mas de 1000 clientes satisfechos desde 2018.
+    url
+    	
+    https://riotripvibes.com/
+    image
+    	
+    https://riotripvibes.com/logo.png
+    telephone
+    	
+    +5521983526144
+    email
+    	
+    contact@riotripvibes.com
+    currenciesAccepted
+    	
+    USD, BRL, EUR
+    paymentAccepted
+    	
+    Credit Card, Cash, Bank Transfer, PayPal, Pix, Crypto
+    foundingDate
+    	
+    2018
+    knowsAbout
+    	
+    Rio de Janeiro Tourism
+    knowsAbout
+    	
+    Private Tours
+    knowsAbout
+    	
+    VIP Experiences
+    knowsAbout
+    	
+    Helicopter Tours
+    knowsAbout
+    	
+    Yacht Charters
+    knowsAbout
+    	
+    Cultural Experiences
+    knowsAbout
+    	
+    Adventure Tourism
+    sameAs
+    	
+    https://www.instagram.com/brianmachinee/
+    sameAs
+    	
+    https://www.youtube.com/@BrianMachinee
+    sameAs
+    	
+    https://www.tiktok.com/@brianmachinne
+    slogan
+    	
+    Tu experiencia exclusiva en Rio de Janeiro comienza aqui
+    warninginLanguage
+    	
+    es (La propiedad inLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.)
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    potentialAction
+    	
+    @type
+    	
+    ReserveAction
+    name
+    	
+    Solicitar expedicion
+    target
+    	
+    @type
+    	
+    EntryPoint
+    urlTemplate
+    	
+    https://wa.me/5521983526144
+    actionPlatform
+    	
+    http://schema.org/MobileWebPlatform
+    itemListElement
+    	
+    @type
+    	
+    ListItem
+    position
+    	
+    5
+    item
+    	
+    @type
+    	
+    TouristTrip
+    name
+    	
+    Navegacion Privada
+    description
+    	
+    Experiencia nautica exclusiva por la Bahia de Guanabara con capitan privado
+    touristType
+    	
+    Maritime experience
+    warningduration
+    	
+    PT4H (La propiedad duration no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TouristTrip.)
+    provider
+    	
+    @type
+    	
+    TravelAgency
+    @id
+    	
+    https://riotripvibes.com/#organization
+    name
+    	
+    Rio Trip Vibes
+    alternateName
+    	
+    RTV Tours
+    description
+    	
+    Agencia de viajes especializada en tours privados y personalizados en Rio de Janeiro. Experiencias exclusivas con guias profesionales bilingues certificados. Mas de 1000 clientes satisfechos desde 2018.
+    url
+    	
+    https://riotripvibes.com/
+    image
+    	
+    https://riotripvibes.com/logo.png
+    telephone
+    	
+    +5521983526144
+    email
+    	
+    contact@riotripvibes.com
+    currenciesAccepted
+    	
+    USD, BRL, EUR
+    paymentAccepted
+    	
+    Credit Card, Cash, Bank Transfer, PayPal, Pix, Crypto
+    foundingDate
+    	
+    2018
+    knowsAbout
+    	
+    Rio de Janeiro Tourism
+    knowsAbout
+    	
+    Private Tours
+    knowsAbout
+    	
+    VIP Experiences
+    knowsAbout
+    	
+    Helicopter Tours
+    knowsAbout
+    	
+    Yacht Charters
+    knowsAbout
+    	
+    Cultural Experiences
+    knowsAbout
+    	
+    Adventure Tourism
+    sameAs
+    	
+    https://www.instagram.com/brianmachinee/
+    sameAs
+    	
+    https://www.youtube.com/@BrianMachinee
+    sameAs
+    	
+    https://www.tiktok.com/@brianmachinne
+    slogan
+    	
+    Tu experiencia exclusiva en Rio de Janeiro comienza aqui
+    warninginLanguage
+    	
+    es (La propiedad inLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.)
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    potentialAction
+    	
+    @type
+    	
+    ReserveAction
+    name
+    	
+    Consultar embarcacion
+    target
+    	
+    @type
+    	
+    EntryPoint
+    urlTemplate
+    	
+    https://wa.me/5521983526144
+    actionPlatform
+    	
+    http://schema.org/MobileWebPlatform
+    itemListElement
+    	
+    @type
+    	
+    ListItem
+    position
+    	
+    6
+    item
+    	
+    @type
+    	
+    TouristTrip
+    name
+    	
+    Yate VIP con Tripulacion
+    description
+    	
+    Experiencia de lujo en yate privado con tripulacion profesional, chef y servicio a bordo
+    touristType
+    	
+    Luxury yacht
+    warningduration
+    	
+    PT6H (La propiedad duration no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TouristTrip.)
+    provider
+    	
+    @type
+    	
+    TravelAgency
+    @id
+    	
+    https://riotripvibes.com/#organization
+    name
+    	
+    Rio Trip Vibes
+    alternateName
+    	
+    RTV Tours
+    description
+    	
+    Agencia de viajes especializada en tours privados y personalizados en Rio de Janeiro. Experiencias exclusivas con guias profesionales bilingues certificados. Mas de 1000 clientes satisfechos desde 2018.
+    url
+    	
+    https://riotripvibes.com/
+    image
+    	
+    https://riotripvibes.com/logo.png
+    telephone
+    	
+    +5521983526144
+    email
+    	
+    contact@riotripvibes.com
+    currenciesAccepted
+    	
+    USD, BRL, EUR
+    paymentAccepted
+    	
+    Credit Card, Cash, Bank Transfer, PayPal, Pix, Crypto
+    foundingDate
+    	
+    2018
+    knowsAbout
+    	
+    Rio de Janeiro Tourism
+    knowsAbout
+    	
+    Private Tours
+    knowsAbout
+    	
+    VIP Experiences
+    knowsAbout
+    	
+    Helicopter Tours
+    knowsAbout
+    	
+    Yacht Charters
+    knowsAbout
+    	
+    Cultural Experiences
+    knowsAbout
+    	
+    Adventure Tourism
+    sameAs
+    	
+    https://www.instagram.com/brianmachinee/
+    sameAs
+    	
+    https://www.youtube.com/@BrianMachinee
+    sameAs
+    	
+    https://www.tiktok.com/@brianmachinne
+    slogan
+    	
+    Tu experiencia exclusiva en Rio de Janeiro comienza aqui
+    warninginLanguage
+    	
+    es (La propiedad inLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.)
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    potentialAction
+    	
+    @type
+    	
+    ReserveAction
+    name
+    	
+    Solicitar cotizacion VIP
+    target
+    	
+    @type
+    	
+    EntryPoint
+    urlTemplate
+    	
+    https://wa.me/5521983526144
+    actionPlatform
+    	
+    http://schema.org/MobileWebPlatform
+    itemListElement
+    	
+    @type
+    	
+    ListItem
+    position
+    	
+    7
+    item
+    	
+    @type
+    	
+    TouristTrip
+    name
+    	
+    Helicoptero Privado Rio
+    description
+    	
+    Sobrevuelo panoramico exclusivo con piloto certificado y rutas personalizadas
+    touristType
+    	
+    Aerial experience
+    warningduration
+    	
+    PT1H (La propiedad duration no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TouristTrip.)
+    provider
+    	
+    @type
+    	
+    TravelAgency
+    @id
+    	
+    https://riotripvibes.com/#organization
+    name
+    	
+    Rio Trip Vibes
+    alternateName
+    	
+    RTV Tours
+    description
+    	
+    Agencia de viajes especializada en tours privados y personalizados en Rio de Janeiro. Experiencias exclusivas con guias profesionales bilingues certificados. Mas de 1000 clientes satisfechos desde 2018.
+    url
+    	
+    https://riotripvibes.com/
+    image
+    	
+    https://riotripvibes.com/logo.png
+    telephone
+    	
+    +5521983526144
+    email
+    	
+    contact@riotripvibes.com
+    currenciesAccepted
+    	
+    USD, BRL, EUR
+    paymentAccepted
+    	
+    Credit Card, Cash, Bank Transfer, PayPal, Pix, Crypto
+    foundingDate
+    	
+    2018
+    knowsAbout
+    	
+    Rio de Janeiro Tourism
+    knowsAbout
+    	
+    Private Tours
+    knowsAbout
+    	
+    VIP Experiences
+    knowsAbout
+    	
+    Helicopter Tours
+    knowsAbout
+    	
+    Yacht Charters
+    knowsAbout
+    	
+    Cultural Experiences
+    knowsAbout
+    	
+    Adventure Tourism
+    sameAs
+    	
+    https://www.instagram.com/brianmachinee/
+    sameAs
+    	
+    https://www.youtube.com/@BrianMachinee
+    sameAs
+    	
+    https://www.tiktok.com/@brianmachinne
+    slogan
+    	
+    Tu experiencia exclusiva en Rio de Janeiro comienza aqui
+    warninginLanguage
+    	
+    es (La propiedad inLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.)
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    logo
+    	
+    @type
+    	
+    ImageObject
+    url
+    	
+    https://riotripvibes.com/logo.png
+    width
+    	
+    512
+    height
+    	
+    512
+    address
+    	
+    @type
+    	
+    PostalAddress
+    streetAddress
+    	
+    Av. Atlantica
+    addressLocality
+    	
+    Copacabana
+    addressRegion
+    	
+    Rio de Janeiro
+    postalCode
+    	
+    22070-000
+    addressCountry
+    	
+    @type
+    	
+    Country
+    name
+    	
+    BR
+    geo
+    	
+    @type
+    	
+    GeoCoordinates
+    latitude
+    	
+    -22.9068
+    longitude
+    	
+    -43.1729
+    areaServed
+    	
+    @type
+    	
+    City
+    name
+    	
+    Rio de Janeiro
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Rio_de_Janeiro
+    areaServed
+    	
+    @type
+    	
+    Country
+    name
+    	
+    Brazil
+    sameAs
+    	
+    https://en.wikipedia.org/wiki/Brazil
+    aggregateRating
+    	
+    @type
+    	
+    AggregateRating
+    ratingValue
+    	
+    4.9
+    reviewCount
+    	
+    127
+    bestRating
+    	
+    5
+    worstRating
+    	
+    1
+    numberOfEmployees
+    	
+    @type
+    	
+    QuantitativeValue
+    minValue
+    	
+    5
+    maxValue
+    	
+    10
+    hasCredential
+    	
+    @type
+    	
+    EducationalOccupationalCredential
+    credentialCategory
+    	
+    Professional Certification
+    name
+    	
+    Cadastur - Ministry of Tourism Brazil
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Monday
+    dayOfWeek
+    	
+    http://schema.org/Tuesday
+    dayOfWeek
+    	
+    http://schema.org/Wednesday
+    dayOfWeek
+    	
+    http://schema.org/Thursday
+    dayOfWeek
+    	
+    http://schema.org/Friday
+    opens
+    	
+    08:00
+    closes
+    	
+    18:00
+    openingHoursSpecification
+    	
+    @type
+    	
+    OpeningHoursSpecification
+    dayOfWeek
+    	
+    http://schema.org/Saturday
+    dayOfWeek
+    	
+    http://schema.org/Sunday
+    opens
+    	
+    09:00
+    closes
+    	
+    17:00
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Spanish
+    alternateName
+    	
+    es
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    English
+    alternateName
+    	
+    en
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Portuguese
+    alternateName
+    	
+    pt
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    French
+    alternateName
+    	
+    fr
+    warningavailableLanguage
+    	
+    La propiedad availableLanguage no está reconocida por el esquema (por ejemplo, schema.org) como un objeto del tipo TravelAgency.
+    @type
+    	
+    Language
+    name
+    	
+    Italian
+    alternateName
+    	
+    it
+    potentialAction
+    	
+    @type
+    	
+    ReserveAction
+    name
+    	
+    Reservar vuelo privado
+    target
+    	
+    @type
+    	
+    EntryPoint
+    urlTemplate
+    	
+    https://wa.me/5521983526144
+    actionPlatform
+    	
+    http://schema.org/MobileWebPlatform
