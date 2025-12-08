@@ -85,43 +85,92 @@ export default function FloatingButtons({
             animate="visible"
             exit="exit"
             variants={containerVariants}
-            className="fixed bottom-0 left-0 right-0 z-50 p-3 bg-gradient-to-t from-background via-background/95 to-transparent pb-4 pt-8"
+            className="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-3"
           >
-            <div className="flex gap-2 max-w-md mx-auto">
-              <motion.div 
-                className="flex-1"
-                variants={buttonVariants}
-                whileHover="hover"
-                whileTap="tap"
+            <AnimatePresence>
+              {isExpanded && (
+                <>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8, x: 20 }}
+                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                    exit={{ opacity: 0, scale: 0.8, x: 20 }}
+                    transition={{ duration: 0.2, delay: 0.1 }}
+                  >
+                    <motion.div
+                      variants={buttonVariants}
+                      whileHover="hover"
+                      whileTap="tap"
+                    >
+                      <Button
+                        onClick={handleBookClick}
+                        className="h-12 px-5 gap-2 bg-gradient-to-r from-cta to-cta/90 hover:from-cta/90 hover:to-cta/80 text-cta-foreground font-semibold shadow-xl shadow-cta/25 rounded-full border-0"
+                        data-testid="button-reservar-floating-mobile"
+                        aria-label={t('floatingButtons.bookNow')}
+                      >
+                        <CalendarCheck className="w-5 h-5" />
+                        {t('floatingButtons.bookNow')}
+                      </Button>
+                    </motion.div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8, x: 20 }}
+                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                    exit={{ opacity: 0, scale: 0.8, x: 20 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <motion.div
+                      variants={buttonVariants}
+                      whileHover="hover"
+                      whileTap="tap"
+                    >
+                      <Button
+                        onClick={handleWhatsAppClick}
+                        className="h-12 px-5 gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold shadow-xl shadow-green-500/25 rounded-full border-0"
+                        data-testid="button-whatsapp-floating-mobile"
+                        aria-label="Contactar por WhatsApp"
+                      >
+                        <SiWhatsapp className="w-5 h-5" />
+                        WhatsApp
+                      </Button>
+                    </motion.div>
+                  </motion.div>
+                </>
+              )}
+            </AnimatePresence>
+
+            <motion.div
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+            >
+              <Button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className={`w-14 h-14 rounded-full shadow-2xl border-0 transition-all duration-300 ${
+                  isExpanded 
+                    ? 'bg-muted hover:bg-muted/80 text-foreground' 
+                    : 'bg-gradient-to-br from-primary via-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground'
+                }`}
+                size="icon"
+                data-testid="button-floating-toggle-mobile"
+                aria-label={isExpanded ? "Cerrar menú" : "Abrir menú de contacto"}
               >
-                <Button
-                  onClick={handleWhatsAppClick}
-                  className="w-full h-12 gap-2 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold shadow-lg shadow-green-500/30 border-0"
-                  data-testid="button-whatsapp-floating-mobile"
-                  aria-label="Contactar por WhatsApp"
-                >
-                  <SiWhatsapp className="w-5 h-5" />
-                  WhatsApp
-                </Button>
-              </motion.div>
-              
-              <motion.div 
-                className="flex-1"
-                variants={buttonVariants}
-                whileHover="hover"
-                whileTap="tap"
-              >
-                <Button
-                  onClick={handleBookClick}
-                  className="w-full h-12 gap-2 bg-gradient-to-r from-cta to-cta/90 hover:from-cta/90 hover:to-cta/80 text-cta-foreground font-semibold shadow-lg shadow-cta/30 border-0"
-                  data-testid="button-reservar-floating-mobile"
-                  aria-label={t('floatingButtons.bookNow')}
-                >
-                  <CalendarCheck className="w-5 h-5" />
-                  {t('floatingButtons.bookNow')}
-                </Button>
-              </motion.div>
-            </div>
+                {isExpanded ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <SiWhatsapp className="w-7 h-7" />
+                )}
+              </Button>
+            </motion.div>
+
+            {!isExpanded && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse"
+                aria-hidden="true"
+              />
+            )}
           </motion.div>
         )}
       </AnimatePresence>
