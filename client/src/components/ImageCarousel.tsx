@@ -259,6 +259,13 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
                 <ChevronRight className="w-6 h-6" />
               </Button>
               
+              <div 
+                className="absolute bottom-3 right-3 hidden sm:flex items-center gap-1.5 bg-black/60 text-white text-xs font-medium px-2.5 py-1.5 rounded-full backdrop-blur-sm"
+                data-testid="carousel-counter"
+              >
+                <ZoomIn className="w-3.5 h-3.5" />
+                <span>{currentIndex + 1} / {images.length}</span>
+              </div>
             </>
           )}
         </div>
