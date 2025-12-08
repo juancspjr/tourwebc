@@ -17,6 +17,7 @@ Preferred communication style: Simple, everyday language.
 **Design System**: Features a warm beige tropical theme in light mode with an HSL-based color system, Montserrat font, custom Tailwind CSS configuration, and utilizes custom CSS variables for theming.
 **Key Features**: Includes a sticky header, full-width hero section with parallax, filterable package grid with individual cards featuring image carousels, detailed package modals, an infinite testimonial carousel, a general information section with reveal animations, a lead capture contact form with a quotation calculator, and a floating WhatsApp CTA.
 **Animations**: Incorporates Framer Motion for cinematic scroll effects (parallax, fade-up reveals, staggered animations) with full `prefers-reduced-motion` accessibility support. A splash screen with user-interaction-based video playback is implemented.
+**Performance Optimization**: Critical inline CSS in index.html eliminates black screen flash during initial load by displaying the branded gradient immediately before JavaScript loads. A critical loader element with matching gradient is removed after React mounts via requestAnimationFrame handoff in main.tsx.
 
 ### Backend Architecture
 
