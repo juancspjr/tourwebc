@@ -176,7 +176,7 @@ function FullscreenViewer({
         <Button
           variant="secondary"
           size="icon"
-          className="fixed right-4 sm:right-6 top-1/2 -translate-y-1/2 z-[110] w-11 h-11 sm:w-12 sm:h-12 bg-white/50 hover:bg-white/70 text-black/80 hover:text-black rounded-full shadow-lg backdrop-blur-md border border-white/40"
+          className="fixed right-4 sm:right-6 top-1/2 -translate-y-1/2 z-[110] w-11 h-11 sm:w-12 sm:h-12 bg-white/50 hover:bg-white/70 text-black/80 hover:text-black rounded-full shadow-lg backdrop-blur-md border border-white/40 ml-[280px] mr-[280px] mt-[0px] mb-[0px] pl-[0px] pr-[0px]"
           onClick={(e) => { e.stopPropagation(); onNext(); }}
           data-testid="fullscreen-next"
         >
