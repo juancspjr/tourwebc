@@ -163,21 +163,25 @@ function FullscreenViewer({
           />
         </div>
         
-        <button
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 p-3 text-white bg-black/50 hover:bg-black/70 rounded-full transition-colors"
+        <Button
+          variant="secondary"
+          size="icon"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/90 dark:bg-white/80 text-black hover:bg-white dark:hover:bg-white rounded-full shadow-lg backdrop-blur-sm border border-white/30"
           onClick={(e) => { e.stopPropagation(); onPrevious(); }}
           data-testid="fullscreen-prev"
         >
-          <ChevronLeft className="w-8 h-8" />
-        </button>
+          <ChevronLeft className="w-7 h-7" />
+        </Button>
         
-        <button
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 p-3 text-white bg-black/50 hover:bg-black/70 rounded-full transition-colors"
+        <Button
+          variant="secondary"
+          size="icon"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/90 dark:bg-white/80 text-black hover:bg-white dark:hover:bg-white rounded-full shadow-lg backdrop-blur-sm border border-white/30"
           onClick={(e) => { e.stopPropagation(); onNext(); }}
           data-testid="fullscreen-next"
         >
-          <ChevronRight className="w-8 h-8" />
-        </button>
+          <ChevronRight className="w-7 h-7" />
+        </Button>
         
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 text-white text-sm bg-black/50 px-3 py-1.5 rounded-full">
           {currentIndex + 1} / {images.length}
