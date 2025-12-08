@@ -39,8 +39,8 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto overflow-x-hidden p-0 w-[calc(100vw-2rem)] sm:w-full">
-        <div className="p-4 sm:p-6 pb-24 sm:pb-6">
+      <DialogContent className="max-w-3xl max-h-[90vh] overflow-hidden p-0 w-[calc(100vw-2rem)] sm:w-full flex flex-col">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 pb-4 sm:pb-6">
           <DialogHeader className="relative mb-4">
             <ImageCarousel images={pkg.gallery} alt={title} />
             
@@ -179,8 +179,8 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
           </div>
         </div>
         
-        {/* Floating Action Bar - Mobile Only */}
-        <div className="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-t border-border p-3 flex gap-2">
+        {/* Action Bar - Mobile Only */}
+        <div className="sm:hidden shrink-0 bg-background/95 backdrop-blur-sm border-t border-border p-3 flex gap-2">
           <Button 
             variant="outline"
             size="default"
