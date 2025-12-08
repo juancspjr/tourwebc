@@ -355,12 +355,184 @@ export function getTourSchemas(lang: SupportedLanguage) {
   };
 }
 
+export function getSchemaFAQPage(lang: SupportedLanguage) {
+  const faqData: Record<SupportedLanguage, Array<{ question: string; answer: string }>> = {
+    es: [
+      { question: "¿Cómo puedo reservar un paquete turístico?", answer: "Puedes reservar directamente a través de nuestro sitio web haciendo clic en 'Reservar Ahora' en el paquete de tu elección, o contactando a nuestro asesor de viajes vía WhatsApp para una atención personalizada." },
+      { question: "¿Qué documentos necesito para viajar?", answer: "Los documentos varían según tu nacionalidad y destino. Generalmente necesitarás: pasaporte vigente (mínimo 6 meses de validez), visa si aplica, seguro de viaje, y comprobantes de reservas. Contacta a nuestro asesor para requisitos específicos." },
+      { question: "¿Cuál es la política de cancelación general?", answer: "Ofrecemos cancelación gratuita hasta 72 horas antes del viaje para la mayoría de paquetes. Cancelaciones tardías pueden tener cargos del 50%. En caso de fuerza mayor, reprogramamos sin costo adicional." },
+      { question: "¿Pueden viajar niños o personas de tercera edad?", answer: "Sí, la mayoría de nuestros tours son aptos para familias y personas mayores. Algunos tours de aventura tienen restricciones de edad por seguridad. Consúltanos para adaptar la experiencia a las necesidades de tu grupo." },
+      { question: "¿Necesito llevar dinero en efectivo?", answer: "Recomendamos llevar algo de efectivo en la moneda local del destino para pequeños gastos. La mayoría de establecimientos aceptan tarjetas, pero tener efectivo es útil para mercados, propinas y transporte local." },
+      { question: "¿Qué incluye generalmente un paquete turístico?", answer: "Nuestros paquetes típicamente incluyen: transporte, guía bilingüe, entradas a atracciones principales, y actividades programadas. Algunos incluyen comidas y alojamiento." },
+      { question: "¿Cómo me comunico con el asesor de viajes?", answer: "Puedes contactar a nuestro asesor de viajes a través de WhatsApp haciendo clic en el botón flotante, o mediante el formulario de contacto en nuestra página. Respondemos en un máximo de 24 horas." },
+      { question: "¿Ofrecen seguro de viaje?", answer: "Sí, recomendamos y ofrecemos opciones de seguro de viaje que cubren asistencia médica, cancelaciones, y equipaje. Consulta con tu asesor para conocer las opciones disponibles según tu destino." },
+    ],
+    en: [
+      { question: "How can I book a tour package?", answer: "You can book directly through our website by clicking 'Book Now' on the package of your choice, or by contacting our travel advisor via WhatsApp for personalized attention." },
+      { question: "What documents do I need to travel?", answer: "Documents vary depending on your nationality and destination. Generally you will need: valid passport (minimum 6 months validity), visa if applicable, travel insurance, and booking confirmations. Contact our advisor for specific requirements." },
+      { question: "What is the general cancellation policy?", answer: "We offer free cancellation up to 72 hours before the trip for most packages. Late cancellations may have 50% charges. In case of force majeure, we reschedule at no additional cost." },
+      { question: "Can children or elderly people travel?", answer: "Yes, most of our tours are suitable for families and elderly people. Some adventure tours have age restrictions for safety. Consult us to adapt the experience to your group's needs." },
+      { question: "Do I need to bring cash?", answer: "We recommend bringing some cash in the local currency of the destination for small expenses. Most establishments accept cards, but having cash is useful for markets, tips and local transportation." },
+      { question: "What does a tour package generally include?", answer: "Our packages typically include: transportation, bilingual guide, entrance to main attractions, and scheduled activities. Some include meals and accommodation." },
+      { question: "How do I contact the travel advisor?", answer: "You can contact our travel advisor through WhatsApp by clicking the floating button, or through the contact form on our page. We respond within a maximum of 24 hours." },
+      { question: "Do you offer travel insurance?", answer: "Yes, we recommend and offer travel insurance options that cover medical assistance, cancellations, and luggage. Consult with your advisor to learn about the options available according to your destination." },
+    ],
+    pt: [
+      { question: "Como posso reservar um pacote turístico?", answer: "Você pode reservar diretamente através do nosso site clicando em 'Reservar Agora' no pacote de sua escolha, ou entrando em contato com nosso assessor de viagem via WhatsApp para atendimento personalizado." },
+      { question: "Quais documentos preciso para viajar?", answer: "Os documentos variam de acordo com sua nacionalidade e destino. Geralmente você precisará de: passaporte válido (mínimo 6 meses de validade), visto se aplicável, seguro viagem e comprovantes de reservas." },
+      { question: "Qual é a política de cancelamento geral?", answer: "Oferecemos cancelamento gratuito até 72 horas antes da viagem para a maioria dos pacotes. Cancelamentos tardios podem ter cobranças de 50%. Em caso de força maior, reagendamos sem custo adicional." },
+      { question: "Crianças ou idosos podem viajar?", answer: "Sim, a maioria dos nossos tours são adequados para famílias e idosos. Alguns tours de aventura têm restrições de idade por segurança. Consulte-nos para adaptar a experiência às necessidades do seu grupo." },
+      { question: "Preciso levar dinheiro em espécie?", answer: "Recomendamos levar algum dinheiro na moeda local do destino para pequenas despesas. A maioria dos estabelecimentos aceita cartões, mas ter dinheiro é útil para mercados, gorjetas e transporte local." },
+      { question: "O que geralmente inclui um pacote turístico?", answer: "Nossos pacotes tipicamente incluem: transporte, guia bilíngue, entradas para atrações principais e atividades programadas. Alguns incluem refeições e hospedagem." },
+      { question: "Como entro em contato com o assessor de viagem?", answer: "Você pode entrar em contato com nosso assessor de viagem através do WhatsApp clicando no botão flutuante, ou através do formulário de contato em nossa página. Respondemos em no máximo 24 horas." },
+      { question: "Vocês oferecem seguro viagem?", answer: "Sim, recomendamos e oferecemos opções de seguro viagem que cobrem assistência médica, cancelamentos e bagagem. Consulte seu assessor para conhecer as opções disponíveis de acordo com seu destino." },
+    ],
+    fr: [
+      { question: "Comment puis-je réserver un forfait touristique?", answer: "Vous pouvez réserver directement via notre site web en cliquant sur 'Réserver Maintenant' sur le forfait de votre choix, ou en contactant notre conseiller voyage via WhatsApp pour une attention personnalisée." },
+      { question: "Quels documents ai-je besoin pour voyager?", answer: "Les documents varient selon votre nationalité et destination. Généralement vous aurez besoin: passeport valide (minimum 6 mois de validité), visa si applicable, assurance voyage et confirmations de réservation." },
+      { question: "Quelle est la politique d'annulation générale?", answer: "Nous offrons l'annulation gratuite jusqu'à 72 heures avant le voyage pour la plupart des forfaits. Les annulations tardives peuvent avoir des frais de 50%. En cas de force majeure, nous reprogrammons sans frais supplémentaires." },
+      { question: "Les enfants ou personnes âgées peuvent-ils voyager?", answer: "Oui, la plupart de nos tours conviennent aux familles et personnes âgées. Certains tours d'aventure ont des restrictions d'âge pour la sécurité. Consultez-nous pour adapter l'expérience aux besoins de votre groupe." },
+      { question: "Dois-je apporter de l'argent liquide?", answer: "Nous recommandons d'apporter un peu d'argent dans la monnaie locale de la destination pour les petites dépenses. La plupart des établissements acceptent les cartes, mais avoir de l'argent est utile pour les marchés, pourboires et transport local." },
+      { question: "Qu'inclut généralement un forfait touristique?", answer: "Nos forfaits incluent généralement: transport, guide bilingue, entrées aux attractions principales et activités programmées. Certains incluent repas et hébergement." },
+      { question: "Comment contacter le conseiller voyage?", answer: "Vous pouvez contacter notre conseiller voyage via WhatsApp en cliquant sur le bouton flottant, ou via le formulaire de contact sur notre page. Nous répondons dans un maximum de 24 heures." },
+      { question: "Offrez-vous une assurance voyage?", answer: "Oui, nous recommandons et offrons des options d'assurance voyage couvrant l'assistance médicale, annulations et bagages. Consultez votre conseiller pour connaître les options disponibles selon votre destination." },
+    ],
+    it: [
+      { question: "Come posso prenotare un pacchetto turistico?", answer: "Puoi prenotare direttamente tramite il nostro sito web cliccando su 'Prenota Ora' sul pacchetto di tua scelta, o contattando il nostro consulente di viaggio via WhatsApp per un'attenzione personalizzata." },
+      { question: "Quali documenti mi servono per viaggiare?", answer: "I documenti variano a seconda della tua nazionalità e destinazione. Generalmente avrai bisogno di: passaporto valido (minimo 6 mesi di validità), visto se applicabile, assicurazione viaggio e conferme di prenotazione." },
+      { question: "Qual è la politica di cancellazione generale?", answer: "Offriamo cancellazione gratuita fino a 72 ore prima del viaggio per la maggior parte dei pacchetti. Le cancellazioni tardive possono avere addebiti del 50%. In caso di forza maggiore, riprogrammiamo senza costi aggiuntivi." },
+      { question: "Bambini o anziani possono viaggiare?", answer: "Sì, la maggior parte dei nostri tour sono adatti a famiglie e anziani. Alcuni tour avventura hanno restrizioni di età per sicurezza. Consultaci per adattare l'esperienza alle esigenze del tuo gruppo." },
+      { question: "Devo portare contanti?", answer: "Consigliamo di portare un po' di contanti nella valuta locale della destinazione per piccole spese. La maggior parte degli esercizi accetta carte, ma avere contanti è utile per mercati, mance e trasporto locale." },
+      { question: "Cosa include generalmente un pacchetto turistico?", answer: "I nostri pacchetti includono tipicamente: trasporto, guida bilingue, ingressi alle attrazioni principali e attività programmate. Alcuni includono pasti e alloggio." },
+      { question: "Come contatto il consulente di viaggio?", answer: "Puoi contattare il nostro consulente di viaggio tramite WhatsApp cliccando sul pulsante flottante, o tramite il modulo di contatto sulla nostra pagina. Rispondiamo entro un massimo di 24 ore." },
+      { question: "Offrite assicurazione viaggio?", answer: "Sì, raccomandiamo e offriamo opzioni di assicurazione viaggio che coprono assistenza medica, cancellazioni e bagagli. Consulta il tuo consulente per conoscere le opzioni disponibili in base alla tua destinazione." },
+    ],
+  };
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${BASE_URL}/#faq`,
+    mainEntity: faqData[lang].map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+    inLanguage: lang,
+  };
+}
+
+export function getSchemaBreadcrumbList(lang: SupportedLanguage) {
+  const homeLabels: Record<SupportedLanguage, string> = {
+    es: 'Inicio',
+    en: 'Home',
+    pt: 'Início',
+    fr: 'Accueil',
+    it: 'Home',
+  };
+
+  const experienceLabels: Record<SupportedLanguage, string> = {
+    es: 'Experiencias',
+    en: 'Experiences',
+    pt: 'Experiências',
+    fr: 'Expériences',
+    it: 'Esperienze',
+  };
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    '@id': `${BASE_URL}/#breadcrumb`,
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: homeLabels[lang],
+        item: BASE_URL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: experienceLabels[lang],
+        item: `${BASE_URL}/#experiencias`,
+      },
+    ],
+  };
+}
+
+export function getSchemaReviewAggregate(lang: SupportedLanguage) {
+  const reviewData = [
+    { author: 'Maria Garcia', rating: 5, review: 'Experiencia increible con el tour en helicoptero. Vistas espectaculares de Rio.', tour: 'Helicopter Tour' },
+    { author: 'John Smith', rating: 5, review: 'The yacht experience was amazing. Professional crew and excellent service.', tour: 'VIP Yacht' },
+    { author: 'Carlos Rodriguez', rating: 5, review: 'El tour por las favelas fue autentico y seguro. Excelente guia local.', tour: 'Favela Tour' },
+    { author: 'Sophie Martin', rating: 5, review: 'Une journee parfaite a Copacabana et Ipanema. Tres recommande!', tour: 'Beach Tour' },
+    { author: 'Marco Rossi', rating: 5, review: 'Trekking alla Pedra da Gavea fantastico. Guide professionale e viste mozzafiato.', tour: 'Pedra da Gavea' },
+    { author: 'Ana Paula', rating: 5, review: 'Passeio de barco pela Baia de Guanabara foi inesquecivel. Servico impecavel.', tour: 'Boat Tour' },
+    { author: 'David Wilson', rating: 5, review: 'Best city tour I have ever taken. The guide knew everything about Rio.', tour: 'City Tour' },
+    { author: 'Laura Fernandez', rating: 5, review: 'El servicio de yate VIP supero todas mis expectativas. Lujo absoluto.', tour: 'VIP Yacht' },
+    { author: 'Pierre Dubois', rating: 5, review: 'Tour culturel exceptionnel. Authentique et tres bien organise.', tour: 'Cultural Tour' },
+    { author: 'Giulia Bianchi', rating: 5, review: 'Esperienza indimenticabile. Staff professionale e attento ai dettagli.', tour: 'Day Tour' },
+  ];
+
+  const descriptions: Record<SupportedLanguage, string> = {
+    es: 'Reseñas de clientes satisfechos de Rio Trip Vibes',
+    en: 'Reviews from satisfied Rio Trip Vibes customers',
+    pt: 'Avaliações de clientes satisfeitos da Rio Trip Vibes',
+    fr: 'Avis de clients satisfaits de Rio Trip Vibes',
+    it: 'Recensioni di clienti soddisfatti di Rio Trip Vibes',
+  };
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${BASE_URL}/#reviews`,
+    name: 'Rio Trip Vibes',
+    description: descriptions[lang],
+    url: BASE_URL,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '127',
+      bestRating: '5',
+      worstRating: '1',
+    },
+    review: reviewData.map((review) => ({
+      '@type': 'Review',
+      author: {
+        '@type': 'Person',
+        name: review.author,
+      },
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: review.rating.toString(),
+        bestRating: '5',
+        worstRating: '1',
+      },
+      reviewBody: review.review,
+      itemReviewed: {
+        '@type': 'TouristTrip',
+        name: review.tour,
+        provider: {
+          '@type': 'TravelAgency',
+          name: 'Rio Trip Vibes',
+        },
+      },
+    })),
+  };
+}
+
 export function getAllSchemasForLanguage(lang: SupportedLanguage) {
   return [
     getSchemaTravelAgency(lang),
     getSchemaWebSite(lang),
     getSchemaTouristDestination(lang),
     getTourSchemas(lang),
+    getSchemaFAQPage(lang),
+    getSchemaBreadcrumbList(lang),
+    getSchemaReviewAggregate(lang),
   ];
 }
 

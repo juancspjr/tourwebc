@@ -21,7 +21,11 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
     : "U";
 
   return (
-    <Card className="h-full">
+    <Card 
+      className="h-full" 
+      itemScope 
+      itemType="https://schema.org/Review"
+    >
       <CardContent className="p-6 flex flex-col h-full">
         <div className="flex items-center gap-3 mb-4">
           <Avatar>
@@ -29,13 +33,23 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
               {initials}
             </AvatarFallback>
           </Avatar>
-          <div className="flex-1">
-            <p className="font-medium text-foreground">{name}</p>
-            <p className="text-sm text-muted-foreground">{date}</p>
+          <div className="flex-1" itemScope itemType="https://schema.org/Person" itemProp="author">
+            <p className="font-medium text-foreground" itemProp="name">{name}</p>
+            <p className="text-sm text-muted-foreground">
+              <time itemProp="datePublished">{date}</time>
+            </p>
           </div>
         </div>
 
-        <div className="flex gap-0.5 mb-3">
+        <div 
+          className="flex gap-0.5 mb-3" 
+          itemScope 
+          itemType="https://schema.org/Rating" 
+          itemProp="reviewRating"
+        >
+          <meta itemProp="ratingValue" content={testimonial.rating.toString()} />
+          <meta itemProp="bestRating" content="5" />
+          <meta itemProp="worstRating" content="1" />
           {Array.from({ length: 5 }).map((_, i) => (
             <Star
               key={i}
@@ -44,17 +58,24 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
                   ? "text-yellow-400 fill-yellow-400"
                   : "text-muted-foreground"
               }`}
+              aria-hidden="true"
             />
           ))}
         </div>
 
-        <p className="text-muted-foreground text-sm flex-1 mb-4">
+        <p 
+          className="text-muted-foreground text-sm flex-1 mb-4" 
+          itemProp="reviewBody"
+        >
           "{text}"
         </p>
 
-        <p className="text-xs text-primary font-medium">
-          {tour}
-        </p>
+        <div itemScope itemType="https://schema.org/TouristTrip" itemProp="itemReviewed">
+          <p className="text-xs text-primary font-medium" itemProp="name">
+            {tour}
+          </p>
+          <meta itemProp="provider" content="Rio Trip Vibes" />
+        </div>
       </CardContent>
     </Card>
   );

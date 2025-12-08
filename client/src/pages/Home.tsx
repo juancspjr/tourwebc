@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import SplashScreenVideo from "@/components/SplashScreenVideo";
 import SEO from "@/components/SEO";
+import BreadcrumbNav from "@/components/BreadcrumbNav";
 import type { PackageData } from "@/lib/packages";
 
 import rio1Image from "@assets/rio1_1764724064822.webp";
@@ -127,6 +128,7 @@ export default function Home() {
         }}
       >
         <Header onNavigate={handleNavigate} />
+        <BreadcrumbNav />
       
       <main>
         <HeroSection onExploreClick={() => handleNavigate("#packages")} />
