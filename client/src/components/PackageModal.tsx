@@ -15,7 +15,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Clock, MapPin, Check, Star, HelpCircle, Package, MessageCircle } from "lucide-react";
+import { Clock, MapPin, Check, Star, HelpCircle, Package, MessageCircle, CalendarCheck } from "lucide-react";
+import { SiWhatsapp } from "react-icons/si";
 import type { PackageData } from "@/lib/packages";
 import ImageCarousel from "./ImageCarousel";
 
@@ -38,8 +39,8 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto p-0">
-        <div className="p-6">
+      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto overflow-x-hidden p-0 w-[calc(100vw-2rem)] sm:w-full">
+        <div className="p-4 sm:p-6 pb-24 sm:pb-6">
           <DialogHeader className="relative mb-4">
             <ImageCarousel images={pkg.gallery} alt={title} />
             
@@ -150,7 +151,7 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
             </TabsContent>
           </Tabs>
 
-          <div className="flex flex-col gap-4 pt-6 mt-6 border-t border-border">
+          <div className="hidden sm:flex flex-col gap-4 pt-6 mt-6 border-t border-border">
             <Button 
               variant="outline"
               className="w-full gap-2"
@@ -176,6 +177,32 @@ export default function PackageModal({ package: pkg, isOpen, onClose, onBook }: 
               </Button>
             </div>
           </div>
+        </div>
+        
+        {/* Floating Action Bar - Mobile Only */}
+        <div className="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-t border-border p-3 flex gap-2">
+          <Button 
+            variant="outline"
+            size="default"
+            className="flex-1 gap-2"
+            onClick={() => window.open("https://wa.me/5521983526144?text=" + encodeURIComponent(t('packageModal.whatsappMessage', { title })), "_blank")}
+            data-testid="button-whatsapp-floating"
+          >
+            <SiWhatsapp className="w-4 h-4" />
+            WhatsApp
+          </Button>
+          <Button 
+            size="default"
+            className="flex-1 gap-2 bg-cta hover:bg-cta/90 text-cta-foreground"
+            onClick={() => {
+              onBook?.(pkg);
+              onClose();
+            }} 
+            data-testid="button-book-floating"
+          >
+            <CalendarCheck className="w-4 h-4" />
+            {t('packageModal.bookNow')}
+          </Button>
         </div>
       </DialogContent>
     </Dialog>

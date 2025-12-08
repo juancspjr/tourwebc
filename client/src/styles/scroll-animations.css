@@ -11,9 +11,9 @@
 /* Fade In Up - Primary entrance animation */
 .motion-fade-in {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
-              transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: translateY(24px);
+  transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .motion-fade-in.visible {
@@ -24,9 +24,9 @@
 /* Fade In Scale - For cards and images */
 .motion-scale-in {
   opacity: 0;
-  transform: scale(0.95) translateY(20px);
-  transition: opacity 0.5s ease-out,
-              transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: scale(0.97) translateY(16px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .motion-scale-in.visible {

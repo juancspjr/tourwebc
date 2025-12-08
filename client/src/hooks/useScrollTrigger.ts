@@ -8,7 +8,7 @@ export interface IntersectionTriggerOptions {
 }
 
 export function useIntersectionTrigger(options: IntersectionTriggerOptions = {}) {
-  const { once = true, delay = 0, threshold = 0.1, rootMargin = "0px 0px -50px 0px" } = options;
+  const { once = true, delay = 0, threshold = 0.15, rootMargin = "0px 0px 60px 0px" } = options;
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -93,7 +93,7 @@ export function useStaggeredAnimation(itemCount: number, baseDelay = 0, staggerD
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -30px 0px" }
+      { threshold: 0.15, rootMargin: "0px 0px 80px 0px" }
     );
 
     observer.observe(container);

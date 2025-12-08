@@ -139,12 +139,12 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
       </div>
       
       {images.length > 1 && (
-        <div className="flex gap-2 mt-3 overflow-x-auto pb-2">
+        <div className="flex gap-2 mt-3 overflow-x-auto pb-2 max-w-full scrollbar-thin">
           {images.map((image, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`flex-shrink-0 w-16 h-12 rounded-md overflow-hidden border-2 transition-all duration-200 ${
+              className={`flex-shrink-0 w-14 h-10 sm:w-16 sm:h-12 rounded-md overflow-hidden border-2 transition-all duration-200 ${
                 index === currentIndex 
                   ? "border-primary ring-2 ring-primary/30" 
                   : "border-transparent opacity-60 hover:opacity-100"
