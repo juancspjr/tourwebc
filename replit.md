@@ -40,3 +40,32 @@ Preferred communication style: Simple, everyday language.
 **Internationalization**: `i18next`, `react-i18next`, `i18next-browser-languagedetector` for 5 languages (Spanish, English, Portuguese, French, Italian).
 **Third-Party Services**: WhatsApp Business API (via wa.me links), Google Fonts (Montserrat, Material Symbols), FormSubmit.co (for contact form submissions), and social media integrations (Instagram, Facebook, YouTube, TikTok).
 **Development Tools**: TypeScript, Vite, esbuild, Replit plugins.
+
+## SEO Implementation
+
+### Build-Time SEO Pipeline
+The project implements a comprehensive SEO system for optimal search engine and LLM indexing:
+
+**Centralized SEO Manifest** (`shared/seo-manifest.ts`):
+- Language-specific metadata (title, description, keywords) for all 5 supported languages
+- Dynamic JSON-LD schema generators for TravelAgency, WebSite, TouristDestination, and ItemList (Tours)
+- Hreflang and canonical URL generators
+- OpenGraph locale mappings
+
+**Build-Time HTML Processing** (`script/build.ts`):
+- Post-processes compiled HTML with Cheerio
+- Injects localized SEO tags (meta tags, JSON-LD schemas, hreflang links)
+- Generates separate HTML files for each language (en.html, pt.html, fr.html, it.html)
+- Automatic `dateModified` timestamps from git log
+
+**Runtime SEO Component** (`client/src/components/SEO.tsx`):
+- Uses the manifest for dynamic SEO updates during navigation
+- Cleans up stale JSON-LD schemas when language changes at runtime
+- Manages React Helmet for meta tag injection
+
+### JSON-LD Schemas
+Each language version includes 4 structured data schemas:
+1. **TravelAgency** - Organization info, ratings, contact details
+2. **WebSite** - Site name, search action, publisher
+3. **TouristDestination** - Rio de Janeiro as destination
+4. **ItemList** - Available tours with durations and types
