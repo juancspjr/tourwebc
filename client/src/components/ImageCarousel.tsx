@@ -242,21 +242,21 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
               <Button
                 variant="secondary"
                 size="icon"
-                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 text-white rounded-full"
+                className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-black/70 text-foreground hover:bg-white dark:hover:bg-black/90 rounded-full shadow-lg backdrop-blur-sm border border-white/20 w-10 h-10"
                 onClick={(e) => { e.stopPropagation(); goToPrevious(); }}
                 data-testid="carousel-prev"
               >
-                <ChevronLeft className="w-5 h-5" />
+                <ChevronLeft className="w-6 h-6" />
               </Button>
               
               <Button
                 variant="secondary"
                 size="icon"
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 text-white rounded-full"
+                className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-black/70 text-foreground hover:bg-white dark:hover:bg-black/90 rounded-full shadow-lg backdrop-blur-sm border border-white/20 w-10 h-10"
                 onClick={(e) => { e.stopPropagation(); goToNext(); }}
                 data-testid="carousel-next"
               >
-                <ChevronRight className="w-5 h-5" />
+                <ChevronRight className="w-6 h-6" />
               </Button>
               
             </>

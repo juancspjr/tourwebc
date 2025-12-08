@@ -16,7 +16,7 @@ const InfiniteTestimonialCarousel = lazy(() => import("@/components/InfiniteTest
 const GeneralInfoSection = lazy(() => import("@/components/GeneralInfoSection"));
 const ContactSection = lazy(() => import("@/components/ContactSection"));
 const Footer = lazy(() => import("@/components/Footer"));
-const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
+const FloatingButtons = lazy(() => import("@/components/FloatingButtons"));
 const PackageModal = lazy(() => import("@/components/PackageModal"));
 
 const heroImages = [rio1Image, rio3Image, rio4Image, egipt2Image, egipto1Image];
@@ -152,7 +152,7 @@ export default function Home() {
       </Suspense>
       
       <Suspense fallback={null}>
-        <WhatsAppButton />
+        <FloatingButtons />
       </Suspense>
       
       <Suspense fallback={null}>

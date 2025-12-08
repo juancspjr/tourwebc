@@ -12,6 +12,9 @@
     "bookNow": "Prenota Ora",
     "whatsapp": "WhatsApp"
   },
+  "floatingButtons": {
+    "bookNow": "Prenota"
+  },
   "hero": {
     "title1": "Scopri la tua prossima",
     "title2": "avventura",

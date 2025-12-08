@@ -12,6 +12,9 @@
     "bookNow": "Book Now",
     "whatsapp": "WhatsApp"
   },
+  "floatingButtons": {
+    "bookNow": "Book"
+  },
   "hero": {
     "title1": "Discover your next",
     "title2": "adventure",
