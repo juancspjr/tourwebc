@@ -9,7 +9,7 @@ import LanguageSwitcher from "./LanguageSwitcher";
 
 import logo1 from "@assets/logo1.webp";
 
-const logoImage = "/logo.png";
+const logoImage = "/logo.webp";
 
 const socialLinks = [
   { icon: Instagram, href: "https://www.instagram.com/brianmachinee/", label: "Instagram" },

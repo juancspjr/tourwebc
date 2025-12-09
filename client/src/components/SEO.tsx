@@ -31,7 +31,7 @@ export default function SEO({
   description,
   keywords,
   canonicalUrl,
-  ogImage = `${BASE_URL}/logo.png`,
+  ogImage = `${BASE_URL}/logo.webp`,
   ogType = 'website',
   noIndex = false,
 }: SEOProps) {

@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 
-const logoImage = "/logo.png";
+const logoImage = "/logo.webp";
 
 interface SplashScreenProps {
   onComplete: () => void;
