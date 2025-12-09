@@ -23,7 +23,7 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     
     <!-- Preload critical logo image for faster initial render -->
-    <link rel="preload" as="image" href="/logo.png" fetchpriority="high" />
+    <link rel="preload" as="image" href="/logo.webp" type="image/webp" fetchpriority="high" />
     
     <!-- Preload hero image for instant display (LCP optimization) -->
     <link 
@@ -173,11 +173,11 @@
       "url": "https://riotripvibes.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://riotripvibes.com/logo.png",
+        "url": "https://riotripvibes.com/logo.webp",
         "width": 512,
         "height": 512
       },
-      "image": "https://riotripvibes.com/logo.png",
+      "image": "https://riotripvibes.com/logo.webp",
       "telephone": "+5521983526144",
       "email": "contact@riotripvibes.com",
       "address": {
@@ -684,7 +684,7 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Rio Trip Vibes",
-      "image": "https://riotripvibes.com/logo.png",
+      "image": "https://riotripvibes.com/logo.webp",
       "@id": "https://riotripvibes.com/#localbusiness",
       "url": "https://riotripvibes.com",
       "telephone": "+5521983526144",
@@ -850,7 +850,7 @@
   <body>
     <!-- Critical loader - shown immediately while JS loads, hidden when React takes over -->
     <div id="critical-loader" class="critical-loader">
-      <img src="/logo.png" alt="Rio Trip Vibes" class="critical-loader-logo" fetchpriority="high" />
+      <img src="/logo.webp" alt="Rio Trip Vibes" class="critical-loader-logo" fetchpriority="high" />
       <p class="critical-loader-text">Descubre tu próxima aventura</p>
       <div class="critical-loader-bar">
         <div class="critical-loader-bar-inner"></div>
@@ -914,7 +914,7 @@
       </style>
       <div class="noscript-container">
         <header class="noscript-header">
-          <img src="/logo.png" alt="Rio Trip Vibes Logo" class="noscript-logo" />
+          <img src="/logo.webp" alt="Rio Trip Vibes Logo" class="noscript-logo" />
           <span style="font-size:1.25rem;font-weight:700;">Rio Trip Vibes</span>
         </header>
         <main class="noscript-main">

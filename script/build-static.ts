@@ -138,7 +138,7 @@ async function copyStaticSEOPages() {
     "sitemap.xml",
     "ai.txt",
     "favicon.png",
-    "logo.png",
+    "logo.webp",
   ];
 
   for (const file of filesToCopy) {

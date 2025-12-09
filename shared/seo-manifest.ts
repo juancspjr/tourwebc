@@ -86,11 +86,11 @@ export function getSchemaTravelAgency(lang: SupportedLanguage) {
     url: BASE_URL,
     logo: {
       '@type': 'ImageObject',
-      url: `${BASE_URL}/logo.png`,
+      url: `${BASE_URL}/logo.webp`,
       width: 512,
       height: 512,
     },
-    image: `${BASE_URL}/logo.png`,
+    image: `${BASE_URL}/logo.webp`,
     telephone: '+5521983526144',
     email: 'contact@riotripvibes.com',
     address: {
