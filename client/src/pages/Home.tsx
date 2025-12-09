@@ -115,7 +115,7 @@ export default function Home() {
       {splashPhase === 'video' && (
         <SplashScreenVideo 
           videoSrc="/videos/splash.mp4"
-          logoUrl="/images/logo-small.png"
+          logoUrl="/images/logo-small.webp"
           onComplete={handleVideoSplashComplete} 
         />
       )}

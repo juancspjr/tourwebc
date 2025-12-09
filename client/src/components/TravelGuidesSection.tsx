@@ -61,7 +61,7 @@ function useSEOStructuredData(title: string, description: string, language: stri
         "name": "Rio Trip Vibes",
         "logo": {
           "@type": "ImageObject",
-          "url": `${origin}/images/logo-small.png`
+          "url": `${origin}/images/logo-small.webp`
         }
       }
     };
