@@ -70,19 +70,19 @@ export default function GeneralInfoSection() {
           ref={cardRef}
           className={`motion-scale-in ${cardVisible ? 'visible' : ''}`}
         >
-          <Card className="overflow-hidden border-0 shadow-lg">
+          <Card className="overflow-hidden border-0 shadow-xl">
             <Tabs defaultValue="pagos" className="w-full">
-              <div className="bg-muted/50 border-b">
-                <TabsList className="w-full h-auto p-0 bg-transparent rounded-none flex flex-wrap">
+              <div className="bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 border-b border-primary/20">
+                <TabsList className="w-full h-auto p-1.5 bg-transparent rounded-none flex flex-wrap gap-1">
                   {tabs.map((tab) => (
                     <TabsTrigger
                       key={tab.id}
                       value={tab.id}
-                      className="flex-1 min-w-[100px] gap-2 py-4 px-3 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-background data-[state=active]:shadow-none transition-all"
+                      className="flex-1 min-w-[100px] gap-2 py-3.5 px-4 rounded-lg border-2 border-transparent bg-transparent data-[state=active]:border-primary data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md transition-all font-medium"
                       data-testid={`tab-trigger-${tab.id}`}
                     >
-                      <tab.icon className="w-4 h-4" />
-                      <span className="hidden sm:inline text-sm">{tab.label}</span>
+                      <tab.icon className="w-5 h-5" />
+                      <span className="hidden sm:inline">{tab.label}</span>
                     </TabsTrigger>
                   ))}
                 </TabsList>
