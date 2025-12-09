@@ -11,15 +11,14 @@ import rio2 from "@assets/rio_2_1764736349812.webp";
 import rio4 from "@assets/rio_4_1764736349812.webp";
 import rioV1 from "@assets/riov_1-1_1764736349812.webp";
 
-import daytour1 from "@assets/daytour1_1764994799568.webp";
-import daytour2 from "@assets/daytour2_1764994799569.webp";
-import daytour3 from "@assets/daytour3_1764994799580.webp";
-import daytour4 from "@assets/daytour4_1764994799580.webp";
-import daytour5 from "@assets/daytour5_1764994799581.webp";
-
-import daytour6 from "@assets/rio1_1764995487149.webp";
-import daytour7 from "@assets/rio_2_1764995487150.webp";
-import daytour8 from "@assets/rio_4_1764995487152.webp";
+import daytourCarnaval from "@assets/daytour_carnaval_sambadrome.webp";
+import daytourCatedral from "@assets/daytour_catedral_metropolitana.webp";
+import daytourCristoVista from "@assets/daytour_cristo_redentor_vista.webp";
+import daytourFavelaVidigal from "@assets/daytour_favela_vidigal.webp";
+import daytourMorroUrca from "@assets/daytour_morro_urca_sunset.webp";
+import daytourVistaCorcovado from "@assets/daytour_vista_corcovado.webp";
+import daytourRioNoturno from "@assets/daytour_rio_noturno_mirante.webp";
+import daytourAmanhecer from "@assets/daytour_amanhecer_pedra_bonita.webp";
 
 import favela1 from "@assets/favela1_1764736538872.webp";
 import favela3 from "@assets/favela3_1764736538872.webp";
@@ -182,8 +181,8 @@ export const packages: PackageData[] = [
     titleKey: "tourPackages.dayTour.title",
     descriptionKey: "tourPackages.dayTour.description",
     image: cristoImage,
-    images: [cristoImage, daytour1, daytour2, daytour3, daytour4, daytour5, daytour6, daytour7, daytour8],
-    gallery: [daytour1, daytour2, daytour3, daytour4, daytour5, daytour6, daytour7, daytour8],
+    images: [cristoImage, daytourCarnaval, daytourCatedral, daytourCristoVista, daytourFavelaVidigal, daytourMorroUrca, daytourVistaCorcovado, daytourRioNoturno, daytourAmanhecer],
+    gallery: [daytourCarnaval, daytourCatedral, daytourCristoVista, daytourFavelaVidigal, daytourMorroUrca, daytourVistaCorcovado, daytourRioNoturno, daytourAmanhecer],
     price: 100,
     durationKey: "tourPackages.dayTour.duration",
     locationKeys: [
