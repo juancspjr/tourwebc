@@ -34,10 +34,6 @@ import playa5 from "@assets/playa5_1764992092315.webp";
 import playa6 from "@assets/playa6_1764992092315.webp";
 
 import trekking1 from "@assets/trekking1_1764989191591.webp";
-import trekking2 from "@assets/trekking2_1764989191591.webp";
-import trekking3 from "@assets/trekking3_1764989191591.webp";
-import trekking4 from "@assets/trekking4_1764989191591.webp";
-import trekking5 from "@assets/trekking5_1764989191591.webp";
 
 import trekkingPedra1Left from "@assets/trekking_pedra1_left.webp";
 import trekkingPedra1Right from "@assets/trekking_pedra1_right.webp";
@@ -389,8 +385,8 @@ export const packages: PackageData[] = [
     titleKey: "tourPackages.trekking.title",
     descriptionKey: "tourPackages.trekking.description",
     image: trekkingImage,
-    images: [trekkingImage, trekking1, trekking2, trekking3, trekking4, trekking5, trekkingPedra1Left, trekkingPedra1Right, trekkingPedra2Left, trekkingPedra2Right, trekkingVista1Left, trekkingVista1Right, trekkingVista2Left, trekkingVista2Right],
-    gallery: [trekking1, trekking2, trekking3, trekking4, trekking5, trekkingPedra1Left, trekkingPedra1Right, trekkingPedra2Left, trekkingPedra2Right, trekkingVista1Left, trekkingVista1Right, trekkingVista2Left, trekkingVista2Right],
+    images: [trekkingImage, trekking1, trekkingPedra1Left, trekkingPedra1Right, trekkingPedra2Left, trekkingPedra2Right, trekkingVista1Left, trekkingVista1Right, trekkingVista2Left, trekkingVista2Right],
+    gallery: [trekking1, trekkingPedra1Left, trekkingPedra1Right, trekkingPedra2Left, trekkingPedra2Right, trekkingVista1Left, trekkingVista1Right, trekkingVista2Left, trekkingVista2Right],
     price: 50,
     priceNoteKey: "tourPackages.trekking.priceNote",
     durationKey: "tourPackages.trekking.duration",
