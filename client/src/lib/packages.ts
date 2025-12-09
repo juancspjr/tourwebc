@@ -26,7 +26,8 @@ import favela4 from "@assets/favela4_1764736538872.webp";
 import favela5 from "@assets/favela5_1764995992345.webp";
 import favela6 from "@assets/favela6_1764995992347.webp";
 
-import playa1 from "@assets/playa1_1764991730825.webp";
+import playaAtardecerLeblon from "@assets/playa_atardecer_leblon.webp";
+import playaBuggyArraial from "@assets/playa_buggy_arraial.webp";
 import playa2 from "@assets/playa2_1764991730825.webp";
 import playa3 from "@assets/playa3_1764991730825.webp";
 import playa4 from "@assets/playa4_1764991730825.webp";
@@ -318,8 +319,8 @@ export const packages: PackageData[] = [
     titleKey: "tourPackages.playasTour.title",
     descriptionKey: "tourPackages.playasTour.description",
     image: beachImage,
-    images: [beachImage, playa1, playa2, playa3, playa4, playa5, playa6],
-    gallery: [playa1, playa2, playa3, playa4, playa5, playa6],
+    images: [beachImage, playaAtardecerLeblon, playaBuggyArraial, playa2, playa3, playa4, playa5, playa6],
+    gallery: [playaAtardecerLeblon, playaBuggyArraial, playa2, playa3, playa4, playa5, playa6],
     price: 80,
     durationKey: "tourPackages.playasTour.duration",
     locationKeys: [
